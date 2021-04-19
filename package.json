@@ -1,0 +1,15 @@
+{
+  "name": "kevin.gimbel.dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "build": "eleventy --input=src --output=public",
+    "dev": "eleventy --input=src --serve --watch"
+  },
+  "author": "Kevin Gimbel",
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
+}

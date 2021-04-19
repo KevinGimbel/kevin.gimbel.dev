@@ -1,0 +1,11 @@
+---
+- hosts: all
+  remote_user: root
+  roles:
+    - kevingimbel.apache
+  vars:
+    apache_vhosts:
+      - name: "kevin.gimbeldev"
+        fqdn: "kevin.gimbel.dev"
+        admin_email: "hallo+webadmin@kevingimbel.de"
+        use_ssl: true

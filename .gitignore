@@ -1,0 +1,5 @@
+.env
+_site
+public
+node_modules
+ansible/roles

@@ -1,0 +1,4 @@
+ansible
+.env
+.env.sample
+node_modules

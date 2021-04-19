@@ -1,0 +1,133 @@
+---
+layout: "base"
+---
+
+<main class="main-grid">
+  <section class="[ f-ultra stack ] [ c-svg-background ] intro">
+    <svg class="background" viewBox="0 0 684 373"><path d="M642,21.232c-38.276,-32.564 -180.148,24.735 -301.425,0c-97.517,-19.889 -256.967,-33.691 -298.575,0c-54.824,44.392 -56.078,269.719 0,300c100.977,54.527 479.158,65.295 585.678,35.461c74.451,-20.853 53.129,-131.979 53.443,-214.468c0.25,-65.527 -6.563,-93.293 -39.121,-120.993Z" style="fill:var(--color-bg,#ebebeb);"/></svg>
+    <div class="content">
+      <hgroup>
+        <h1>Hi, I'm Kevin!</h1>
+        <h2>A <span class="bg-accent-3">DevOps Engineer</span><br>with a background in <i>Front-End Development</i>.</h2>
+      </hgroup>
+    </div>
+  </section>
+
+  <section class="[ gr-1 gc-8-12 ] [ avatar ]">
+    <img src="/assets/img/kevin-avatar.jpeg" style="max-height: 40rem; border-radius: 34% 120% 69% 89% "/>
+  </section>
+
+  <section class="[ f-ultra stack ] [ c-svg-background ] about" style="--color-bg: hsl(0,30%,10%); --color-fg: hsl(0,50%,99%);">
+    <svg class="background" viewBox="0 0 684 373"><path d="M642,21.232c-38.276,-32.564 -180.148,24.735 -301.425,0c-97.517,-19.889 -256.967,-33.691 -298.575,0c-54.824,44.392 -56.078,269.719 0,300c100.977,54.527 479.158,65.295 585.678,35.461c74.451,-20.853 53.129,-131.979 53.443,-214.468c0.25,-65.527 -6.563,-93.293 -39.121,-120.993Z" style="fill:var(--color-bg,#ebebeb);"/></svg>
+    <div class="content">
+      <p>I've spent the past decade working in e-Commerce,<br> 
+        with the last four years focused on <a href="#cloud-computing" class="fg-accent-1 a-blank">Cloud Computing</a>, <a href="#containers" class="fg-accent-2 a-blank">Containers</a>, <a href="#automation" class="fg-accent-3 a-blank">Automation</a>, and <a href="#security" class="fg-accent-4 a-blank">Security</a>.</p>
+    </div>
+  </section>
+
+
+  <section id="cloud-computing" class="[ f-ultra bg-accent-1 stack ] [ gr-auto gc-full ] [ c-full-width ]" style="--spacing: 4rem;">
+    <hgroup>
+      <h3 class="f-heading-big">Cloud Computing ⛈</h3>
+      <h4>Fancy buzzword, right?</h4>
+    </hgroup>
+    <div class="content">
+      <p>I've worked with <u>Amazon Web Services</u> for four years and am a <a href="https://www.certmetrics.com/amazon/public/transcript.aspx?transcript=P141S9R11JV11556" title="View my AWS Certificate online at certmetrics.com" target="_blank">AWS Certified Developer</a> since May 2019.</p>
+      <p>Between 2019 and 2021 I was invloved in planning and provisioning infrastructure for a microservice-based product called "<a href="https://synoa.de/konekti/">Konekti</a>". During this time I gained extensive knowledge of:</p>
+      <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
+        <li class="[ c-skill-list__item ]">Elastic Container Services (ECS)</li>
+        <li class="[ c-skill-list__item ]">Elastic Compute Cloud (EC2)</li>
+        <li class="[ c-skill-list__item ]">Auto-scaling Groups</li>
+        <li class="[ c-skill-list__item ]">Budget monitoring</li>
+        <li class="[ c-skill-list__item ]">Concepts for resource tagging to monitor budgets</li>
+        <li class="[ c-skill-list__item ]">Security Groups and Ingress Control</li>
+        <li class="[ c-skill-list__item ]">Running Traefik Edge Proxy in Docker ECS</li>
+        <li class="[ c-skill-list__item ]">VPC and subnet management</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section id="containers" class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ]" style="--spacing: 4rem;">
+    <hgroup>
+      <h3 class="f-heading-big">Containers 🐳</h3>
+      <h4>"It's no use Mr., it's virtualisation all the way down" <a href="https://en.wikipedia.org/wiki/Turtles_all_the_way_down">🐢</a></h4>
+    </hgroup>
+    <div class="content">
+      <p>Before doing Cloud and DevOps Stuff at <a href="https://synoa.de/">Synoa GmbH</a>, I drove the initial adoption of Docker for local development.</p>
+      <p>Before adopting containers in 2017 we managed local developer environments with Apache, php, etc. Working on different projects with different tech stacks was a pain!</p>
+      <p>Skills I can offer around Docker and containers</p>
+      <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
+        <li class="[ c-skill-list__item ]">Knowledge of Docker build process and Dockerfiles</li>
+        <li class="[ c-skill-list__item ]">Running CI/CD in Docker containers</li>
+        <li class="[ c-skill-list__item ]">Docker label-based tooling</li>
+        <li class="[ c-skill-list__item ]">Running Traefik in Production for 3+ years</li>
+        <li class="[ c-skill-list__item ]">Debugging container problems</li>
+        <li class="[ c-skill-list__item ]">Integrating build tools with Docker Remote API</li>
+        <li class="[ c-skill-list__item ]">Monitoring with cAdvisor</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section id="automation" class="[ f-ultra bg-accent-3 stack ] [ gr-auto gc-full ] [ c-full-width ]" style="--spacing: 4rem;">
+    <hgroup>
+      <h3 class="f-heading-big">Automation 🦾</h3>
+      <h4>Predictabillity and reliability through automation and scripting</h4>
+    </hgroup>
+    <div class="content">
+      <p>Setting up infrastructure in the cloud can be a lot of work and the more manual steps are invloved, the more likely errors will be introduced.</p>
+      <p>Over the past two years I've gained a lot of expirience building, managing, and upgrading infrastructure with terraform and Ansible. I've also build internal tooling to help Developers interact with the infrastructure we build.</p>
+      <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
+        <li class="[ c-skill-list__item ]">Terraform module creation and maintenance</li>
+        <li class="[ c-skill-list__item ]">Ansible role creation and maintenance</li>
+        <li class="[ c-skill-list__item ]">Terraform integration wiht CI/CD pipelines</li>
+        <li class="[ c-skill-list__item ]">Handling of breaking infrastructure changes</li>
+        <li class="[ c-skill-list__item ]">Integrating build tools with Docker Remote API</li>
+        <li class="[ c-skill-list__item ]">Monitoring with cAdvisor</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="[ f-ultra bg-accent-3 stack ] [ gr-auto gc-full ] [ c-full-width ]" style="--spacing: 4rem;">
+    <hgroup>
+      <h4>Terraform</h4>
+    </hgroup>
+    <div class="content">
+      <p>Terraform is a speciality of myself, I've expirience with the creation and maintenance of complex modules that integrate various different AWS services, including</p>
+      <ul>
+        <li>AWS VPC and Subnets</li>
+        <li>VPC networking and default routing configs</li>
+        <li>AWS EC2 servers</li>
+        <li>AWS Security Groups and ingress rules between servers, inclduing ingress across AWS accounts</li>
+        <li>AWS EC2 Auto-scaling groups</li>
+        <li>AWS Route 53 domains and sub-domains</li>
+        <li>AWS ECS clusters with default services</li>
+        <li>AWS S3 buckets and access policies</li>
+        <li>AWS IAM users for S3 access</li>
+        <li>MongoDB Atlas Cloud</li>
+        <li>MongoDB Atlas Cloud and AWS VPC peering connections</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section id="security" class="[ f-ultra bg-accent-4 stack ] [ gr-auto gc-full ] [ c-full-width ]" style="--spacing: 4rem;">
+    <hgroup>
+      <h3 class="f-heading-big">Security 🔐</h3>
+      <h4 aria-label="Don't be cheap with security. Ever." onmouseover="this.textContent='Don\'t be cheap with security. Ever.';" onmouseout="this.textContent='◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎';" style="font-family:monospace; min-height:4rem;">◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎</h4>
+    </hgroup>
+    <div class="content">
+      <p>Security must be considered from the start. <b>Period</b>.</p>
+      <p>Don't give all-access to a entity because it's easy. Don't open all ports because it's easy. Don't run your code as root because it's easy.</p>
+      <p></p>
+      <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
+        <li class="[ c-skill-list__item ]">Linux server management</li>
+        <li class="[ c-skill-list__item ]">Apache Web Server</li>
+        <li class="[ c-skill-list__item ]">IAM user and role management</li>
+        <li class="[ c-skill-list__item ]">Password management with self-hosted Password manager</li>
+        <li class="[ c-skill-list__item ]">SSL Certificates with Let's Encrypt and AWS Certificate Manager</li>
+      </ul>
+    </div>
+  </section>
+</main>
