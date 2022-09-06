@@ -1,20 +1,20 @@
 :root {
-  --color-bg: hsl(279,19%,93%);
+  --color-bg: hsl(279, 19%, 93%);
   --color-fg: #000;
   --color-contrast-fg: #000;
   --color-contrast-bg: #000;
 
   --stack-spacing: 2rem;
   --spacing: 2rem;
-  
-  --color-accent-1: hsl(100,75%,90%);
-  --color-accent-1-contrast: hsl(100,20%,50%);
-  --color-accent-2: hsl(200,75%,90%);
-  --color-accent-2-contrast: hsl(200,20%,50%);
-  --color-accent-3: hsl(300,75%,90%);
-  --color-accent-3-contrast: hsl(300,20%,50%);
-  --color-accent-4: hsl(400,75%,90%);
-  --color-accent-4-contrast: hsl(400,20%,50%);
+
+  --color-accent-1: hsl(100, 75%, 90%);
+  --color-accent-1-contrast: hsl(100, 20%, 50%);
+  --color-accent-2: hsl(200, 75%, 90%);
+  --color-accent-2-contrast: hsl(200, 20%, 50%);
+  --color-accent-3: hsl(300, 75%, 90%);
+  --color-accent-3-contrast: hsl(300, 20%, 50%);
+  --color-accent-4: hsl(400, 75%, 90%);
+  --color-accent-4-contrast: hsl(400, 20%, 50%);
   --color-accent-5: hsl(255, 75%, 90%);
   --color-accent-5-contrast: hsl(255, 20%, 50%);
 }
@@ -43,13 +43,31 @@ h1 {
   font-size: 2em;
 }
 
-h2, h3 {
+h2,
+h3 {
   --color-fg: var(--color-contrast-fg);
   text-shadow: .02em .02em 0 var(--color-bg), .03em .03em 0 var(--color-contrast-fg);
 }
 
-.stack * + * {
+hr {
+  max-width: 80%;
+  margin: 0 auto;
+  border: none;
+  background: var(--color-fg);
+  height: 0.05em;
+}
+
+.stack *+* {
   margin-top: var(--stack-spacing, 2rem);
+}
+
+a {
+  color: hotpink;
+}
+
+a:hover {
+  border-bottom: none;
+  text-decoration: none;
 }
 
 .a-blank,
@@ -60,6 +78,8 @@ h2, h3 {
 .a-blank:hover,
 .a-blank:focus {
   border-bottom: .15em solid currentColor;
+  font-size: 100%;
+  letter-spacing: 0em;
 }
 
 .a-splash {
@@ -71,16 +91,19 @@ h2, h3 {
 
 /* Accent colors and styles */
 .fg-accent-1 {
-  --color-fg: var(--color-accent-1, hsl(100,75%,90%));
+  --color-fg: var(--color-accent-1, hsl(100, 75%, 90%));
 }
+
 .fg-accent-2 {
-  --color-fg: var(--color-accent-2, hsl(200,75%,90%));
+  --color-fg: var(--color-accent-2, hsl(200, 75%, 90%));
 }
+
 .fg-accent-3 {
-  --color-fg: var(--color-accent-3, hsl(300,75%,90%));
+  --color-fg: var(--color-accent-3, hsl(300, 75%, 90%));
 }
+
 .fg-accent-4 {
-  --color-fg: var(--color-accent-4, hsl(400,75%,90%));
+  --color-fg: var(--color-accent-4, hsl(400, 75%, 90%));
 }
 
 [class*="fg-accent"] {
@@ -90,19 +113,22 @@ h2, h3 {
 
 .bg-accent-1 {
   --color-contrast-fg: var(--color-accent-1-contrast, #000);
-  --color-bg: var(--color-accent-1, hsl(100,75%,90%));
+  --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
 }
+
 .bg-accent-2 {
   --color-contrast-fg: var(--color-accent-2-contrast, #000);
-  --color-bg: var(--color-accent-2, hsl(200,75%,90%));
+  --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
 }
+
 .bg-accent-3 {
   --color-contrast-fg: var(--color-accent-3-contrast, #000);
-  --color-bg: var(--color-accent-3, hsl(300,75%,90%));
+  --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
 }
+
 .bg-accent-4 {
   --color-contrast-fg: var(--color-accent-4-contrast, #000);
-  --color-bg: var(--color-accent-4, hsl(400,75%,90%));
+  --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
 }
 
 .bg-accent-5 {
@@ -134,19 +160,27 @@ ul li::before {
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 1em;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
-.gr-1 { grid-row: 1; }
-.gr-2 { grid-row: 2; }
+.gr-1 {
+  grid-row: 1;
+}
 
-.gr-auto { grid-row: auto; }
+.gr-2 {
+  grid-row: 2;
+}
+
+.gr-auto {
+  grid-row: auto;
+}
 
 .gc-full {
   grid-column-start: 1;
   grid-column-end: 12;
 }
 
-.gc-8-12 { 
+.gc-8-12 {
   grid-column-start: 8;
   grid-column-end: 12;
 }
@@ -214,25 +248,25 @@ hgroup {
   grid-template-areas: "a";
 }
 
-.c-svg-background > .background,
-.c-svg-background > .content {
+.c-svg-background>.background,
+.c-svg-background>.content {
   grid-area: a;
   grid-row: 1;
   grid-column: 1;
 }
 
-.c-svg-background > .content {
+.c-svg-background>.content {
   padding: 0 0 1.5em 1em;
 }
 
-.c-svg-background > .background {
+.c-svg-background>.background {
   width: 110%;
   height: 110%;
   margin-left: -5%;
   margin-top: -5%;
 }
 
-.f-ultra > * {
+.f-ultra>* {
   font-size: clamp(2em, 5vw, 3em);
 }
 
@@ -269,7 +303,9 @@ section {
     padding: 2rem;
   }
 
-  .intro, .about, .avatar {
+  .intro,
+  .about,
+  .avatar {
     width: 100%;
     min-width: 100%;
   }
@@ -278,12 +314,12 @@ section {
     grid-column-start: 4;
     z-index: 10;
   }
-  
+
   .intro {
     z-index: 12;
     padding-left: 0;
   }
-  
+
   .bg-accent-3 {
     text-shadow: none;
   }

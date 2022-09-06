@@ -9,7 +9,15 @@
   <style>{% include "style.css" %}</style>
 </head>
 <body>
-  {{ content | safe }}
+  <main class="main-grid">
+  {% block content %}
+  {% endblock %}
+  <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
+    <div class="content">
+      <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a> and lots of fun. <a href="/imprint">Imprint</a></p>
+    </div>
+  </section>
+</main>
 </body>
 <script>{% include "script.js" %}</script>
 </html>

@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
   let favicon_el = document.head.querySelector('#favicon');
   let sections = Array.from(document.querySelectorAll('section[data-icon]'));
   let last_active_section = null;
+  let YEAR_NOW = new Date().getFullYear().toFixed(0);
+  let years_working = document.querySelector(".js-years-working");
+  let all_time_since = document.querySelectorAll(".js-time-since");
 
   function set_favicon(emoji) {
     let txt = favicon_txt.replace('%EMOJI%', emoji);
@@ -17,4 +20,21 @@ document.addEventListener('DOMContentLoaded', function () {
       set_favicon(active_section.dataset.icon);
     }
   });
+
+  all_time_since.forEach((element, key) => {
+    let year = element.dataset.year;
+
+    if (year) {
+      try {
+        let year_num = parseInt(year);
+        element.textContent = YEAR_NOW - year_num;
+      } catch (err) {
+        console.log("Error calculating year: ", err);
+      }
+    }
+  })
+
+  if (years_working) {
+    years_working.textContent = YEAR_NOW - 2009;
+  }
 });
