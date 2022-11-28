@@ -10,7 +10,8 @@ skills: []
 Well, well, well, ... you've reached the end of this very lovely and pretty ✨cool✨ website.
 
 If you want to connect with me, hit me up on:
-- [LinkedIn](https://www.linkedin.com/in/kevin-gimbel-19711a13b/")
-- [Polywork](https://timeline.kevingimbel.de")
-- [Twitter @KevinGimbel](https://twitter.com/KevinGimbel")
-- [GitHub @KevinGimbel](https://github.com/KevinGimbel")
+- 🧑‍💼 [LinkedIn](https://www.linkedin.com/in/kevingimbel/)
+- 🤓 [GitHub @KevinGimbel](https://github.com/KevinGimbel)
+- 💖 [e-Mail kevin@gimbel.dev](mailto:kevin@gimbel.dev)
+
+If you write me on __LinkedIn__ or request to connect please be patient: I get a lot of messages and catch up only once a week!

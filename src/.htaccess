@@ -1,5 +1,0 @@
-
-AuthType Basic
-AuthName "Password Required"
-AuthUserFile "/var/www/html/kevin.gimbel.dev/.htpasswd"
-Require valid-user

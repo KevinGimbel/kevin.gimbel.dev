@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
+  <title>Kevin.Gimbel.Dev/Ops</title>
+  <style>:root {
+  --color-bg: hsl(279, 19%, 93%);
+  --color-fg: #000;
+  --color-contrast-fg: #000;
+  --color-contrast-bg: #000;
+
+  --stack-spacing: 2rem;
+  --spacing: 2rem;
+
+  --color-accent-1: hsl(100, 75%, 90%);
+  --color-accent-1-contrast: hsl(100, 20%, 50%);
+  --color-accent-2: hsl(200, 75%, 90%);
+  --color-accent-2-contrast: hsl(200, 20%, 50%);
+  --color-accent-3: hsl(300, 75%, 90%);
+  --color-accent-3-contrast: hsl(300, 20%, 50%);
+  --color-accent-4: hsl(400, 75%, 90%);
+  --color-accent-4-contrast: hsl(400, 20%, 50%);
+  --color-accent-5: hsl(255, 75%, 90%);
+  --color-accent-5-contrast: hsl(255, 20%, 50%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px/1.5 serif;
+  background: cornsilk;
+  color: #000;
+}
+
+p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+u {
+  font-family: serif;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2,
+h3 {
+  --color-fg: var(--color-contrast-fg);
+  text-shadow: .02em .02em 0 var(--color-bg), .03em .03em 0 var(--color-contrast-fg);
+}
+
+hr {
+  max-width: 80%;
+  margin: 0 auto;
+  border: none;
+  background: var(--color-fg);
+  height: 0.05em;
+}
+
+.stack *+* {
+  margin-top: var(--stack-spacing, 2rem);
+}
+
+a {
+  color: hotpink;
+}
+
+a:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.a-blank,
+.a-blank:visited {
+  text-decoration: none;
+}
+
+.a-blank:hover,
+.a-blank:focus {
+  border-bottom: .15em solid currentColor;
+  font-size: 100%;
+  letter-spacing: 0em;
+}
+
+.a-splash {
+  color: var(--color-bg);
+  background: var(--color-fg);
+  border-radius: 65% 72% 53% 41%;
+  padding: .25em;
+}
+
+/* Accent colors and styles */
+.fg-accent-1 {
+  --color-fg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.fg-accent-2 {
+  --color-fg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.fg-accent-3 {
+  --color-fg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.fg-accent-4 {
+  --color-fg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+[class*="fg-accent"] {
+  color: var(--color-fg);
+  font-weight: bold;
+}
+
+.bg-accent-1 {
+  --color-contrast-fg: var(--color-accent-1-contrast, #000);
+  --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.bg-accent-2 {
+  --color-contrast-fg: var(--color-accent-2-contrast, #000);
+  --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.bg-accent-3 {
+  --color-contrast-fg: var(--color-accent-3-contrast, #000);
+  --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.bg-accent-4 {
+  --color-contrast-fg: var(--color-accent-4-contrast, #000);
+  --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+.bg-accent-5 {
+  --color-contrast-fg: var(--color-accent-5-contrast, #fff);
+  --color-bg: var(--color-accent-5, #000);
+}
+
+[class*="bg-accent"] {
+  background: var(--color-bg, #000);
+  color: var(--color-fg, #fff);
+}
+
+ul {
+  list-style: none;
+  margin-left: var(--stack-spacing);
+}
+
+ul li::before {
+  content: "✦";
+  color: var(--color-contrast-fg, #000);
+  display: inline;
+  width: 1em;
+  margin-left: -1.25em;
+  padding-right: .5em;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1em;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.gr-1 {
+  grid-row: 1;
+}
+
+.gr-2 {
+  grid-row: 2;
+}
+
+.gr-auto {
+  grid-row: auto;
+}
+
+.gc-full {
+  grid-column-start: 1;
+  grid-column-end: 12;
+}
+
+.gc-8-12 {
+  grid-column-start: 8;
+  grid-column-end: 12;
+}
+
+.gc-1-7 {
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 3), 1fr);
+  grid-gap: var(--stack-spacing, 2rem);
+}
+
+ul li {
+  margin-top: var(--stack-spacing, 1rem);
+}
+
+/* .c-skill-list {} */
+.c-skill-list__item {
+  padding: 1rem;
+}
+
+.intro {
+  --spacing: 4rem;
+  --color-bg: palegoldenrod;
+  grid-column-start: 1;
+  grid-column-end: 10;
+  grid-row: 1;
+}
+
+.intro [class*="bg-accent"] {
+  text-shadow: none;
+  padding: 0 .2em;
+}
+
+.about {
+  grid-column-start: 5;
+  grid-column-end: 12;
+  grid-row: 2;
+}
+
+.c-full-width {
+  width: 100vw;
+}
+
+.c-full-height {
+  min-height: 100vh;
+}
+
+hgroup {
+  margin-bottom: calc(var(--stack-spacing, 2rem) * 2);
+}
+
+.c-svg-background {
+  width: 100%;
+  width: fit-content;
+  max-width: 40vw;
+  position: relative;
+  padding: var(--spacing, 2rem);
+  display: block;
+  color: var(--color-fg, #000);
+  display: inline-grid;
+  grid-template-areas: "a";
+}
+
+.c-svg-background>.background,
+.c-svg-background>.content {
+  grid-area: a;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.c-svg-background>.content {
+  padding: 0 0 1.5em 1em;
+}
+
+.c-svg-background>.background {
+  width: 110%;
+  height: 110%;
+  margin-left: -5%;
+  margin-top: -5%;
+}
+
+.f-ultra>* {
+  font-size: clamp(2em, 5vw, 3em);
+}
+
+.f-heading-big {
+  font-size: clamp(3rem, 10vw, 12rem);
+  color: var(--color-fg, #000);
+}
+
+section {
+  padding: var(--spacing, 2rem);
+}
+
+@media all and (max-width: 2000px) {
+  .about {
+    grid-column-start: 3;
+    grid-column-end: 13;
+    max-width: 60vw;
+    min-width: 60rem;
+  }
+
+  .intro {
+    grid-column-end: 13 !important;
+    max-width: 60vw;
+    min-width: 55rem;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  body {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .intro,
+  .about,
+  .avatar {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .avatar {
+    grid-column-start: 4;
+    z-index: 10;
+  }
+
+  .intro {
+    z-index: 12;
+    padding-left: 0;
+  }
+
+  .bg-accent-3 {
+    text-shadow: none;
+  }
+
+  .intro .background {
+    display: none;
+  }
+
+  .about {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    background: var(--color-contrast-bg);
+  }
+
+  .about .background {
+    display: none;
+  }
+
+  .c-skill-list {
+    grid-template-columns: 1fr;
+  }
+
+  .c-svg-background {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+  <main class="main-grid">
+  
+  <section class="[ f-ultra stack ] [ c-svg-background ] intro" data-icon="🥸">
+    <svg class="background" viewBox="0 0 684 373"><path d="M642,21.232c-38.276,-32.564 -180.148,24.735 -301.425,0c-97.517,-19.889 -256.967,-33.691 -298.575,0c-54.824,44.392 -56.078,269.719 0,300c100.977,54.527 479.158,65.295 585.678,35.461c74.451,-20.853 53.129,-131.979 53.443,-214.468c0.25,-65.527 -6.563,-93.293 -39.121,-120.993Z" style="fill:var(--color-bg,#ebebeb);"/></svg>
+    <div class="content">
+      <hgroup>
+        <h1>Hi, I'm Kevin!</h1>
+        <h2>A <span class="bg-accent-5">Senior DevOps Engineer</span><br>with a background in <i>Front-End Development</i>.</h2>
+      </hgroup>
+    </div>
+  </section>
+
+  <section class="[ gr-1 gc-8-12 ] [ avatar ]">
+    <img src="/assets/img/avatar_devops.jpg" style="max-height: 40rem; border-radius: 34% 120% 69% 89% "/>
+  </section>
+
+  <section class="[ f-ultra stack ] [ c-svg-background ] about" style="--color-bg: hsl(0,30%,10%); --color-fg: hsl(0,50%,99%);">
+    <svg class="background" viewBox="0 0 684 373"><path d="M642,21.232c-38.276,-32.564 -180.148,24.735 -301.425,0c-97.517,-19.889 -256.967,-33.691 -298.575,0c-54.824,44.392 -56.078,269.719 0,300c100.977,54.527 479.158,65.295 585.678,35.461c74.451,-20.853 53.129,-131.979 53.443,-214.468c0.25,-65.527 -6.563,-93.293 -39.121,-120.993Z" style="fill:var(--color-bg,#ebebeb);"/></svg>
+    <div class="content">
+      <p>I've spent the last <span class="js-years-working">13</span> years learning to build & run websites; worked in e-Commerce since 2013, and focused on <a href="#cloud-computing" class="fg-accent-1 a-blank">Cloud Computing</a>, <a href="#containers" class="fg-accent-2 a-blank">Containers</a>, <a href="#automation" class="fg-accent-3 a-blank">Automation</a>, and <a href="#monitoring" class="fg-accent-4 a-blank">Monitoring</a> since starting full-time DevOps in 2018.</p>
+    </div>
+  </section><section id="" class="[ f-ultra bg-accent-3 stack ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🦾"><hgroup><h3 class="f-heading-big">Automation 🦾</h3><h4>Predictability and reliability through automation and scripting
+</h4></hgroup><div class="content">
+      <p>Setting up infrastructure in the cloud can be a lot of work and the more manual steps are involved, the more likely errors will be introduced.</p>
+<p>Over the past two years I've gained a lot of experience building, managing, and upgrading infrastructure with terraform and Ansible. I've also build internal tooling to help Developers interact with the infrastructure we build.</p>
+<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
+        
+        <li class="[ c-skill-list__item ]">Terraform module creation and maintenance</li>
+        
+        <li class="[ c-skill-list__item ]">Ansible role creation and maintenance</li>
+        
+        <li class="[ c-skill-list__item ]">Terraform integration with CI/CD pipelines</li>
+        
+        <li class="[ c-skill-list__item ]">Handling of breaking infrastructure changes</li>
+        
+        <li class="[ c-skill-list__item ]">Integrating build tools with Docker Remote API</li>
+        
+        <li class="[ c-skill-list__item ]">Monitoring with cAdvisor</li>
+        
+      </ul></div>
+  </section><section id="" class="[ f-ultra bg-accent-1 stack ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🌩"><hgroup><h3 class="f-heading-big">Cloud Computing 🌩</h3><h4>Computers! Computers! Computers! <a href="https://www.youtube.com/watch?v=Vhh_GeBPOhs">👏</a>
+</h4></hgroup><div class="content">
+      <p>I've worked with <em>Amazon Web Services</em> intensively between 2018 and 2021 and was a AWS Certified Developer from May 2019, but my certificate has expired.</p></p>
+<p>Between 2018 and 2021 I was invloved in planning and provisioning infrastructure for a microservice-based product called <a href="https://synoa.de/konekti/">Konekti</a>. During this time I gained extensive knowledge of:</p>
+<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
+        
+        <li class="[ c-skill-list__item ]">Elastic Container Services (ECS)</li>
+        
+        <li class="[ c-skill-list__item ]">Elastic Compute Cloud (EC2)</li>
+        
+        <li class="[ c-skill-list__item ]">Auto-scaling Groups</li>
+        
+        <li class="[ c-skill-list__item ]">Intensive, automatic resource tagging to monitor budgets</li>
+        
+        <li class="[ c-skill-list__item ]">Security Groups and Ingress Control</li>
+        
+        <li class="[ c-skill-list__item ]">AWS Load Balancers and Traefik Edge Proxy</li>
+        
+        <li class="[ c-skill-list__item ]">VPC and subnet management</li>
+        
+      </ul></div>
+  </section><section id="" class="[ f-ultra bg-accent-4 stack ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="👀"><hgroup><h3 class="f-heading-big">Monitoring 👀</h3><h4>Keeping tabs on everything
+</h4></hgroup><div class="content">
+      <p>Proper monitoring is incredibly helpful in debugging. Seeing exactly what amount of RAM and CPU a docker container consumed when it got stuck 3 weeks ago? <em>Neat</em>.</p>
+<p>Some monitoring tools I've maintained in production:</p>
+<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
+        
+        <li class="[ c-skill-list__item ]">Prometheus</li>
+        
+        <li class="[ c-skill-list__item ]">Alertmanager</li>
+        
+        <li class="[ c-skill-list__item ]">Grafana</li>
+        
+        <li class="[ c-skill-list__item ]">collectd</li>
+        
+        <li class="[ c-skill-list__item ]">node_exporter</li>
+        
+        <li class="[ c-skill-list__item ]">cadvisor</li>
+        
+        <li class="[ c-skill-list__item ]">AWS CloudWatch metrics</li>
+        
+        <li class="[ c-skill-list__item ]">AWS CloudWatch alarms</li>
+        
+      </ul></div>
+  </section><section id="" class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🐳"><hgroup><h3 class="f-heading-big">Containers 🐳</h3><h4>"It's no use Mr., it's virtualization all the way down" <a href="https://en.wikipedia.org/wiki/Turtles_all_the_way_down">🐢</a>
+</h4></hgroup><div class="content">
+      <p>Before doing DevOps full-time at <a href="https://synoa.de/">Synoa GmbH</a>, I drove the initial adoption of Docker for local development in 2017.</p>
+<p>At the time we used Docker for Magento 2 development as well as for running Logstash, Elasticsearch, and some early Java Apps.</p>
+<p>Some areas I've gained knowledge in over the years:</p>
+<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
+        
+        <li class="[ c-skill-list__item ]">Running CI/CD in Docker containers</li>
+        
+        <li class="[ c-skill-list__item ]">Multi-stage docker builds</li>
+        
+        <li class="[ c-skill-list__item ]">Running Traefik in Production for <span class="js-time-since" data-year="2018">4</span> years</li>
+        
+        <li class="[ c-skill-list__item ]">Distributing CLI tools via Docker containers</li>
+        
+        <li class="[ c-skill-list__item ]">Deploying docker with Docker Remote API</li>
+        
+        <li class="[ c-skill-list__item ]">Monitoring with cAdvisor</li>
+        
+      </ul></div>
+  </section><section id="" class="[ f-ultra bg-accent- stack ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="~"><hgroup><h3 class="f-heading-big">Terraform </h3></hgroup><div class="content">
+      <p>Terraform is a speciality of myself, I've experience with the creation and maintenance of complex modules that integrate various different services, including the following technologies</p>
+<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
+        
+        <li class="[ c-skill-list__item ]">AWS VPC and subnets</li>
+        
+        <li class="[ c-skill-list__item ]">AWS VPC networking & routing</li>
+        
+        <li class="[ c-skill-list__item ]">AWS EC2 servers</li>
+        
+        <li class="[ c-skill-list__item ]">AWS EC2 Auto-scaling groups</li>
+        
+        <li class="[ c-skill-list__item ]">AWS Security Groups and ingress rules between servers, including ingress across AWS accounts</li>
+        
+        <li class="[ c-skill-list__item ]">AWS Route 53 domains and sub-domains</li>
+        
+        <li class="[ c-skill-list__item ]">AWS ECS clusters and services</li>
+        
+        <li class="[ c-skill-list__item ]">AWS S3 buckets and access policies</li>
+        
+        <li class="[ c-skill-list__item ]">AWS IAM users for S3 access</li>
+        
+        <li class="[ c-skill-list__item ]">MongoDB Atlas Cloud</li>
+        
+        <li class="[ c-skill-list__item ]">MongoDB Atlas Cloud and AWS VPC peering connections</li>
+        
+        <li class="[ c-skill-list__item ]">Hetzner Cloud</li>
+        
+      </ul></div>
+  </section><section id="" class="[ f-ultra bg-accent-4 stack ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🔐"><hgroup><h3 class="f-heading-big">Security 🔐</h3><h4><h4 aria-label="Don't be cheap with security. Ever." onmouseover="this.textContent='Don\'t be cheap with security. Ever.';" onmouseout="this.textContent='◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎';" style="font-family:monospace; min-height:4rem;">◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎</h4>
+</h4></hgroup><div class="content">
+      <p>Security must be considered from the start. <strong>Period</strong>.</p>
+<p>Don't give all-access to a entity because it's easy. Don't open all ports because it's easy. Don't run your code as root because it's easy.</p>
+<p>Some rules I've established:</p>
+<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
+        
+        <li class="[ c-skill-list__item ]">HTTPS-only traffic between systems</li>
+        
+        <li class="[ c-skill-list__item ]">Restrictive AWS IAM users and roles</li>
+        
+        <li class="[ c-skill-list__item ]">Automatic generation of AWS IAM users and automated S3 access management via Terraform</li>
+        
+        <li class="[ c-skill-list__item ]">Auto-generated Passwords wherever possible</li>
+        
+        <li class="[ c-skill-list__item ]">Password management with self-hosted Password manager</li>
+        
+        <li class="[ c-skill-list__item ]">SSL certificate management with Let's Encrypt and AWS Certificate Manager</li>
+        
+      </ul></div>
+  </section><section id="" class="[ f-ultra bg-accent- stack ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="💌"><hgroup><h3 class="f-heading-big">Contact 💌</h3></hgroup><div class="content">
+      <p>Well, well, well, ... you've reached the end of this very lovely and pretty ✨cool✨ website.</p>
+<p>If you want to connect with me, hit me up on:</p>
+<ul>
+<li>🧑‍💼 <a href="https://www.linkedin.com/in/kevingimbel/">LinkedIn</a></li>
+<li>🤓 <a href="https://github.com/KevinGimbel">GitHub @KevinGimbel</a></li>
+<li>💖 <a href="mailto:kevin@gimbel.dev">e-Mail kevin@gimbel.dev</a></li>
+</ul>
+<p>If you write me on <strong>LinkedIn</strong> or request to connect please be patient: I get a lot of messages and catch up only once a week!</p>
+</div>
+  </section>
+  <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
+    <div class="content">
+      <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a> and lots of fun. <a href="/imprint">Imprint</a></p>
+    </div>
+  </section>
+</main>
+</body>
+<script>document.addEventListener('DOMContentLoaded', function () {
+  let favicon_txt = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%EMOJI%</text></svg>`
+  let favicon_el = document.head.querySelector('#favicon');
+  let sections = Array.from(document.querySelectorAll('section[data-icon]'));
+  let last_active_section = null;
+  let YEAR_NOW = new Date().getFullYear().toFixed(0);
+  let years_working = document.querySelector(".js-years-working");
+  let all_time_since = document.querySelectorAll(".js-time-since");
+
+  function set_favicon(emoji) {
+    let txt = favicon_txt.replace('%EMOJI%', emoji);
+    favicon_el.setAttribute('href', txt);
+  }
+
+  window.addEventListener('scroll', function (event) {
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
+    let active_section = sections_in_view[sections_in_view.length - 1];
+    if (last_active_section != active_section) {
+      last_active_section = active_section;
+      set_favicon(active_section.dataset.icon);
+    }
+  });
+
+  all_time_since.forEach((element, key) => {
+    let year = element.dataset.year;
+
+    if (year) {
+      try {
+        let year_num = parseInt(year);
+        element.textContent = YEAR_NOW - year_num;
+      } catch (err) {
+        console.log("Error calculating year: ", err);
+      }
+    }
+  })
+
+  if (years_working) {
+    years_working.textContent = YEAR_NOW - 2009;
+  }
+});
+</script>
+</html>
