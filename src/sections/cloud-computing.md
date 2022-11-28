@@ -1,5 +1,6 @@
 ---
 title: "Cloud Computing"
+id: "cloud-computing"
 styles: []
 icon: "🌩"
 sub_heading: |

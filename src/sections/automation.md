@@ -1,5 +1,6 @@
 ---
 title: "Automation"
+id: "automation"
 styles: []
 icon: "🦾"
 sub_heading: |

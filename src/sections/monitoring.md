@@ -1,5 +1,6 @@
 ---
 title: "Monitoring"
+id: "monitoring"
 styles: []
 icon: "👀"
 sub_heading: |
