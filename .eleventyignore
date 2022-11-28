@@ -2,3 +2,5 @@ ansible
 .env
 .env.sample
 node_modules
+Makefile
+README.md

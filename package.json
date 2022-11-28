@@ -1,15 +1,14 @@
 {
   "name": "kevin.gimbel.dev",
   "version": "1.0.0",
-  "description": "",
-  "main": "",
+  "description": "A personal website ✨",
   "scripts": {
-    "build": "eleventy --input=src --output=docs",
-    "dev": "eleventy --input=src --serve --watch"
+    "build": "npx @11ty/eleventy",
+    "dev": "npx @11ty/eleventy --serve --watch"
   },
   "author": "Kevin Gimbel",
   "license": "MIT",
   "dependencies": {
-    "@11ty/eleventy": "^0.12.1"
+    "@11ty/eleventy": "^1"
   }
 }

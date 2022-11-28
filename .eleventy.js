@@ -11,7 +11,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("sections", function (collectionApi) {
     // get unsorted items
     const posts = collectionApi.getAll().filter((input) => {
-      if (input.inputPath.match('/_section/')) {
+      if (input.inputPath.match("/_section/")) {
         return input;
       }
     });
@@ -25,8 +25,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("debug", (content) => `<pre>${inspect(content)}</pre>`);
 
-  eleventyConfig.addLayoutAlias('single', 'layouts/single.njk');
-  eleventyConfig.addLayoutAlias('section', 'section.njk');
-  eleventyConfig.addLayoutAlias('base', 'layouts/base.njk');
-  eleventyConfig.addLayoutAlias('redirect', 'layouts/redirect.njk');
+  return {
+    dir: {
+      input: "src",
+      output: "docs"
+    }
+  }
 }
