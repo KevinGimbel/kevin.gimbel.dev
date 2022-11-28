@@ -4,7 +4,7 @@ title: "Imprint"
 icon: "💌"
 ---
 
-[<< Home](/)
+[<< Home](/ops/)
 
 ---
 
