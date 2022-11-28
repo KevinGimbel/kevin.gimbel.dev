@@ -12,7 +12,7 @@
   </section>
 
   <section class="[ gr-1 gc-8-12 ] [ avatar ]">
-    <img src="/assets/img/avatar_devops.jpg" style="max-height: 40rem; border-radius: 34% 120% 69% 89% "/>
+    <img src="/assets/img/avatar_devops.jpg" style="max-height: 40rem; border-radius: 34% 120% 69% 89%; border: var(--spacing) solid var(--color-accent-3)"/>
   </section>
 
   <section class="[ f-ultra stack ] [ c-svg-background ] about" style="--color-bg: hsl(0,30%,10%); --color-fg: hsl(0,50%,99%);">
@@ -22,36 +22,7 @@
     </div>
   </section>
 
-{%- for section in collections.sections -%}
-{# 
-
-  for some reason this contains the index.md and ops.njk file and with this
-  if statement we can skip them. 🤷
-  No time to investigate just yet.
-#}
-  {%- if section.inputPath.match('sections/') -%}
-  <section id="{{ section.data.id }}" class="[ f-ultra bg-accent-{{ section.data.accent_id }} stack ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;{% for style in section.data.styles %} {{ style }}{% endfor %}" data-icon="{{ section.data.icon or "~" }}">
-    {%- if section.data.sub_heading or section.data.title -%}
-    <hgroup>
-      {%- if section.data.title -%}
-      <h3 class="f-heading-big">{{ section.data.title }} {{ section.data.icon }}</h3>
-      {%- endif -%}
-      {%- if section.data.sub_heading -%}
-      <h4>{{ section.data.sub_heading | safe }}</h4>
-      {%- endif -%}
-    </hgroup>
-    {%- endif -%}
-    <div class="content">
-      {{ section.templateContent | safe }}
-      {%- if section.data.skills.length -%}
-      <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
-        {% for skill in section.data.skills %}
-        <li class="[ c-skill-list__item ]">{{ skill | safe }}</li>
-        {% endfor %}
-      </ul>
-      {%- endif -%}
-    </div>
-  </section>
-{%- endif -%}
+{% for page in collections.sections %}
+  {% include "section.njk" %}
 {%- endfor -%}
 {% endblock %}

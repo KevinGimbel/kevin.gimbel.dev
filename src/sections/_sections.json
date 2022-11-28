@@ -1,7 +1,0 @@
-{
-  "permalink": "/skill/{{ title | slugify }}",
-  "tag": [
-    "section",
-    "home"
-  ]
-}
