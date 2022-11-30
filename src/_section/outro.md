@@ -15,3 +15,5 @@ If you want to connect with me, hit me up on:
 - 💖 [e-Mail kevin@gimbel.dev](mailto:kevin@gimbel.dev)
 
 If you write me on __LinkedIn__ or request to connect please be patient: I get a lot of messages and catch up only once a week!
+
+Still not read enough? Well, there's the [about](/about/) page left!
