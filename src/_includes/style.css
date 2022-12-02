@@ -203,6 +203,7 @@ ul li {
 /* .c-skill-list {} */
 .c-skill-list__item {
   padding: 1rem;
+  font-size: .75em;
 }
 
 .intro {
@@ -345,4 +346,8 @@ section {
   .c-svg-background {
     max-width: 100%;
   }
+}
+
+.single-page {
+  font-size: .75em;
 }
