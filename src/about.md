@@ -23,4 +23,8 @@ I prefer **he/him**, but I don’t mind _they/them_ if you prefer those.
 I was a AWS Certified Developer, but the certs only last two years and I did not renew mine when it expired.
 
 ## Social media
-I’ve stopped using any social media for work as of now. Connect on [LinkedIn](https://linkedin.com/in/kevingimbel) if you want to or follow my [GitHub](https://github.com/KevinGimbel/).
+I’ve stopped using any traditional social media for work as of now. Connect on [LinkedIn](https://linkedin.com/in/kevingimbel) if you want to or follow my [GitHub](https://github.com/KevinGimbel/).
+
+If you’re somewhere on the Fediverse (Mastodon, Pleroma, Misskey, …) you can search for `@kevin@kevingimbel.de` and follow my [tech blog](https://kevingimbel.de/blog/) via ActivityPub! 🙂
+
+
