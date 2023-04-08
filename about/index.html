@@ -34,17 +34,14 @@
 }
 
 body {
-  font: 14px/1.5 serif;
+  font: 14px/1.4 ui-monospace,
+  "Cascadia Mono", "Segoe UI Mono",
+  "Ubuntu Mono",
+  "Roboto Mono",
+  Menlo, Monaco, Consolas,
+  monospace;
   background: cornsilk;
   color: #000;
-}
-
-p {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-u {
-  font-family: serif;
 }
 
 h1 {
@@ -163,6 +160,12 @@ ul li::before {
   padding-right: .5em;
 }
 
+.grid {
+  display: grid;
+}
+
+
+
 .main-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -276,11 +279,11 @@ hgroup {
 }
 
 .f-ultra>* {
-  font-size: clamp(2em, 5vw, 3em);
+  font-size: 2.75em;
 }
 
 .f-heading-big {
-  font-size: clamp(3rem, 10vw, 12rem);
+  font-size: 3em;
   color: var(--color-fg, #000);
 }
 
@@ -354,6 +357,16 @@ section {
   .c-svg-background {
     max-width: 100%;
   }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .grid > * {
+    grid-column: auto;
+    grid-row: auto;
+  }
 }
 
 .single-page {
@@ -369,9 +382,9 @@ section {
     <p><a href="/ops/">&lt;&lt; Home</a></p>
 <hr>
 <p>I’m a self-taught <strong>DevOps Engineer</strong> with a background in <em>Front-End Development</em>, my first contact with HTML and CSS was around 2007 when I wanted to style my MySpace profile, later I made a websites for my Habbo Hotel trading business (yes, we had dragon statues in all colors!)</p>
-<p>Following those first steps I started to get into photography and wanted to specialize in web development to showcase my photographs, at the time I still wanted to work as a concert photographer or designer professionally and didn’t really think about becoming a programmer. When I did an year-long internship with a Design agency and my boss asked if I could build a website for a client I said “Yes of course!”, bought “PHP for Dummies” and coded the website while learning PHP (yes, I was very confident at the time). Like a miracle, it worked and the client was even happy. You can see the site in the Web Archive here – it’s really nothing I’m proud of but we all started somewhere.</p>
-<p>A few years later, in 2014, and after specializing more in HTML and CSS I started as a Front-End Developer at Synoa GmbH and then shifted into DevOps in 2018. I quite enjoy this role and the challenges that come with it! Solving problems for the rest of the Dev team and thinking about ways to optimize deployments, internal work processed, and the overall health of our systems has grown on me.</p>
-<p>I’m completely self-taught and generally able to get up to speed with new tech. I prefer to get hands-on experience rather than read theoretical material, and would rather jump into something new and spent a few days with it than watch video courses.</p>
+<p>Following those first steps I started to get into photography and wanted to specialize in web development to showcase my photographs, at the time I still wanted to work as a concert photographer or designer professionally and didn’t really think about becoming a programmer. When I did an year-long internship with a Design agency and my boss asked if I could build a website for a client I said “Yes of course!”, bought “PHP for Dummies” and coded the website while learning PHP (yes, I was very confident at the time). Like a miracle, it worked and the client was happy.</p>
+<p>In 2014, after specializing more in HTML and CSS I, started as a Front-End Developer at Synoa GmbH and then shifted into DevOps in 2018.</p>
+<p>In 2023 I started working as a DevOps Engineer at <a href="https://aoe.com/">AOE GmbH</a>.</p>
 <h2>My pronouns</h2>
 <p>I prefer <strong>he/him</strong>, but I don’t mind <em>they/them</em> if you prefer those.</p>
 <h2>Certifications</h2>
