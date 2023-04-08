@@ -1,25 +1,17 @@
 {% extends "base.njk" %}
 
 {% block content %}
-  <section class="[ f-ultra stack ] [ c-svg-background ] intro" data-icon="🥸">
-    <svg class="background" viewBox="0 0 684 373"><path d="M642,21.232c-38.276,-32.564 -180.148,24.735 -301.425,0c-97.517,-19.889 -256.967,-33.691 -298.575,0c-54.824,44.392 -56.078,269.719 0,300c100.977,54.527 479.158,65.295 585.678,35.461c74.451,-20.853 53.129,-131.979 53.443,-214.468c0.25,-65.527 -6.563,-93.293 -39.121,-120.993Z" style="fill:var(--color-bg,#ebebeb);"/></svg>
-    <div class="content">
-      <hgroup>
+  <section id="{{ page.data.id }}" class="[ f-ultra  stack ] [ bg-accent ] [ grid gr-auto ] [ c-full-width c-full-height ]" style="--spacing: 4rem; --color-bg: #222; --color-fg: #c1c1c1;" data-icon="~">
+     <div class="gc-1-7">
         <h1>Hi, I'm Kevin!</h1>
-        <h2>A <span class="bg-accent-5">Senior DevOps Engineer</span><br>with a background in <i>Front-End Development</i>.</h2>
-      </hgroup>
-    </div>
-  </section>
-
-  <section class="[ gr-1 gc-8-12 ] [ avatar ]">
-    <img src="/assets/img/avatar_devops.jpg" style="max-height: 40rem; border-radius: 34% 120% 69% 89%; border: var(--spacing) solid var(--color-accent-3);"/>
-  </section>
-
-  <section class="[ f-ultra stack ] [ c-svg-background ] about" style="--color-bg: hsl(0,30%,10%); --color-fg: hsl(0,50%,99%);">
-    <svg class="background" viewBox="0 0 684 373"><path d="M642,21.232c-38.276,-32.564 -180.148,24.735 -301.425,0c-97.517,-19.889 -256.967,-33.691 -298.575,0c-54.824,44.392 -56.078,269.719 0,300c100.977,54.527 479.158,65.295 585.678,35.461c74.451,-20.853 53.129,-131.979 53.443,-214.468c0.25,-65.527 -6.563,-93.293 -39.121,-120.993Z" style="fill:var(--color-bg,#ebebeb);"/></svg>
-    <div class="content">
-      <p>I've spent the last <span class="js-years-working">13</span> years learning to build websites & run servers; worked in e-Commerce since 2013, and focused on <a href="#cloud-computing" class="fg-accent-1 a-blank">Cloud Computing</a>, <a href="#containers" class="fg-accent-2 a-blank">Containers</a>, <a href="#automation" class="fg-accent-3 a-blank">Automation</a>, and <a href="#monitoring" class="fg-accent-4 a-blank">Monitoring</a> since starting full-time DevOps in 2018.</p>
-    </div>
+        <h2>A <b>DevOps Engineer</b><br> working at <a href="https://aoe.com" title="AOE">AOE GmbH</a>.</h2>
+      </div>
+      <div class="gc-8-12">
+        <img src="/assets/img/avatar_devops.jpg" style="max-height: 25rem; border-radius: 34% 120% 69% 89%; float: right;"/>
+      </div>
+      <div class="gc-full">
+        <p>I've spent the last <span class="js-years-working">14</span> years learning to build websites & run servers; worked in e-Commerce since 2013, and focused on <a href="#cloud-computing" class="fg-accent-1 a-blank">Cloud Computing</a>, <a href="#containers" class="fg-accent-2 a-blank">Containers</a>, <a href="#automation" class="fg-accent-3 a-blank">Automation</a>, and <a href="#monitoring" class="fg-accent-4 a-blank">Monitoring</a> since starting DevOps full-time in 2018.</p>
+      </div>
   </section>
 
 {% for page in collections.sections %}

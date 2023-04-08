@@ -34,17 +34,14 @@
 }
 
 body {
-  font: 14px/1.5 serif;
+  font: 14px/1.4 ui-monospace,
+  "Cascadia Mono", "Segoe UI Mono",
+  "Ubuntu Mono",
+  "Roboto Mono",
+  Menlo, Monaco, Consolas,
+  monospace;
   background: cornsilk;
   color: #000;
-}
-
-p {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-u {
-  font-family: serif;
 }
 
 h1 {
@@ -163,6 +160,12 @@ ul li::before {
   padding-right: .5em;
 }
 
+.grid {
+  display: grid;
+}
+
+
+
 .main-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -276,11 +279,11 @@ hgroup {
 }
 
 .f-ultra>* {
-  font-size: clamp(2em, 5vw, 3em);
+  font-size: 2.75em;
 }
 
 .f-heading-big {
-  font-size: clamp(3rem, 10vw, 12rem);
+  font-size: 3em;
   color: var(--color-fg, #000);
 }
 
@@ -353,6 +356,16 @@ section {
 
   .c-svg-background {
     max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .grid > * {
+    grid-column: auto;
+    grid-row: auto;
   }
 }
 

@@ -11,8 +11,8 @@ Well, well, well, ... you've reached the end of this very lovely and pretty ✨c
 
 If you want to connect with me, hit me up on:
 - 🧑‍💼 [LinkedIn](https://www.linkedin.com/in/kevingimbel/)
-- 🤓 [GitHub @KevinGimbel](https://github.com/KevinGimbel)
 - 🐘 <a rel="me" href="https://fosstodon.org/@KevinGimbel">Mastodon</a>
+- 🤓 [GitHub @KevinGimbel](https://github.com/KevinGimbel)
 - 💖 [e-Mail kevin@gimbel.dev](mailto:kevin@gimbel.dev)
 
 If you write me on __LinkedIn__ or request to connect please be patient: I get a lot of messages and catch up only once a week!

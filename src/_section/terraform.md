@@ -20,4 +20,4 @@ skills:
   - Hetzner Cloud
 ---
 
-Terraform is a speciality of myself, I've experience with the creation and maintenance of complex modules that integrate various different services, including the following technologies
+I 🧡 Terraform! I've experience with the creation and maintenance of complex modules that integrate various different services, including the following technologies

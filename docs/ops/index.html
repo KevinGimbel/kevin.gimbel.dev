@@ -34,17 +34,14 @@
 }
 
 body {
-  font: 14px/1.5 serif;
+  font: 14px/1.4 ui-monospace,
+  "Cascadia Mono", "Segoe UI Mono",
+  "Ubuntu Mono",
+  "Roboto Mono",
+  Menlo, Monaco, Consolas,
+  monospace;
   background: cornsilk;
   color: #000;
-}
-
-p {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-u {
-  font-family: serif;
 }
 
 h1 {
@@ -163,6 +160,12 @@ ul li::before {
   padding-right: .5em;
 }
 
+.grid {
+  display: grid;
+}
+
+
+
 .main-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -276,11 +279,11 @@ hgroup {
 }
 
 .f-ultra>* {
-  font-size: clamp(2em, 5vw, 3em);
+  font-size: 2.75em;
 }
 
 .f-heading-big {
-  font-size: clamp(3rem, 10vw, 12rem);
+  font-size: 3em;
   color: var(--color-fg, #000);
 }
 
@@ -354,6 +357,16 @@ section {
   .c-svg-background {
     max-width: 100%;
   }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .grid > * {
+    grid-column: auto;
+    grid-row: auto;
+  }
 }
 
 .single-page {
@@ -364,32 +377,24 @@ section {
 <body>
   <main class="main-grid">
   
-  <section class="[ f-ultra stack ] [ c-svg-background ] intro" data-icon="🥸">
-    <svg class="background" viewBox="0 0 684 373"><path d="M642,21.232c-38.276,-32.564 -180.148,24.735 -301.425,0c-97.517,-19.889 -256.967,-33.691 -298.575,0c-54.824,44.392 -56.078,269.719 0,300c100.977,54.527 479.158,65.295 585.678,35.461c74.451,-20.853 53.129,-131.979 53.443,-214.468c0.25,-65.527 -6.563,-93.293 -39.121,-120.993Z" style="fill:var(--color-bg,#ebebeb);"/></svg>
-    <div class="content">
-      <hgroup>
+  <section id="" class="[ f-ultra  stack ] [ bg-accent ] [ grid gr-auto ] [ c-full-width c-full-height ]" style="--spacing: 4rem; --color-bg: #222; --color-fg: #c1c1c1;" data-icon="~">
+     <div class="gc-1-7">
         <h1>Hi, I'm Kevin!</h1>
-        <h2>A <span class="bg-accent-5">Senior DevOps Engineer</span><br>with a background in <i>Front-End Development</i>.</h2>
-      </hgroup>
-    </div>
-  </section>
-
-  <section class="[ gr-1 gc-8-12 ] [ avatar ]">
-    <img src="/assets/img/avatar_devops.jpg" style="max-height: 40rem; border-radius: 34% 120% 69% 89%; border: var(--spacing) solid var(--color-accent-3);"/>
-  </section>
-
-  <section class="[ f-ultra stack ] [ c-svg-background ] about" style="--color-bg: hsl(0,30%,10%); --color-fg: hsl(0,50%,99%);">
-    <svg class="background" viewBox="0 0 684 373"><path d="M642,21.232c-38.276,-32.564 -180.148,24.735 -301.425,0c-97.517,-19.889 -256.967,-33.691 -298.575,0c-54.824,44.392 -56.078,269.719 0,300c100.977,54.527 479.158,65.295 585.678,35.461c74.451,-20.853 53.129,-131.979 53.443,-214.468c0.25,-65.527 -6.563,-93.293 -39.121,-120.993Z" style="fill:var(--color-bg,#ebebeb);"/></svg>
-    <div class="content">
-      <p>I've spent the last <span class="js-years-working">13</span> years learning to build websites & run servers; worked in e-Commerce since 2013, and focused on <a href="#cloud-computing" class="fg-accent-1 a-blank">Cloud Computing</a>, <a href="#containers" class="fg-accent-2 a-blank">Containers</a>, <a href="#automation" class="fg-accent-3 a-blank">Automation</a>, and <a href="#monitoring" class="fg-accent-4 a-blank">Monitoring</a> since starting full-time DevOps in 2018.</p>
-    </div>
+        <h2>A <b>DevOps Engineer</b><br> working at <a href="https://aoe.com" title="AOE">AOE GmbH</a>.</h2>
+      </div>
+      <div class="gc-8-12">
+        <img src="/assets/img/avatar_devops.jpg" style="max-height: 25rem; border-radius: 34% 120% 69% 89%; float: right;"/>
+      </div>
+      <div class="gc-full">
+        <p>I've spent the last <span class="js-years-working">14</span> years learning to build websites & run servers; worked in e-Commerce since 2013, and focused on <a href="#cloud-computing" class="fg-accent-1 a-blank">Cloud Computing</a>, <a href="#containers" class="fg-accent-2 a-blank">Containers</a>, <a href="#automation" class="fg-accent-3 a-blank">Automation</a>, and <a href="#monitoring" class="fg-accent-4 a-blank">Monitoring</a> since starting DevOps full-time in 2018.</p>
+      </div>
   </section>
 
 
   <section id="cloud-computing" class="[ f-ultra bg-accent-1 stack ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🌩"><hgroup><h3 class="f-heading-big">Cloud Computing 🌩</h3><h4>Computers! Computers! Computers! <a href="https://www.youtube.com/watch?v=Vhh_GeBPOhs">👏</a>
 </h4></hgroup><div class="content">
       <p>I've worked with <em>Amazon Web Services</em> intensively between 2018 and 2021 and was a AWS Certified Developer from May 2019 to May 2022.</p>
-<p>Between 2018 and 2021 I was involved in planning and provisioning infrastructure for a microservice-based product called Konekti. During this time I gained extensive knowledge of:</p>
+<p>Between <strong>2018 and 2021</strong> I was involved in planning and provisioning infrastructure for a microservice-based product called Konekti while working for Synoa GmbH. During this time I gained extensive knowledge of:</p>
 <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
         
         <li class="[ c-skill-list__item ]">Elastic Container Services (ECS)</li>
@@ -411,8 +416,8 @@ section {
 
   <section id="monitoring" class="[ f-ultra bg-accent-4 stack ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="👀"><hgroup><h3 class="f-heading-big">Monitoring 👀</h3><h4>Keeping tabs on everything
 </h4></hgroup><div class="content">
-      <p>Proper monitoring is incredibly helpful in debugging. Seeing exactly what amount of RAM and CPU a docker container consumed when it got stuck 3 weeks ago? <em>Neat</em>.</p>
-<p>Some monitoring tools I've maintained in production:</p>
+      <p>Proper monitoring is incredibly helpful in debugging, and should be implemented from the start.</p>
+<p>Some monitoring tools I've maintained and used in production:</p>
 <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
         
         <li class="[ c-skill-list__item ]">Prometheus</li>
@@ -421,9 +426,13 @@ section {
         
         <li class="[ c-skill-list__item ]">Grafana</li>
         
+        <li class="[ c-skill-list__item ]">Loki</li>
+        
         <li class="[ c-skill-list__item ]">collectd</li>
         
         <li class="[ c-skill-list__item ]">node_exporter</li>
+        
+        <li class="[ c-skill-list__item ]">blackbox_exporter</li>
         
         <li class="[ c-skill-list__item ]">cadvisor</li>
         
@@ -445,9 +454,9 @@ section {
         
         <li class="[ c-skill-list__item ]">Multi-stage docker builds</li>
         
-        <li class="[ c-skill-list__item ]">Running Traefik in Production for <span class="js-time-since" data-year="2018">4</span> years</li>
+        <li class="[ c-skill-list__item ]">Running Traefik in Production from 2018 t0 2023</li>
         
-        <li class="[ c-skill-list__item ]">Distributing CLI tools via Docker containers</li>
+        <li class="[ c-skill-list__item ]">Distributing CLI tools as Docker containers</li>
         
         <li class="[ c-skill-list__item ]">Deploying docker with Docker Remote API</li>
         
@@ -470,15 +479,13 @@ section {
         
         <li class="[ c-skill-list__item ]">Handling of breaking infrastructure changes</li>
         
-        <li class="[ c-skill-list__item ]">Integrating build tools with Docker Remote API</li>
-        
-        <li class="[ c-skill-list__item ]">Monitoring with cAdvisor</li>
+        <li class="[ c-skill-list__item ]">Custom tooling in Python, Go, and Rust</li>
         
       </ul></div>
 </section>
 
   <section id="terraform" class="[ f-ultra bg-accent- stack ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="~"><hgroup><h3 class="f-heading-big">Terraform </h3></hgroup><div class="content">
-      <p>Terraform is a speciality of myself, I've experience with the creation and maintenance of complex modules that integrate various different services, including the following technologies</p>
+      <p>I 🧡 Terraform! I've experience with the creation and maintenance of complex modules that integrate various different services, including the following technologies</p>
 <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
         
         <li class="[ c-skill-list__item ]">AWS VPC and subnets</li>
@@ -512,7 +519,7 @@ section {
 </h4></hgroup><div class="content">
       <p>Security must be considered from the start. <strong>Period</strong>.</p>
 <p>Don't give all-access to a entity because it's easy. Don't open all ports because it's easy. Don't run your code as root because it's easy.</p>
-<p>Some rules I've established:</p>
+<p>Some rules I follow:</p>
 <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
         
         <li class="[ c-skill-list__item ]">HTTPS-only traffic between systems</li>
@@ -535,8 +542,8 @@ section {
 <p>If you want to connect with me, hit me up on:</p>
 <ul>
 <li>🧑‍💼 <a href="https://www.linkedin.com/in/kevingimbel/">LinkedIn</a></li>
-<li>🤓 <a href="https://github.com/KevinGimbel">GitHub @KevinGimbel</a></li>
 <li>🐘 <a rel="me" href="https://fosstodon.org/@KevinGimbel">Mastodon</a></li>
+<li>🤓 <a href="https://github.com/KevinGimbel">GitHub @KevinGimbel</a></li>
 <li>💖 <a href="mailto:kevin@gimbel.dev">e-Mail kevin@gimbel.dev</a></li>
 </ul>
 <p>If you write me on <strong>LinkedIn</strong> or request to connect please be patient: I get a lot of messages and catch up only once a week!</p>

@@ -12,8 +12,7 @@ skills:
   - Ansible role creation and maintenance
   - Terraform integration with CI/CD pipelines
   - Handling of breaking infrastructure changes
-  - Integrating build tools with Docker Remote API
-  - Monitoring with cAdvisor
+  - Custom tooling in Python, Go, and Rust
 ---
 
 Setting up infrastructure in the cloud is lot of work and the more manual steps are involved, the more likely errors will be introduced.

@@ -10,8 +10,8 @@ accent_id: 2
 skills:
   - Running CI/CD in Docker containers
   - Multi-stage docker builds
-  - Running Traefik in Production for <span class="js-time-since" data-year="2018">4</span> years
-  - Distributing CLI tools via Docker containers
+  - Running Traefik in Production from 2018 t0 2023
+  - Distributing CLI tools as Docker containers
   - Deploying docker with Docker Remote API
   - Monitoring with cAdvisor
 ---

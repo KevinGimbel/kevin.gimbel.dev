@@ -20,4 +20,4 @@ Security must be considered from the start. **Period**.
 
 Don't give all-access to a entity because it's easy. Don't open all ports because it's easy. Don't run your code as root because it's easy.
 
-Some rules I've established:
+Some rules I follow:

@@ -11,13 +11,15 @@ skills:
   - Prometheus
   - Alertmanager
   - Grafana
+  - Loki
   - collectd
   - node_exporter
+  - blackbox_exporter
   - cadvisor
   - AWS CloudWatch metrics
   - AWS CloudWatch alarms
 ---
 
-Proper monitoring is incredibly helpful in debugging. Seeing exactly what amount of RAM and CPU a docker container consumed when it got stuck 3 weeks ago? *Neat*.
+Proper monitoring is incredibly helpful in debugging, and should be implemented from the start.
 
-Some monitoring tools I've maintained in production:
+Some monitoring tools I've maintained and used in production:
