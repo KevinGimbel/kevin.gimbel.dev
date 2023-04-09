@@ -17,6 +17,6 @@ skills:
   - VPC and subnet management
 ---
 
-I've worked with _Amazon Web Services_ intensively between 2018 and 2021 and was a AWS Certified Developer from May 2019 to May 2022.
+I've worked with _Amazon Web Services_ since 2018.
 
 Between **2018 and 2021** I was involved in planning and provisioning infrastructure for a microservice-based product called Konekti while working for Synoa GmbH. During this time I gained extensive knowledge of:

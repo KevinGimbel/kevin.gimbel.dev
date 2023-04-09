@@ -16,8 +16,6 @@ skills:
   - Monitoring with cAdvisor
 ---
 
-Before doing DevOps full-time at [Synoa GmbH](https://synoa.de/), I drove the initial adoption of Docker for local development in 2017.
-
-At the time we used Docker for Magento 2 development as well as for running Logstash, Elasticsearch, and some Java Apps on local machines.
+In 2017 I drove the initial adoption of Docker for local development at [Synoa GmbH](https://synoa.de/), later pushing usage in CI/CD, Kubernetes, and ECS.
 
 Some areas I've gained knowledge in over the years include:

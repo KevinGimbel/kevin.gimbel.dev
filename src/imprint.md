@@ -27,4 +27,4 @@ No data is collected.
 
 ### External links
 
-External links are checked but there cannot be any guarantee given for their accuracy or the harmlessness of linked content. Welcome to the internet. 
+External links are checked but there cannot be any guarantee given for their accuracy or the harmlessness of linked content. Welcome to the internet.

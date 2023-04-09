@@ -17,4 +17,4 @@ skills:
 
 Setting up infrastructure in the cloud is lot of work and the more manual steps are involved, the more likely errors will be introduced.
 
-Over the past years I've gained a lot of experience building, managing, and upgrading infrastructure with terraform and Ansible. I've also build internal tooling to help Developers interact with the infrastructure we build.
+Over the past years I've gained a lot of experience building, managing, and upgrading infrastructure with terraform and Ansible.
