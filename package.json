@@ -1,6 +1,6 @@
 {
   "name": "kevin.gimbel.dev",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A personal website ✨",
   "scripts": {
     "build": "npx @11ty/eleventy",
@@ -9,6 +9,6 @@
   "author": "Kevin Gimbel",
   "license": "MIT",
   "dependencies": {
-    "@11ty/eleventy": "^1"
+    "@11ty/eleventy": "^2.0.1"
   }
 }
