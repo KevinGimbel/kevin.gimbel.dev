@@ -1,0 +1,29 @@
+---
+pagination:
+    data: blog
+    size: 1
+    alias: article
+permalink: "{{ article.slug }}"
+custom_styles:
+    - "article.css"
+---
+
+
+{% extends "base.njk" %}
+
+{% block head %}
+<link rel="canonical" href="{{ article.link }}" />
+{% endblock %}
+
+{% block content %}
+
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
+    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+    <hr />
+    <div class="content">
+        <h1>{{ article.title }}</h1>
+        {{ article.content | safe }}
+    </div>
+</section>
+
+{% endblock %}

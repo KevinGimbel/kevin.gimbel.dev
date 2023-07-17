@@ -4,10 +4,6 @@ title: "Imprint"
 icon: "💌"
 ---
 
-[<< Home](/ops/)
-
----
-
 Responsible for the content of this website:
 
 **Kevin Gimbel**<br>

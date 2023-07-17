@@ -364,31 +364,164 @@ section {
 }</style>
   
   
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-page,
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    background: var(--color-accent-2, #ddd);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: var(--color-accent-2-contrast, #000);
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}</style>
   
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2021/06/proxy-websocket-connections-with-apache2/" />
+
 </head>
 <body>
   <main class="main-grid">
   
-<section class="[ f-ultra stack ] [ gr-auto gc-full ] single-page">
-  <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
-  <hr />
-  <div class="content">
-    <p>Responsible for the content of this website:</p>
-<p><strong>Kevin Gimbel</strong><br>
-Wiesbaden, Germany<br>
-Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
-<h3>Privacy information</h3>
-<p>This website does not use tracking or analytic tools. It is hosted on GitHub Pages.</p>
-<p>No dynamic programming language or database is used, it's all static HTML pages generated and then served with a HTTP server. The code is fully open source and available on <a href="https://github.com/kevingimbel/kevin.gimbel.dev">github.com/kevingimbel/kevin.gimbel.dev</a>.</p>
-<h3>Cookies</h3>
-<p>No cookies are used.</p>
-<h3>Private Data</h3>
-<p>No data is collected.</p>
-<h3>External links</h3>
-<p>External links are checked but there cannot be any guarantee given for their accuracy or the harmlessness of linked content. Welcome to the internet.</p>
 
-  </div>
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
+    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+    <hr />
+    <div class="content">
+        <h1>Proxy websocket connections with Apache2</h1>
+        
+<h2 class="wp-block-heading">How to configure Apache2 to pass through web socket connections</h2>
+
+
+
+<p>Recently I had to adjust an Apache Virtual Host to allow proxying of Web Socket requests to a service running on localhost which would also accept HTTP requests on the same port.</p>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/24-proxy-websocket-connections-with-apache2/index.md#the-problem"></a>The problem</h2>
+
+
+
+<p>The service in question was&nbsp;<a href="https://grafana.com/oss/loki/">Loki</a>, the&nbsp;<em>&#8220;Prometheus, but for logs&#8221;</em>&nbsp;from Grafana. At&nbsp;<a href="https://synoa.de/">Synoa</a>&nbsp;we&#8217;ve grown to love Prometheus and Grafana, so the choice to do our centralized log management with Loki came naturally; Especially since Loki is a lot simpler in its architecture and easier to operate with a small ops team; But that&#8217;s stuff for another blog post. 🙂</p>
+
+
+
+<p>Without the Socket proxy the &#8220;Live View&#8221; on incoming logs and the &#8220;Show Context&#8221; button which shows surrounding lines of a log in Grafana didn&#8217;t work; Since I&#8217;ve had no experience with Web Sockets it took some time to figure out that the problem was the sockets didn&#8217;t reach the backend service running on&nbsp;<code>127.0.0.1:3000</code>&nbsp;behind Apache2.</p>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/24-proxy-websocket-connections-with-apache2/index.md#the-solution"></a>The solution</h2>
+
+
+
+<p>The solution was to configure Apache so it would proxy the web socket request to the websocket service (<code>ws://127.0.0.1:3000/</code>) explicitly if the request is marked as such with the&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Upgrade"><code>Upgrade</code></a>&nbsp;and&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Connection"><code>Connection</code></a>&nbsp;headers.</p>
+
+
+
+<p>For this to work, we first need the&nbsp;<code>proxy_wstunnel</code>&nbsp;module.</p>
+
+
+
+<pre class="wp-block-preformatted"># Enable module on Ubuntu
+$ sudo a2enmod proxy_wstunnel</pre>
+
+
+
+<p>Then, we can adjust the vhost configuration file to include a rewrite rule (lines 4 to 7):</p>
+
+
+
+<pre class="wp-block-code"><code>&lt;VirtualHost *:443&gt;
+  ServerName my.server.tld
+  SSLEngine On
+
+  RewriteEngine On
+  RewriteCond %{HTTP:Upgrade} websocket &#91;NC]
+  RewriteCond %{HTTP:Connection} upgrade &#91;NC]
+  RewriteRule ^/?(.*) "ws://127.0.0.1:3000/$1" &#91;P,L]
+
+  ProxyPreserveHost On
+  ProxyPass / http://127.0.0.1:3000/
+  ProxyPassReverse / http://127.0.0.1:3000/
+  ProxyRequests off
+&lt;/VirtualHost&gt;
+</code></pre>
+
+
+
+<p>After making these changes and reloading Apache2, the Grafana Live Log view and Loki &#8220;Show Context&#8221; function was working again.</p>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/24-proxy-websocket-connections-with-apache2/index.md#further-reading"></a>Further reading</h2>
+
+
+
+<ul>
+<li>&#8220;<a href="https://noqqe.de/blog/2018/04/21/apache2-websockets/">Apache2 Websockets</a>&#8221; on noqqe.de (in German)</li>
+
+
+
+<li><a href="https://httpd.apache.org/docs/2.4/mod/mod_proxy_wstunnel.html">mod_proxy_wstunnel module documentation</a></li>
+</ul>
+
+    </div>
 </section>
+
 
   <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
     <div class="content">

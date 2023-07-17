@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
+  <title>Kevin.Gimbel.Dev/Ops</title>
+  <style>:root {
+  --color-bg: hsl(279, 19%, 93%);
+  --color-fg: #000;
+  --color-contrast-fg: #000;
+  --color-contrast-bg: #000;
+
+  --stack-spacing: 2rem;
+  --spacing: 2rem;
+
+  --color-accent-1: hsl(100, 75%, 90%);
+  --color-accent-1-contrast: hsl(100, 20%, 50%);
+  --color-accent-2: hsl(200, 75%, 90%);
+  --color-accent-2-contrast: hsl(200, 20%, 50%);
+  --color-accent-3: hsl(300, 75%, 90%);
+  --color-accent-3-contrast: hsl(300, 20%, 50%);
+  --color-accent-4: hsl(400, 75%, 90%);
+  --color-accent-4-contrast: hsl(400, 20%, 50%);
+  --color-accent-5: hsl(255, 75%, 90%);
+  --color-accent-5-contrast: hsl(255, 20%, 50%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px/1.4 ui-monospace,
+    "Cascadia Mono", "Segoe UI Mono",
+    "Ubuntu Mono",
+    "Roboto Mono",
+    Menlo, Monaco, Consolas,
+    monospace;
+  background: cornsilk;
+  color: #000;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2,
+h3 {
+  --color-fg: var(--color-contrast-fg);
+  text-shadow: .02em .02em 0 var(--color-bg), .03em .03em 0 var(--color-contrast-fg);
+}
+
+hr {
+  max-width: 80%;
+  margin: 0 auto;
+  border: none;
+  background: var(--color-fg);
+  height: 0.05em;
+}
+
+.stack *+* {
+  margin-top: var(--stack-spacing, 2rem);
+}
+
+a {
+  color: hotpink;
+}
+
+a:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.a-blank,
+.a-blank:visited {
+  text-decoration: none;
+}
+
+.a-blank:hover,
+.a-blank:focus {
+  border-bottom: .15em solid currentColor;
+  font-size: 100%;
+  letter-spacing: 0em;
+}
+
+.a-splash {
+  color: var(--color-bg);
+  background: var(--color-fg);
+  border-radius: 65% 72% 53% 41%;
+  padding: .25em;
+}
+
+/* Accent colors and styles */
+.fg-accent-1 {
+  --color-fg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.fg-accent-2 {
+  --color-fg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.fg-accent-3 {
+  --color-fg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.fg-accent-4 {
+  --color-fg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+[class*="fg-accent"] {
+  color: var(--color-fg);
+  font-weight: bold;
+}
+
+.bg-accent-1 {
+  --color-contrast-fg: var(--color-accent-1-contrast, #000);
+  --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.bg-accent-2 {
+  --color-contrast-fg: var(--color-accent-2-contrast, #000);
+  --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.bg-accent-3 {
+  --color-contrast-fg: var(--color-accent-3-contrast, #000);
+  --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.bg-accent-4 {
+  --color-contrast-fg: var(--color-accent-4-contrast, #000);
+  --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+.bg-accent-5 {
+  --color-contrast-fg: var(--color-accent-5-contrast, #fff);
+  --color-bg: var(--color-accent-5, #000);
+}
+
+[class*="bg-accent"] {
+  background: var(--color-bg, #000);
+  color: var(--color-fg, #fff);
+}
+
+ul {
+  list-style: none;
+  margin-left: var(--stack-spacing);
+}
+
+ul li::before {
+  content: "✦";
+  color: var(--color-contrast-fg, #000);
+  display: inline;
+  width: 1em;
+  margin-left: -1.25em;
+  padding-right: .5em;
+}
+
+.grid {
+  display: grid;
+}
+
+
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1em;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.gr-1 {
+  grid-row: 1;
+}
+
+.gr-2 {
+  grid-row: 2;
+}
+
+.gr-auto {
+  grid-row: auto;
+}
+
+.gc-full {
+  grid-column-start: 1;
+  grid-column-end: 12;
+}
+
+.gc-8-12 {
+  grid-column-start: 8;
+  grid-column-end: 12;
+}
+
+.gc-1-7 {
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 3), 1fr);
+  grid-gap: var(--stack-spacing, 2rem);
+}
+
+ul li {
+  margin-top: var(--stack-spacing, 1rem);
+}
+
+/* .c-skill-list {} */
+.c-skill-list__item {
+  padding: 1rem;
+  font-size: .75em;
+}
+
+.about {
+  grid-column-start: 5;
+  grid-column-end: 12;
+  grid-row: 2;
+}
+
+.c-full-width {
+  width: 100vw;
+}
+
+.c-full-height {
+  min-height: 100vh;
+}
+
+hgroup {
+  margin-bottom: calc(var(--stack-spacing, 2rem) * 2);
+}
+
+.c-svg-background {
+  width: 100%;
+  width: fit-content;
+  max-width: 40vw;
+  position: relative;
+  padding: var(--spacing, 2rem);
+  display: block;
+  color: var(--color-fg, #000);
+  display: inline-grid;
+  grid-template-areas: "a";
+}
+
+.c-svg-background>.background,
+.c-svg-background>.content {
+  grid-area: a;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.c-svg-background>.content {
+  padding: 0 0 1.5em 1em;
+}
+
+.c-svg-background>.background {
+  width: 110%;
+  height: 110%;
+  margin-left: -5%;
+  margin-top: -5%;
+}
+
+.f-ultra>* {
+  font-size: 2.75em;
+}
+
+.f-heading-big {
+  font-size: 3em;
+  color: var(--color-fg, #000);
+}
+
+section {
+  padding: var(--spacing, 2rem);
+}
+
+@media all and (max-width: 2000px) {
+  .about {
+    grid-column-start: 3;
+    grid-column-end: 13;
+    max-width: 60vw;
+    min-width: 60rem;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  body {
+    font-size: 10px;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .start>* {
+    max-width: 100%;
+  }
+
+  .about,
+  .avatar {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .bg-accent-3 {
+    text-shadow: none;
+  }
+
+  .about {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    background: var(--color-contrast-bg);
+  }
+
+  .about .background {
+    display: none;
+  }
+
+  .c-skill-list {
+    grid-template-columns: 1fr;
+  }
+
+  .c-svg-background {
+    max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .grid>* {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+.single-page {
+  font-size: .75em;
+}
+
+.article-list {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.article-list__item>h2 {
+  text-shadow: none;
+}
+
+.article-list__more-link {
+  display: inline-block;
+  margin-top: var(--spacing);
+}
+
+.article-list__item {
+  margin: calc(var(--spacing) * 2) 0;
+  background: #fff;
+  padding: calc(var(--spacing) * 2)
+}</style>
+  
+  
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-page,
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    background: var(--color-accent-2, #ddd);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: var(--color-accent-2-contrast, #000);
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}</style>
+  
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2021/06/validating-variables-in-terraform/" />
+
+</head>
+<body>
+  <main class="main-grid">
+  
+
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
+    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+    <hr />
+    <div class="content">
+        <h1>Validating variables in terraform</h1>
+        
+<h2 class="wp-block-heading">Finally, terraform can validate input variables!</h2>
+
+
+
+<p>With the 0.13 release terraform introduces input validation, and with the 1.0.0 releases it was stabilized! Before there was no way of validating variables other than checking their length or doing basic checks inside the code, for example in the&nbsp;<code>locals.tf</code>&nbsp;file, and errors with variables mostly came to light during deployments. There was also no way of telling the user&nbsp;<em>what</em>&nbsp;what wrong with a variable.</p>
+
+
+
+<p>Excited about this feature I took a deep-dive at work and implemented validation for all variables in our new infrastructure modules. This blog post will go over the possibilities of validations and how to implement them and how to combine multiple asserts. All code examples are&nbsp;<em>practical</em>&nbsp;and no foo-bar-baz made-up code!</p>
+
+
+
+<p>Knowledge of terraform is not required, however you should be somewhat familiar with&nbsp;<a href="https://github.com/hashicorp/hcl">HCL</a>, the configuration language of terraform.</p>
+
+
+
+<p class="has-contrast-color has-secondary-background-color has-text-color has-background has-link-color wp-elements-59c3d6777f2eba925f3d2bfe4cbe96fe">All examples are available in a repo at <a href="https://github.com/KevinGimbel/blog-terraform-validation-example">github.com/KevinGimbel/blog-terraform-validation-example</a>. At times this post says &#8220;To test this, run&#8230;&#8221;; All of these can be run against the code inside the example repo. To use the repo, follow these steps:<br><br>$ <code>git clone https://github.com/KevinGimbel/blog-terraform-validation-example.git </code><br><code>$ cd blog-terraform-validation-example </code><br>$ <code>terraform init</code></p>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#syntax-of-a-validation"></a>Syntax of a validation</h2>
+
+
+
+<p>All validations happen in the&nbsp;<code>variables.tf</code>&nbsp;file where variables are defined. Inside the block defining a variable a new&nbsp;<code>validation</code>&nbsp;block is placed:</p>
+
+
+
+<pre class="wp-block-code"><code class="">variable "my_var" {
+  type = number
+  default = 0
+
+  validation {
+    condition = var.my_var &gt;= 0
+    error_message = "Please set my_var to a positive number or 0."
+  }
+}</code></pre>
+
+
+
+<p class="has-contrast-color has-secondary-background-color has-text-color has-background">Terraform requires the sentence to start with an uppercase letter and end with a dot.</p>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#validating-the-length-of-a-string"></a>Validating the length of a string</h2>
+
+
+
+<p>The following defines a variable named&nbsp;<code>hetzner_api_token</code>&nbsp;that represents a&nbsp;<a href="https://hetzner.cloud/">Hetzner Cloud</a>&nbsp;API token.</p>
+
+
+
+<pre class="wp-block-code"><code class=""># file: variables.tf
+variable "hetzner_api_token" {
+  type        = string
+  description = "Hetzner API token"
+}</code></pre>
+
+
+
+<p>If somebody would specify&nbsp;<code>hetzner_api_token = ""</code>&nbsp;the variable would be defined as far as terraform is concerned and terraform would start deploying until it reaches a point where the missing token causes an issue; To prevent this we can apply validations like so</p>
+
+
+
+<pre class="wp-block-code"><code lang="" class=""># file: variables.tf
+variable "hetzner_api_token" {
+  type        = string
+  description = "Hetzner API token"
+
+  validation {
+    condition     = length(var.hetzner_api_token) == 64
+    error_message = "Must be a 64 character long Hetzner API token."
+  }
+}</code></pre>
+
+
+
+<p>This validates that the variable is set AND is exactly 64 characters long, which is the length of Hetzner Cloud API tokens.</p>
+
+
+
+<p>To test this, run</p>
+
+
+
+<pre class="wp-block-code"><code lang="bash" class="language-bash"># Shows no error and logs the configured token
+terraform apply -target=null_resource.validate_hetzner_api_token
+# Invalid, shows error message
+terraform apply -target=null_resource.validate_hetzner_api_token -var "hetzner_api_token=xxx"</code></pre>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#advanced-validation-with-regex"></a>Advanced validation with regex</h2>
+
+
+
+<p>Checking the&nbsp;<code>length</code>&nbsp;might be helpful for simple assertions but sometimes more advanced checks are needed. This is where regex comes into play. To use regex terraform provides the&nbsp;<code>can</code>&nbsp;function.</p>
+
+
+
+<pre class="wp-block-code"><code class="">variable "server_role_arn" {
+  type        = string
+  description = "AWS arn of the role to assign to servers"
+
+  validation {
+    condition     = can(regex("^arn:aws:iam::[[:digit:]]{12}:role/.+", var.server_role_arn))
+    error_message = "Must be a valid AWS IAM role ARN."
+  }
+}</code></pre>
+
+
+
+<p>This validation fails if the provides string doesn&#8217;t match the format of an&nbsp;<em>AWS IAM role ARN</em>. This means it will also fail if an ARN is provided that matches a user, like&nbsp;<code>arn:aws:iam::012345678912:user/kevin</code>! The&nbsp;<code>[[:digit:]]{12}</code>&nbsp;checks for exactly 12 digits, it&#8217;s equal to&nbsp;<code>\d{12}</code>&nbsp;in other regex engines.&nbsp;<code>.+</code>&nbsp;at the end matches any character one or more times.</p>
+
+
+
+<p>To test this, run</p>
+
+
+
+<pre class="wp-block-code"><code lang="bash" class="language-bash">terraform apply
+# Invalid, shows error message
+terraform apply -target=null_resource.validate_server_role_arn
+terraform apply -target=null_resource.validate_server_role_arn -var "server_role_arn=arn:aws:iam::012345678912:user/kevin"</code></pre>
+
+
+
+<pre class="wp-block-code"><code class="">│ Error: Invalid value for variable
+│ 
+│   on variables.tf line 1:
+│    1: variable "server_role_arn" {
+│ 
+│ Must be a valid AWS IAM role ARN.
+│ 
+│ This was checked by the validation rule at variables.tf:5,3-13.
+</code></pre>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#multiple-conditions"></a>Multiple conditions</h2>
+
+
+
+<p>Validations can have more than one condition. Conditions are grouped together with the&nbsp;<code>alltrue</code>&nbsp;and&nbsp;<code>anytrue</code>&nbsp;functions, which take a list of conditions and returns&nbsp;<code>true</code>&nbsp;or&nbsp;<code>false</code>.</p>
+
+
+
+<pre class="wp-block-code"><code class="">variable "env" {
+  type        = string
+  description = "Environment to deploy, can be production, staging, development, or test."
+
+  validation {
+    condition = anytrue([
+      var.env == "production",
+      var.env == "staging",
+      var.env == "development",
+      var.env == "test"
+    ])
+    error_message = "Must be a valid env, can be production, staging, development, or test."
+  }
+}</code></pre>
+
+
+
+<p>To test this, run</p>
+
+
+
+<pre class="wp-block-code"><code lang="bash" class="language-bash"># valid 
+terraform apply -target=null_resource.validate_env
+# Invalid 
+terraform apply -target=null_resource.validate_env -var "env=prod"</code></pre>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#multiple-nested-conditions"></a>Multiple, nested conditions</h2>
+
+
+
+<p><code>alltrue</code>&nbsp;and&nbsp;<code>anytrue</code>&nbsp;can be nested! The next example validates the variable is a legit Hetzner Server type identifier, without requiring any regex magic!&nbsp;🥸</p>
+
+
+
+<pre class="wp-block-code"><code class="">variable "hetzner_server_type" {
+  type        = string
+  description = "Server type to use, see https://www.hetzner.com/cloud#pricing"
+  default     = "cx21"
+
+  validation {
+    condition = alltrue([
+      anytrue([
+        can(regex("cx*", var.hetzner_server_type)),
+        can(regex("cpx*", var.hetzner_server_type)),
+        can(regex("ccx*", var.hetzner_server_type))
+      ]),
+      anytrue([
+        length(var.hetzner_server_type) == 5,
+        length(var.hetzner_server_type) == 4
+      ])
+    ])
+    error_message = "Must be a valid Hetzner server type, e.g. cx21, cx11, ccx22 see https://www.hetzner.com/cloud#pricing for available options."
+  }
+}</code></pre>
+
+
+
+<p>It checks that both of these are true:</p>
+
+
+
+<ul>
+<li>The variable starts with&nbsp;<code>cx</code>,&nbsp;<code>cpx</code>, or&nbsp;<code>ccx</code></li>
+
+
+
+<li>The variable is 4 or 5 characters long</li>
+</ul>
+
+
+
+<p>To test this, run</p>
+
+
+
+<pre class="wp-block-code"><code class=""># valid 
+terraform apply -target=null_resource.validate_hetzner_server_type
+# invalid, shows validation error
+terraform apply -target=null_resource.validate_hetzner_server_type -var "hetzner_server_type=nope"</code></pre>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#validating-elements-in-a-list"></a>Validating elements in a list</h2>
+
+
+
+<p>Lastly, using a&nbsp;<code>for</code>&nbsp;loop entries inside of a list can be validated.</p>
+
+
+
+<pre class="wp-block-code"><code class="">variable "hetzner_datacenters" {
+  type        = list(string)
+  description = "List of datacenter identifier into which the server can be launched, chosen at random"
+  default     = ["nbg1", "fsn1"]
+
+  validation {
+    condition = alltrue([
+      for dc in var.hetzner_datacenters : contains(["nbg1", "fsn1", "hel1"], dc)
+    ])
+    error_message = "Must one or more of: 'nbg1', 'fsn1', or 'hel1' - no other value is allowed."
+  }
+}</code></pre>
+
+
+
+<p>Right now Hetzner has three datacenter locations, two in Germany (Nürnberg (<code>nbg1</code>) and Falkenstein (<code>fsn1</code>)) and one in Finland (Helsinki (<code>hel1</code>)), so validating them is doable; for AWS, GPC, or Azure this would be a lot harder and require regex instead.</p>
+
+
+
+<p>To test this, run</p>
+
+
+
+<pre class="wp-block-code"><code lang="bash" class="language-bash"># valid 
+terraform apply -target=null_resource.validate_hetzner_datacenters
+# invalid, shows validation error
+terraform apply -target=null_resource.validate_hetzner_datacenters -var 'hetzner_datacenters=["fsn1", "lax1"]' </code></pre>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#conclusion"></a>Conclusion</h2>
+
+
+
+<p>Using the shown functions like&nbsp;<code>regex</code>,&nbsp;<code>length</code>&nbsp;and loops we can validate a variable has a certain value or follows a certain format.</p>
+
+
+
+<p>With&nbsp;<code>anytrue</code>&nbsp;and&nbsp;<code>alltrue</code>&nbsp;we can group together multiple validations so that either all or one of multiple conditions must match.</p>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#further-reading"></a>Further reading</h2>
+
+
+
+<ul>
+<li><a href="https://www.terraform.io/docs/language/values/variables.html">Terraform variable documentation</a></li>
+
+
+
+<li><a href="https://www.terraform.io/docs/language/functions/can.html">Terraform&nbsp;<code>can</code>&nbsp;function</a></li>
+
+
+
+<li><a href="https://www.terraform.io/docs/language/functions/regex.html">Terraform&nbsp;<code>regex</code>&nbsp;function</a></li>
+</ul>
+
+    </div>
+</section>
+
+
+  <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
+    <div class="content">
+      <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a> and lots of fun. <a href="/imprint">Imprint</a></p>
+    </div>
+  </section>
+</main>
+</body>
+<script>document.addEventListener('DOMContentLoaded', function () {
+  let favicon_txt = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%EMOJI%</text></svg>`
+  let favicon_el = document.head.querySelector('#favicon');
+  let sections = Array.from(document.querySelectorAll('section[data-icon]'));
+  let last_active_section = null;
+  let YEAR_NOW = new Date().getFullYear().toFixed(0);
+  let years_working = document.querySelector(".js-years-working");
+  let all_time_since = document.querySelectorAll(".js-time-since");
+
+  function set_favicon(emoji) {
+    let txt = favicon_txt.replace('%EMOJI%', emoji);
+    favicon_el.setAttribute('href', txt);
+  }
+
+  window.addEventListener('scroll', function (event) {
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
+    let active_section = sections_in_view[sections_in_view.length - 1];
+    if (last_active_section != active_section) {
+      last_active_section = active_section;
+      set_favicon(active_section.dataset.icon);
+    }
+  });
+
+  all_time_since.forEach((element, key) => {
+    let year = element.dataset.year;
+
+    if (year) {
+      try {
+        let year_num = parseInt(year);
+        element.textContent = YEAR_NOW - year_num;
+      } catch (err) {
+        console.log("Error calculating year: ", err);
+      }
+    }
+  })
+
+  if (years_working) {
+    years_working.textContent = YEAR_NOW - 2009;
+  }
+});
+</script>
+</html>

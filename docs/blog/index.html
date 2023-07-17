@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
+  <title>Kevin.Gimbel.Dev/Ops</title>
+  <style>:root {
+  --color-bg: hsl(279, 19%, 93%);
+  --color-fg: #000;
+  --color-contrast-fg: #000;
+  --color-contrast-bg: #000;
+
+  --stack-spacing: 2rem;
+  --spacing: 2rem;
+
+  --color-accent-1: hsl(100, 75%, 90%);
+  --color-accent-1-contrast: hsl(100, 20%, 50%);
+  --color-accent-2: hsl(200, 75%, 90%);
+  --color-accent-2-contrast: hsl(200, 20%, 50%);
+  --color-accent-3: hsl(300, 75%, 90%);
+  --color-accent-3-contrast: hsl(300, 20%, 50%);
+  --color-accent-4: hsl(400, 75%, 90%);
+  --color-accent-4-contrast: hsl(400, 20%, 50%);
+  --color-accent-5: hsl(255, 75%, 90%);
+  --color-accent-5-contrast: hsl(255, 20%, 50%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px/1.4 ui-monospace,
+    "Cascadia Mono", "Segoe UI Mono",
+    "Ubuntu Mono",
+    "Roboto Mono",
+    Menlo, Monaco, Consolas,
+    monospace;
+  background: cornsilk;
+  color: #000;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2,
+h3 {
+  --color-fg: var(--color-contrast-fg);
+  text-shadow: .02em .02em 0 var(--color-bg), .03em .03em 0 var(--color-contrast-fg);
+}
+
+hr {
+  max-width: 80%;
+  margin: 0 auto;
+  border: none;
+  background: var(--color-fg);
+  height: 0.05em;
+}
+
+.stack *+* {
+  margin-top: var(--stack-spacing, 2rem);
+}
+
+a {
+  color: hotpink;
+}
+
+a:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.a-blank,
+.a-blank:visited {
+  text-decoration: none;
+}
+
+.a-blank:hover,
+.a-blank:focus {
+  border-bottom: .15em solid currentColor;
+  font-size: 100%;
+  letter-spacing: 0em;
+}
+
+.a-splash {
+  color: var(--color-bg);
+  background: var(--color-fg);
+  border-radius: 65% 72% 53% 41%;
+  padding: .25em;
+}
+
+/* Accent colors and styles */
+.fg-accent-1 {
+  --color-fg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.fg-accent-2 {
+  --color-fg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.fg-accent-3 {
+  --color-fg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.fg-accent-4 {
+  --color-fg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+[class*="fg-accent"] {
+  color: var(--color-fg);
+  font-weight: bold;
+}
+
+.bg-accent-1 {
+  --color-contrast-fg: var(--color-accent-1-contrast, #000);
+  --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.bg-accent-2 {
+  --color-contrast-fg: var(--color-accent-2-contrast, #000);
+  --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.bg-accent-3 {
+  --color-contrast-fg: var(--color-accent-3-contrast, #000);
+  --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.bg-accent-4 {
+  --color-contrast-fg: var(--color-accent-4-contrast, #000);
+  --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+.bg-accent-5 {
+  --color-contrast-fg: var(--color-accent-5-contrast, #fff);
+  --color-bg: var(--color-accent-5, #000);
+}
+
+[class*="bg-accent"] {
+  background: var(--color-bg, #000);
+  color: var(--color-fg, #fff);
+}
+
+ul {
+  list-style: none;
+  margin-left: var(--stack-spacing);
+}
+
+ul li::before {
+  content: "✦";
+  color: var(--color-contrast-fg, #000);
+  display: inline;
+  width: 1em;
+  margin-left: -1.25em;
+  padding-right: .5em;
+}
+
+.grid {
+  display: grid;
+}
+
+
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1em;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.gr-1 {
+  grid-row: 1;
+}
+
+.gr-2 {
+  grid-row: 2;
+}
+
+.gr-auto {
+  grid-row: auto;
+}
+
+.gc-full {
+  grid-column-start: 1;
+  grid-column-end: 12;
+}
+
+.gc-8-12 {
+  grid-column-start: 8;
+  grid-column-end: 12;
+}
+
+.gc-1-7 {
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 3), 1fr);
+  grid-gap: var(--stack-spacing, 2rem);
+}
+
+ul li {
+  margin-top: var(--stack-spacing, 1rem);
+}
+
+/* .c-skill-list {} */
+.c-skill-list__item {
+  padding: 1rem;
+  font-size: .75em;
+}
+
+.about {
+  grid-column-start: 5;
+  grid-column-end: 12;
+  grid-row: 2;
+}
+
+.c-full-width {
+  width: 100vw;
+}
+
+.c-full-height {
+  min-height: 100vh;
+}
+
+hgroup {
+  margin-bottom: calc(var(--stack-spacing, 2rem) * 2);
+}
+
+.c-svg-background {
+  width: 100%;
+  width: fit-content;
+  max-width: 40vw;
+  position: relative;
+  padding: var(--spacing, 2rem);
+  display: block;
+  color: var(--color-fg, #000);
+  display: inline-grid;
+  grid-template-areas: "a";
+}
+
+.c-svg-background>.background,
+.c-svg-background>.content {
+  grid-area: a;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.c-svg-background>.content {
+  padding: 0 0 1.5em 1em;
+}
+
+.c-svg-background>.background {
+  width: 110%;
+  height: 110%;
+  margin-left: -5%;
+  margin-top: -5%;
+}
+
+.f-ultra>* {
+  font-size: 2.75em;
+}
+
+.f-heading-big {
+  font-size: 3em;
+  color: var(--color-fg, #000);
+}
+
+section {
+  padding: var(--spacing, 2rem);
+}
+
+@media all and (max-width: 2000px) {
+  .about {
+    grid-column-start: 3;
+    grid-column-end: 13;
+    max-width: 60vw;
+    min-width: 60rem;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  body {
+    font-size: 10px;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .start>* {
+    max-width: 100%;
+  }
+
+  .about,
+  .avatar {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .bg-accent-3 {
+    text-shadow: none;
+  }
+
+  .about {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    background: var(--color-contrast-bg);
+  }
+
+  .about .background {
+    display: none;
+  }
+
+  .c-skill-list {
+    grid-template-columns: 1fr;
+  }
+
+  .c-svg-background {
+    max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .grid>* {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+.single-page {
+  font-size: .75em;
+}
+
+.article-list {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.article-list__item>h2 {
+  text-shadow: none;
+}
+
+.article-list__more-link {
+  display: inline-block;
+  margin-top: var(--spacing);
+}
+
+.article-list__item {
+  margin: calc(var(--spacing) * 2) 0;
+  background: #fff;
+  padding: calc(var(--spacing) * 2)
+}</style>
+  
+  
+  
+</head>
+<body>
+  <main class="main-grid">
+  
+
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ]  single-page">
+    <div class="content">
+        <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+        <hr />
+
+        <ul class="article-list">
+        
+        <li class="article-list__item">
+            <h2><a href="/blog/2023/04/til-multiple-git-identities-on-one-machine/">TIL: multiple git-identities on one machine</a></h2>
+            <p><p>Turns out you can have multiple Git identities alongside each other on one Machine without needing to set them locally for each repository! It still involves multiple .gitconfig files, but it&#8217;s a lot less work than configuring an endless amount of repos! First, set the global config like this: Now in ~/AOE/.gitconfig I configure the [&hellip;]</p>
+</p>
+            <a href="/blog/2023/04/til-multiple-git-identities-on-one-machine/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/">Setting up a MacBook from scratch for the first time in 8 years</a></h2>
+            <p><p>Oh boy, did I not think about a lot of stuf&#8230; For the past 8 or so years I&#8217;ve always used my work MacBook for all things dev, including private development. I&#8217;ve spent a lot of time setting up and changing my zsh, and later fish, configs, configuring iTerm, trying out different themes, &#8230; you [&hellip;]</p>
+</p>
+            <a href="/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2023/04/a-new-chapter/">A new chapter</a></h2>
+            <p><p>In January 2014, I joined Synoa in its founding days as a Web Developer, focused on Magento 1 and WordPress at the time. Now, 9 years later, I decided it’s time to move on. I’m super exited to say that as of April 2023 I’ve joined AOE as a DevOps Engineer! 🥳</p>
+</p>
+            <a href="/blog/2023/04/a-new-chapter/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2023/02/unpinned-dependencies-just-broke-my-plugin/">Unpinned dependencies just broke my plugin</a></h2>
+            <p><p>Hello and welcome to a little recap! My 11ty MermaidJS plugin was just broken by MermaidJS release 10.0 because they no longer provided a minified JavaScript bundle and instead only provide a ESM module. My plugin was referencing https://unpkg.com/mermaid/dist/mermaid.min.js by default for including the javascript code, but with version 10 this now leads to a [&hellip;]</p>
+</p>
+            <a href="/blog/2023/02/unpinned-dependencies-just-broke-my-plugin/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2023/01/til-one-line-list-manipulation-in-python/">TIL: One-line list manipulation in Python</a></h2>
+            <p><p>In Python there&#8217;s a one-line syntax for iterating over elements of a list. I&#8217;ve always found it looked kind-of odd, and as I need to look it up all the time I decided to write a little TIL on this blog about it. There are more powerful one-liners documented on the Python Wiki.</p>
+</p>
+            <a href="/blog/2023/01/til-one-line-list-manipulation-in-python/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/">Publishing and building a static website on GitHub Pages</a></h2>
+            <p><p>A week ago or so I finally launched a small website I&#8217;ve been working on for quite some time: kevin.gimbel.dev/ops &#8211; it&#8217;s a colourful static website showing some of the technologies I&#8217;ve worked with in the past years since I began doing DevOps full time. The website is built with 11ty and published with GitHub [&hellip;]</p>
+</p>
+            <a href="/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2022/11/back-to-basics-wordpress/">Back to basics: WordPress!</a></h2>
+            <p><p>If you&#8217;re a regular (LOL) on this website you may have noticed that literally everything is different and all old content is gone as well. Sorry about that! I&#8217;ve moved my website from a static webpage made with 11ty to a WordPress powered site again because I&#8217;ve noticed over the past years that Markdown-based solutions [&hellip;]</p>
+</p>
+            <a href="/blog/2022/11/back-to-basics-wordpress/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2022/11/hello-world/">Hello, world!</a></h2>
+            <p><p>The classic first blog post. This post marks the move to WordPress. All content before this one is from my old 11ty based website.</p>
+</p>
+            <a href="/blog/2022/11/hello-world/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2022/11/how-to-extend-and-reuse-configs-in-gitlab-ci/">How to extend and reuse configs in Gitlab CI</a></h2>
+            <p><p>When I began using Gitlab CI the first thing I wanted to know was how to reuse configs. I know that we&#8217;ll have changing requirements at work and that we&#8217;ll have hundreds of repositories using basically-the-same configurations so I wanted to make sure we&#8217;d have a central place to make changes to these. I found [&hellip;]</p>
+</p>
+            <a href="/blog/2022/11/how-to-extend-and-reuse-configs-in-gitlab-ci/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2021/12/replace-git-urls-in-gitlab-ci/">TIL: Replace git URLs in Gitlab CI</a></h2>
+            <p><p>When working with Gitlab as a storage for Terraform or Ansible modules you probably access them using SSH, like&nbsp;git@gitlab.instance:group/project.git. This has the advantage that authentication is done using SSH keys and everybody on your team can access the repositories just like they&#8217;d do when cloning on the terminal &#8211; no need for entering passwords during [&hellip;]</p>
+</p>
+            <a href="/blog/2021/12/replace-git-urls-in-gitlab-ci/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2021/06/proxy-websocket-connections-with-apache2/">Proxy websocket connections with Apache2</a></h2>
+            <p><p>How to configure Apache2 to pass through web socket connections Recently I had to adjust an Apache Virtual Host to allow proxying of Web Socket requests to a service running on localhost which would also accept HTTP requests on the same port. The problem The service in question was&nbsp;Loki, the&nbsp;&#8220;Prometheus, but for logs&#8221;&nbsp;from Grafana. At&nbsp;Synoa&nbsp;we&#8217;ve [&hellip;]</p>
+</p>
+            <a href="/blog/2021/06/proxy-websocket-connections-with-apache2/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2021/06/validating-variables-in-terraform/">Validating variables in terraform</a></h2>
+            <p><p>Finally, terraform can validate input variables! With the 0.13 release terraform introduces input validation, and with the 1.0.0 releases it was stabilized! Before there was no way of validating variables other than checking their length or doing basic checks inside the code, for example in the&nbsp;locals.tf&nbsp;file, and errors with variables mostly came to light during [&hellip;]</p>
+</p>
+            <a href="/blog/2021/06/validating-variables-in-terraform/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2021/06/darken-and-lighten-colors-with-css/">Darken and Lighten colors with CSS</a></h2>
+            <p><p>Recreating SASS darken() &amp; lighten() function with CSS variables and calc The technique shown in this post uses the&nbsp;hsl&nbsp;color format in combination with the&nbsp;calc&nbsp;CSS function to calculate darker or lighter shades of a base color. Before we get into the code I want to make sure&nbsp;I did not come up with this, I found the [&hellip;]</p>
+</p>
+            <a href="/blog/2021/06/darken-and-lighten-colors-with-css/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2021/05/first-steps-with-traefik-2/">First steps with Traefik 2</a></h2>
+            <p><p>A tale of Auto SSL, Basic Auth, and lots of debugging Recently I&#8217;ve spent some time at work trying out&nbsp;Traefik 2&nbsp;and learning about the new concepts like routers and middleware since we&#8217;ll use Traefik 2 as part of some new infrastructure. We&#8217;ve used Traefik 1 in production at Synoa for the past 3 years. Initially [&hellip;]</p>
+</p>
+            <a href="/blog/2021/05/first-steps-with-traefik-2/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2021/05/gotcha-dots-in-etc-sudoers-d-filenames/">TIL: Dots in /etc/sudoers.d filenames</a></h2>
+            <p><p>A tale of facepalms While reviewing some Ansible modules with a colleague we stumbled upon an issue with our user creation module, and for a briefe time couldn&#8217;t understand what was going on. The module in question creates multiple Linux users, adds them to groups, and enables some to use password less sudo via the&nbsp;/etc/sudoers.d&nbsp;config [&hellip;]</p>
+</p>
+            <a href="/blog/2021/05/gotcha-dots-in-etc-sudoers-d-filenames/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2021/02/wildcards-in-prometheus-queries/">Wildcards in Prometheus queries</a></h2>
+            <p><p>Learn how to query data in Prometheus and how to use wildcards Hello and welcome to this &#8220;snippet-sized&#8221; post about&nbsp;Prometheus&nbsp;queries! Prometheus is a time-series database which means it is build to collect a lot of datasets that show values over time, for example the result of a HTTP request or the RAM usage of a [&hellip;]</p>
+</p>
+            <a href="/blog/2021/02/wildcards-in-prometheus-queries/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2018/04/til-bash-select/">TIL: Bash select</a></h2>
+            <p><p>I was recently researching different bash prompts and stumbled upon an StackExchange answer which explains the different prompt types (PS1, PS2, PS3, and PS4). The answer explains how the PS3 prompt is used for commands like select. I did not know about select before, so that&#8217;s the real TIL here! [&#8230;] PS3 is shown when the select command is waiting for [&hellip;]</p>
+</p>
+            <a href="/blog/2018/04/til-bash-select/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li></ul>
+    </div>
+</section>
+
+
+  <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
+    <div class="content">
+      <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a> and lots of fun. <a href="/imprint">Imprint</a></p>
+    </div>
+  </section>
+</main>
+</body>
+<script>document.addEventListener('DOMContentLoaded', function () {
+  let favicon_txt = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%EMOJI%</text></svg>`
+  let favicon_el = document.head.querySelector('#favicon');
+  let sections = Array.from(document.querySelectorAll('section[data-icon]'));
+  let last_active_section = null;
+  let YEAR_NOW = new Date().getFullYear().toFixed(0);
+  let years_working = document.querySelector(".js-years-working");
+  let all_time_since = document.querySelectorAll(".js-time-since");
+
+  function set_favicon(emoji) {
+    let txt = favicon_txt.replace('%EMOJI%', emoji);
+    favicon_el.setAttribute('href', txt);
+  }
+
+  window.addEventListener('scroll', function (event) {
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
+    let active_section = sections_in_view[sections_in_view.length - 1];
+    if (last_active_section != active_section) {
+      last_active_section = active_section;
+      set_favicon(active_section.dataset.icon);
+    }
+  });
+
+  all_time_since.forEach((element, key) => {
+    let year = element.dataset.year;
+
+    if (year) {
+      try {
+        let year_num = parseInt(year);
+        element.textContent = YEAR_NOW - year_num;
+      } catch (err) {
+        console.log("Error calculating year: ", err);
+      }
+    }
+  })
+
+  if (years_working) {
+    years_working.textContent = YEAR_NOW - 2009;
+  }
+});
+</script>
+</html>

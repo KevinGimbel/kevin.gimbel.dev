@@ -7,6 +7,13 @@
   <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
   <title>Kevin.Gimbel.Dev/Ops</title>
   <style>{% include "style.css" %}</style>
+  {% if custom_styles %}
+  {% for style in custom_styles %}
+  <style>{% include "" + custom_styles %}</style>
+  {% endfor %}
+  {% endif %}
+  {% block head %}
+  {% endblock %}
 </head>
 <body>
   <main class="main-grid">

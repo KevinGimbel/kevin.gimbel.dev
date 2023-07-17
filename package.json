@@ -9,6 +9,10 @@
   "author": "Kevin Gimbel",
   "license": "MIT",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "rss-parser": "^3.13.0"
+  },
+  "devDependencies": {
+    "node-fetch": "^2.6.12"
   }
 }
