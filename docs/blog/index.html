@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Kevin.Gimbel.Dev/Ops</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
-  <title>Kevin.Gimbel.Dev/Ops</title>
   <style>:root {
   --color-bg: hsl(279, 19%, 93%);
   --color-fg: #000;
@@ -377,6 +377,42 @@ section {
 
         <ul class="article-list">
         
+        <li class="article-list__item">
+            <h2><a href="/blog/2023/10/re-announcing-rust-1-73-0/">RE: Announcing Rust 1.73.0</a></h2>
+            <p><p>Yay, Rust 1.73.0 has been released! Highlights include cleaner panic messages and the stabilisation of APIs, I&#8217;m especially happy about the stabilisation of unix APIs for  `chown`, `fchown` and `lchown`.  </p>
+</p>
+            <a href="/blog/2023/10/re-announcing-rust-1-73-0/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2023/09/re-the-opentofu-fork-is-now-available/">RE: The OpenTofu fork is now available!</a></h2>
+            <p><p>A few weeks ago HashiCorp decided to switch the terraform license model from an open source license to the Business Source License (BSL) model, so there&#8217;s now a community driven terraform fork called OpenTofu.</p>
+</p>
+            <a href="/blog/2023/09/re-the-opentofu-fork-is-now-available/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2023/09/til-scale-down-a-kubernetes-daemonset/">TIL: scale down a Kubernetes DaemonSet</a></h2>
+            <p><p>A DaemonSet is supposed to run on all or some Kubernetes nodes, so scaling it down is surprisingly easy: Set a nodeSelector to some label which doesn&#8217;t exist, and the DaemonSet is scaled to 0. This will patch (-p) the DaemonSet and add a nodeSelector ( spec.template.spec.nodeSelector) which makes the DaemonSet run on all nodes [&hellip;]</p>
+</p>
+            <a href="/blog/2023/09/til-scale-down-a-kubernetes-daemonset/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/">TIL: Run a script on every k8s Node using  a DaemonSet</a></h2>
+            <p><p>I&#8217;ve known that DaemonSets are used to run containers on all Nodes of a Kubernetes Cluster (or some), but I&#8217;ve never thought of using them to run a (shell) script on each node &#8211; a not-so-uncommon task when maintaining clusters! We need two resources: A ConfigMap and a DaemonSet.</p>
+</p>
+            <a href="/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2023/08/til-named-return-parameters-in-go/">TIL: named return parameters in Go</a></h2>
+            <p><p>Yet another piece of ✨ Go Magic ✨ I was reading through some Go code when I came upon a function that returned two things &#8211; []string and error &#8211; but the last line of the function just said return. I was confused how this worked, and since it was part of the standard library [&hellip;]</p>
+</p>
+            <a href="/blog/2023/08/til-named-return-parameters-in-go/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item">
+            <h2><a href="/blog/2023/07/building-for-the-web-with-rust-and-webassembly/">Building for the web, with Rust and WebAssembly</a></h2>
+            <p><p>I&#8217;ve been wanting to build something in WebAssembly for a while and just recently it hit me that I have a thing: mktoc! mktoc is a table of contents generator written in Rust, it comes as a Binary and a Library and can be compiled into WebAssembly with zero effort!</p>
+</p>
+            <a href="/blog/2023/07/building-for-the-web-with-rust-and-webassembly/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
         <li class="article-list__item">
             <h2><a href="/blog/2023/04/til-multiple-git-identities-on-one-machine/">TIL: multiple git-identities on one machine</a></h2>
             <p><p>Turns out you can have multiple Git identities alongside each other on one Machine without needing to set them locally for each repository! It still involves multiple .gitconfig files, but it&#8217;s a lot less work than configuring an endless amount of repos! First, set the global config like this: Now in ~/AOE/.gitconfig I configure the [&hellip;]</p>

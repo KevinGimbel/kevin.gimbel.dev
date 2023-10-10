@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Kevin.Gimbel.Dev/Ops</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
+  <style>:root {
+  --color-bg: hsl(279, 19%, 93%);
+  --color-fg: #000;
+  --color-contrast-fg: #000;
+  --color-contrast-bg: #000;
+
+  --stack-spacing: 2rem;
+  --spacing: 2rem;
+
+  --color-accent-1: hsl(100, 75%, 90%);
+  --color-accent-1-contrast: hsl(100, 20%, 50%);
+  --color-accent-2: hsl(200, 75%, 90%);
+  --color-accent-2-contrast: hsl(200, 20%, 50%);
+  --color-accent-3: hsl(300, 75%, 90%);
+  --color-accent-3-contrast: hsl(300, 20%, 50%);
+  --color-accent-4: hsl(400, 75%, 90%);
+  --color-accent-4-contrast: hsl(400, 20%, 50%);
+  --color-accent-5: hsl(255, 75%, 90%);
+  --color-accent-5-contrast: hsl(255, 20%, 50%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px/1.4 ui-monospace,
+    "Cascadia Mono", "Segoe UI Mono",
+    "Ubuntu Mono",
+    "Roboto Mono",
+    Menlo, Monaco, Consolas,
+    monospace;
+  background: cornsilk;
+  color: #000;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2,
+h3 {
+  --color-fg: var(--color-contrast-fg);
+  text-shadow: .02em .02em 0 var(--color-bg), .03em .03em 0 var(--color-contrast-fg);
+}
+
+hr {
+  max-width: 80%;
+  margin: 0 auto;
+  border: none;
+  background: var(--color-fg);
+  height: 0.05em;
+}
+
+.stack *+* {
+  margin-top: var(--stack-spacing, 2rem);
+}
+
+a {
+  color: hotpink;
+}
+
+a:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.a-blank,
+.a-blank:visited {
+  text-decoration: none;
+}
+
+.a-blank:hover,
+.a-blank:focus {
+  border-bottom: .15em solid currentColor;
+  font-size: 100%;
+  letter-spacing: 0em;
+}
+
+.a-splash {
+  color: var(--color-bg);
+  background: var(--color-fg);
+  border-radius: 65% 72% 53% 41%;
+  padding: .25em;
+}
+
+/* Accent colors and styles */
+.fg-accent-1 {
+  --color-fg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.fg-accent-2 {
+  --color-fg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.fg-accent-3 {
+  --color-fg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.fg-accent-4 {
+  --color-fg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+[class*="fg-accent"] {
+  color: var(--color-fg);
+  font-weight: bold;
+}
+
+.bg-accent-1 {
+  --color-contrast-fg: var(--color-accent-1-contrast, #000);
+  --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.bg-accent-2 {
+  --color-contrast-fg: var(--color-accent-2-contrast, #000);
+  --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.bg-accent-3 {
+  --color-contrast-fg: var(--color-accent-3-contrast, #000);
+  --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.bg-accent-4 {
+  --color-contrast-fg: var(--color-accent-4-contrast, #000);
+  --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+.bg-accent-5 {
+  --color-contrast-fg: var(--color-accent-5-contrast, #fff);
+  --color-bg: var(--color-accent-5, #000);
+}
+
+[class*="bg-accent"] {
+  background: var(--color-bg, #000);
+  color: var(--color-fg, #fff);
+}
+
+ul {
+  list-style: none;
+  margin-left: var(--stack-spacing);
+}
+
+ul li::before {
+  content: "✦";
+  color: var(--color-contrast-fg, #000);
+  display: inline;
+  width: 1em;
+  margin-left: -1.25em;
+  padding-right: .5em;
+}
+
+.grid {
+  display: grid;
+}
+
+
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1em;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.gr-1 {
+  grid-row: 1;
+}
+
+.gr-2 {
+  grid-row: 2;
+}
+
+.gr-auto {
+  grid-row: auto;
+}
+
+.gc-full {
+  grid-column-start: 1;
+  grid-column-end: 12;
+}
+
+.gc-8-12 {
+  grid-column-start: 8;
+  grid-column-end: 12;
+}
+
+.gc-1-7 {
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 3), 1fr);
+  grid-gap: var(--stack-spacing, 2rem);
+}
+
+ul li {
+  margin-top: var(--stack-spacing, 1rem);
+}
+
+/* .c-skill-list {} */
+.c-skill-list__item {
+  padding: 1rem;
+  font-size: .75em;
+}
+
+.about {
+  grid-column-start: 5;
+  grid-column-end: 12;
+  grid-row: 2;
+}
+
+.c-full-width {
+  width: 100vw;
+}
+
+.c-full-height {
+  min-height: 100vh;
+}
+
+hgroup {
+  margin-bottom: calc(var(--stack-spacing, 2rem) * 2);
+}
+
+.c-svg-background {
+  width: 100%;
+  width: fit-content;
+  max-width: 40vw;
+  position: relative;
+  padding: var(--spacing, 2rem);
+  display: block;
+  color: var(--color-fg, #000);
+  display: inline-grid;
+  grid-template-areas: "a";
+}
+
+.c-svg-background>.background,
+.c-svg-background>.content {
+  grid-area: a;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.c-svg-background>.content {
+  padding: 0 0 1.5em 1em;
+}
+
+.c-svg-background>.background {
+  width: 110%;
+  height: 110%;
+  margin-left: -5%;
+  margin-top: -5%;
+}
+
+.f-ultra>* {
+  font-size: 2.75em;
+}
+
+.f-heading-big {
+  font-size: 3em;
+  color: var(--color-fg, #000);
+}
+
+section {
+  padding: var(--spacing, 2rem);
+}
+
+@media all and (max-width: 2000px) {
+  .about {
+    grid-column-start: 3;
+    grid-column-end: 13;
+    max-width: 60vw;
+    min-width: 60rem;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  body {
+    font-size: 10px;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .start>* {
+    max-width: 100%;
+  }
+
+  .about,
+  .avatar {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .bg-accent-3 {
+    text-shadow: none;
+  }
+
+  .about {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    background: var(--color-contrast-bg);
+  }
+
+  .about .background {
+    display: none;
+  }
+
+  .c-skill-list {
+    grid-template-columns: 1fr;
+  }
+
+  .c-svg-background {
+    max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .grid>* {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+.single-page {
+  font-size: .75em;
+}
+
+.article-list {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.article-list__item>h2 {
+  text-shadow: none;
+}
+
+.article-list__more-link {
+  display: inline-block;
+  margin-top: var(--spacing);
+}
+
+.article-list__item {
+  margin: calc(var(--spacing) * 2) 0;
+  background: #fff;
+  padding: calc(var(--spacing) * 2)
+}</style>
+  
+  
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-page,
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    background: var(--color-accent-2, #ddd);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: var(--color-accent-2-contrast, #000);
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}</style>
+  
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2023/07/building-for-the-web-with-rust-and-webassembly/" />
+
+</head>
+<body>
+  <main class="main-grid">
+  
+
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
+    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+    <hr />
+    <div class="content">
+        <h1>Building for the web, with Rust and WebAssembly</h1>
+        
+<p class="has-medium-font-size"><a rel="noreferrer noopener" href="https://webassembly.org" target="_blank">WebAssembly</a> (<em>WASM</em>) has been around for a few years now. It&#8217;s a binary format that runs in the browser, allowing programmers to write code in Rust (<em>or Java, Go, C/C++</em>), compile it into WebAssembly and then execute the code in the browser.</p>
+
+
+
+<p>I&#8217;ve been wanting to build <em>something</em> in WebAssembly for a while and just recently it hit me that I have a thing: <strong>mktoc</strong>! <a rel="noreferrer noopener" href="https://github.com/KevinGimbel/mktoc" target="_blank">mktoc</a> is a table of contents generator written in Rust, it comes as a Binary and a Library and can be compiled into WebAssembly with <em>zero effort</em>!</p>
+
+
+
+<h2 class="wp-block-heading">Quick (Technical) Overview</h2>
+
+
+
+<ul>
+<li>The Rust code gets compiled for the target <br><strong>wasm32-unknown-unknown</strong></li>
+
+
+
+<li><a href="https://rustwasm.github.io/wasm-pack/installer/" target="_blank" rel="noreferrer noopener">wasm-pack</a> is used to compile and bundle the generated WASM code</li>
+
+
+
+<li>Some JavaScript and a static HTML page is used to build the Front-end</li>
+
+
+
+<li>The web app is deployed on GitHub pages</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Compiling to WASM</h2>
+
+
+
+<p>Compiling to WASM is surprisingly straight forward. Rust has a target for WASM, <code>wasm32-unknown-unknown</code>, and a nice build tool for generating the &#8220;glue code&#8221; around the WASM binary: <code><strong>wasm-pack</strong></code></p>
+
+
+
+<pre class="wp-block-code"><code lang="bash" class="language-bash">wasm-pack build --release --target web</code></pre>
+
+
+
+<p>This command builds the code as an optimised release with web as the target platform &#8211; other targets are <code><em>bundler, nodejs, web, no-modules</em> </code>&#8211; <code>bundler</code> being the default here. </p>
+
+
+
+<p>A few things more are required to get the Rust code to compile to WASM:</p>
+
+
+
+<ul>
+<li><code>[lib]</code> must be set to <code>crate-type = ["cdylib"]</code></li>
+
+
+
+<li><code>wasm-bindgen</code> must be added as a dependency</li>
+</ul>
+
+
+
+<p>So the <code>Cargo.toml</code> looks something like this:</p>
+
+
+
+<pre class="wp-block-code"><code lang="toml" class="language-toml">[...]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+mktoc = { path = "../" }
+wasm-bindgen = "0.2.87"</code></pre>
+
+
+
+<p>The mktoc dependency is loaded relatively because I included the WASM code as a sub-directory in the <a rel="noreferrer noopener" href="https://github.com/KevinGimbel/mktoc/tree/main/wasm" target="_blank">mktoc repository</a>.</p>
+
+
+
+<p>With the dependencies and crate-type in place it&#8217;s finally time for some Rust code!</p>
+
+
+
+<pre class="wp-block-code"><code lang="rust" class="language-rust">use mktoc;
+use wasm_bindgen::prelude::*;
+
+#[wasm_bindgen]
+pub fn make_toc(content: &amp;str) -&gt; String {
+    mktoc::add_toc(
+        content.to_string(),
+        mktoc::generate_toc(content.to_string(), mktoc::Config::default()),
+    )
+}
+#[wasm_bindgen]
+pub fn make_toc_only(content: &amp;str) -&gt; String {
+    mktoc::generate_toc(content.to_string(), mktoc::Config::default())
+}</code></pre>
+
+
+
+<p>Here we create two functions, <code>make_toc</code> and <code>make_toc_only</code>, which are attributed with <code>#[wasm_bindgen]</code>, which tells the compiler to make these functions available through WebAssembly. </p>
+
+
+
+<p>And that&#8217;s it. The Rust code in mktoc doesn&#8217;t need to be updated at all!</p>
+
+
+
+<p>For compiling, <code>wasm-pack</code> is used:</p>
+
+
+
+<pre class="wp-block-code"><code lang="bash" class="language-bash">wasm-pack build --release --target web</code></pre>
+
+
+
+<p>The files will be written to the <code>pkg</code> directory by default and can be loaded via JavaScript.</p>
+
+
+
+<pre class="wp-block-code"><code lang="markup" class="language-markup">&lt;script type="module"&gt;
+import init, { make_toc, make_toc_only } from "./pkg/webtoc.js";
+
+init().then(() =&gt; {
+// wasm code is loaded
+// make_toc is the function defined in Rust
+make_toc(`
+# Sample
+
+&lt;!-- BEGIN mktoc --&gt;
+
+&lt;!-- END mktoc --&gt;
+
+This is an example document.
+
+## Sample heading 2
+
+\`\`\`rust 
+pub fn hello(name: &amp;str) -&gt; String {
+    format!("Hello, {}!", name)
+}
+\`\`\``);
+});
+&lt;/script&gt;</code></pre>
+
+
+
+<p>A full working example can also be found on CodePen <a rel="noreferrer noopener" href="https://codepen.io/kevingimbel/pen/GRwGrQZ" target="_blank">https://codepen.io/kevingimbel/pen/GRwGrQZ</a> &#8211; the code uses a packaged and released version from NPM at <a rel="noreferrer noopener" href="https://npmjs.com/webtoc" target="_blank">https://npmjs.com/webtoc</a> via unpkg.</p>
+
+
+
+<h2 class="wp-block-heading">Using the WASM code in a Web App </h2>
+
+
+
+<p>The same code is available as a &#8220;web app&#8221; at <a href="https://kevingimbel.github.io/webtoc/">https://kevingimbel.github.io/webtoc/</a> &#8211; you can paste or load your own Markdown files. When &#8220;uploading&#8221; a file there&#8217;s no need to actually transmit it to a browser: It&#8217;s accessible via JavaScript without being processed by a backend!</p>
+
+
+
+<div class="wp-block-columns alignwide is-layout-flex wp-container-3 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<pre class="wp-block-code"><code lang="javascript" class="language-javascript line-numbers">markdown_file.addEventListener("change", readFile);
+function readFile() {
+    const [file] = markdown_file.files;
+    const reader = new FileReader();
+
+    let dot_split = file.name.split(".");
+    let file_ext = dot_split[dot_split.length - 1].toLowerCase()
+
+    if (file_ext !== "md" &amp;&amp; file_ext !== "markdown") {
+        triggerError("Not a markdown file. Please add .md or .markdown file");
+        // reset the file input
+        markdown_file.value = "";
+        return;
+    }
+
+    reader.addEventListener("load", () =&gt; {
+        markdown_input.value = "";
+        // pass the file to make_toc
+        generate_toc(reader.result);
+    });
+
+    if (file) {
+        reader.readAsText(file);
+    }
+}</code></pre>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<p>Here&#8217;s how it&#8217;s done: </p>
+
+
+
+<ul>
+<li><strong>Line 1: </strong><code>markdown_file</code> identifier is the Input element.</li>
+
+
+
+<li><strong>Line 2: </strong><code>readFile</code> will be called on &#8220;change&#8221;: The change event is triggered when a file has been selected via the input</li>
+
+
+
+<li><strong>Line 3: </strong><code>markdown_file.files</code> contains an array of selected files &#8211; we only care about one, so we load it with <code>const [file]</code></li>
+
+
+
+<li><strong>Line 6-7:</strong> <code>dot_split</code> and <code>file_ext</code> are used to get the file extension from the file name &#8211; we won&#8217;t process files which aren&#8217;t markdown.</li>
+
+
+
+<li><strong>Line 9-14:</strong> I&#8217;ve decided that markdown files must end in <code>.md</code> or <code>.markdown</code>, if they do not an error is thrown</li>
+
+
+
+<li><strong>Line 16-20:</strong> adds a load event on the reader we created. This triggers once the file has been loaded by the browser &#8211; this happens <em>BEFORE any form is submitted!</em> Here we reset the input value (= remove the file from the element), then pass the file content to the <code>generate_toc</code> function</li>
+
+
+
+<li><strong>Line 22-24:</strong>Here the file is read &#8211; this will trigger the <code>load</code> event defined in line 16-20. </li>
+</ul>
+</div>
+</div>
+
+
+
+<p>This setup is incredibly fast. A fairly large Markdown file is processed in milliseconds!</p>
+
+
+
+<h2 class="wp-block-heading">Takeaways</h2>
+
+
+
+<ul>
+<li><strong><em>Compiling Rust to WASM is surprisingly easy</em></strong>! <br>Without adjustments I was able to bring my Rust library to the web (and NPM!)</li>
+
+
+
+<li><em><strong>WASM enables Rust code to be used &#8220;Full Stack&#8221;</strong></em><br>The mktoc code can be used to preview a Markdown file in the browser, and write it to disk via a backend</li>
+
+
+
+<li><strong><em>Rust is awesome</em></strong><br>Not a takeaway, but I love Rust!</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Code</h2>
+
+
+
+<p>All code used in this blog post is available on Github:</p>
+
+
+
+<ul>
+<li><a href="https://github.com/KevinGimbel/mktoc/tree/main" target="_blank" rel="noreferrer noopener">mktoc</a></li>
+
+
+
+<li><a href="https://github.com/KevinGimbel/mktoc/tree/main/wasm" target="_blank" rel="noreferrer noopener">mktoc WASM</a></li>
+
+
+
+<li><a href="https://github.com/KevinGimbel/webtoc/" target="_blank" rel="noreferrer noopener">webtoc</a> </li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Further reading</h2>
+
+
+
+<ul>
+<li><a href="https://rustwasm.github.io/docs/wasm-pack/" target="_blank" rel="noreferrer noopener">https://rustwasm.github.io/docs/wasm-pack/</a></li>
+
+
+
+<li><a href="https://webassembly.org" target="_blank" rel="noreferrer noopener">https://webassembly.org</a></li>
+
+
+
+<li><a rel="noreferrer noopener" href="https://developer.mozilla.org/en-US/docs/WebAssembly" target="_blank">https://developer.mozilla.org/en-US/docs/WebAssembly</a></li>
+</ul>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<p class="has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-9c42702dc0604635bad2da123662bada">Join the discussion on <a rel="noreferrer noopener" href="https://fosstodon.org/@KevinGimbel/110784659700280987" target="_blank">Mastodon</a> 🐘 or comment below 👇</p>
+
+    </div>
+</section>
+
+
+  <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
+    <div class="content">
+      <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a> and lots of fun. <a href="/imprint">Imprint</a></p>
+    </div>
+  </section>
+</main>
+</body>
+<script>document.addEventListener('DOMContentLoaded', function () {
+  let favicon_txt = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%EMOJI%</text></svg>`
+  let favicon_el = document.head.querySelector('#favicon');
+  let sections = Array.from(document.querySelectorAll('section[data-icon]'));
+  let last_active_section = null;
+  let YEAR_NOW = new Date().getFullYear().toFixed(0);
+  let years_working = document.querySelector(".js-years-working");
+  let all_time_since = document.querySelectorAll(".js-time-since");
+
+  function set_favicon(emoji) {
+    let txt = favicon_txt.replace('%EMOJI%', emoji);
+    favicon_el.setAttribute('href', txt);
+  }
+
+  window.addEventListener('scroll', function (event) {
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
+    let active_section = sections_in_view[sections_in_view.length - 1];
+    if (last_active_section != active_section) {
+      last_active_section = active_section;
+      set_favicon(active_section.dataset.icon);
+    }
+  });
+
+  all_time_since.forEach((element, key) => {
+    let year = element.dataset.year;
+
+    if (year) {
+      try {
+        let year_num = parseInt(year);
+        element.textContent = YEAR_NOW - year_num;
+      } catch (err) {
+        console.log("Error calculating year: ", err);
+      }
+    }
+  })
+
+  if (years_working) {
+    years_working.textContent = YEAR_NOW - 2009;
+  }
+});
+</script>
+</html>

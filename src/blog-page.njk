@@ -18,7 +18,7 @@ custom_styles:
 {% block content %}
 
 <section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
-    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+    {% include "nav.njk" %}
     <hr />
     <div class="content">
         <h1>{{ article.title }}</h1>

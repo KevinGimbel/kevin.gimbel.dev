@@ -2,7 +2,8 @@
 
 {% block content %}
 <section class="[ f-ultra stack ] [ gr-auto gc-full ] single-page">
-  <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+  {% include "nav.njk" %}
+  
   <hr />
   <div class="content">
     {{ content | safe }}
