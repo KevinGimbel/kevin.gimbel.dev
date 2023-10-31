@@ -11,6 +11,10 @@ custom_styles:
 
 {% extends "base.njk" %}
 
+{% block custom_title %}
+{{ article.title }} - Kevin.Gimbel.Dev/Blog
+{% endblock %}
+
 {% block head %}
 <link rel="canonical" href="{{ article.link }}" />
 {% endblock %}
@@ -19,6 +23,10 @@ custom_styles:
 
 <section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
     {% include "nav.njk" %}
+
+    <div class="article__og-box">
+        <p><i>"{{ article.title}}"</i> was originally published on <a href="{{ article.link }}" target="_blank" rel="nofollow" title="Read '{{ article.title}}' on kevingimbel.de">kevingimbel.de</a>.</p>
+    </div>
     <hr />
     <div class="content">
         <h1>{{ article.title }}</h1>

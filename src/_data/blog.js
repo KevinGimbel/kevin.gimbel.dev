@@ -2,7 +2,6 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const response = fetch('https://kevingimbel.de/wp-json/wp/v2/posts?orderby=date&order=desc&per_page=100');
 
 let data = response.then((response) => {
-    console.log(response.headers);
     return response.json();
 }).then(data => {
     let _posts = [];
@@ -10,7 +9,7 @@ let data = response.then((response) => {
         var post = {
             title: item.title.rendered,
             link: item.link,
-            content: item.content.rendered,
+            content: item.content.rendered.replace("comment below 👇", `<a href="${item.link}#respond">comment on the original article on kevingimbel.de</a>`),
             excerpt: item.excerpt.rendered,
             slug: item.link.replace('https://kevingimbel.de/', '')
         }

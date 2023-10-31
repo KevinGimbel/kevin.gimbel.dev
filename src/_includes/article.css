@@ -62,3 +62,11 @@ pre,
     border-left: .25em solid #ddd;
     border-top: .25em solid #ddd;
 }
+
+.article__og-box {
+    font-size: 1rem;
+    border: .25em solid #ddd;
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: calc(var(--spacing) / 2);
+}
