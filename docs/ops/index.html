@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Kevin.Gimbel.Dev/Ops</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
-  <title>Kevin.Gimbel.Dev/Ops</title>
   <style>:root {
   --color-bg: hsl(279, 19%, 93%);
   --color-fg: #000;
@@ -35,11 +35,11 @@
 
 body {
   font: 14px/1.4 ui-monospace,
-  "Cascadia Mono", "Segoe UI Mono",
-  "Ubuntu Mono",
-  "Roboto Mono",
-  Menlo, Monaco, Consolas,
-  monospace;
+    "Cascadia Mono", "Segoe UI Mono",
+    "Ubuntu Mono",
+    "Roboto Mono",
+    Menlo, Monaco, Consolas,
+    monospace;
   background: cornsilk;
   color: #000;
 }
@@ -295,8 +295,8 @@ section {
   section {
     padding: 2rem;
   }
-  
-  .start > * {
+
+  .start>* {
     max-width: 100%;
   }
 
@@ -333,7 +333,7 @@ section {
     grid-template-rows: 1fr;
   }
 
-  .grid > * {
+  .grid>* {
     grid-column: auto;
     grid-row: auto;
   }
@@ -342,7 +342,29 @@ section {
 .single-page {
   font-size: .75em;
 }
-</style>
+
+.article-list {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.article-list__item>h2 {
+  text-shadow: none;
+}
+
+.article-list__more-link {
+  display: inline-block;
+  margin-top: var(--spacing);
+}
+
+.article-list__item {
+  margin: calc(var(--spacing) * 2) 0;
+  background: #fff;
+  padding: calc(var(--spacing) * 2)
+}</style>
+  
+  
+  
 </head>
 <body>
   <main class="main-grid">

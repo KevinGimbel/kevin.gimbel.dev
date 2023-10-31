@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>
+TIL: Bash select - Kevin.Gimbel.Dev/Blog
+</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
+  <style>:root {
+  --color-bg: hsl(279, 19%, 93%);
+  --color-fg: #000;
+  --color-contrast-fg: #000;
+  --color-contrast-bg: #000;
+
+  --stack-spacing: 2rem;
+  --spacing: 2rem;
+
+  --color-accent-1: hsl(100, 75%, 90%);
+  --color-accent-1-contrast: hsl(100, 20%, 50%);
+  --color-accent-2: hsl(200, 75%, 90%);
+  --color-accent-2-contrast: hsl(200, 20%, 50%);
+  --color-accent-3: hsl(300, 75%, 90%);
+  --color-accent-3-contrast: hsl(300, 20%, 50%);
+  --color-accent-4: hsl(400, 75%, 90%);
+  --color-accent-4-contrast: hsl(400, 20%, 50%);
+  --color-accent-5: hsl(255, 75%, 90%);
+  --color-accent-5-contrast: hsl(255, 20%, 50%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px/1.4 ui-monospace,
+    "Cascadia Mono", "Segoe UI Mono",
+    "Ubuntu Mono",
+    "Roboto Mono",
+    Menlo, Monaco, Consolas,
+    monospace;
+  background: cornsilk;
+  color: #000;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2,
+h3 {
+  --color-fg: var(--color-contrast-fg);
+  text-shadow: .02em .02em 0 var(--color-bg), .03em .03em 0 var(--color-contrast-fg);
+}
+
+hr {
+  max-width: 80%;
+  margin: 0 auto;
+  border: none;
+  background: var(--color-fg);
+  height: 0.05em;
+}
+
+.stack *+* {
+  margin-top: var(--stack-spacing, 2rem);
+}
+
+a {
+  color: hotpink;
+}
+
+a:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.a-blank,
+.a-blank:visited {
+  text-decoration: none;
+}
+
+.a-blank:hover,
+.a-blank:focus {
+  border-bottom: .15em solid currentColor;
+  font-size: 100%;
+  letter-spacing: 0em;
+}
+
+.a-splash {
+  color: var(--color-bg);
+  background: var(--color-fg);
+  border-radius: 65% 72% 53% 41%;
+  padding: .25em;
+}
+
+/* Accent colors and styles */
+.fg-accent-1 {
+  --color-fg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.fg-accent-2 {
+  --color-fg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.fg-accent-3 {
+  --color-fg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.fg-accent-4 {
+  --color-fg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+[class*="fg-accent"] {
+  color: var(--color-fg);
+  font-weight: bold;
+}
+
+.bg-accent-1 {
+  --color-contrast-fg: var(--color-accent-1-contrast, #000);
+  --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.bg-accent-2 {
+  --color-contrast-fg: var(--color-accent-2-contrast, #000);
+  --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.bg-accent-3 {
+  --color-contrast-fg: var(--color-accent-3-contrast, #000);
+  --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.bg-accent-4 {
+  --color-contrast-fg: var(--color-accent-4-contrast, #000);
+  --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+.bg-accent-5 {
+  --color-contrast-fg: var(--color-accent-5-contrast, #fff);
+  --color-bg: var(--color-accent-5, #000);
+}
+
+[class*="bg-accent"] {
+  background: var(--color-bg, #000);
+  color: var(--color-fg, #fff);
+}
+
+ul {
+  list-style: none;
+  margin-left: var(--stack-spacing);
+}
+
+ul li::before {
+  content: "✦";
+  color: var(--color-contrast-fg, #000);
+  display: inline;
+  width: 1em;
+  margin-left: -1.25em;
+  padding-right: .5em;
+}
+
+.grid {
+  display: grid;
+}
+
+
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1em;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.gr-1 {
+  grid-row: 1;
+}
+
+.gr-2 {
+  grid-row: 2;
+}
+
+.gr-auto {
+  grid-row: auto;
+}
+
+.gc-full {
+  grid-column-start: 1;
+  grid-column-end: 12;
+}
+
+.gc-8-12 {
+  grid-column-start: 8;
+  grid-column-end: 12;
+}
+
+.gc-1-7 {
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 3), 1fr);
+  grid-gap: var(--stack-spacing, 2rem);
+}
+
+ul li {
+  margin-top: var(--stack-spacing, 1rem);
+}
+
+/* .c-skill-list {} */
+.c-skill-list__item {
+  padding: 1rem;
+  font-size: .75em;
+}
+
+.about {
+  grid-column-start: 5;
+  grid-column-end: 12;
+  grid-row: 2;
+}
+
+.c-full-width {
+  width: 100vw;
+}
+
+.c-full-height {
+  min-height: 100vh;
+}
+
+hgroup {
+  margin-bottom: calc(var(--stack-spacing, 2rem) * 2);
+}
+
+.c-svg-background {
+  width: 100%;
+  width: fit-content;
+  max-width: 40vw;
+  position: relative;
+  padding: var(--spacing, 2rem);
+  display: block;
+  color: var(--color-fg, #000);
+  display: inline-grid;
+  grid-template-areas: "a";
+}
+
+.c-svg-background>.background,
+.c-svg-background>.content {
+  grid-area: a;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.c-svg-background>.content {
+  padding: 0 0 1.5em 1em;
+}
+
+.c-svg-background>.background {
+  width: 110%;
+  height: 110%;
+  margin-left: -5%;
+  margin-top: -5%;
+}
+
+.f-ultra>* {
+  font-size: 2.75em;
+}
+
+.f-heading-big {
+  font-size: 3em;
+  color: var(--color-fg, #000);
+}
+
+section {
+  padding: var(--spacing, 2rem);
+}
+
+@media all and (max-width: 2000px) {
+  .about {
+    grid-column-start: 3;
+    grid-column-end: 13;
+    max-width: 60vw;
+    min-width: 60rem;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  body {
+    font-size: 10px;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .start>* {
+    max-width: 100%;
+  }
+
+  .about,
+  .avatar {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .bg-accent-3 {
+    text-shadow: none;
+  }
+
+  .about {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    background: var(--color-contrast-bg);
+  }
+
+  .about .background {
+    display: none;
+  }
+
+  .c-skill-list {
+    grid-template-columns: 1fr;
+  }
+
+  .c-svg-background {
+    max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .grid>* {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+.single-page {
+  font-size: .75em;
+}
+
+.article-list {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.article-list__item>h2 {
+  text-shadow: none;
+}
+
+.article-list__more-link {
+  display: inline-block;
+  margin-top: var(--spacing);
+}
+
+.article-list__item {
+  margin: calc(var(--spacing) * 2) 0;
+  background: #fff;
+  padding: calc(var(--spacing) * 2)
+}</style>
+  
+  
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-page,
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    background: var(--color-accent-2, #ddd);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: var(--color-accent-2-contrast, #000);
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}
+
+.article__og-box {
+    font-size: 1rem;
+    border: .25em solid #ddd;
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: calc(var(--spacing) / 2);
+}</style>
+  
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2018/04/til-bash-select/" />
+
+</head>
+<body>
+  <main class="main-grid">
+  
+
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
+    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+
+    <div class="article__og-box">
+        <p><i>"TIL: Bash select"</i> was originally published on <a href="https://kevingimbel.de/blog/2018/04/til-bash-select/" target="_blank" rel="nofollow" title="Read 'TIL: Bash select' on kevingimbel.de">kevingimbel.de</a>.</p>
+    </div>
+    <hr />
+    <div class="content">
+        <h1>TIL: Bash select</h1>
+        
+<p>I was recently researching different bash prompts and stumbled upon an <a href="https://unix.stackexchange.com/a/193660/136550">StackExchange answer</a> which explains the different prompt types (<code>PS1</code>, <code>PS2</code>, <code>PS3</code>, and <code>PS4</code>). The answer explains how the PS3 prompt is used for commands like <code>select</code>. I did not know about select before, so that&#8217;s the real  TIL here!</p>
+
+
+
+<blockquote class="wp-block-quote">
+<p>[&#8230;] PS3 is shown when the select command is waiting for input [&#8230;]</p>
+</blockquote>
+
+
+
+<p>So the <code>PS3</code> prompt is shown when a bash program is waiting for user input, and it turns out that the <code>select</code> bash command is used for creating a &#8220;choice&#8221; UI in bash. So what does that mean and how does it work?</p>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2018/04/19-bash-select-options.md#asking-interactive-questions-in-bash"></a>Asking interactive questions in Bash</h2>
+
+
+
+<p>Let&#8217;s assume we have a shell script called&nbsp;<code>make-project</code>&nbsp;which bootstraps some project stuff, for example configuration files. We could provide the user with an option to choose a format from a list of available configuration formats like&nbsp;<code>XML</code>&nbsp;or&nbsp;<code>JSON</code>.</p>
+
+
+
+<p>We can handle these options via shell arguments like&nbsp;<code>make-project -format xml</code>, but we could also ask questions interactively using&nbsp;<code>select</code>.</p>
+
+
+
+<p>The script looks like this.</p>
+
+
+
+<pre class="wp-block-preformatted">#!/bin/bash
+
+# Default format
+format="xml"
+
+# Ask a question
+echo "Which configuration format do you prefer?"
+# Create the "UI" with a choice option
+select f in xml json; do
+  format=$f
+  # Break to end the select after something was selected
+  break;
+done
+
+echo "Format: $format"</pre>
+
+
+
+<p>The&nbsp;<code>select</code>&nbsp;function takes a variable name (<code>f</code>&nbsp;above) and a list of possible values (<code>xml json</code>) which is seperated by spaces.</p>
+
+
+
+<pre class="wp-block-preformatted">select myvariable in value1 value2 value3; do
+  # $myvariable will be value1, value2, or value3
+  selectedValue = $myvariable
+  break;
+done</pre>
+
+
+
+<p>When our little&nbsp;<code>make-project</code>&nbsp;script is run it would looks like this (in Bash 4.4 on Mac OS):</p>
+
+
+
+<pre class="wp-block-code"><code>$ ./make-project.sh
+Which configuration format do you prefer?
+1) xml
+2) json
+#? _
+</code></pre>
+
+
+
+<p>The last line,&nbsp;<code>#?</code>, is the&nbsp;<code>PS3</code>&nbsp;prompt and&nbsp;<code>_</code>&nbsp;is the cursor position. The user can now enter a number (1 for&nbsp;<code>xml</code>&nbsp;or 2 for&nbsp;<code>json</code>) and the selection would be captured and assigned to the&nbsp;<code>format</code>&nbsp;variable in our script. If we add&nbsp;<code>export PS3="Your answer: "</code>&nbsp;to the script it will replace the default PS3 prompt for your script as shown below.</p>
+
+
+
+<pre class="wp-block-code"><code>$ ./make-project.sh
+Which configuration format do you prefer?
+1) xml
+2) json
+Your answer: _
+</code></pre>
+
+
+
+<p><code>select</code>&nbsp;is a clean and simple way to create a interactive UI! I tried the code with the&nbsp;<code>zsh</code>&nbsp;and&nbsp;<code>fish</code>&nbsp;shell and it looks the same.</p>
+
+    </div>
+</section>
+
+
+  <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
+    <div class="content">
+      <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a> and lots of fun. <a href="/imprint">Imprint</a></p>
+    </div>
+  </section>
+</main>
+</body>
+<script>document.addEventListener('DOMContentLoaded', function () {
+  let favicon_txt = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%EMOJI%</text></svg>`
+  let favicon_el = document.head.querySelector('#favicon');
+  let sections = Array.from(document.querySelectorAll('section[data-icon]'));
+  let last_active_section = null;
+  let YEAR_NOW = new Date().getFullYear().toFixed(0);
+  let years_working = document.querySelector(".js-years-working");
+  let all_time_since = document.querySelectorAll(".js-time-since");
+
+  function set_favicon(emoji) {
+    let txt = favicon_txt.replace('%EMOJI%', emoji);
+    favicon_el.setAttribute('href', txt);
+  }
+
+  window.addEventListener('scroll', function (event) {
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
+    let active_section = sections_in_view[sections_in_view.length - 1];
+    if (last_active_section != active_section) {
+      last_active_section = active_section;
+      set_favicon(active_section.dataset.icon);
+    }
+  });
+
+  all_time_since.forEach((element, key) => {
+    let year = element.dataset.year;
+
+    if (year) {
+      try {
+        let year_num = parseInt(year);
+        element.textContent = YEAR_NOW - year_num;
+      } catch (err) {
+        console.log("Error calculating year: ", err);
+      }
+    }
+  })
+
+  if (years_working) {
+    years_working.textContent = YEAR_NOW - 2009;
+  }
+});
+</script>
+</html>

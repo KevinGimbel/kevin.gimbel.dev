@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>
+Setting up a MacBook from scratch for the first time in 8 years - Kevin.Gimbel.Dev/Blog
+</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
+  <style>:root {
+  --color-bg: hsl(279, 19%, 93%);
+  --color-fg: #000;
+  --color-contrast-fg: #000;
+  --color-contrast-bg: #000;
+
+  --stack-spacing: 2rem;
+  --spacing: 2rem;
+
+  --color-accent-1: hsl(100, 75%, 90%);
+  --color-accent-1-contrast: hsl(100, 20%, 50%);
+  --color-accent-2: hsl(200, 75%, 90%);
+  --color-accent-2-contrast: hsl(200, 20%, 50%);
+  --color-accent-3: hsl(300, 75%, 90%);
+  --color-accent-3-contrast: hsl(300, 20%, 50%);
+  --color-accent-4: hsl(400, 75%, 90%);
+  --color-accent-4-contrast: hsl(400, 20%, 50%);
+  --color-accent-5: hsl(255, 75%, 90%);
+  --color-accent-5-contrast: hsl(255, 20%, 50%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px/1.4 ui-monospace,
+    "Cascadia Mono", "Segoe UI Mono",
+    "Ubuntu Mono",
+    "Roboto Mono",
+    Menlo, Monaco, Consolas,
+    monospace;
+  background: cornsilk;
+  color: #000;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2,
+h3 {
+  --color-fg: var(--color-contrast-fg);
+  text-shadow: .02em .02em 0 var(--color-bg), .03em .03em 0 var(--color-contrast-fg);
+}
+
+hr {
+  max-width: 80%;
+  margin: 0 auto;
+  border: none;
+  background: var(--color-fg);
+  height: 0.05em;
+}
+
+.stack *+* {
+  margin-top: var(--stack-spacing, 2rem);
+}
+
+a {
+  color: hotpink;
+}
+
+a:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.a-blank,
+.a-blank:visited {
+  text-decoration: none;
+}
+
+.a-blank:hover,
+.a-blank:focus {
+  border-bottom: .15em solid currentColor;
+  font-size: 100%;
+  letter-spacing: 0em;
+}
+
+.a-splash {
+  color: var(--color-bg);
+  background: var(--color-fg);
+  border-radius: 65% 72% 53% 41%;
+  padding: .25em;
+}
+
+/* Accent colors and styles */
+.fg-accent-1 {
+  --color-fg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.fg-accent-2 {
+  --color-fg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.fg-accent-3 {
+  --color-fg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.fg-accent-4 {
+  --color-fg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+[class*="fg-accent"] {
+  color: var(--color-fg);
+  font-weight: bold;
+}
+
+.bg-accent-1 {
+  --color-contrast-fg: var(--color-accent-1-contrast, #000);
+  --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.bg-accent-2 {
+  --color-contrast-fg: var(--color-accent-2-contrast, #000);
+  --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.bg-accent-3 {
+  --color-contrast-fg: var(--color-accent-3-contrast, #000);
+  --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.bg-accent-4 {
+  --color-contrast-fg: var(--color-accent-4-contrast, #000);
+  --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+.bg-accent-5 {
+  --color-contrast-fg: var(--color-accent-5-contrast, #fff);
+  --color-bg: var(--color-accent-5, #000);
+}
+
+[class*="bg-accent"] {
+  background: var(--color-bg, #000);
+  color: var(--color-fg, #fff);
+}
+
+ul {
+  list-style: none;
+  margin-left: var(--stack-spacing);
+}
+
+ul li::before {
+  content: "✦";
+  color: var(--color-contrast-fg, #000);
+  display: inline;
+  width: 1em;
+  margin-left: -1.25em;
+  padding-right: .5em;
+}
+
+.grid {
+  display: grid;
+}
+
+
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1em;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.gr-1 {
+  grid-row: 1;
+}
+
+.gr-2 {
+  grid-row: 2;
+}
+
+.gr-auto {
+  grid-row: auto;
+}
+
+.gc-full {
+  grid-column-start: 1;
+  grid-column-end: 12;
+}
+
+.gc-8-12 {
+  grid-column-start: 8;
+  grid-column-end: 12;
+}
+
+.gc-1-7 {
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 3), 1fr);
+  grid-gap: var(--stack-spacing, 2rem);
+}
+
+ul li {
+  margin-top: var(--stack-spacing, 1rem);
+}
+
+/* .c-skill-list {} */
+.c-skill-list__item {
+  padding: 1rem;
+  font-size: .75em;
+}
+
+.about {
+  grid-column-start: 5;
+  grid-column-end: 12;
+  grid-row: 2;
+}
+
+.c-full-width {
+  width: 100vw;
+}
+
+.c-full-height {
+  min-height: 100vh;
+}
+
+hgroup {
+  margin-bottom: calc(var(--stack-spacing, 2rem) * 2);
+}
+
+.c-svg-background {
+  width: 100%;
+  width: fit-content;
+  max-width: 40vw;
+  position: relative;
+  padding: var(--spacing, 2rem);
+  display: block;
+  color: var(--color-fg, #000);
+  display: inline-grid;
+  grid-template-areas: "a";
+}
+
+.c-svg-background>.background,
+.c-svg-background>.content {
+  grid-area: a;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.c-svg-background>.content {
+  padding: 0 0 1.5em 1em;
+}
+
+.c-svg-background>.background {
+  width: 110%;
+  height: 110%;
+  margin-left: -5%;
+  margin-top: -5%;
+}
+
+.f-ultra>* {
+  font-size: 2.75em;
+}
+
+.f-heading-big {
+  font-size: 3em;
+  color: var(--color-fg, #000);
+}
+
+section {
+  padding: var(--spacing, 2rem);
+}
+
+@media all and (max-width: 2000px) {
+  .about {
+    grid-column-start: 3;
+    grid-column-end: 13;
+    max-width: 60vw;
+    min-width: 60rem;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  body {
+    font-size: 10px;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .start>* {
+    max-width: 100%;
+  }
+
+  .about,
+  .avatar {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .bg-accent-3 {
+    text-shadow: none;
+  }
+
+  .about {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    background: var(--color-contrast-bg);
+  }
+
+  .about .background {
+    display: none;
+  }
+
+  .c-skill-list {
+    grid-template-columns: 1fr;
+  }
+
+  .c-svg-background {
+    max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .grid>* {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+.single-page {
+  font-size: .75em;
+}
+
+.article-list {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.article-list__item>h2 {
+  text-shadow: none;
+}
+
+.article-list__more-link {
+  display: inline-block;
+  margin-top: var(--spacing);
+}
+
+.article-list__item {
+  margin: calc(var(--spacing) * 2) 0;
+  background: #fff;
+  padding: calc(var(--spacing) * 2)
+}</style>
+  
+  
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-page,
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    background: var(--color-accent-2, #ddd);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: var(--color-accent-2-contrast, #000);
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}
+
+.article__og-box {
+    font-size: 1rem;
+    border: .25em solid #ddd;
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: calc(var(--spacing) / 2);
+}</style>
+  
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/" />
+
+</head>
+<body>
+  <main class="main-grid">
+  
+
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
+    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+
+    <div class="article__og-box">
+        <p><i>"Setting up a MacBook from scratch for the first time in 8 years"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/" target="_blank" rel="nofollow" title="Read 'Setting up a MacBook from scratch for the first time in 8 years' on kevingimbel.de">kevingimbel.de</a>.</p>
+    </div>
+    <hr />
+    <div class="content">
+        <h1>Setting up a MacBook from scratch for the first time in 8 years</h1>
+        
+<p class="has-medium-font-size">Oh boy, did I not think about a lot of stuf&#8230;</p>
+
+
+
+<p>For the past 8 or so years I&#8217;ve always used my work MacBook for all things dev, including private development. I&#8217;ve spent a lot of time setting up and changing my zsh, and later fish, configs, configuring iTerm, trying out different themes, &#8230; you know the drill. </p>
+
+
+
+<p>When I decommissioned my old Mac and got my new shiny Mac from <a rel="noreferrer noopener" href="https://aoe.com/" target="_blank">AOE</a>, I realised I didn&#8217;t have any backups for all my app configs (iTerm, VSCode, &#8230;), so I had to start from zero. 😬</p>
+
+
+
+<h2 class="wp-block-heading">iTerm 2</h2>
+
+
+
+<p>Since forever iTerm 2 has been my go-to Terminal on MacOS. I&#8217;ve never found any terminal emulator that&#8217;s as reliable, fast, and custimizable as iTerm 2, plus there&#8217;s tons of community resources online.</p>
+
+
+
+<p>The last time I had a fresh, clean iTerm installation was a long time ago, so I was quite shocked by the defaults. I&#8217;ve really gotten used to all my fancy customizations and adjustments. </p>
+
+
+
+<h3 class="wp-block-heading">Naural Text Editing</h3>
+
+
+
+<p>I didn&#8217;t even know that this wasn&#8217;t the standard for iTerm, but after a short search I found <a href="https://apple.stackexchange.com/a/293988">https://apple.stackexchange.com/a/293988</a> this stackexchange answer which is exactly what I wanted.</p>
+
+
+
+<ol>
+<li>Go to <strong>Preferences&#8230;</strong> &gt; <strong>Profiles</strong> &gt; <strong>Keys</strong> (not Preferences&#8230; &gt; Keys)</li>
+
+
+
+<li>On current versions (3.14+) you then switch to the <strong>Key Mappings</strong> tab</li>
+
+
+
+<li>Press <strong>Presets&#8230;</strong> dropdown button.</li>
+
+
+
+<li>Select <strong>Natural Text Editing</strong></li>
+</ol>
+
+
+
+<p>Natural Text Editing sets some sensible defaults, like navigating by-word using <kbd>Option + Left Arrow</kbd>, or moving to the start of a line by pressing <kbd>Cmd + Left Arrow</kbd>, end of line with <kbd>Cmd + Right Arrow</kbd>, and so on &#8211; navigating the command line (like, the actual line) feels natural now. </p>
+
+
+
+<h3 class="wp-block-heading">Oh-My-Zsh </h3>
+
+
+
+<p>Years ago I was a oh-my-zsh user but then I switched to fish shell. With the new Mac and zsh being the default shell anyway I decided to try zsh again. At the end of the day it doesn’t matter that much, and zsh (and bash as well) have a lot of great tools and scripts to enhance them. </p>
+
+
+
+<p>Anyway, I basically just installed oh-my-zsh and disabled all plugins for the prompt as I’m using starship for my prompt (see below). </p>
+
+
+
+<p>I&#8217;ve also used <em>zplug</em> for zsh plugin management so oh-my-zsh is only used for all its default settings at the moment. </p>
+
+
+
+<h3 class="wp-block-heading">Starship pompt</h3>
+
+
+
+<p><a rel="noreferrer noopener" href="https://starship.rs" target="_blank">starship</a> is a super fast and awesome prompt written in rust. It’s cross-shell and cross-platform and comes with batteries included &#8211; meaning it has a lot of <a href="https://starship.rs/config/" target="_blank" rel="noreferrer noopener">integrations with popular tools and frameworks</a>.</p>
+
+
+
+<p>I’ve been using starship for some time with bash and fish shell, so it was a natural choice. I disabled all plugins in oh-my-zsh, as the prompt is now handled by starship instead.</p>
+
+
+
+<p>Here&#8217;s my current <code>starship.toml</code> config file.</p>
+
+
+
+<pre class="wp-block-code"><code lang="toml" class="language-toml">format="""
+$username\
+$hostname\
+$localip\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$docker_context\
+$package\
+$golang\
+$helm\
+$nodejs\
+$python\
+$rust\
+$terraform\
+$aws\
+$env_var\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$time\
+$status\
+$shell\
+$character
+"""
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character]
+success_symbol = '[➜](bold 219)' 
+error_symbol = '[✕](bold 45)'</code></pre>
+
+
+
+<p>219 and 45 are color codes taken from this graphic (via <a href="https://i.stack.imgur.com/KTSQa.png">https://i.stack.imgur.com/KTSQa.png</a>). </p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" src="https://i.stack.imgur.com/KTSQa.png" alt=""/></figure>
+
+
+
+<p>And below you can see what the prompt looks like. I think it&#8217;s cute, and a nice start. ✨</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="1024" height="551" src="https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49-1024x551.png" alt="Screenshot of iTerm2 showing the prompt and colors for errors and success. With success an arrow in pink is shown as prompt symbol, with failure a blue X is displayed." class="wp-image-274" srcset="https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49-1024x551.png 1024w, https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49-300x161.png 300w, https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49-768x413.png 768w, https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png 1204w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2 class="wp-block-heading">Keyboard setup</h2>
+
+
+
+<p>I like to use the English keyboard layout since I write English most of the time and all keys for programming are better reachable on the English keyboard.</p>
+
+
+
+<figure class="wp-block-image alignleft size-full"><img decoding="async" loading="lazy" width="632" height="240" src="https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png" alt="Screenshot showing the English keyboard layout" class="wp-image-261" srcset="https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png 632w, https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21-300x114.png 300w" sizes="(max-width: 632px) 100vw, 632px" /><figcaption class="wp-element-caption">The US International PC keyboard layout</figcaption></figure>
+
+
+
+<p>All the nice keys one needs for programming are on the right side of the keyboard, which is a lot easier to reach than having all of these keys in the top row, as it is the standard on the German keyboard layout.</p>
+
+
+
+<p>The only problem was that by default Umlauts (<code>ä, ö, ü</code>) are hard to type. The default was to type <code>Option + u</code> followed by the base-letter <code>a</code>, <code>o</code>, or <code>u</code>. </p>
+
+
+
+<p>A more convenient way in my opinion is to type a quote <code>"</code> and then the letter to create the Umlaut, which doesn&#8217;t interrupt my typing.</p>
+
+
+
+<p>This only works when the keyboard is set to &#8220;<code>US International - PC</code>&#8220;. </p>
+
+
+
+<ul>
+<li>Go to <strong>System Preferences </strong></li>
+
+
+
+<li>Select <strong>Keyboard</strong></li>
+
+
+
+<li>Scroll to <strong>Text Input</strong></li>
+
+
+
+<li>Click the <code><strong>+</strong></code> sign to add a new keyboard</li>
+
+
+
+<li>Search for &#8220;<strong>US International &#8211; PC</strong>&#8220;</li>
+
+
+
+<li>Remove the Text Input (called <em>ABC</em>)</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">VSCode</h2>
+
+
+
+<p>For a long long time I&#8217;ve used VSCode as my day-to-day editor for all things. Ansible roles, Terraform modules, Rust and Go, HTML/CSS/JavaScript, Shell scripting, &#8230; it&#8217;s just a perfect fit for me. It has so many extensions that it can work with anything.</p>
+
+
+
+<h2 class="wp-block-heading">Other software</h2>
+
+
+
+<ul>
+<li><a href="https://spacevim.org" target="_blank" rel="noreferrer noopener">spacevim</a></li>
+
+
+
+<li><a rel="noreferrer noopener" href="https://github.com/zplug/zplug" target="_blank">zplug</a></li>
+
+
+
+<li><a href="https://tunnelblick.net" target="_blank" rel="noreferrer noopener">Tunnelblick</a> for VPN</li>
+
+
+
+<li><a rel="noreferrer noopener" href="https://keepassxc.org" target="_blank">KeePassXC</a> (💚)</li>
+
+
+
+<li><a rel="noreferrer noopener" href="https://www.mozilla.org/en-GB/firefox/new" target="_blank">Firefox</a> (🦊)</li>
+</ul>
+
+
+
+<p>I&#8217;m sure I am still missing something, but it&#8217;ll be installed when it&#8217;s needed. For now I have a device I can work with comfortably. </p>
+
+    </div>
+</section>
+
+
+  <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
+    <div class="content">
+      <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a> and lots of fun. <a href="/imprint">Imprint</a></p>
+    </div>
+  </section>
+</main>
+</body>
+<script>document.addEventListener('DOMContentLoaded', function () {
+  let favicon_txt = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%EMOJI%</text></svg>`
+  let favicon_el = document.head.querySelector('#favicon');
+  let sections = Array.from(document.querySelectorAll('section[data-icon]'));
+  let last_active_section = null;
+  let YEAR_NOW = new Date().getFullYear().toFixed(0);
+  let years_working = document.querySelector(".js-years-working");
+  let all_time_since = document.querySelectorAll(".js-time-since");
+
+  function set_favicon(emoji) {
+    let txt = favicon_txt.replace('%EMOJI%', emoji);
+    favicon_el.setAttribute('href', txt);
+  }
+
+  window.addEventListener('scroll', function (event) {
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
+    let active_section = sections_in_view[sections_in_view.length - 1];
+    if (last_active_section != active_section) {
+      last_active_section = active_section;
+      set_favicon(active_section.dataset.icon);
+    }
+  });
+
+  all_time_since.forEach((element, key) => {
+    let year = element.dataset.year;
+
+    if (year) {
+      try {
+        let year_num = parseInt(year);
+        element.textContent = YEAR_NOW - year_num;
+      } catch (err) {
+        console.log("Error calculating year: ", err);
+      }
+    }
+  })
+
+  if (years_working) {
+    years_working.textContent = YEAR_NOW - 2009;
+  }
+});
+</script>
+</html>
