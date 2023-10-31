@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Kevin.Gimbel.Dev/Ops</title>
+  <title>
+TIL: multiple git-identities on one machine - Kevin.Gimbel.Dev/Blog
+</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -365,32 +367,141 @@ section {
 }</style>
   
   
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-page,
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    background: var(--color-accent-2, #ddd);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: var(--color-accent-2-contrast, #000);
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}
+
+.article__og-box {
+    font-size: 1rem;
+    border: .25em solid #ddd;
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: calc(var(--spacing) / 2);
+}</style>
   
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2023/04/til-multiple-git-identities-on-one-machine/" />
+
 </head>
 <body>
   <main class="main-grid">
   
-<section class="[ f-ultra stack ] [ gr-auto gc-full ] single-page">
-  <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
-  
-  <hr />
-  <div class="content">
-    <p>Responsible for the content of this website:</p>
-<p><strong>Kevin Gimbel</strong><br>
-Wiesbaden, Germany<br>
-Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
-<h3>Privacy information</h3>
-<p>This website does not use tracking or analytic tools. It is hosted on GitHub Pages.</p>
-<p>No dynamic programming language or database is used, it's all static HTML pages generated and then served with a HTTP server. The code is fully open source and available on <a href="https://github.com/kevingimbel/kevin.gimbel.dev">github.com/kevingimbel/kevin.gimbel.dev</a>.</p>
-<h3>Cookies</h3>
-<p>No cookies are used.</p>
-<h3>Private Data</h3>
-<p>No data is collected.</p>
-<h3>External links</h3>
-<p>External links are checked but there cannot be any guarantee given for their accuracy or the harmlessness of linked content. Welcome to the internet.</p>
 
-  </div>
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
+    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+
+    <div class="article__og-box">
+        <p><i>"TIL: multiple git-identities on one machine"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/04/til-multiple-git-identities-on-one-machine/" target="_blank" rel="nofollow" title="Read 'TIL: multiple git-identities on one machine' on kevingimbel.de">kevingimbel.de</a>.</p>
+    </div>
+    <hr />
+    <div class="content">
+        <h1>TIL: multiple git-identities on one machine</h1>
+        
+<p>Turns out you can have multiple Git identities alongside each other on one Machine without needing to set them locally for each repository!</p>
+
+
+
+<p>It still involves multiple <code>.gitconfig</code> files, but it&#8217;s a lot less work than configuring an endless amount of repos!</p>
+
+
+
+<p>First, set the global config like this:</p>
+
+
+
+<pre class="wp-block-code"><code class=""># File: ~/.gitconfig
+[user]
+  name = Kevin Gimbel
+  email = kevin@gimbel.dev
+
+[includeIf "gitdir:~/AOE/"]
+    path = ~/AOE/.gitconfig
+</code></pre>
+
+
+
+<p>Now in <code>~/AOE/.gitconfig</code> I configure the following</p>
+
+
+
+<pre class="wp-block-code"><code class=""># File: ~/AOE/.gitconfig
+[user]
+  name = Kevin Gimbel
+  email = kevin.gimbel@aoe.com</code></pre>
+
+
+
+<p>In <code>~/AOE/</code> I have all repositories related to my work, and whenever I work in a sub-directory the identity with the e-Mail address of my work is being used!</p>
+
+
+
+<p>Source: <a href="https://stackoverflow.com/a/3860139" target="_blank" rel="noreferrer noopener">https://stackoverflow.com/a/3860139</a> </p>
+
+    </div>
 </section>
+
 
   <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
     <div class="content">

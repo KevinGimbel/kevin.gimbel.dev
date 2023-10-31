@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Kevin.Gimbel.Dev/Ops</title>
+  <title>
+TIL: Run a script on every k8s Node using  a DaemonSet - Kevin.Gimbel.Dev/Blog
+</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -365,32 +367,220 @@ section {
 }</style>
   
   
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-page,
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    background: var(--color-accent-2, #ddd);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: var(--color-accent-2-contrast, #000);
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}
+
+.article__og-box {
+    font-size: 1rem;
+    border: .25em solid #ddd;
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: calc(var(--spacing) / 2);
+}</style>
   
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/" />
+
 </head>
 <body>
   <main class="main-grid">
   
-<section class="[ f-ultra stack ] [ gr-auto gc-full ] single-page">
-  <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
-  
-  <hr />
-  <div class="content">
-    <p>Responsible for the content of this website:</p>
-<p><strong>Kevin Gimbel</strong><br>
-Wiesbaden, Germany<br>
-Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
-<h3>Privacy information</h3>
-<p>This website does not use tracking or analytic tools. It is hosted on GitHub Pages.</p>
-<p>No dynamic programming language or database is used, it's all static HTML pages generated and then served with a HTTP server. The code is fully open source and available on <a href="https://github.com/kevingimbel/kevin.gimbel.dev">github.com/kevingimbel/kevin.gimbel.dev</a>.</p>
-<h3>Cookies</h3>
-<p>No cookies are used.</p>
-<h3>Private Data</h3>
-<p>No data is collected.</p>
-<h3>External links</h3>
-<p>External links are checked but there cannot be any guarantee given for their accuracy or the harmlessness of linked content. Welcome to the internet.</p>
 
-  </div>
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
+    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+
+    <div class="article__og-box">
+        <p><i>"TIL: Run a script on every k8s Node using  a DaemonSet"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/" target="_blank" rel="nofollow" title="Read 'TIL: Run a script on every k8s Node using  a DaemonSet' on kevingimbel.de">kevingimbel.de</a>.</p>
+    </div>
+    <hr />
+    <div class="content">
+        <h1>TIL: Run a script on every k8s Node using  a DaemonSet</h1>
+        
+<p>I&#8217;ve known that DaemonSets are used to run containers on all Nodes of a Kubernetes Cluster (or some), but I&#8217;ve never thought of using them to run a (shell) script on each node &#8211; a not-so-uncommon task when maintaining clusters!</p>
+
+
+
+<h2 class="wp-block-heading">What we need</h2>
+
+
+
+<p>We need two resources: A ConfigMap and a DaemonSet.</p>
+
+
+
+<h3 class="wp-block-heading">ConfigMap</h3>
+
+
+
+<p>The config map holds the script, which will be mounted into the container started by the DaemonSet. </p>
+
+
+
+<pre class="wp-block-code"><code lang="yaml" class="language-yaml">---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-script
+  namespace: kube-system
+data:
+  my-script.sh: |
+    #!/usr/bin/env bash
+    while true; do
+       echo "hello world!"
+       sleep 60
+    done</code></pre>
+
+
+
+<p>The data is just the shell script we want to execute.</p>
+
+
+
+<h3 class="wp-block-heading">DaemonSet</h3>
+
+
+
+<p>The DaemonSet is used to run a <code>busybox</code> container on each node which is used to execute the (shell) script specified in the ConfigMap &#8211; in the last lines the config map is mounted as <code>my-script.sh</code> file, and marked as readable and executable  (<a href="https://kevingimbel.github.io/unix-permission-generator/?u=5&amp;g=5&amp;o=5">0555, or r-xr-xr-x</a>). It is then used as <code>command</code> for the busybox container.</p>
+
+
+
+<pre class="wp-block-code"><code lang="yaml" class="language-yaml">apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: my-script
+  namespace: kube-system
+  labels:
+    k8s-app: my-script
+spec:
+  selector:
+    matchLabels:
+      name: my-script
+  template:
+    metadata:
+      labels:
+        name: my-script
+    spec:
+      hostPID: true
+      containers:
+        - name: my-script
+          securityContext:
+            privileged: true
+          image: busybox:1.36.0
+          command: ["/my-script.sh"]
+          resources:
+            requests:
+              cpu: 10m
+              memory: 50Mi
+          volumeMounts:
+            - name: my-script-script
+              mountPath: /my-script.sh
+              subPath: my-script.sh
+      volumes:
+        - name: my-script-script
+          configMap:
+            name: my-script-script
+            defaultMode: 0555</code></pre>
+
+
+
+<h3 class="wp-block-heading">Use case</h3>
+
+
+
+<p>At work I encountered an issue with the AWS EFS CSI driver, a component which mounts and unmounts EFS volumes in a Kubernetes cluster. Occasionally the EFS mount would become unresponsive and be in a &#8220;Zombie-like&#8221; state, where the EFS driver still believed the volume was mounted and healthy when it actually wasn&#8217;t.</p>
+
+
+
+<p>Turns out, the issue was with <code>stunnel</code>, a SSL tunnel used by EFS/the EFS driver. The solution for the problem was to kill the <code>stunnel</code> processes when the mount can no longer be accessed which makes the EFS process re-create the tunnel and mount. Fun times!</p>
+
+
+
+<h2 class="wp-block-heading">Links</h2>
+
+
+
+<ul>
+<li><a href="https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/">Kubernetes Docs for DaemonSet</a></li>
+
+
+
+<li><a href="https://linux.die.net/man/8/stunnel">Stunnel man page</a></li>
+
+
+
+<li><a href="https://github.com/kubernetes-sigs/aws-efs-csi-driver/issues/616">AWS EFS CSI driver issue on GitHub</a></li>
+</ul>
+
+
+
+<p class="has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-294014fc3e40a4073b5b0c36b3840d35">Join the discussion on <a href="https://fosstodon.org/@KevinGimbel/111024007254844161" target="_blank" rel="noreferrer noopener">Mastodon</a> 🐘 or <a href="https://kevingimbel.de/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/#respond">comment on the original article on kevingimbel.de</a></p>
+
+    </div>
 </section>
+
 
   <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
     <div class="content">

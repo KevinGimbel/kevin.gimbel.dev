@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Kevin.Gimbel.Dev/Ops</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Eleventy">
   <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
-  <title>Kevin.Gimbel.Dev/Ops</title>
   <style>:root {
   --color-bg: hsl(279, 19%, 93%);
   --color-fg: #000;
@@ -36,11 +36,11 @@
 
 body {
   font: 14px/1.4 ui-monospace,
-  "Cascadia Mono", "Segoe UI Mono",
-  "Ubuntu Mono",
-  "Roboto Mono",
-  Menlo, Monaco, Consolas,
-  monospace;
+    "Cascadia Mono", "Segoe UI Mono",
+    "Ubuntu Mono",
+    "Roboto Mono",
+    Menlo, Monaco, Consolas,
+    monospace;
   background: cornsilk;
   color: #000;
 }
@@ -296,8 +296,8 @@ section {
   section {
     padding: 2rem;
   }
-  
-  .start > * {
+
+  .start>* {
     max-width: 100%;
   }
 
@@ -334,7 +334,7 @@ section {
     grid-template-rows: 1fr;
   }
 
-  .grid > * {
+  .grid>* {
     grid-column: auto;
     grid-row: auto;
   }
@@ -343,16 +343,39 @@ section {
 .single-page {
   font-size: .75em;
 }
-</style>
+
+.article-list {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.article-list__item>h2 {
+  text-shadow: none;
+}
+
+.article-list__more-link {
+  display: inline-block;
+  margin-top: var(--spacing);
+}
+
+.article-list__item {
+  margin: calc(var(--spacing) * 2) 0;
+  background: #fff;
+  padding: calc(var(--spacing) * 2)
+}</style>
+  
+  
+  
 </head>
 <body>
   <main class="main-grid">
   
 <section class="[ f-ultra stack ] [ gr-auto gc-full ] single-page">
+  <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+  
+  <hr />
   <div class="content">
-    <p><a href="/ops/">&lt;&lt; Home</a></p>
-<hr>
-<p>I’m a self-taught <strong>DevOps Engineer</strong> with a background in <em>Front-End Development</em>, my first contact with HTML and CSS was around 2007 when I wanted to style my MySpace profile, later I made a websites for my Habbo Hotel trading business (yes, we had dragon statues in all colors!)</p>
+    <p>I’m a self-taught <strong>DevOps Engineer</strong> with a background in <em>Front-End Development</em>, my first contact with HTML and CSS was around 2007 when I wanted to style my MySpace profile, later I made a websites for my Habbo Hotel trading business (yes, we had dragon statues in all colors!)</p>
 <p>Following those first steps I started to get into photography and wanted to specialize in web development to showcase my photographs, at the time I still wanted to work as a concert photographer or designer professionally and didn’t really think about becoming a programmer. When I did an year-long internship with a Design agency and my boss asked if I could build a website for a client I said “Yes of course!”, bought “PHP for Dummies” and coded the website while learning PHP (yes, I was very confident at the time). Like a miracle, it worked and the client was happy.</p>
 <p>In 2014, after specializing more in HTML and CSS I, started as a Front-End Developer at Synoa GmbH and then shifted into DevOps in 2018.</p>
 <p>In 2023 I started working as a DevOps Engineer at <a href="https://aoe.com/">AOE GmbH</a>.</p>

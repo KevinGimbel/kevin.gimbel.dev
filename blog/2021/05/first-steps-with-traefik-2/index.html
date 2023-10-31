@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>
+First steps with Traefik 2 - Kevin.Gimbel.Dev/Blog
+</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Eleventy">
+  <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
+  <style>:root {
+  --color-bg: hsl(279, 19%, 93%);
+  --color-fg: #000;
+  --color-contrast-fg: #000;
+  --color-contrast-bg: #000;
+
+  --stack-spacing: 2rem;
+  --spacing: 2rem;
+
+  --color-accent-1: hsl(100, 75%, 90%);
+  --color-accent-1-contrast: hsl(100, 20%, 50%);
+  --color-accent-2: hsl(200, 75%, 90%);
+  --color-accent-2-contrast: hsl(200, 20%, 50%);
+  --color-accent-3: hsl(300, 75%, 90%);
+  --color-accent-3-contrast: hsl(300, 20%, 50%);
+  --color-accent-4: hsl(400, 75%, 90%);
+  --color-accent-4-contrast: hsl(400, 20%, 50%);
+  --color-accent-5: hsl(255, 75%, 90%);
+  --color-accent-5-contrast: hsl(255, 20%, 50%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px/1.4 ui-monospace,
+    "Cascadia Mono", "Segoe UI Mono",
+    "Ubuntu Mono",
+    "Roboto Mono",
+    Menlo, Monaco, Consolas,
+    monospace;
+  background: cornsilk;
+  color: #000;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2,
+h3 {
+  --color-fg: var(--color-contrast-fg);
+  text-shadow: .02em .02em 0 var(--color-bg), .03em .03em 0 var(--color-contrast-fg);
+}
+
+hr {
+  max-width: 80%;
+  margin: 0 auto;
+  border: none;
+  background: var(--color-fg);
+  height: 0.05em;
+}
+
+.stack *+* {
+  margin-top: var(--stack-spacing, 2rem);
+}
+
+a {
+  color: hotpink;
+}
+
+a:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.a-blank,
+.a-blank:visited {
+  text-decoration: none;
+}
+
+.a-blank:hover,
+.a-blank:focus {
+  border-bottom: .15em solid currentColor;
+  font-size: 100%;
+  letter-spacing: 0em;
+}
+
+.a-splash {
+  color: var(--color-bg);
+  background: var(--color-fg);
+  border-radius: 65% 72% 53% 41%;
+  padding: .25em;
+}
+
+/* Accent colors and styles */
+.fg-accent-1 {
+  --color-fg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.fg-accent-2 {
+  --color-fg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.fg-accent-3 {
+  --color-fg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.fg-accent-4 {
+  --color-fg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+[class*="fg-accent"] {
+  color: var(--color-fg);
+  font-weight: bold;
+}
+
+.bg-accent-1 {
+  --color-contrast-fg: var(--color-accent-1-contrast, #000);
+  --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.bg-accent-2 {
+  --color-contrast-fg: var(--color-accent-2-contrast, #000);
+  --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.bg-accent-3 {
+  --color-contrast-fg: var(--color-accent-3-contrast, #000);
+  --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.bg-accent-4 {
+  --color-contrast-fg: var(--color-accent-4-contrast, #000);
+  --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+.bg-accent-5 {
+  --color-contrast-fg: var(--color-accent-5-contrast, #fff);
+  --color-bg: var(--color-accent-5, #000);
+}
+
+[class*="bg-accent"] {
+  background: var(--color-bg, #000);
+  color: var(--color-fg, #fff);
+}
+
+ul {
+  list-style: none;
+  margin-left: var(--stack-spacing);
+}
+
+ul li::before {
+  content: "✦";
+  color: var(--color-contrast-fg, #000);
+  display: inline;
+  width: 1em;
+  margin-left: -1.25em;
+  padding-right: .5em;
+}
+
+.grid {
+  display: grid;
+}
+
+
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1em;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.gr-1 {
+  grid-row: 1;
+}
+
+.gr-2 {
+  grid-row: 2;
+}
+
+.gr-auto {
+  grid-row: auto;
+}
+
+.gc-full {
+  grid-column-start: 1;
+  grid-column-end: 12;
+}
+
+.gc-8-12 {
+  grid-column-start: 8;
+  grid-column-end: 12;
+}
+
+.gc-1-7 {
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 3), 1fr);
+  grid-gap: var(--stack-spacing, 2rem);
+}
+
+ul li {
+  margin-top: var(--stack-spacing, 1rem);
+}
+
+/* .c-skill-list {} */
+.c-skill-list__item {
+  padding: 1rem;
+  font-size: .75em;
+}
+
+.about {
+  grid-column-start: 5;
+  grid-column-end: 12;
+  grid-row: 2;
+}
+
+.c-full-width {
+  width: 100vw;
+}
+
+.c-full-height {
+  min-height: 100vh;
+}
+
+hgroup {
+  margin-bottom: calc(var(--stack-spacing, 2rem) * 2);
+}
+
+.c-svg-background {
+  width: 100%;
+  width: fit-content;
+  max-width: 40vw;
+  position: relative;
+  padding: var(--spacing, 2rem);
+  display: block;
+  color: var(--color-fg, #000);
+  display: inline-grid;
+  grid-template-areas: "a";
+}
+
+.c-svg-background>.background,
+.c-svg-background>.content {
+  grid-area: a;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.c-svg-background>.content {
+  padding: 0 0 1.5em 1em;
+}
+
+.c-svg-background>.background {
+  width: 110%;
+  height: 110%;
+  margin-left: -5%;
+  margin-top: -5%;
+}
+
+.f-ultra>* {
+  font-size: 2.75em;
+}
+
+.f-heading-big {
+  font-size: 3em;
+  color: var(--color-fg, #000);
+}
+
+section {
+  padding: var(--spacing, 2rem);
+}
+
+@media all and (max-width: 2000px) {
+  .about {
+    grid-column-start: 3;
+    grid-column-end: 13;
+    max-width: 60vw;
+    min-width: 60rem;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  body {
+    font-size: 10px;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .start>* {
+    max-width: 100%;
+  }
+
+  .about,
+  .avatar {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .bg-accent-3 {
+    text-shadow: none;
+  }
+
+  .about {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    background: var(--color-contrast-bg);
+  }
+
+  .about .background {
+    display: none;
+  }
+
+  .c-skill-list {
+    grid-template-columns: 1fr;
+  }
+
+  .c-svg-background {
+    max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .grid>* {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+.single-page {
+  font-size: .75em;
+}
+
+.article-list {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.article-list__item>h2 {
+  text-shadow: none;
+}
+
+.article-list__more-link {
+  display: inline-block;
+  margin-top: var(--spacing);
+}
+
+.article-list__item {
+  margin: calc(var(--spacing) * 2) 0;
+  background: #fff;
+  padding: calc(var(--spacing) * 2)
+}</style>
+  
+  
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-page,
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    background: var(--color-accent-2, #ddd);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: var(--color-accent-2-contrast, #000);
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}
+
+.article__og-box {
+    font-size: 1rem;
+    border: .25em solid #ddd;
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: calc(var(--spacing) / 2);
+}</style>
+  
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2021/05/first-steps-with-traefik-2/" />
+
+</head>
+<body>
+  <main class="main-grid">
+  
+
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
+    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+
+    <div class="article__og-box">
+        <p><i>"First steps with Traefik 2"</i> was originally published on <a href="https://kevingimbel.de/blog/2021/05/first-steps-with-traefik-2/" target="_blank" rel="nofollow" title="Read 'First steps with Traefik 2' on kevingimbel.de">kevingimbel.de</a>.</p>
+    </div>
+    <hr />
+    <div class="content">
+        <h1>First steps with Traefik 2</h1>
+        
+<h2 class="wp-block-heading">A tale of Auto SSL, Basic Auth, and lots of debugging</h2>
+
+
+
+<p>Recently I&#8217;ve spent some time at work trying out&nbsp;<a href="https://traefik.io/">Traefik 2</a>&nbsp;and learning about the new concepts like routers and middleware since we&#8217;ll use Traefik 2 as part of some new infrastructure.</p>
+
+
+
+<p>We&#8217;ve used Traefik 1 in production at Synoa for the past 3 years. Initially I chose Traefik because it was easy to integrate with Kubernetes and later on with Amazon ECS when we moved to it from Kubernetes. Traefik has always served us well and I felt very confident deploying it to production. We tried an unreleased version of Traefik 2 with ECS support in the past but so far had no time to update every system to the new version. Since we are in the process of creating a new product with completely new infrastructure I decided to include Traefik 2 from the start.</p>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/05/21-first-steps-with-traefik-2/index.md#the-stack"></a>The stack</h2>
+
+
+
+<p>Before we start with any technical stuff, let&#8217;s talk about the stack everything runs on for a second. The infrastructure is planned with simplicity and &#8220;small-scale&#8221; in mind. We&nbsp;<strong>do not need</strong>&nbsp;a big cluster setup with thousands of servers (or even with tenths of servers), no orchestrator like Kubernetes (or ECS, Mesos/Marathon, &#8230;) and we have predictable workloads. There&#8217;s no need to suddenly scale up to hundreds or thousands of containers, nor will there be a requirements to scale without it being planned ahead.</p>
+
+
+
+<p>All my testing in this case was done on a small&nbsp;<a href="https://hetzner.cloud/">Hetzner Cloud</a>&nbsp;server running standalone Docker with no orchestrator.</p>
+
+
+
+<p>I may write more about small-scale cloud (infra), but not today. 🙂</p>
+
+
+
+<p>The goals we hope to archive with Traefik are:</p>
+
+
+
+<ul>
+<li>Handle all traffic on port&nbsp;<code>80</code>&nbsp;and&nbsp;<code>443</code></li>
+
+
+
+<li>Redirect from port&nbsp;<code>80</code>&nbsp;to&nbsp;<code>443</code></li>
+
+
+
+<li>Auto-SSL for port&nbsp;<code>443</code></li>
+
+
+
+<li>Auto-SSL for all sub-domains like&nbsp;<code>service-1.my.tld</code>,&nbsp;<code>service-2.my.tld</code>, &#8230;</li>
+
+
+
+<li>Basic Auth for all exposed services, preferably by default and without extra config</li>
+
+
+
+<li>Traefik Dashboard with basic auth</li>
+
+
+
+<li>Prometheus metrics with basic auth</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/05/21-first-steps-with-traefik-2/index.md#gotchas"></a>Gotchas</h2>
+
+
+
+<p>{% note &#8220;info&#8221; %}&nbsp;<strong>Head&#8217;s up!</strong>&nbsp;This post is about Traefik 2, specifically version 2.4! I am using the TOML file format for this post, but anything mentioned here applies to YAML or other config sources as well. {% endnote %}</p>
+
+
+
+<h3 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/05/21-first-steps-with-traefik-2/index.md#where-to-configure-what"></a>Where to configure what??</h3>
+
+
+
+<p>Traefik has a &#8220;main&#8221; config file, usually named&nbsp;<code>traefik.toml</code>, where general config is placed in. This includes providers, default entry points (ports like 80, 443, &#8230;), log level configuration, the dashboard and API, &#8230; however there&#8217;s stuff that&nbsp;<em>cannot be in this file</em>. Namely, any&nbsp;<a href="https://doc.traefik.io/traefik/middlewares/overview/">middleware</a>&nbsp;config!</p>
+
+
+
+<p>I didn&#8217;t know that and it took me quite some time to figure it out. In the end I found a forum post that said middleware has to be in another file, which must be loaded in the main configuration using the&nbsp;<a href="https://doc.traefik.io/traefik/providers/file/">file provider</a></p>
+
+
+
+<p>This means the following config is&nbsp;<strong>Invalid</strong>:</p>
+
+
+
+<pre class="wp-block-preformatted"># traefik.toml
+
+[http.middlewares.my-atuh.basicAuth]
+usersFile="/etc/traefik/.htpasswd"</pre>
+
+
+
+<p>The middleware named&nbsp;<code>my-auth</code>&nbsp;will not work and cannot be accessed as&nbsp;<code>my-auth@file</code>. Instead we need to put it into a second file like so:</p>
+
+
+
+<pre class="wp-block-preformatted"># traefik.toml
+# enable file provider
+[providers.file]
+directory="/etc/traefik/config.d/"</pre>
+
+
+
+<pre class="wp-block-preformatted"># /etc/traefik/config.d/middlewares.toml
+[http.middlewares.my-atuh.basicAuth]
+usersFile="/etc/traefik/.htpasswd"</pre>
+
+
+
+<p>Now the middleware is usable by specifying a Docker label like&nbsp;<code>traefik.http.routers.my-container.middlewares=my-auth@file</code></p>
+
+
+
+<h4 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/05/21-first-steps-with-traefik-2/index.md#summary-config-files"></a>Summary: config files</h4>
+
+
+
+<ul>
+<li>Middleware cannot be configured in the main config file</li>
+
+
+
+<li>Any&nbsp;<code>X@file</code>&nbsp;middleware must be in a separate config file</li>
+
+
+
+<li>The file provider must be enabled with&nbsp;<code>[providers.file]</code></li>
+</ul>
+
+
+
+<h3 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/05/21-first-steps-with-traefik-2/index.md#providers-must-be-enabled-explicitly"></a>Providers must be enabled explicitly</h3>
+
+
+
+<p>In the previous section we saw that we can specify&nbsp;<code>[providers.file]</code>&nbsp;to configure the file provider. What I didn&#8217;t know when I started digging into Traefik 2 is that&nbsp;<strong>each provider that should be used MUST be added to the config file, even if no special config is needed</strong>!</p>
+
+
+
+<p>So in order to use the docker provider, which reads Docker labels from containers, we need to add the following:</p>
+
+
+
+<pre class="wp-block-preformatted"># traefik.toml
+[providers.docker]</pre>
+
+
+
+<p>That&#8217;s it. I spent literal hours debugging why Traefik return a &#8220;404 not found&#8221; for every request and didn&#8217;t seem to pickup the containers I deployed, only to discover the provider&nbsp;<strong>must be in the config file to enable it</strong>, even without any special config values.</p>
+
+
+
+<p>One may wonder why an empty config is required and it does look a bit weird, even more so in YAML:</p>
+
+
+
+<pre class="wp-block-preformatted">providers:
+  docker:</pre>
+
+
+
+<p>But it all makes sense when we think about the Traefik command line arguments, where a provider is enabled by setting&nbsp;<code>--providers.docker</code>&nbsp;or&nbsp;<code>--providers.file</code>. From a Traefik point of view the provider config acts as a boolean-ish thing: Is the provider there? If so, it is enabled. The more explicit alternative could be:</p>
+
+
+
+<pre class="wp-block-preformatted"># traefik.toml (PSEUDO code, not working)
+[providers]
+  [providers.docker]
+    enabled=true
+  [providers.file]
+    enabled=true</pre>
+
+
+
+<p>But then again, this would be pretty redundant.</p>
+
+
+
+<p>In hindsight it&#8217;s logical and makes sense, but at the time I was biting my teeth and cussing at Traefik. Well, in the end it was&nbsp;<del>DNS</del>&nbsp;human error.</p>
+
+
+
+<h4 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/05/21-first-steps-with-traefik-2/index.md#summary-providers"></a>Summary: providers</h4>
+
+
+
+<ul>
+<li>Providers are enabled by adding a config like&nbsp;<code>[providers.file]</code>&nbsp;or&nbsp;<code>[providers.docker]</code>&nbsp;into&nbsp;<code>traefik.toml</code></li>
+
+
+
+<li>Even with no additional config it must be added or Traefik must be started with&nbsp;<code>--providers.x</code>&nbsp;flag</li>
+</ul>
+
+
+
+<h3 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/05/21-first-steps-with-traefik-2/index.md#ssl-certificates"></a>SSL Certificates</h3>
+
+
+
+<p>Traefik can automatically register certificates with Let&#8217;s Encrypt. This is incredibly helpful when deploying Traefik in an automated setup because it means there&#8217;s no need for any other tool to handle SSL, like an API call to AWS Certificate Manager or a manual setup where certificates are requested once the server is up and running. In our current setup, once the server is started it briefly uses an invalid self-signed default certificate and once the Let&#8217;s Encrypt certificates are ready Traefik uses them.</p>
+
+
+
+<p>In order to generate SSL certificates we need to define a Certificate Resolver, like so:</p>
+
+
+
+<pre class="wp-block-preformatted"># traefik.toml
+[certificateresolver.my-resolver.acme]
+storage = "/srv/docker/traefik/config/acme.json"
+email = "totally@valid.email"
+[certificateresolver.my-resolver.acme.httpChallenge]
+entryPoint = "web"</pre>
+
+
+
+<p>That&#8217;s it. Now the resolver can be used in a router or entrypoint configuration. If used in an Entrypoint configuration, all routers that use this entry point will have SSL enabled.</p>
+
+
+
+<pre class="wp-block-preformatted"># traefik.toml
+[entryPoints.websecure]
+  address = ":443"
+  [entryPoints.websecure.http.tls]
+    certResolver = "my-resolver"</pre>
+
+
+
+<p>And again, that&#8217;s it. We tell the entrypoint named&nbsp;<code>websecure</code>&nbsp;to use the certificate resolver named&nbsp;<code>my-resolver</code>&nbsp;which we defined in the step before.</p>
+
+
+
+<p>To backup the certificates the file specified under&nbsp;<code>storage</code>&nbsp;is all that&#8217;s needed, because it contains all the certificates and keys.</p>
+
+
+
+<h3 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/05/21-first-steps-with-traefik-2/index.md#automatic-basic-auth"></a>Automatic basic auth</h3>
+
+
+
+<p>Middlewares can also be used to enable defaults for an entrypoint, the following example tells every router that uses&nbsp;<code>websecure</code>&nbsp;to use the&nbsp;<code>my-auth@file</code>&nbsp;middleware (which we defined in the first section!)</p>
+
+
+
+<pre class="wp-block-preformatted"># traefik.toml
+[entryPoints.websecure]
+    address = ":443"
+    [entryPoints.websecure.http.tls]
+      certResolver = "my-resolver"
+    [entryPoints.websecure.http]
+      middlewares = [ "my-auth@file" ]</pre>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/05/21-first-steps-with-traefik-2/index.md#conclusion"></a>Conclusion</h2>
+
+
+
+<p>Despite some hiccups in the beginning and some frustration I&#8217;m still confident in my choice. Traefik is a great proxy and does everything we need. It integrates with lots of different providers and the Docker provider is the absolute simplest to run, since it doesn&#8217;t require any orchestrator &#8211; just Docker labels on containers.</p>
+
+
+
+<p>I&#8217;m looking forward to dig deeper into Traefik, especially getting more familiar with&nbsp;<a href="https://doc.traefik.io/traefik/plugins/">Plugins</a>!</p>
+
+    </div>
+</section>
+
+
+  <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
+    <div class="content">
+      <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a> and lots of fun. <a href="/imprint">Imprint</a></p>
+    </div>
+  </section>
+</main>
+</body>
+<script>document.addEventListener('DOMContentLoaded', function () {
+  let favicon_txt = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%EMOJI%</text></svg>`
+  let favicon_el = document.head.querySelector('#favicon');
+  let sections = Array.from(document.querySelectorAll('section[data-icon]'));
+  let last_active_section = null;
+  let YEAR_NOW = new Date().getFullYear().toFixed(0);
+  let years_working = document.querySelector(".js-years-working");
+  let all_time_since = document.querySelectorAll(".js-time-since");
+
+  function set_favicon(emoji) {
+    let txt = favicon_txt.replace('%EMOJI%', emoji);
+    favicon_el.setAttribute('href', txt);
+  }
+
+  window.addEventListener('scroll', function (event) {
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
+    let active_section = sections_in_view[sections_in_view.length - 1];
+    if (last_active_section != active_section) {
+      last_active_section = active_section;
+      set_favicon(active_section.dataset.icon);
+    }
+  });
+
+  all_time_since.forEach((element, key) => {
+    let year = element.dataset.year;
+
+    if (year) {
+      try {
+        let year_num = parseInt(year);
+        element.textContent = YEAR_NOW - year_num;
+      } catch (err) {
+        console.log("Error calculating year: ", err);
+      }
+    }
+  })
+
+  if (years_working) {
+    years_working.textContent = YEAR_NOW - 2009;
+  }
+});
+</script>
+</html>

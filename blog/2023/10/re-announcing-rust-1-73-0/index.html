@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Kevin.Gimbel.Dev/Ops</title>
+  <title>
+RE: Announcing Rust 1.73.0 - Kevin.Gimbel.Dev/Blog
+</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -365,32 +367,137 @@ section {
 }</style>
   
   
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-page,
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    background: var(--color-accent-2, #ddd);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: var(--color-accent-2-contrast, #000);
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}
+
+.article__og-box {
+    font-size: 1rem;
+    border: .25em solid #ddd;
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: calc(var(--spacing) / 2);
+}</style>
   
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2023/10/re-announcing-rust-1-73-0/" />
+
 </head>
 <body>
   <main class="main-grid">
   
-<section class="[ f-ultra stack ] [ gr-auto gc-full ] single-page">
-  <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
-  
-  <hr />
-  <div class="content">
-    <p>Responsible for the content of this website:</p>
-<p><strong>Kevin Gimbel</strong><br>
-Wiesbaden, Germany<br>
-Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
-<h3>Privacy information</h3>
-<p>This website does not use tracking or analytic tools. It is hosted on GitHub Pages.</p>
-<p>No dynamic programming language or database is used, it's all static HTML pages generated and then served with a HTTP server. The code is fully open source and available on <a href="https://github.com/kevingimbel/kevin.gimbel.dev">github.com/kevingimbel/kevin.gimbel.dev</a>.</p>
-<h3>Cookies</h3>
-<p>No cookies are used.</p>
-<h3>Private Data</h3>
-<p>No data is collected.</p>
-<h3>External links</h3>
-<p>External links are checked but there cannot be any guarantee given for their accuracy or the harmlessness of linked content. Welcome to the internet.</p>
 
-  </div>
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
+    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+
+    <div class="article__og-box">
+        <p><i>"RE: Announcing Rust 1.73.0"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/10/re-announcing-rust-1-73-0/" target="_blank" rel="nofollow" title="Read 'RE: Announcing Rust 1.73.0' on kevingimbel.de">kevingimbel.de</a>.</p>
+    </div>
+    <hr />
+    <div class="content">
+        <h1>RE: Announcing Rust 1.73.0</h1>
+        
+<p><i>In reply to <a class="in-reply-to" href="https://blog.rust-lang.org/2023/10/05/Rust-1.73.0.html">https://blog.rust-lang.org/2023/10/05/Rust-1.73.0.html</a>.</i></p>
+
+
+
+<p>Yay, Rust 1.73.0 has been released! Highlights include <a href="https://blog.rust-lang.org/2023/10/05/Rust-1.73.0.html#cleaner-panic-messages">cleaner panic messages</a> and the <a href="https://blog.rust-lang.org/2023/10/05/Rust-1.73.0.html#stabilized-apis">stabilisation of APIs</a>, I&#8217;m especially happy about the stabilisation of</p>
+
+
+
+<ul>
+<li><a href="https://doc.rust-lang.org/stable/std/os/unix/fs/fn.chown.html"><code>std::os::unix::fs::chown</code></a></li>
+
+
+
+<li><a href="https://doc.rust-lang.org/stable/std/os/unix/fs/fn.fchown.html"><code>std::os::unix::fs::fchown</code></a></li>
+
+
+
+<li><a href="https://doc.rust-lang.org/stable/std/os/unix/fs/fn.lchown.html"><code>std::os::unix::fs::lchown</code></a></li>
+</ul>
+
+
+
+<p><a href="https://github.com/rust-lang/cargo/blob/master/CHANGELOG.md#cargo-173-2023-10-05">cargo</a> and <a href="https://github.com/rust-lang/rust-clippy/blob/master/CHANGELOG.md#rust-173">clippy</a> have been updated as well.</p>
+
+
+
+<p>Update to Rust 1.73.0 with</p>
+
+
+
+<pre class="wp-block-code"><code lang="bash" class="language-bash">rustup update stable</code></pre>
+
+
+
+<p>Happy rusting! 🦀</p>
+
+    </div>
 </section>
+
 
   <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
     <div class="content">

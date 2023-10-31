@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Kevin.Gimbel.Dev/Ops</title>
+  <title>
+Darken and Lighten colors with CSS - Kevin.Gimbel.Dev/Blog
+</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -365,32 +367,250 @@ section {
 }</style>
   
   
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-page,
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    background: var(--color-accent-2, #ddd);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: var(--color-accent-2-contrast, #000);
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}
+
+.article__og-box {
+    font-size: 1rem;
+    border: .25em solid #ddd;
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: calc(var(--spacing) / 2);
+}</style>
   
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2021/06/darken-and-lighten-colors-with-css/" />
+
 </head>
 <body>
   <main class="main-grid">
   
-<section class="[ f-ultra stack ] [ gr-auto gc-full ] single-page">
-  <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
-  
-  <hr />
-  <div class="content">
-    <p>Responsible for the content of this website:</p>
-<p><strong>Kevin Gimbel</strong><br>
-Wiesbaden, Germany<br>
-Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
-<h3>Privacy information</h3>
-<p>This website does not use tracking or analytic tools. It is hosted on GitHub Pages.</p>
-<p>No dynamic programming language or database is used, it's all static HTML pages generated and then served with a HTTP server. The code is fully open source and available on <a href="https://github.com/kevingimbel/kevin.gimbel.dev">github.com/kevingimbel/kevin.gimbel.dev</a>.</p>
-<h3>Cookies</h3>
-<p>No cookies are used.</p>
-<h3>Private Data</h3>
-<p>No data is collected.</p>
-<h3>External links</h3>
-<p>External links are checked but there cannot be any guarantee given for their accuracy or the harmlessness of linked content. Welcome to the internet.</p>
 
-  </div>
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
+    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+
+    <div class="article__og-box">
+        <p><i>"Darken and Lighten colors with CSS"</i> was originally published on <a href="https://kevingimbel.de/blog/2021/06/darken-and-lighten-colors-with-css/" target="_blank" rel="nofollow" title="Read 'Darken and Lighten colors with CSS' on kevingimbel.de">kevingimbel.de</a>.</p>
+    </div>
+    <hr />
+    <div class="content">
+        <h1>Darken and Lighten colors with CSS</h1>
+        
+<h2 class="wp-block-heading">Recreating SASS darken() &amp; lighten() function with CSS variables and calc</h2>
+
+
+
+<p>The technique shown in this post uses the&nbsp;<code>hsl</code>&nbsp;color format in combination with the&nbsp;<code>calc</code>&nbsp;CSS function to calculate darker or lighter shades of a base color.</p>
+
+
+
+<p>Before we get into the code I want to make sure&nbsp;<strong>I did not come up with this</strong>, I found the code on&nbsp;<a href="https://stackoverflow.com/a/55330103">StackOverflow</a>&nbsp;and only want to write about it to keep it on my site for future reference! 🙂</p>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/08-darken-and-lighten-colors-with-css/index.md#the-code"></a>The code</h2>
+
+
+
+<pre class="wp-block-preformatted">:root {
+  --color: 0, 100%; 
+  --l:50%;
+    
+  --color-primary: hsl(var(--color),var(--l));
+  --color-primary-darker: hsl(var(--color),calc(var(--l) - 10%));
+  --color-primary-darkest: hsl(var(--color),calc(var(--l) - 30%)); 
+}</pre>
+
+
+
+<p>Here we define a color variable named&nbsp;<code>--color</code>&nbsp;that holds the first two values of a&nbsp;<code>hsl</code>&nbsp;color definition: The&nbsp;<em>hue</em>&nbsp;and&nbsp;<em>saturation</em>&nbsp;value. The third value,&nbsp;<em>lightness</em>&nbsp;is calculated based on the default lightness value (<code>--l</code>).</p>
+
+
+
+<p>The&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl()">HSL color function</a>&nbsp;takes three values:</p>
+
+
+
+<ul>
+<li><strong>H</strong>&nbsp;is the&nbsp;<code>hue</code>, a number from 0 to 360</li>
+
+
+
+<li><strong>S</strong>&nbsp;is the&nbsp;<code>saturation</code>, in percent 0 to 100</li>
+
+
+
+<li><strong>L</strong>&nbsp;is the&nbsp;<code>lightness</code>, in percent from 0 to 100</li>
+</ul>
+
+
+
+<p>The lightness can be increased to make the color lighter and decreased to make it darker.</p>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/08-darken-and-lighten-colors-with-css/index.md#the-result"></a>The result</h2>
+
+
+
+<p>{% codepen &#8220;jOBKjar&#8221; %}</p>
+
+
+
+<p>We can also apply the variables on a class level instead of the&nbsp;<code>:root</code>&nbsp;element so they are calculated every time the class is used, which enables &#8220;theming&#8221;, as the following CodePen shows.</p>
+
+
+
+<p>The&nbsp;<code>green</code>&nbsp;and&nbsp;<code>blue</code>&nbsp;class set different values for&nbsp;<code>--color</code>, therefore changing the values of&nbsp;<code>--color-primary</code>,&nbsp;<code>--color-primary-darker</code>, and&nbsp;<code>--color-primary-darkest</code>.</p>
+
+
+
+<p>{% codepen &#8220;zYZaVPp&#8221; %}</p>
+
+
+
+<p>Below is the new CSS code.</p>
+
+
+
+<pre class="wp-block-preformatted">:root {
+  --color: 0, 100%;
+  --l:50%; /*the initial lightness*/
+}
+
+.darken {
+  --color-primary: hsl(var(--color),var(--l));
+  --color-primary-darker: hsl(var(--color),calc(var(--l) - 10%));
+  --color-primary-darkest: hsl(var(--color),calc(var(--l) - 30%)); 
+  
+  color: var(--color-primary-darkest);
+  background: var(--color-primary);
+}
+
+.green {
+  --color:120, 50%;
+}
+
+.blue {
+  --color:245, 60%;
+  --l: 80%;
+}</pre>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/08-darken-and-lighten-colors-with-css/index.md#lighten"></a>lighten</h2>
+
+
+
+<p>The&nbsp;<code>lighten</code>&nbsp;function works in the same way, just that it would increase the lightness instead of decreasing it.</p>
+
+
+
+<pre class="wp-block-preformatted">.lighten {
+  --color: 0, 100%; 
+  --l:50%;
+    
+  --color-primary: hsl(var(--color),var(--l));
+  --color-primary-lighter: hsl(var(--color),calc(var(--l) + 10%));
+  --color-primary-lightest: hsl(var(--color),calc(var(--l) + 30%)); 
+}</pre>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/08-darken-and-lighten-colors-with-css/index.md#browser-support"></a>Browser Support</h2>
+
+
+
+<p>Just for completeness, here&#8217;s the Browser support. It&#8217;s looking&nbsp;<em>pretty good</em>&nbsp;with over 90% for both features used (as of June 2021).</p>
+
+
+
+<p>{% caniuse &#8220;calc&#8221; %} {% caniuse &#8220;css-variables&#8221; %}</p>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/08-darken-and-lighten-colors-with-css/index.md#further-reading"></a>Further reading</h2>
+
+
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl()">hsl on MDN</a></li>
+
+
+
+<li>Example Pen 1&nbsp;<a href="https://codepen.io/kevingimbel/pen/jOBKjar">codepen.io/kevingimbel/pen/jOBKjar</a></li>
+
+
+
+<li>Example Pen 2&nbsp;<a href="https://codepen.io/kevingimbel/pen/zYZaVPp">codepen.io/kevingimbel/pen/zYZaVPp</a></li>
+</ul>
+
+    </div>
 </section>
+
 
   <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
     <div class="content">

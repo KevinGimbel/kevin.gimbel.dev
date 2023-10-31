@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Kevin.Gimbel.Dev/Ops</title>
+  <title>
+Wildcards in Prometheus queries - Kevin.Gimbel.Dev/Blog
+</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -365,32 +367,192 @@ section {
 }</style>
   
   
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-page,
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    background: var(--color-accent-2, #ddd);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: var(--color-accent-2-contrast, #000);
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}
+
+.article__og-box {
+    font-size: 1rem;
+    border: .25em solid #ddd;
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: calc(var(--spacing) / 2);
+}</style>
   
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2021/02/wildcards-in-prometheus-queries/" />
+
 </head>
 <body>
   <main class="main-grid">
   
-<section class="[ f-ultra stack ] [ gr-auto gc-full ] single-page">
-  <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
-  
-  <hr />
-  <div class="content">
-    <p>Responsible for the content of this website:</p>
-<p><strong>Kevin Gimbel</strong><br>
-Wiesbaden, Germany<br>
-Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
-<h3>Privacy information</h3>
-<p>This website does not use tracking or analytic tools. It is hosted on GitHub Pages.</p>
-<p>No dynamic programming language or database is used, it's all static HTML pages generated and then served with a HTTP server. The code is fully open source and available on <a href="https://github.com/kevingimbel/kevin.gimbel.dev">github.com/kevingimbel/kevin.gimbel.dev</a>.</p>
-<h3>Cookies</h3>
-<p>No cookies are used.</p>
-<h3>Private Data</h3>
-<p>No data is collected.</p>
-<h3>External links</h3>
-<p>External links are checked but there cannot be any guarantee given for their accuracy or the harmlessness of linked content. Welcome to the internet.</p>
 
-  </div>
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
+    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+
+    <div class="article__og-box">
+        <p><i>"Wildcards in Prometheus queries"</i> was originally published on <a href="https://kevingimbel.de/blog/2021/02/wildcards-in-prometheus-queries/" target="_blank" rel="nofollow" title="Read 'Wildcards in Prometheus queries' on kevingimbel.de">kevingimbel.de</a>.</p>
+    </div>
+    <hr />
+    <div class="content">
+        <h1>Wildcards in Prometheus queries</h1>
+        
+<h2 class="wp-block-heading">Learn how to query data in Prometheus and how to use wildcards</h2>
+
+
+
+<p>Hello and welcome to this &#8220;snippet-sized&#8221; post about&nbsp;<a href="https://prometheus.io/">Prometheus</a>&nbsp;queries! Prometheus is a time-series database which means it is build to collect a lot of datasets that show values over time, for example the result of a HTTP request or the RAM usage of a server. At&nbsp;<a href="https://synoa.de/">Synoa</a>&nbsp;we use Prometheus to monitor the health of our APIs and systems. I won&#8217;t go into how Prometheus is setup, that&#8217;s stuff for a different article, but instead this article focuses on&nbsp;<em>how to query data with wildcards in Prometheus</em>, using Prometheus own query language.</p>
+
+
+
+<p>First we need to define a bit of test data. Assume we have the following datasets in Prometheus:</p>
+
+
+
+<pre class="wp-block-code has-tiny-font-size"><code>http_status{job="customer-dev",instance="https://dev.some-api.link/service-a",env="dev"}
+http_status{job="customer-dev",instance="https://dev.some-api.link/service-b",env="dev"}
+http_status{job="customer-dev",instance="https://dev.some-api.link/service-c",env="dev"}
+http_status{job="customer-prd",instance="https://some-api.link/service-a",env="prd"}
+http_status{job="customer-prd",instance="https://some-api.link/service-b",env="prd"}
+http_status{job="customer-prd",instance="https://some-api.link/service-c",env="prd"}
+</code></pre>
+
+
+
+<p>Here we have 6 datasets describing&nbsp;<code>service-a</code>,&nbsp;<code>service-b</code>, and&nbsp;<code>service-c</code>&nbsp;running in the PRD (production) and DEV (development) environment. To get all production services we could query like this:</p>
+
+
+
+<p>Prometheus Query</p>
+
+
+
+<pre class="wp-block-code has-small-font-size"><code>http_status{env="prd"}</code></pre>
+
+
+
+<p>Result</p>
+
+
+
+<pre class="wp-block-code has-tiny-font-size"><code>http_status{job="customer-prd",instance="https://some-api.link/service-a",env="prd"}
+http_status{job="customer-prd",instance="https://some-api.link/service-b",env="prd"}
+http_status{job="customer-prd",instance="https://some-api.link/service-c",env="prd"}
+</code></pre>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/02/09-prometheus-query-wildcard.md#wildcards-in-queries"></a>Wildcards in queries</h2>
+
+
+
+<p>Coming from MySQL you may think a wildcard could look like&nbsp;<code>http_status{job="customer-*"}</code>, but that&#8217;s not the case with Prometheus. Prometheus uses a Regex-like pattern and the wildcard character is&nbsp;<code>.+</code>&nbsp;(read: dot plus) combined with tilde character (<code>~</code>) instead of just the equal sign (<code>=</code>). So the query becomes&nbsp;<code>http_status{job~="customer-.+"}</code>. In the example below using the&nbsp;<code>.+</code>&nbsp;wildcard character we search for metrics where the&nbsp;<code>instance</code>&nbsp;label&nbsp;<em>ends with service-c</em>.</p>
+
+
+
+<p>{% note &#8220;info&#8221; %} Prometheus uses the tilde character&nbsp;<code>~</code>&nbsp;to indicate a query contains a wildcard. Inside the label-query the &#8220;dot plus&#8221; (<code>.+</code>) character combination is used where all characters are accepted. {% endnote %}</p>
+
+
+
+<p>Prometheus Query</p>
+
+
+
+<pre class="wp-block-code has-small-font-size"><code>http_status{instance=~".+service-c"}</code></pre>
+
+
+
+<p>Result</p>
+
+
+
+<pre class="wp-block-code has-tiny-font-size"><code>http_status{job="customer-dev",instance="https://dev.some-api.link/service-c",env="dev"}
+http_status{job="customer-prd",instance="https://some-api.link/service-c",env="prd"}
+</code></pre>
+
+
+
+<p>Depending on how your metrics are labels querying can be hard or easy. At Synoa I decided to include special labels like&nbsp;<code>env</code>,&nbsp;<code>system</code>, as well as &#8220;good&#8221;&nbsp;<code>job</code>&nbsp;names. The&nbsp;<code>job</code>&nbsp;label always has the format&nbsp;<code>customer-env-system</code>, e.g.&nbsp;<code>customer-prd-magento</code>&nbsp;or&nbsp;<code>customer-env-ecs</code>. If I want to get all customer metrics I query like&nbsp;<code>http_status{job="customer-.+"}</code>, if I want to see all dev system metrics I can query for&nbsp;<code>http_status{job="customer-dev-.+"}</code>, and so on!</p>
+
+
+
+<p>If you got a better label system or a&nbsp;<strong>must-have label</strong>&nbsp;let me know&nbsp;<a href="https://fosstodon.org/@KevinGimbel">on Mastodon @KevinGimbel@fosstodon.org</a>.</p>
+
+
+
+<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/02/09-prometheus-query-wildcard.md#further-reading"></a>Further reading</h2>
+
+
+
+<ul>
+<li><a href="https://prometheus.io/docs/prometheus/latest/querying/basics/">Prometheus Query documentation</a></li>
+</ul>
+
+    </div>
 </section>
+
 
   <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
     <div class="content">
