@@ -8,6 +8,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/font");
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/.ht*");
+  eleventyConfig.addPassthroughCopy("src/CNAME");
 
   eleventyConfig.addCollection("sections", function (collectionApi) {
     // get unsorted items
