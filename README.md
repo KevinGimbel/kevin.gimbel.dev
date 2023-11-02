@@ -5,3 +5,5 @@
 ---
 
 Built with [11ty](https://11ty.dev/), hosted on Github Pages.
+
+<!-- ô,ô ~[ secret release trigger ] -->
