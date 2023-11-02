@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>
+Integrating WordPress Posts with 11ty - Kevin.Gimbel.Dev/Blog
+</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Eleventy">
+  <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
+  <style>:root {
+  --color-bg: hsl(279, 19%, 93%);
+  --color-fg: #000;
+  --color-contrast-fg: #000;
+  --color-contrast-bg: #000;
+
+  --stack-spacing: 2rem;
+  --spacing: 2rem;
+
+  --color-accent-1: hsl(100, 75%, 90%);
+  --color-accent-1-contrast: hsl(100, 20%, 50%);
+  --color-accent-2: hsl(200, 75%, 90%);
+  --color-accent-2-contrast: hsl(200, 20%, 50%);
+  --color-accent-3: hsl(300, 75%, 90%);
+  --color-accent-3-contrast: hsl(300, 20%, 50%);
+  --color-accent-4: hsl(400, 75%, 90%);
+  --color-accent-4-contrast: hsl(400, 20%, 50%);
+  --color-accent-5: hsl(255, 75%, 90%);
+  --color-accent-5-contrast: hsl(255, 20%, 50%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px/1.4 ui-monospace,
+    "Cascadia Mono", "Segoe UI Mono",
+    "Ubuntu Mono",
+    "Roboto Mono",
+    Menlo, Monaco, Consolas,
+    monospace;
+  background: cornsilk;
+  color: #000;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2,
+h3 {
+  --color-fg: var(--color-contrast-fg);
+  text-shadow: .02em .02em 0 var(--color-bg), .03em .03em 0 var(--color-contrast-fg);
+}
+
+hr {
+  max-width: 80%;
+  margin: 0 auto;
+  border: none;
+  background: var(--color-fg);
+  height: 0.05em;
+}
+
+.stack *+* {
+  margin-top: var(--stack-spacing, 2rem);
+}
+
+a {
+  color: hotpink;
+}
+
+a:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.a-blank,
+.a-blank:visited {
+  text-decoration: none;
+}
+
+.a-blank:hover,
+.a-blank:focus {
+  border-bottom: .15em solid currentColor;
+  font-size: 100%;
+  letter-spacing: 0em;
+}
+
+.a-splash {
+  color: var(--color-bg);
+  background: var(--color-fg);
+  border-radius: 65% 72% 53% 41%;
+  padding: .25em;
+}
+
+/* Accent colors and styles */
+.fg-accent-1 {
+  --color-fg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.fg-accent-2 {
+  --color-fg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.fg-accent-3 {
+  --color-fg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.fg-accent-4 {
+  --color-fg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+[class*="fg-accent"] {
+  color: var(--color-fg);
+  font-weight: bold;
+}
+
+.bg-accent-1 {
+  --color-contrast-fg: var(--color-accent-1-contrast, #000);
+  --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.bg-accent-2 {
+  --color-contrast-fg: var(--color-accent-2-contrast, #000);
+  --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.bg-accent-3 {
+  --color-contrast-fg: var(--color-accent-3-contrast, #000);
+  --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.bg-accent-4 {
+  --color-contrast-fg: var(--color-accent-4-contrast, #000);
+  --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+.bg-accent-5 {
+  --color-contrast-fg: var(--color-accent-5-contrast, #fff);
+  --color-bg: var(--color-accent-5, #000);
+}
+
+[class*="bg-accent"] {
+  background: var(--color-bg, #000);
+  color: var(--color-fg, #fff);
+}
+
+ul {
+  list-style: none;
+  margin-left: var(--stack-spacing);
+}
+
+ul li::before {
+  content: "✦";
+  color: var(--color-contrast-fg, #000);
+  display: inline;
+  width: 1em;
+  margin-left: -1.25em;
+  padding-right: .5em;
+}
+
+.grid {
+  display: grid;
+}
+
+
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1em;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.gr-1 {
+  grid-row: 1;
+}
+
+.gr-2 {
+  grid-row: 2;
+}
+
+.gr-auto {
+  grid-row: auto;
+}
+
+.gc-full {
+  grid-column-start: 1;
+  grid-column-end: 12;
+}
+
+.gc-8-12 {
+  grid-column-start: 8;
+  grid-column-end: 12;
+}
+
+.gc-1-7 {
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 3), 1fr);
+  grid-gap: var(--stack-spacing, 2rem);
+}
+
+ul li {
+  margin-top: var(--stack-spacing, 1rem);
+}
+
+/* .c-skill-list {} */
+.c-skill-list__item {
+  padding: 1rem;
+  font-size: .75em;
+}
+
+.about {
+  grid-column-start: 5;
+  grid-column-end: 12;
+  grid-row: 2;
+}
+
+.c-full-width {
+  width: 100vw;
+}
+
+.c-full-height {
+  min-height: 100vh;
+}
+
+hgroup {
+  margin-bottom: calc(var(--stack-spacing, 2rem) * 2);
+}
+
+.c-svg-background {
+  width: 100%;
+  width: fit-content;
+  max-width: 40vw;
+  position: relative;
+  padding: var(--spacing, 2rem);
+  display: block;
+  color: var(--color-fg, #000);
+  display: inline-grid;
+  grid-template-areas: "a";
+}
+
+.c-svg-background>.background,
+.c-svg-background>.content {
+  grid-area: a;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.c-svg-background>.content {
+  padding: 0 0 1.5em 1em;
+}
+
+.c-svg-background>.background {
+  width: 110%;
+  height: 110%;
+  margin-left: -5%;
+  margin-top: -5%;
+}
+
+.f-ultra>* {
+  font-size: 2.75em;
+}
+
+.f-heading-big {
+  font-size: 3em;
+  color: var(--color-fg, #000);
+}
+
+section {
+  padding: var(--spacing, 2rem);
+}
+
+@media all and (max-width: 2000px) {
+  .about {
+    grid-column-start: 3;
+    grid-column-end: 13;
+    max-width: 60vw;
+    min-width: 60rem;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  body {
+    font-size: 10px;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .start>* {
+    max-width: 100%;
+  }
+
+  .about,
+  .avatar {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .bg-accent-3 {
+    text-shadow: none;
+  }
+
+  .about {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    background: var(--color-contrast-bg);
+  }
+
+  .about .background {
+    display: none;
+  }
+
+  .c-skill-list {
+    grid-template-columns: 1fr;
+  }
+
+  .c-svg-background {
+    max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .grid>* {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+.single-page {
+  font-size: .75em;
+}
+
+.article-list {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.article-list__item>h2 {
+  text-shadow: none;
+}
+
+.article-list__more-link {
+  display: inline-block;
+  margin-top: var(--spacing);
+}
+
+.article-list__item {
+  margin: calc(var(--spacing) * 2) 0;
+  background: #fff;
+  padding: calc(var(--spacing) * 2)
+}</style>
+  
+  
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-page,
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    background: var(--color-accent-2, #ddd);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: var(--color-accent-2-contrast, #000);
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}
+
+.article__og-box {
+    font-size: 1rem;
+    border: .25em solid #ddd;
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: calc(var(--spacing) / 2);
+}</style>
+  
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2023/11/integrating-wordpress-posts-with-11ty/" />
+
+</head>
+<body>
+  <main class="main-grid">
+  
+
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
+    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+
+    <div class="article__og-box">
+        <p><i>"Integrating WordPress Posts with 11ty"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/11/integrating-wordpress-posts-with-11ty/" target="_blank" rel="nofollow" title="Read 'Integrating WordPress Posts with 11ty' on kevingimbel.de">kevingimbel.de</a>.</p>
+    </div>
+    <hr />
+    <div class="content">
+        <h1>Integrating WordPress Posts with 11ty</h1>
+        
+<p class="has-medium-font-size">If you&#8217;ve followed me around the <em>internetz</em> it comes as no surprise that I&#8217;m a huge fan of <a href="https://www.11ty.dev">11ty</a> &#8211; a JavaScript based static-site generator that&#8217;s super flexible, can be extended, and is really fun to work with.</p>
+
+
+
+<p>When I switched my <a href="https://github.com/KevinGimbel/kevingimbel.de">11ty based website</a> to <a href="https://kevingimbel.de/blog/2022/11/back-to-basics-wordpress/">WordPress</a> the main reason was that I&#8217;ve grown tired of writing Markdown files and I wanted something with a backend again, something where I could draft an article on-the-go and finish it later on my computer and have proper Media management as well; Media management especially was (and is) annoying  without a proper CMS in my opinion. While I&#8217;m happy with WordPress as a CMS, I&#8217;m not so happy with theming and PHP. <em>I really don&#8217;t want to write a theme in PHP (like, really really don&#8217;t want to!)</em> so I&#8217;ve rolled with the default theme (<em>Twenty Twenty-Three</em>) which is fine and does it&#8217;s job, but I miss the <strong>fun</strong> in creating and building websites.</p>
+
+
+
+<p>Besides the WordPress based <em>kevingimbel.de</em> I&#8217;ve also had a <code>11ty</code> site published at <a href="https://kevin.gimbel.dev/ops/">kevin.gimbel.dev/ops</a> &#8211; a little site showcasing some of the technologies I&#8217;ve worked with, and mainly created as a showcase (<em>and  for fun!</em>) when I was looking for a new job in 2022.</p>
+
+
+
+<p><em><strong>Well, longest story short:</strong></em> I just finished integrating this blog (even <em>THIS ARTICLE</em>) automatically with my <code>11ty</code> site! So all articles are now published on <a href="https://kevin.gimbel.dev/blog/">kevin.gimbel.dev/blog</a> as well.</p>
+
+
+
+<figure class="wp-block-image alignwide size-large"><img decoding="async" loading="lazy" width="1024" height="499" src="https://kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145-1024x499.png" alt="Screenshot showing the blog page on kevin.gimbel.dev
+It's white boxes with text on a blue background." class="wp-image-401" srcset="https://kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145-1024x499.png 1024w, https://kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145-300x146.png 300w, https://kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145-768x375.png 768w, https://kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145-1536x749.png 1536w, https://kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png 1882w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Visually it isn&#8217;t anything to brag to your Front-End Friends about, but it does the job &#8211; it shows content.</p>
+
+
+
+<p>So without further ado, let&#8217;s get to the technical side of it all!</p>
+
+
+
+<h2 class="wp-block-heading">The Goal</h2>
+
+
+
+<p>&#8230; is to have <code>11ty</code> render pages from posts fetched from the WordPress API. The solution described here doesn&#8217;t render WordPress pages yet (tho maybe I&#8217;ll implement this in the future).</p>
+
+
+
+<h2 class="wp-block-heading">Creating pages from data</h2>
+
+
+
+<p><code>11ty</code> can create <a href="https://www.11ty.dev/docs/pages-from-data/">pages from data</a> &#8211; which means we can use plain old JavaScript to parse a RSS feed (or JSON feed), then turn it into a bunch of pages.</p>
+
+
+
+<p>The magic happens in the data file at <code>src/_data/blog.js</code>. The <code>_data</code> directory is a special directory for all &#8230; data. Whatever the JavaScript file returns is available inside of all <code>11ty</code> pages and templates, usable as  <code>{{ blog }}</code> (same name as the file).</p>
+
+
+
+<p>The script below is all it takes. I use the <a href="https://www.npmjs.com/package/node-fetch">node-fetch</a> module to load the last 100 posts from <em>kevingimbel.de</em>, then I extract the fields I want to use (<code>title</code>, <code>link</code>, <code>content</code>, <code>excerpt</code>, and <code>slug</code>), and finally at the end of the file the whole <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> is exported.</p>
+
+
+
+<pre title="src/_data/blog.js" class="wp-block-code alignwide"><code lang="javascript" class="language-javascript line-numbers">const fetch = (...args) =&gt; import('node-fetch').then(({ default: fetch }) =&gt; fetch(...args));
+const response = fetch('https://kevingimbel.de/wp-json/wp/v2/posts?orderby=date&amp;order=desc&amp;per_page=100');
+
+let data = response.then((response) =&gt; {
+    return response.json();
+}).then(data =&gt; {
+    let _posts = [];
+    data.forEach(item =&gt; {
+        var post = {
+            title: item.title.rendered,
+            link: item.link,
+            content: item.content.rendered.replace("<a href="https://kevingimbel.de/blog/2023/11/integrating-wordpress-posts-with-11ty/#respond">comment on the original article on kevingimbel.de</a>", `&lt;a href="${item.link}#respond"&gt;comment on the original article on kevingimbel.de&lt;/a&gt;`),
+            excerpt: item.excerpt.rendered,
+            slug: item.link.replace('https://kevingimbel.de/', '')
+        }
+        _posts.push(post);
+
+    });
+
+    return _posts;
+}).catch(err =&gt; {
+    console.log("Error retrieving posts: ", err);
+});
+
+module.exports = data;</code></pre>
+
+
+
+<p>Some interesting parts in the script:</p>
+
+
+
+<p><strong>content</strong></p>
+
+
+
+<p>In the content field I replace the string &#8220;comment below 👇&#8221; with a link to the original article&#8217;s comment box (on kevingimbel.de, the WordPress site). This is because the <code>11ty</code> site has no comments and I don&#8217;t want to implement comments there (<em>maybe I can integrate the WordPress comments somehow</em> 🤔). </p>
+
+
+
+<pre class="wp-block-code alignwide"><code lang="javascript" class="language-javascript">item.content.rendered.replace("comment below 👇", `&lt;a href="${item.link}#respond"&gt;comment on the original article on kevingimbel.de&lt;/a&gt;`),</code></pre>
+
+
+
+<p><strong>slug</strong></p>
+
+
+
+<p>I wanted to have the same URLs as on <em>kevingimbel.de</em> so for the slug I just removed the <code>https://kevingimbel.de/</code> prefix from the links &#8211; the slug is later used in the template files.</p>
+
+
+
+<pre class="wp-block-code alignwide"><code lang="javascript" class="language-javascript">slug: item.link.replace('https://kevingimbel.de/', '')</code></pre>
+
+
+
+<h2 class="wp-block-heading">11ty templates</h2>
+
+
+
+<p>Data alone isn&#8217;t enough, we also need to write some templates. There are two templates (I use <a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>, but it&#8217;s basically the same for every supported template language).</p>
+
+
+
+<ul>
+<li><code>blog-page.njk</code> which is the single page of a blog entry</li>
+
+
+
+<li><code>blog.njk</code> which is the blog list (feed)</li>
+</ul>
+
+
+
+<p><strong>blog-page.njk</strong> (<a href="https://github.com/KevinGimbel/kevin.gimbel.dev/blob/91ded96d457bb80f549d80314dc51198f495c6ac/src/blog-page.njk">Github Link</a>)</p>
+
+
+
+<p>The important part is the frontmatter &#8211; the header of the template.</p>
+
+
+
+<pre title="src/blog-page.njk" class="wp-block-code"><code lang="yaml" class="language-yaml">---
+pagination:
+    data: blog
+    size: 1
+    alias: article
+permalink: "{{ article.slug }}"
+---</code></pre>
+
+
+
+<p>Here we reference the data (<code>data: blog</code>) we defined in <code>src/_data/blog.js</code>, use it as pagination and define a new variable named article (<code>alias: article</code>) which is a reference to the current article being rendered. </p>
+
+
+
+<p>The <code>permalink</code> is where the slug from above comes into play: For each article we need to define a permalink because <code>11ty</code> cannot automatically determine a path, and here we use the value of <code>article.slug</code> which is the URL path from WordPress.</p>
+
+
+
+<p>The single page blog template itself is pretty much &#8220;standard&#8221; 11ty code:</p>
+
+
+
+<pre title="src/blog-page.njk" class="wp-block-code alignwide"><code lang="markup" class="language-markup">{% extends "base.njk" %}
+
+{% block head %}
+&lt;link rel="canonical" href="{{ article.link }}" /&gt;
+{% endblock %}
+
+{% block content %}
+
+&lt;section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page"&gt;
+    {% include "nav.njk" %}
+
+    &lt;div class="article__og-box"&gt;
+        &lt;p&gt;&lt;i&gt;"{{ article.title}}"&lt;/i&gt; was originally published on &lt;a href="{{ article.link }}" target="_blank" rel="nofollow" title="Read '{{ article.title}}' on kevingimbel.de"&gt;kevingimbel.de&lt;/a&gt;.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;hr /&gt;
+    &lt;div class="content"&gt;
+        &lt;h1&gt;{{ article.title }}&lt;/h1&gt;
+        {{ article.content | safe }}
+    &lt;/div&gt;
+&lt;/section&gt;
+
+{% endblock %}</code></pre>
+
+
+
+<p>I&#8217;m using <code>{{ article.content | safe }}</code> here to render the HTML retrieved from the WordPress API. </p>
+
+
+
+<p>One not-so-standard thing is the canonical link. This link is added to the <code>head</code> of the HTML page and references the original article published on <em>kevingimbel.de</em>.</p>
+
+
+
+<pre class="wp-block-code"><code lang="markup" class="language-markup">{% block head %}
+&lt;link rel="canonical" href="{{ article.link }}" /&gt;
+{% endblock %}</code></pre>
+
+
+
+<p>In my base template I have a block named head defined in the HTML head to dynamically add new attributes to it. (<a href="https://github.com/KevinGimbel/kevin.gimbel.dev/blob/91ded96d457bb80f549d80314dc51198f495c6ac/src/_includes/base.njk#L16-L17">Code on GitHub</a>).</p>
+
+
+
+<p><strong>blog.njk</strong></p>
+
+
+
+<p>And lastly, the <code>blog.njk</code> page is where the blog list is rendered.</p>
+
+
+
+<pre title="src/blog.njk" class="wp-block-code alignwide"><code lang="markup" class="language-markup">{% extends "base.njk" %}
+
+{% block content %}
+
+&lt;section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ]  single-page"&gt;
+    &lt;div class="content"&gt;
+        {% include 'nav.njk' %}
+        &lt;hr /&gt;
+
+        &lt;ul class="article-list"&gt;
+        {% for article in blog %}
+        &lt;li class="article-list__item"&gt;
+            &lt;h2&gt;&lt;a href="/{{ article.slug }}"&gt;{{ article.title }}&lt;/a&gt;&lt;/h2&gt;
+            &lt;p&gt;{{ article.excerpt | safe }}&lt;/p&gt;
+            &lt;a href="/{{ article.slug }}" class="article-list__more-link"&gt;Continue reading &amp;gt;&amp;gt;&lt;/a&gt;
+        &lt;/li&gt;
+        {%- endfor -%}
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+{% endblock %}</code></pre>
+
+
+
+<h2 class="wp-block-heading">Conclusion</h2>
+
+
+
+<p>Integrating WordPress blog posts with <code>11ty</code> is surprisingly straight forward, thanks to the WordPress JSON API and <code>11ty</code> data pages there was little custom code needed.</p>
+
+
+
+<p>There are still some TODOs:</p>
+
+
+
+<ul>
+<li>Only 100 posts are loaded at the moment, I&#8217;d like to load more and possibly cache the results somehow &#8211; content rarely changes so it would be fine to only load the last posts published</li>
+
+
+
+<li>I&#8217;d like to trigger a GitHub Action every time I publish a post</li>
+
+
+
+<li>The blog list looks boring, I want to make this more <em>fun!</em></li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Links</h2>
+
+
+
+<ul>
+<li><a href="https://www.11ty.dev/docs/pages-from-data/">Creating pages from data (11ty docs)</a></li>
+
+
+
+<li><a href="https://developer.wordpress.org/rest-api/reference/posts/">WordPress Rest API docs</a></li>
+</ul>
+
+
+
+<p class="has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-e381ca18b7414fdbecaeb2554e08a8ca">Join the discussion on <a href="https://fosstodon.org/@kevin@kevingimbel.de/111341960932334264">Mastodon</a> or comment below 👇</p>
+
+    </div>
+</section>
+
+
+  <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
+    <div class="content">
+      <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a> and lots of fun. <a href="/imprint">Imprint</a></p>
+    </div>
+  </section>
+</main>
+</body>
+<script>document.addEventListener('DOMContentLoaded', function () {
+  let favicon_txt = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%EMOJI%</text></svg>`
+  let favicon_el = document.head.querySelector('#favicon');
+  let sections = Array.from(document.querySelectorAll('section[data-icon]'));
+  let last_active_section = null;
+  let YEAR_NOW = new Date().getFullYear().toFixed(0);
+  let years_working = document.querySelector(".js-years-working");
+  let all_time_since = document.querySelectorAll(".js-time-since");
+
+  function set_favicon(emoji) {
+    let txt = favicon_txt.replace('%EMOJI%', emoji);
+    favicon_el.setAttribute('href', txt);
+  }
+
+  window.addEventListener('scroll', function (event) {
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
+    let active_section = sections_in_view[sections_in_view.length - 1];
+    if (last_active_section != active_section) {
+      last_active_section = active_section;
+      set_favicon(active_section.dataset.icon);
+    }
+  });
+
+  all_time_since.forEach((element, key) => {
+    let year = element.dataset.year;
+
+    if (year) {
+      try {
+        let year_num = parseInt(year);
+        element.textContent = YEAR_NOW - year_num;
+      } catch (err) {
+        console.log("Error calculating year: ", err);
+      }
+    }
+  })
+
+  if (years_working) {
+    years_working.textContent = YEAR_NOW - 2009;
+  }
+});
+</script>
+</html>
