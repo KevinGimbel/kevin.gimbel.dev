@@ -10,7 +10,7 @@
 
         <ul class="article-list">
         {% for article in blog %}
-        <li class="article-list__item">
+        <li class="article-list__item [ section__styled ]">
             <h2><a href="/{{ article.slug }}">{{ article.title }}</a></h2>
             <p>{{ article.excerpt | safe }}</p>
             <a href="/{{ article.slug }}" class="article-list__more-link">Continue reading &gt;&gt;</a>

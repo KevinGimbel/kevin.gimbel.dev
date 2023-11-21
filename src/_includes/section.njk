@@ -1,4 +1,4 @@
-<section id="{{ page.data.id }}" class="[ f-ultra bg-accent-{{ page.data.accent_id }} stack ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;{% for style in page.data.styles %} {{ style }}{% endfor %}" data-icon="{{ page.data.icon or "~" }}">
+<section id="{{ page.data.id }}" class="[ f-ultra bg-accent-{{ page.data.accent_id }} stack ] [ section__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;{% for style in page.data.styles %} {{ style }}{% endfor %}" data-icon="{{ page.data.icon or "~" }}">
     {%- if page.data.sub_heading or page.data.title -%}
     <hgroup>
       {%- if page.data.title -%}

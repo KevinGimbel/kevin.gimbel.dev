@@ -270,6 +270,15 @@ section {
   padding: var(--spacing, 2rem);
 }
 
+.section__styled {
+  margin: var(--spacing, 2rem);
+  padding-right: calc(var(--spacing, 2rem) * 2);
+
+  max-width: calc(100% - calc(var(--spacing, 2rem) * 3));
+  box-shadow: -1rem -1rem 0 black;
+  border: .25rem solid black;
+}
+
 @media all and (max-width: 2000px) {
   .about {
     grid-column-start: 3;
@@ -338,6 +347,18 @@ section {
 .article-list {
   max-width: 75rem;
   margin: 0 auto;
+}
+
+.article-list--inline {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  font-size: 80%;
+}
+
+.article-list--inline>.article-list__item {
+  margin: var(--spacing, 2rem);
 }
 
 .article-list__item>h2 {

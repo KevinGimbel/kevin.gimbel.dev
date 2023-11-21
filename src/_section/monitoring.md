@@ -5,7 +5,7 @@ styles: []
 icon: "👀"
 sub_heading: |
   Keeping tabs on everything
-position: 150
+position: 160
 accent_id: 4
 skills:
   - Prometheus

@@ -2,7 +2,7 @@
 
 {% block content %}
   <section id="{{ page.data.id }}" class="[ f-ultra  stack ] [ bg-accent ] [ grid gr-auto ] [ c-full-width c-full-height start ]" style="--spacing: 4rem; --color-bg: #222; --color-fg: #c1c1c1;" data-icon="~">
-     <div class="gc-1-7">
+      <div class="gc-1-7">
         <h1>Hi, I'm Kevin!</h1>
         <h2>A <b>DevOps Engineer</b><br> working at <a href="https://aoe.com" title="AOE">AOE GmbH</a>.</h2>
       </div>
@@ -14,6 +14,26 @@
         <p><center>⬇</center></p>
       </div>
   </section>
+
+
+<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ]  single-page">
+    <div class="content">
+      <hgroup>
+      <h3 class="f-heading-big">Latest articles</h3>
+      <h4>Some things I wrote about</h4>
+    </hgroup>
+        <ul class="article-list article-list--inline">
+        {% for idx in [0, 1, 2] %}
+        {% set article = blog[idx] %}
+        <li class="article-list__item [ section__styled ]">
+            <h2><a href="/{{ article.slug }}">{{ article.title }}</a></h2>
+            <p>{{ article.excerpt | safe }}</p>
+            <a href="/{{ article.slug }}" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        {%- endfor -%}
+        </ul>
+    </div>
+</section>
 
 {% for page in collections.sections %}
   {% include "section.njk" %}

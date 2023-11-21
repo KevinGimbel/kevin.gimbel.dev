@@ -8,12 +8,11 @@ sub_heading: |
 position: 400
 accent_id: 4
 skills:
-  - HTTPS-only traffic between systems
-  - Restrictive AWS IAM users and roles
-  - Automatic generation of AWS IAM users and automated S3 access management via Terraform
-  - Auto-generated Passwords wherever possible
-  - Password management with self-hosted Password manager
+  - HTTPS-only traffic
+  - Always use random, auto-generated passwords
   - SSL certificate management with Let's Encrypt and AWS Certificate Manager
+  - integration with Single-Sign On where possible
+  - never share passwords in plain-text
 ---
 
 Security must be considered from the start. **Period**.
