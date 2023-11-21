@@ -281,6 +281,15 @@ section {
   padding: var(--spacing, 2rem);
 }
 
+.section__styled {
+  margin: var(--spacing, 2rem);
+  padding-right: calc(var(--spacing, 2rem) * 2);
+
+  max-width: calc(100% - calc(var(--spacing, 2rem) * 3));
+  box-shadow: -1rem -1rem 0 black;
+  border: .25rem solid black;
+}
+
 @media all and (max-width: 2000px) {
   .about {
     grid-column-start: 3;
@@ -349,6 +358,18 @@ section {
 .article-list {
   max-width: 75rem;
   margin: 0 auto;
+}
+
+.article-list--inline {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  font-size: 80%;
+}
+
+.article-list--inline>.article-list__item {
+  margin: var(--spacing, 2rem);
 }
 
 .article-list__item>h2 {
@@ -475,7 +496,7 @@ pre,
 
 
 
-<figure class="wp-block-image alignwide size-large"><img decoding="async" loading="lazy" width="1024" height="499" src="https://kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145-1024x499.png" alt="Screenshot showing the blog page on kevin.gimbel.dev
+<figure class="wp-block-image alignwide size-large"><img loading="lazy" decoding="async" width="1024" height="499" src="https://kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145-1024x499.png" alt="Screenshot showing the blog page on kevin.gimbel.dev
 It's white boxes with text on a blue background." class="wp-image-401" srcset="https://kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145-1024x499.png 1024w, https://kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145-300x146.png 300w, https://kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145-768x375.png 768w, https://kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145-1536x749.png 1536w, https://kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png 1882w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
 
 

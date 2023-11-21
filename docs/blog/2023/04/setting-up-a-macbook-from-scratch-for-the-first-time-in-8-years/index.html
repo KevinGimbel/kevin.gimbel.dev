@@ -281,6 +281,15 @@ section {
   padding: var(--spacing, 2rem);
 }
 
+.section__styled {
+  margin: var(--spacing, 2rem);
+  padding-right: calc(var(--spacing, 2rem) * 2);
+
+  max-width: calc(100% - calc(var(--spacing, 2rem) * 3));
+  box-shadow: -1rem -1rem 0 black;
+  border: .25rem solid black;
+}
+
 @media all and (max-width: 2000px) {
   .about {
     grid-column-start: 3;
@@ -349,6 +358,18 @@ section {
 .article-list {
   max-width: 75rem;
   margin: 0 auto;
+}
+
+.article-list--inline {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  font-size: 80%;
+}
+
+.article-list--inline>.article-list__item {
+  margin: var(--spacing, 2rem);
 }
 
 .article-list__item>h2 {
@@ -596,7 +617,7 @@ error_symbol = '[✕](bold 45)'</code></pre>
 
 
 
-<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="1024" height="551" src="https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49-1024x551.png" alt="Screenshot of iTerm2 showing the prompt and colors for errors and success. With success an arrow in pink is shown as prompt symbol, with failure a blue X is displayed." class="wp-image-274" srcset="https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49-1024x551.png 1024w, https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49-300x161.png 300w, https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49-768x413.png 768w, https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png 1204w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="551" src="https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49-1024x551.png" alt="Screenshot of iTerm2 showing the prompt and colors for errors and success. With success an arrow in pink is shown as prompt symbol, with failure a blue X is displayed." class="wp-image-274" srcset="https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49-1024x551.png 1024w, https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49-300x161.png 300w, https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49-768x413.png 768w, https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png 1204w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
 
 
 
@@ -608,7 +629,7 @@ error_symbol = '[✕](bold 45)'</code></pre>
 
 
 
-<figure class="wp-block-image alignleft size-full"><img decoding="async" loading="lazy" width="632" height="240" src="https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png" alt="Screenshot showing the English keyboard layout" class="wp-image-261" srcset="https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png 632w, https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21-300x114.png 300w" sizes="(max-width: 632px) 100vw, 632px" /><figcaption class="wp-element-caption">The US International PC keyboard layout</figcaption></figure>
+<figure class="wp-block-image alignleft size-full"><img loading="lazy" decoding="async" width="632" height="240" src="https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png" alt="Screenshot showing the English keyboard layout" class="wp-image-261" srcset="https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png 632w, https://kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21-300x114.png 300w" sizes="(max-width: 632px) 100vw, 632px" /><figcaption class="wp-element-caption">The US International PC keyboard layout</figcaption></figure>
 
 
 
