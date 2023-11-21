@@ -15,6 +15,8 @@ skills:
   - Deploying docker with Docker Remote API
 ---
 
-In 2017 I drove the initial adoption of Docker for local development at Synoa GmbH, later pushing usage in CI/CD, Kubernetes, and ECS.
+In 2017 I drove the initial adoption of Docker for local development at Synoa GmbH.
+
+In the years following until I departet in 2023 we used Docker locally, in ECS, in TeamCity CI/CD pipelines, and as runtime on simple Ubuntu servers.
 
 Some areas I've gained knowledge in over the years include:

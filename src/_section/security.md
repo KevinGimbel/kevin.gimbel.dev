@@ -11,8 +11,8 @@ skills:
   - HTTPS-only traffic
   - Always use random, auto-generated passwords
   - SSL certificate management with Let's Encrypt and AWS Certificate Manager
-  - integration with Single-Sign On where possible
-  - never share passwords in plain-text
+  - Integration with Single-Sign On where possible
+  - Never share passwords in plain-text
 ---
 
 Security must be considered from the start. **Period**.

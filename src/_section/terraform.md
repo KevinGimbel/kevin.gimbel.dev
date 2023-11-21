@@ -2,9 +2,10 @@
 title: "Terraform"
 id: "terraform"
 styles: []
-icon: null
+icon: "🤖"
 sub_heading: null
 position: 350
+accent_id: 5
 skills:
   - AWS VPC and subnets
   - AWS VPC networking & routing
