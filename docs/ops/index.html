@@ -16,16 +16,16 @@
   --stack-spacing: 2rem;
   --spacing: 2rem;
 
-  --color-accent-1: hsl(100, 75%, 90%);
-  --color-accent-1-contrast: hsl(100, 20%, 50%);
-  --color-accent-2: hsl(200, 75%, 90%);
-  --color-accent-2-contrast: hsl(200, 20%, 50%);
-  --color-accent-3: hsl(300, 75%, 90%);
+  --color-accent-1: hsl(150, 90%, 70%);
+  --color-accent-1-contrast: hsl(150, 30%, 40%);
+  --color-accent-2: hsl(250, 100%, 80%);
+  --color-accent-2-contrast: hsl(250, 30%, 40%);
+  --color-accent-3: hsl(300, 100%, 90%);
   --color-accent-3-contrast: hsl(300, 20%, 50%);
-  --color-accent-4: hsl(400, 75%, 90%);
-  --color-accent-4-contrast: hsl(400, 20%, 50%);
-  --color-accent-5: royalblue;
-  --color-accent-5-contrast: white;
+  --color-accent-4: hsl(350, 100%, 70%);
+  --color-accent-4-contrast: hsl(350, 50%, 30%);
+  --color-accent-5: hsl(47, 100%, 70%);
+  --color-accent-5-contrast: hsl(47, 50%, 40%);
 }
 
 * {
@@ -75,6 +75,7 @@ hr {
 
 a {
   color: hotpink;
+  text-decoration-skip-ink: all;
 }
 
 a:hover {
@@ -99,7 +100,40 @@ a:hover {
   background: var(--color-fg);
   border-radius: 65% 72% 53% 41%;
   padding: .25em;
+  animation: wobble linear 4s infinite;
 }
+
+/* Disable animation if reduced motion is set */
+@media (prefers-reduced-motion) {
+  .a-splash {
+    animation: none;
+  }
+}
+
+@keyframes wobble {
+  1% {
+    border-radius: 65% 72% 53% 41%;
+  }
+
+  25% {
+    border-radius: 92% 10% 62% 15%;
+  }
+
+  50% {
+    border-radius: 18% 92% 21% 39%;
+  }
+
+  75% {
+    border-radius: 95% 42% 13% 81%;
+  }
+
+  100% {
+    border-radius: 65% 72% 53% 41%;
+  }
+
+}
+
+
 
 /* Accent colors and styles */
 .fg-accent-1 {
@@ -149,8 +183,8 @@ a:hover {
 }
 
 [class*="bg-accent"] {
-  background: var(--color-bg, #000);
-  color: var(--color-fg, #fff);
+  color: var(--color-fg, #000);
+  background: var(--color-bg, #fff);
 }
 
 ul {
@@ -290,8 +324,13 @@ section {
   padding-right: calc(var(--spacing, 2rem) * 2);
 
   max-width: calc(100% - calc(var(--spacing, 2rem) * 3));
-  box-shadow: -1rem -1rem 0 black;
-  border: .25rem solid black;
+}
+
+.box-shadow__styled {
+  --c1: var(--color-fg, --box-shadow-color);
+
+  box-shadow: -1rem -1rem 0 var(--c1);
+  border: .25rem solid var(--c1);
 }
 
 section[id].section__styled {
@@ -370,6 +409,7 @@ section[id].section__styled {
 }
 
 .article-list--inline {
+  --box-shadow-color: black;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -421,7 +461,7 @@ section[id].section__styled {
         <h2>A <b>DevOps Engineer</b><br> working at <a href="https://aoe.com" title="AOE">AOE GmbH</a>.</h2>
       </div>
       <div class="gc-8-12">
-        <img src="/assets/img/avatar-aoe.jpg" style="max-height: 25rem; box-shadow: -1rem -1rem 0 white; border: .25rem solid white;" />
+        <img src="/assets/img/avatar-aoe.jpg" class="box-shadow__styled" style="max-height: 25rem;" />
       </div>
       <div class="gc-full">
         <p>I've spent the last <span class="js-years-working">14</span> years learning to build websites & run servers; worked in e-Commerce since 2013, and focused on <a href="#cloud-computing" class="fg-accent-1 a-blank">Cloud Computing</a>, <a href="#containers" class="fg-accent-2 a-blank">Containers</a>, <a href="#automation" class="fg-accent-3 a-blank">Automation</a>, and <a href="#monitoring" class="fg-accent-4 a-blank">Monitoring</a> since starting DevOps full-time in 2018.</p>
@@ -438,21 +478,21 @@ section[id].section__styled {
         <ul class="article-list article-list--inline">
         
         
-        <li class="article-list__item [ section__styled ]">
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/11/integrating-wordpress-posts-with-11ty/">Integrating WordPress Posts with 11ty</a></h2>
             <p><p>In this blog post I document how I integrated articles from a WordPress site into my 11ty website &#8211; it was surprisingly straight forward to do!</p>
 </p>
             <a href="/blog/2023/11/integrating-wordpress-posts-with-11ty/" class="article-list__more-link">Continue reading &gt;&gt;</a>
         </li>
         
-        <li class="article-list__item [ section__styled ]">
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/10/re-announcing-rust-1-73-0/">RE: Announcing Rust 1.73.0</a></h2>
             <p><p>Yay, Rust 1.73.0 has been released! Highlights include cleaner panic messages and the stabilisation of APIs, I&#8217;m especially happy about the stabilisation of unix APIs for  `chown`, `fchown` and `lchown`.  </p>
 </p>
             <a href="/blog/2023/10/re-announcing-rust-1-73-0/" class="article-list__more-link">Continue reading &gt;&gt;</a>
         </li>
         
-        <li class="article-list__item [ section__styled ]">
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/09/re-the-opentofu-fork-is-now-available/">RE: The OpenTofu fork is now available!</a></h2>
             <p><p>A few weeks ago HashiCorp decided to switch the terraform license model from an open source license to the Business Source License (BSL) model, so there&#8217;s now a community driven terraform fork called OpenTofu.</p>
 </p>
@@ -462,7 +502,7 @@ section[id].section__styled {
 </section>
 
 
-  <section id="cloud-computing" class="[ f-ultra bg-accent-1 stack ] [ section__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🌩"><hgroup><h3 class="f-heading-big">Cloud Computing 🌩</h3><h4>Computers! Computers! Computers! <a href="https://www.youtube.com/watch?v=Vhh_GeBPOhs">👏</a>
+  <section id="cloud-computing" class="[ f-ultra bg-accent-1 stack ] [ section__styled box-shadow__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🌩"><hgroup><h3 class="f-heading-big">Cloud Computing 🌩</h3><h4>Computers! Computers! Computers! <a href="https://www.youtube.com/watch?v=Vhh_GeBPOhs">👏</a>
 </h4></hgroup><div class="content">
       <p>I've worked with <em>Amazon Web Services</em> since 2018.</p>
 <p>Between <strong>2018 and 2021</strong> I was involved in planning and provisioning infrastructure for a microservice-based product called Konekti while working for Synoa GmbH. During this time I gained extensive knowledge of:</p>
@@ -483,7 +523,7 @@ section[id].section__styled {
       </ul></div>
 </section>
 
-  <section id="containers" class="[ f-ultra bg-accent-2 stack ] [ section__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🐳"><hgroup><h3 class="f-heading-big">Containers 🐳</h3><h4>"It's no use Mr., it's virtualization all the way down" <a href="https://en.wikipedia.org/wiki/Turtles_all_the_way_down">🐢</a>
+  <section id="containers" class="[ f-ultra bg-accent-2 stack ] [ section__styled box-shadow__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🐳"><hgroup><h3 class="f-heading-big">Containers 🐳</h3><h4>"It's no use Mr., it's virtualization all the way down" <a href="https://en.wikipedia.org/wiki/Turtles_all_the_way_down">🐢</a>
 </h4></hgroup><div class="content">
       <p>In 2017 I drove the initial adoption of Docker for local development at Synoa GmbH.</p>
 <p>In the years following until I departet in 2023 we used Docker locally, in ECS, in TeamCity CI/CD pipelines, and as runtime on simple Ubuntu servers.</p>
@@ -503,7 +543,7 @@ section[id].section__styled {
       </ul></div>
 </section>
 
-  <section id="kubernetes" class="[ f-ultra bg-accent-2 stack ] [ section__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="⛵️"><hgroup><h3 class="f-heading-big">Kubernetes ⛵️</h3></hgroup><div class="content">
+  <section id="kubernetes" class="[ f-ultra bg-accent-2 stack ] [ section__styled box-shadow__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="⛵️"><hgroup><h3 class="f-heading-big">Kubernetes ⛵️</h3></hgroup><div class="content">
       <p>Since starting at AOE I deepend my knowledge of Kubernetes and work with it everyday. I've also started co-teaching the <a href="https://www.aoe.com/en/academy/cloud-devops/kubernetes-101.html">&quot;Kubernetes 101&quot;</a> Workshop where a co-host and me give a introduction to Kubernetes concepts.</p>
 <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
         
@@ -518,7 +558,7 @@ section[id].section__styled {
       </ul></div>
 </section>
 
-  <section id="monitoring" class="[ f-ultra bg-accent-4 stack ] [ section__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="👀"><hgroup><h3 class="f-heading-big">Monitoring 👀</h3><h4>Keeping tabs on everything
+  <section id="monitoring" class="[ f-ultra bg-accent-4 stack ] [ section__styled box-shadow__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="👀"><hgroup><h3 class="f-heading-big">Monitoring 👀</h3><h4>Keeping tabs on everything
 </h4></hgroup><div class="content">
       <p>Proper monitoring is incredibly helpful in debugging, and should be implemented from the start.</p>
 <p>Some monitoring tools I've maintained and used in production:</p>
@@ -547,7 +587,7 @@ section[id].section__styled {
       </ul></div>
 </section>
 
-  <section id="automation" class="[ f-ultra bg-accent-3 stack ] [ section__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🦾"><hgroup><h3 class="f-heading-big">Automation 🦾</h3><h4>Predictability and reliability through automation and scripting
+  <section id="automation" class="[ f-ultra bg-accent-3 stack ] [ section__styled box-shadow__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🦾"><hgroup><h3 class="f-heading-big">Automation 🦾</h3><h4>Predictability and reliability through automation and scripting
 </h4></hgroup><div class="content">
       <p>Setting up infrastructure in the cloud is lot of work and the more manual steps are involved, the more likely errors will be introduced.</p>
 <p>Over the past years I've gained a lot of experience building, managing, and upgrading infrastructure with terraform and Ansible.</p>
@@ -568,7 +608,7 @@ section[id].section__styled {
       </ul></div>
 </section>
 
-  <section id="terraform" class="[ f-ultra bg-accent-5 stack ] [ section__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🤖"><hgroup><h3 class="f-heading-big">Terraform 🤖</h3></hgroup><div class="content">
+  <section id="terraform" class="[ f-ultra bg-accent-5 stack ] [ section__styled box-shadow__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🤖"><hgroup><h3 class="f-heading-big">Terraform 🤖</h3></hgroup><div class="content">
       <p>I 🧡 Terraform! I've experience with the creation and maintenance of complex modules that integrate various different services, including the following technologies</p>
 <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
         
@@ -599,7 +639,7 @@ section[id].section__styled {
       </ul></div>
 </section>
 
-  <section id="security" class="[ f-ultra bg-accent-4 stack ] [ section__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🔐"><hgroup><h3 class="f-heading-big">Security 🔐</h3><h4><h4 aria-label="Don't be cheap with security. Ever." onmouseover="this.textContent='Don\'t be cheap with security. Ever.';" onmouseout="this.textContent='◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎';" style="font-family:monospace; min-height:4rem;">◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎</h4>
+  <section id="security" class="[ f-ultra bg-accent-4 stack ] [ section__styled box-shadow__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="🔐"><hgroup><h3 class="f-heading-big">Security 🔐</h3><h4><h4 aria-label="Don't be cheap with security. Ever." onmouseover="this.textContent='Don\'t be cheap with security. Ever.';" onmouseout="this.textContent='◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎';" style="font-family:monospace; min-height:4rem;">◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎</h4>
 </h4></hgroup><div class="content">
       <p>Security must be considered from the start. <strong>Period</strong>.</p>
 <p>Don't give all-access to a entity because it's easy. Don't open all ports because it's easy. Don't run your code as root because it's easy.</p>
@@ -619,7 +659,7 @@ section[id].section__styled {
       </ul></div>
 </section>
 
-  <section id="" class="[ f-ultra bg-accent- stack ] [ section__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="💌"><hgroup><h3 class="f-heading-big">Contact 💌</h3></hgroup><div class="content">
+  <section id="" class="[ f-ultra bg-accent- stack ] [ section__styled box-shadow__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;" data-icon="💌"><hgroup><h3 class="f-heading-big">Contact 💌</h3></hgroup><div class="content">
       <p>Well, well, well, ... you've reached the end of this very lovely and pretty ✨cool✨ website.</p>
 <p>If you want to connect with me, hit me up on:</p>
 <ul>

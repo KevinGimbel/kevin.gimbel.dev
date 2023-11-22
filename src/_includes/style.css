@@ -7,16 +7,16 @@
   --stack-spacing: 2rem;
   --spacing: 2rem;
 
-  --color-accent-1: hsl(100, 75%, 90%);
-  --color-accent-1-contrast: hsl(100, 20%, 50%);
-  --color-accent-2: hsl(200, 75%, 90%);
-  --color-accent-2-contrast: hsl(200, 20%, 50%);
-  --color-accent-3: hsl(300, 75%, 90%);
+  --color-accent-1: hsl(150, 90%, 70%);
+  --color-accent-1-contrast: hsl(150, 30%, 40%);
+  --color-accent-2: hsl(250, 100%, 80%);
+  --color-accent-2-contrast: hsl(250, 30%, 40%);
+  --color-accent-3: hsl(300, 100%, 90%);
   --color-accent-3-contrast: hsl(300, 20%, 50%);
-  --color-accent-4: hsl(400, 75%, 90%);
-  --color-accent-4-contrast: hsl(400, 20%, 50%);
-  --color-accent-5: royalblue;
-  --color-accent-5-contrast: white;
+  --color-accent-4: hsl(350, 100%, 70%);
+  --color-accent-4-contrast: hsl(350, 50%, 30%);
+  --color-accent-5: hsl(47, 100%, 70%);
+  --color-accent-5-contrast: hsl(47, 50%, 40%);
 }
 
 * {
@@ -66,6 +66,7 @@ hr {
 
 a {
   color: hotpink;
+  text-decoration-skip-ink: all;
 }
 
 a:hover {
@@ -90,7 +91,40 @@ a:hover {
   background: var(--color-fg);
   border-radius: 65% 72% 53% 41%;
   padding: .25em;
+  animation: wobble linear 4s infinite;
 }
+
+/* Disable animation if reduced motion is set */
+@media (prefers-reduced-motion) {
+  .a-splash {
+    animation: none;
+  }
+}
+
+@keyframes wobble {
+  1% {
+    border-radius: 65% 72% 53% 41%;
+  }
+
+  25% {
+    border-radius: 92% 10% 62% 15%;
+  }
+
+  50% {
+    border-radius: 18% 92% 21% 39%;
+  }
+
+  75% {
+    border-radius: 95% 42% 13% 81%;
+  }
+
+  100% {
+    border-radius: 65% 72% 53% 41%;
+  }
+
+}
+
+
 
 /* Accent colors and styles */
 .fg-accent-1 {
@@ -140,8 +174,8 @@ a:hover {
 }
 
 [class*="bg-accent"] {
-  background: var(--color-bg, #000);
-  color: var(--color-fg, #fff);
+  color: var(--color-fg, #000);
+  background: var(--color-bg, #fff);
 }
 
 ul {
@@ -281,8 +315,13 @@ section {
   padding-right: calc(var(--spacing, 2rem) * 2);
 
   max-width: calc(100% - calc(var(--spacing, 2rem) * 3));
-  box-shadow: -1rem -1rem 0 black;
-  border: .25rem solid black;
+}
+
+.box-shadow__styled {
+  --c1: var(--color-fg, --box-shadow-color);
+
+  box-shadow: -1rem -1rem 0 var(--c1);
+  border: .25rem solid var(--c1);
 }
 
 section[id].section__styled {
@@ -361,6 +400,7 @@ section[id].section__styled {
 }
 
 .article-list--inline {
+  --box-shadow-color: black;
   display: flex;
   justify-content: space-between;
   width: 100%;

@@ -7,7 +7,7 @@
         <h2>A <b>DevOps Engineer</b><br> working at <a href="https://aoe.com" title="AOE">AOE GmbH</a>.</h2>
       </div>
       <div class="gc-8-12">
-        <img src="/assets/img/avatar-aoe.jpg" style="max-height: 25rem; box-shadow: -1rem -1rem 0 white; border: .25rem solid white;" />
+        <img src="/assets/img/avatar-aoe.jpg" class="box-shadow__styled" style="max-height: 25rem;" />
       </div>
       <div class="gc-full">
         <p>I've spent the last <span class="js-years-working">14</span> years learning to build websites & run servers; worked in e-Commerce since 2013, and focused on <a href="#cloud-computing" class="fg-accent-1 a-blank">Cloud Computing</a>, <a href="#containers" class="fg-accent-2 a-blank">Containers</a>, <a href="#automation" class="fg-accent-3 a-blank">Automation</a>, and <a href="#monitoring" class="fg-accent-4 a-blank">Monitoring</a> since starting DevOps full-time in 2018.</p>
@@ -24,7 +24,7 @@
         <ul class="article-list article-list--inline">
         {% for idx in [0, 1, 2] %}
         {% set article = blog[idx] %}
-        <li class="article-list__item [ section__styled ]">
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/{{ article.slug }}">{{ article.title }}</a></h2>
             <p>{{ article.excerpt | safe }}</p>
             <a href="/{{ article.slug }}" class="article-list__more-link">Continue reading &gt;&gt;</a>
