@@ -2,18 +2,47 @@
 
 {% block content %}
   <section id="{{ page.data.id }}" class="[ f-ultra  stack ] [ bg-accent ] [ grid gr-auto ] [ c-full-width c-full-height start ]" style="--spacing: 4rem; --color-bg: #222; --color-fg: #c1c1c1;" data-icon="~">
-     <div class="gc-1-7">
-        <h1>Hi, I'm Kevin!</h1>
+      <div class="gc-1-7">
+        <h1>Hi, I'm Kevin {% include "verified.njk" %}</h1>
         <h2>A <b>DevOps Engineer</b><br> working at <a href="https://aoe.com" title="AOE">AOE GmbH</a>.</h2>
       </div>
       <div class="gc-8-12">
-        <img src="/assets/img/avatar_devops.jpg" style="max-height: 25rem; border-radius: 34% 120% 69% 89%; float: right;"/>
+        <img src="/assets/img/avatar-aoe.jpg" class="box-shadow__styled" style="max-height: 25rem;" />
       </div>
       <div class="gc-full">
         <p>I've spent the last <span class="js-years-working">14</span> years learning to build websites & run servers; worked in e-Commerce since 2013, and focused on <a href="#cloud-computing" class="fg-accent-1 a-blank">Cloud Computing</a>, <a href="#containers" class="fg-accent-2 a-blank">Containers</a>, <a href="#automation" class="fg-accent-3 a-blank">Automation</a>, and <a href="#monitoring" class="fg-accent-4 a-blank">Monitoring</a> since starting DevOps full-time in 2018.</p>
         <p><center>⬇</center></p>
       </div>
   </section>
+  
+  
+  {% include 'nav.njk' %}
+
+  <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]">
+    <div class="content">
+      <hgroup>
+        <h3 class="f-heading-big">News from the <del style="position: relative; transform: rotate(-4deg); display: inline-block;">block</del> blog</h3>
+      </hgroup>
+      <ul class="article-list article-list--inline">
+        {% for idx in [0, 1, 2] %}
+        {% set article = blog[idx] %}
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
+            <h2><a href="/{{ article.slug }}">{{ article.title }}</a></h2>
+            <p>{{ article.excerpt | safe }}</p>
+            <a href="/{{ article.slug }}" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        {%- endfor -%}
+        </ul>
+    </div>
+</section>
+
+<section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]">
+  <div class="content">
+    <hgroup>
+      <h3 class="f-heading-big">Skills, tools, and other work stuff</h3>
+    </hgroup>
+  </div>
+</section>
 
 {% for page in collections.sections %}
   {% include "section.njk" %}

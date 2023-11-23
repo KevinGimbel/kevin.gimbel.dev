@@ -8,12 +8,11 @@ sub_heading: |
 position: 100
 accent_id: 1
 skills:
-  - Elastic Container Services (ECS)
+  - Elastic Kubernetes Services (EKS)
   - Elastic Compute Cloud (EC2)
-  - Auto-scaling Groups
-  - Intensive, automatic resource tagging to monitor budgets
+  - Automatic resource tagging to monitor budgets
   - Security Groups and Ingress Control
-  - AWS Load Balancers and Traefik Edge Proxy
+  - AWS Load Balancers
   - VPC and subnet management
 ---
 

@@ -7,16 +7,20 @@
   --stack-spacing: 2rem;
   --spacing: 2rem;
 
-  --color-accent-1: hsl(100, 75%, 90%);
-  --color-accent-1-contrast: hsl(100, 20%, 50%);
-  --color-accent-2: hsl(200, 75%, 90%);
-  --color-accent-2-contrast: hsl(200, 20%, 50%);
-  --color-accent-3: hsl(300, 75%, 90%);
+  --color-accent-1: hsl(150, 90%, 70%);
+  --color-accent-1-contrast: hsl(150, 30%, 40%);
+  --color-accent-2: hsl(250, 100%, 80%);
+  --color-accent-2-contrast: hsl(250, 30%, 40%);
+  --color-accent-3: hsl(300, 100%, 90%);
   --color-accent-3-contrast: hsl(300, 20%, 50%);
-  --color-accent-4: hsl(400, 75%, 90%);
-  --color-accent-4-contrast: hsl(400, 20%, 50%);
-  --color-accent-5: hsl(255, 75%, 90%);
-  --color-accent-5-contrast: hsl(255, 20%, 50%);
+  --color-accent-4: hsl(350, 100%, 70%);
+  --color-accent-4-contrast: hsl(350, 50%, 30%);
+  --color-accent-5: hsl(47, 100%, 70%);
+  --color-accent-5-contrast: hsl(47, 50%, 40%);
+
+
+  --color-note--info: var(--color-accent-4, red);
+  --color-note--info-contrast: var(--color-accent-4-contrast, white);
 }
 
 * {
@@ -32,8 +36,14 @@ body {
     "Roboto Mono",
     Menlo, Monaco, Consolas,
     monospace;
-  background: cornsilk;
+  background: var(--color-bg, #f1f1f1);
   color: #000;
+}
+
+h1,
+h2,
+h3 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 h1 {
@@ -42,7 +52,7 @@ h1 {
 
 h2,
 h3 {
-  --color-fg: var(--color-contrast-fg);
+  --color-fg: var(--color-fg);
   text-shadow: .02em .02em 0 var(--color-bg), .03em .03em 0 var(--color-contrast-fg);
 }
 
@@ -59,7 +69,7 @@ hr {
 }
 
 a {
-  color: hotpink;
+  color: var(--color-link, hotpink);
 }
 
 a:hover {
@@ -84,7 +94,40 @@ a:hover {
   background: var(--color-fg);
   border-radius: 65% 72% 53% 41%;
   padding: .25em;
+  animation: wobble linear 4s infinite;
 }
+
+/* Disable animation if reduced motion is set */
+@media (prefers-reduced-motion) {
+  .a-splash {
+    animation: none;
+  }
+}
+
+@keyframes wobble {
+  1% {
+    border-radius: 65% 72% 53% 41%;
+  }
+
+  25% {
+    border-radius: 92% 10% 62% 15%;
+  }
+
+  50% {
+    border-radius: 18% 92% 21% 39%;
+  }
+
+  75% {
+    border-radius: 95% 42% 13% 81%;
+  }
+
+  100% {
+    border-radius: 65% 72% 53% 41%;
+  }
+
+}
+
+
 
 /* Accent colors and styles */
 .fg-accent-1 {
@@ -109,33 +152,35 @@ a:hover {
 }
 
 .bg-accent-1 {
-  --color-contrast-fg: var(--color-accent-1-contrast, #000);
+  --color-fg: var(--color-accent-1-contrast, #000);
   --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
 }
 
 .bg-accent-2 {
-  --color-contrast-fg: var(--color-accent-2-contrast, #000);
+  --color-fg: var(--color-accent-2-contrast, #000);
   --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+
+  --color-link: white;
 }
 
 .bg-accent-3 {
-  --color-contrast-fg: var(--color-accent-3-contrast, #000);
+  --color-fg: var(--color-accent-3-contrast, #000);
   --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
 }
 
 .bg-accent-4 {
-  --color-contrast-fg: var(--color-accent-4-contrast, #000);
+  --color-fg: var(--color-accent-4-contrast, #000);
   --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
 }
 
 .bg-accent-5 {
-  --color-contrast-fg: var(--color-accent-5-contrast, #fff);
+  --color-fg: var(--color-accent-5-contrast, #fff);
   --color-bg: var(--color-accent-5, #000);
 }
 
 [class*="bg-accent"] {
-  background: var(--color-bg, #000);
-  color: var(--color-fg, #fff);
+  color: var(--color-fg, #000);
+  background: var(--color-bg, #fff);
 }
 
 ul {
@@ -145,7 +190,7 @@ ul {
 
 ul li::before {
   content: "✦";
-  color: var(--color-contrast-fg, #000);
+  color: var(--color-fg, #000);
   display: inline;
   width: 1em;
   margin-left: -1.25em;
@@ -270,6 +315,24 @@ section {
   padding: var(--spacing, 2rem);
 }
 
+.section__styled {
+  margin: var(--spacing, 2rem);
+  padding-right: calc(var(--spacing, 2rem) * 2);
+
+  max-width: calc(100% - calc(var(--spacing, 2rem) * 3));
+}
+
+.box-shadow__styled {
+  --c1: var(--color-fg, --box-shadow-color);
+
+  box-shadow: -1rem -1rem 0 var(--c1);
+  border: .25rem solid var(--c1);
+}
+
+section[id].section__styled {
+  width: calc(100vw - 8rem);
+}
+
 @media all and (max-width: 2000px) {
   .about {
     grid-column-start: 3;
@@ -333,11 +396,26 @@ section {
 
 .single-page {
   font-size: .75em;
+  margin: calc(var(--spacing, 2rem) * 2);
 }
 
 .article-list {
   max-width: 75rem;
   margin: 0 auto;
+}
+
+.article-list--inline {
+  --box-shadow-color: black;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  font-size: 80%;
+}
+
+.article-list--inline>.article-list__item {
+  margin: var(--spacing, 2rem);
+  width: 33%;
 }
 
 .article-list__item>h2 {
@@ -353,4 +431,24 @@ section {
   margin: calc(var(--spacing) * 2) 0;
   background: #fff;
   padding: calc(var(--spacing) * 2)
+}
+
+.site-nav {
+  width: 100%;
+  padding: 2rem;
+  font-size: 2rem;
+  background: black;
+}
+
+.site-nav__wrapper {
+  padding: 0;
+}
+
+.animation-spin {
+  transition: all linear .7s;
+  display: inline-block;
+}
+
+.animation-spin:hover {
+  transform: rotate(360deg);
 }

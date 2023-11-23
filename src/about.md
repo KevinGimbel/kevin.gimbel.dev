@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "About me"
-icon: "💌"
+icon: "🙋"
 ---
 
 I’m a self-taught **DevOps Engineer** with a background in _Front-End Development_, my first contact with HTML and CSS was around 2007 when I wanted to style my MySpace profile, later I made a websites for my Habbo Hotel trading business (yes, we had dragon statues in all colors!)
