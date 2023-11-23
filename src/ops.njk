@@ -14,14 +14,16 @@
         <p><center>⬇</center></p>
       </div>
   </section>
+  
+  
+  {% include 'nav.njk' %}
 
-
-<section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]">
+  <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]">
     <div class="content">
       <hgroup>
-      <h3 class="f-heading-big">News from the <del>block</del> blog</h3>
-    </hgroup>
-        <ul class="article-list article-list--inline">
+        <h3 class="f-heading-big">News from the <del style="position: relative; transform: rotate(-4deg); display: inline-block;">block</del> blog</h3>
+      </hgroup>
+      <ul class="article-list article-list--inline">
         {% for idx in [0, 1, 2] %}
         {% set article = blog[idx] %}
         <li class="article-list__item [ section__styled box-shadow__styled ]">
@@ -32,6 +34,14 @@
         {%- endfor -%}
         </ul>
     </div>
+</section>
+
+<section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]">
+  <div class="content">
+    <hgroup>
+      <h3 class="f-heading-big">Skills, tools, and other work stuff</h3>
+    </hgroup>
+  </div>
 </section>
 
 {% for page in collections.sections %}

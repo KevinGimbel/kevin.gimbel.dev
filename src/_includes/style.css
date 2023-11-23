@@ -17,6 +17,10 @@
   --color-accent-4-contrast: hsl(350, 50%, 30%);
   --color-accent-5: hsl(47, 100%, 70%);
   --color-accent-5-contrast: hsl(47, 50%, 40%);
+
+
+  --color-note--info: var(--color-accent-4, red);
+  --color-note--info-contrast: var(--color-accent-4-contrast, white);
 }
 
 * {
@@ -65,8 +69,7 @@ hr {
 }
 
 a {
-  color: hotpink;
-  text-decoration-skip-ink: all;
+  color: var(--color-link, hotpink);
 }
 
 a:hover {
@@ -156,6 +159,8 @@ a:hover {
 .bg-accent-2 {
   --color-fg: var(--color-accent-2-contrast, #000);
   --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+
+  --color-link: white;
 }
 
 .bg-accent-3 {
@@ -426,4 +431,24 @@ section[id].section__styled {
   margin: calc(var(--spacing) * 2) 0;
   background: #fff;
   padding: calc(var(--spacing) * 2)
+}
+
+.site-nav {
+  width: 100%;
+  padding: 2rem;
+  font-size: 2rem;
+  background: black;
+}
+
+.site-nav__wrapper {
+  padding: 0;
+}
+
+.animation-spin {
+  transition: all linear .7s;
+  display: inline-block;
+}
+
+.animation-spin:hover {
+  transform: rotate(360deg);
 }
