@@ -18,16 +18,20 @@ RE: The OpenTofu fork is now available! - Kevin.Gimbel.Dev/Blog
   --stack-spacing: 2rem;
   --spacing: 2rem;
 
-  --color-accent-1: hsl(100, 75%, 90%);
-  --color-accent-1-contrast: hsl(100, 20%, 50%);
-  --color-accent-2: hsl(200, 75%, 90%);
-  --color-accent-2-contrast: hsl(200, 20%, 50%);
-  --color-accent-3: hsl(300, 75%, 90%);
+  --color-accent-1: hsl(150, 90%, 70%);
+  --color-accent-1-contrast: hsl(150, 30%, 40%);
+  --color-accent-2: hsl(250, 100%, 80%);
+  --color-accent-2-contrast: hsl(250, 30%, 40%);
+  --color-accent-3: hsl(300, 100%, 90%);
   --color-accent-3-contrast: hsl(300, 20%, 50%);
-  --color-accent-4: hsl(400, 75%, 90%);
-  --color-accent-4-contrast: hsl(400, 20%, 50%);
-  --color-accent-5: hsl(255, 75%, 90%);
-  --color-accent-5-contrast: hsl(255, 20%, 50%);
+  --color-accent-4: hsl(350, 100%, 70%);
+  --color-accent-4-contrast: hsl(350, 50%, 30%);
+  --color-accent-5: hsl(47, 100%, 70%);
+  --color-accent-5-contrast: hsl(47, 50%, 40%);
+
+
+  --color-note--info: var(--color-accent-4, red);
+  --color-note--info-contrast: var(--color-accent-4-contrast, white);
 }
 
 * {
@@ -43,8 +47,14 @@ body {
     "Roboto Mono",
     Menlo, Monaco, Consolas,
     monospace;
-  background: cornsilk;
+  background: var(--color-bg, #f1f1f1);
   color: #000;
+}
+
+h1,
+h2,
+h3 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 h1 {
@@ -53,7 +63,7 @@ h1 {
 
 h2,
 h3 {
-  --color-fg: var(--color-contrast-fg);
+  --color-fg: var(--color-fg);
   text-shadow: .02em .02em 0 var(--color-bg), .03em .03em 0 var(--color-contrast-fg);
 }
 
@@ -70,7 +80,7 @@ hr {
 }
 
 a {
-  color: hotpink;
+  color: var(--color-link, hotpink);
 }
 
 a:hover {
@@ -95,7 +105,40 @@ a:hover {
   background: var(--color-fg);
   border-radius: 65% 72% 53% 41%;
   padding: .25em;
+  animation: wobble linear 4s infinite;
 }
+
+/* Disable animation if reduced motion is set */
+@media (prefers-reduced-motion) {
+  .a-splash {
+    animation: none;
+  }
+}
+
+@keyframes wobble {
+  1% {
+    border-radius: 65% 72% 53% 41%;
+  }
+
+  25% {
+    border-radius: 92% 10% 62% 15%;
+  }
+
+  50% {
+    border-radius: 18% 92% 21% 39%;
+  }
+
+  75% {
+    border-radius: 95% 42% 13% 81%;
+  }
+
+  100% {
+    border-radius: 65% 72% 53% 41%;
+  }
+
+}
+
+
 
 /* Accent colors and styles */
 .fg-accent-1 {
@@ -120,33 +163,35 @@ a:hover {
 }
 
 .bg-accent-1 {
-  --color-contrast-fg: var(--color-accent-1-contrast, #000);
+  --color-fg: var(--color-accent-1-contrast, #000);
   --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
 }
 
 .bg-accent-2 {
-  --color-contrast-fg: var(--color-accent-2-contrast, #000);
+  --color-fg: var(--color-accent-2-contrast, #000);
   --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+
+  --color-link: white;
 }
 
 .bg-accent-3 {
-  --color-contrast-fg: var(--color-accent-3-contrast, #000);
+  --color-fg: var(--color-accent-3-contrast, #000);
   --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
 }
 
 .bg-accent-4 {
-  --color-contrast-fg: var(--color-accent-4-contrast, #000);
+  --color-fg: var(--color-accent-4-contrast, #000);
   --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
 }
 
 .bg-accent-5 {
-  --color-contrast-fg: var(--color-accent-5-contrast, #fff);
+  --color-fg: var(--color-accent-5-contrast, #fff);
   --color-bg: var(--color-accent-5, #000);
 }
 
 [class*="bg-accent"] {
-  background: var(--color-bg, #000);
-  color: var(--color-fg, #fff);
+  color: var(--color-fg, #000);
+  background: var(--color-bg, #fff);
 }
 
 ul {
@@ -156,7 +201,7 @@ ul {
 
 ul li::before {
   content: "✦";
-  color: var(--color-contrast-fg, #000);
+  color: var(--color-fg, #000);
   display: inline;
   width: 1em;
   margin-left: -1.25em;
@@ -281,6 +326,24 @@ section {
   padding: var(--spacing, 2rem);
 }
 
+.section__styled {
+  margin: var(--spacing, 2rem);
+  padding-right: calc(var(--spacing, 2rem) * 2);
+
+  max-width: calc(100% - calc(var(--spacing, 2rem) * 3));
+}
+
+.box-shadow__styled {
+  --c1: var(--color-fg, --box-shadow-color);
+
+  box-shadow: -1rem -1rem 0 var(--c1);
+  border: .25rem solid var(--c1);
+}
+
+section[id].section__styled {
+  width: calc(100vw - 8rem);
+}
+
 @media all and (max-width: 2000px) {
   .about {
     grid-column-start: 3;
@@ -344,11 +407,26 @@ section {
 
 .single-page {
   font-size: .75em;
+  margin: calc(var(--spacing, 2rem) * 2);
 }
 
 .article-list {
   max-width: 75rem;
   margin: 0 auto;
+}
+
+.article-list--inline {
+  --box-shadow-color: black;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  font-size: 80%;
+}
+
+.article-list--inline>.article-list__item {
+  margin: var(--spacing, 2rem);
+  width: 33%;
 }
 
 .article-list__item>h2 {
@@ -364,6 +442,26 @@ section {
   margin: calc(var(--spacing) * 2) 0;
   background: #fff;
   padding: calc(var(--spacing) * 2)
+}
+
+.site-nav {
+  width: 100%;
+  padding: 2rem;
+  font-size: 2rem;
+  background: black;
+}
+
+.site-nav__wrapper {
+  padding: 0;
+}
+
+.animation-spin {
+  transition: all linear .7s;
+  display: inline-block;
+}
+
+.animation-spin:hover {
+  transform: rotate(360deg);
 }</style>
   
   
@@ -376,9 +474,13 @@ section {
 .article-list {
     background: #fff;
     padding: 4rem;
-    max-width: 75rem;
     margin: 0 auto;
+    max-width: 75rem;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page {
+    margin: 4rem auto;
 }
 
 .article-page h2,
@@ -405,7 +507,6 @@ figure img {
 }
 
 figure {
-    background: var(--color-accent-2, #ddd);
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -414,7 +515,7 @@ figure {
 
 figcaption {
     font-size: .65em;
-    background: var(--color-accent-2-contrast, #000);
+    background: #000;
     color: #fff;
 }
 
@@ -434,10 +535,15 @@ pre,
 
 .article__og-box {
     font-size: 1rem;
-    border: .25em solid #ddd;
-    background: var(--color-accent-2);
-    color: var(--color-accent-2-contrast);
+    font-weight: bold;
+    border: .25em solid var(--color-note--info-contrast);
+    background: var(--color-note--info);
+    color: var(--color-note--info-contrast);
     padding: calc(var(--spacing) / 2);
+}
+
+.article__og-box a {
+    color: var(--color-note--info-contrast);
 }</style>
   
   
@@ -447,11 +553,14 @@ pre,
 </head>
 <body>
   <main class="main-grid">
-  
+    
 
-<section class="[ f-ultra bg-accent-2 stack ] [ gr-auto gc-full ] [ c-full-width ] single-page article-page">
-    <nav><a href="/ops/">&lt;&lt; Home</a> | <a href="/blog/">Blog &gt;&gt;</a></nav>
+<section class="[ f-ultra ] [ gr-auto gc-full ] [ c-full-width ] [ site-nav__wrapper ]">
+    <nav class="site-nav"><a href="/ops/">Home</a> <a href="/blog/">Blog</a> <a href="/about/">About</a></nav>
+</section>
 
+<section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
+    
     <div class="article__og-box">
         <p><i>"RE: The OpenTofu fork is now available!"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/09/re-the-opentofu-fork-is-now-available/" target="_blank" rel="nofollow" title="Read 'RE: The OpenTofu fork is now available!' on kevingimbel.de">kevingimbel.de</a>.</p>
     </div>
@@ -481,12 +590,12 @@ pre,
 </section>
 
 
-  <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
-    <div class="content">
-      <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a> and lots of fun. <a href="/imprint">Imprint</a></p>
-    </div>
-  </section>
-</main>
+    <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
+      <div class="content">
+        <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a>, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
+      </div>
+    </section>
+  </main>
 </body>
 <script>document.addEventListener('DOMContentLoaded', function () {
   let favicon_txt = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%EMOJI%</text></svg>`
