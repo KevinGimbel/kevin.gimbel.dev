@@ -212,8 +212,6 @@ ul li::before {
   display: grid;
 }
 
-
-
 .main-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -259,7 +257,6 @@ ul li {
   margin-top: var(--stack-spacing, 1rem);
 }
 
-/* .c-skill-list {} */
 .c-skill-list__item {
   padding: 1rem;
   font-size: .75em;
@@ -283,36 +280,6 @@ hgroup {
   margin-bottom: calc(var(--stack-spacing, 2rem) * 2);
 }
 
-.c-svg-background {
-  width: 100%;
-  width: fit-content;
-  max-width: 40vw;
-  position: relative;
-  padding: var(--spacing, 2rem);
-  display: block;
-  color: var(--color-fg, #000);
-  display: inline-grid;
-  grid-template-areas: "a";
-}
-
-.c-svg-background>.background,
-.c-svg-background>.content {
-  grid-area: a;
-  grid-row: 1;
-  grid-column: 1;
-}
-
-.c-svg-background>.content {
-  padding: 0 0 1.5em 1em;
-}
-
-.c-svg-background>.background {
-  width: 110%;
-  height: 110%;
-  margin-left: -5%;
-  margin-top: -5%;
-}
-
 .f-ultra>* {
   font-size: 2.75em;
 }
@@ -327,10 +294,7 @@ section {
 }
 
 .section__styled {
-  margin: var(--spacing, 2rem);
-  padding-right: calc(var(--spacing, 2rem) * 2);
-
-  max-width: calc(100% - calc(var(--spacing, 2rem) * 3));
+  margin-bottom: var(--spacing, 2rem);
 }
 
 .box-shadow__styled {
@@ -340,9 +304,66 @@ section {
   border: .25rem solid var(--c1);
 }
 
-section[id].section__styled {
-  width: calc(100vw - 8rem);
+.single-page {
+  font-size: .75em;
+  margin: calc(var(--spacing, 2rem) * 2);
 }
+
+.article-list {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.article-list--inline {
+  --box-shadow-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  font-size: 80%;
+}
+
+.article-list--inline>.article-list__item {
+  margin: var(--spacing, 2rem);
+  width: 100%;
+}
+
+.article-list__item>h2 {
+  text-shadow: none;
+}
+
+.article-list__more-link {
+  display: inline-block;
+  margin-top: var(--spacing);
+}
+
+.article-list__item {
+  margin: calc(var(--spacing) * 2) 0;
+  background: #fff;
+  padding: calc(var(--spacing) * 2)
+}
+
+.site-nav {
+  width: 100%;
+  padding: 2rem;
+  font-size: 2rem;
+  background: black;
+}
+
+.site-nav__wrapper {
+  padding: 0;
+}
+
+.animation-spin {
+  transition: all linear .7s;
+  display: inline-block;
+}
+
+.animation-spin:hover {
+  transform: rotate(360deg);
+}
+
 
 @media all and (max-width: 2000px) {
   .about {
@@ -350,6 +371,30 @@ section[id].section__styled {
     grid-column-end: 13;
     max-width: 60vw;
     min-width: 60rem;
+  }
+}
+
+@media all and (min-width: 1000px) {
+  .article-list--inline {
+    flex-direction: row;
+  }
+
+  .article-list--inline>.article-list__item {
+    width: 33%;
+  }
+
+
+  .section__styled {
+    margin: var(--spacing, 2rem);
+    padding-right: calc(var(--spacing, 2rem) * 2);
+
+    max-width: calc(100% - calc(var(--spacing, 2rem) * 3));
+  }
+
+
+  section[id].section__styled {
+    max-width: calc(100vw - 8rem);
+    margin: var(--spacing, 2rem);
   }
 }
 
@@ -390,10 +435,6 @@ section[id].section__styled {
     grid-template-columns: 1fr;
   }
 
-  .c-svg-background {
-    max-width: 100%;
-  }
-
   .grid {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -403,65 +444,6 @@ section[id].section__styled {
     grid-column: auto;
     grid-row: auto;
   }
-}
-
-.single-page {
-  font-size: .75em;
-  margin: calc(var(--spacing, 2rem) * 2);
-}
-
-.article-list {
-  max-width: 75rem;
-  margin: 0 auto;
-}
-
-.article-list--inline {
-  --box-shadow-color: black;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 100%;
-  font-size: 80%;
-}
-
-.article-list--inline>.article-list__item {
-  margin: var(--spacing, 2rem);
-  width: 33%;
-}
-
-.article-list__item>h2 {
-  text-shadow: none;
-}
-
-.article-list__more-link {
-  display: inline-block;
-  margin-top: var(--spacing);
-}
-
-.article-list__item {
-  margin: calc(var(--spacing) * 2) 0;
-  background: #fff;
-  padding: calc(var(--spacing) * 2)
-}
-
-.site-nav {
-  width: 100%;
-  padding: 2rem;
-  font-size: 2rem;
-  background: black;
-}
-
-.site-nav__wrapper {
-  padding: 0;
-}
-
-.animation-spin {
-  transition: all linear .7s;
-  display: inline-block;
-}
-
-.animation-spin:hover {
-  transform: rotate(360deg);
 }</style>
   
   
