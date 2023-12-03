@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>
+TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, &amp;#8230; on Unix systems - Kevin.Gimbel.Dev/Blog
+</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Eleventy">
+  <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
+  <style>:root {
+  --color-bg: hsl(279, 19%, 93%);
+  --color-fg: #000;
+  --color-contrast-fg: #000;
+  --color-contrast-bg: #000;
+
+  --stack-spacing: 2rem;
+  --spacing: 2rem;
+
+  --color-accent-1: hsl(150, 90%, 70%);
+  --color-accent-1-contrast: hsl(150, 30%, 40%);
+  --color-accent-2: hsl(250, 100%, 80%);
+  --color-accent-2-contrast: hsl(250, 30%, 40%);
+  --color-accent-3: hsl(300, 100%, 90%);
+  --color-accent-3-contrast: hsl(300, 20%, 50%);
+  --color-accent-4: hsl(350, 100%, 70%);
+  --color-accent-4-contrast: hsl(350, 50%, 30%);
+  --color-accent-5: hsl(47, 100%, 70%);
+  --color-accent-5-contrast: hsl(47, 50%, 40%);
+
+
+  --color-note--info: var(--color-accent-4, red);
+  --color-note--info-contrast: var(--color-accent-4-contrast, white);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 14px/1.4 ui-monospace,
+    "Cascadia Mono", "Segoe UI Mono",
+    "Ubuntu Mono",
+    "Roboto Mono",
+    Menlo, Monaco, Consolas,
+    monospace;
+  background: var(--color-bg, #f1f1f1);
+  color: #000;
+}
+
+h1,
+h2,
+h3 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2,
+h3 {
+  --color-fg: var(--color-fg);
+  text-shadow: .02em .02em 0 var(--color-bg), .03em .03em 0 var(--color-contrast-fg);
+}
+
+hr {
+  max-width: 80%;
+  margin: 0 auto;
+  border: none;
+  background: var(--color-fg);
+  height: 0.05em;
+}
+
+.stack *+* {
+  margin-top: var(--stack-spacing, 2rem);
+}
+
+a {
+  color: var(--color-link, hotpink);
+}
+
+a:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.a-blank,
+.a-blank:visited {
+  text-decoration: none;
+}
+
+.a-blank:hover,
+.a-blank:focus {
+  border-bottom: .15em solid currentColor;
+  font-size: 100%;
+  letter-spacing: 0em;
+}
+
+.a-splash {
+  color: var(--color-bg);
+  background: var(--color-fg);
+  border-radius: 65% 72% 53% 41%;
+  padding: .25em;
+  animation: wobble linear 4s infinite;
+}
+
+/* Disable animation if reduced motion is set */
+@media (prefers-reduced-motion) {
+  .a-splash {
+    animation: none;
+  }
+}
+
+@keyframes wobble {
+  1% {
+    border-radius: 65% 72% 53% 41%;
+  }
+
+  25% {
+    border-radius: 92% 10% 62% 15%;
+  }
+
+  50% {
+    border-radius: 18% 92% 21% 39%;
+  }
+
+  75% {
+    border-radius: 95% 42% 13% 81%;
+  }
+
+  100% {
+    border-radius: 65% 72% 53% 41%;
+  }
+
+}
+
+
+
+/* Accent colors and styles */
+.fg-accent-1 {
+  --color-fg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.fg-accent-2 {
+  --color-fg: var(--color-accent-2, hsl(200, 75%, 90%));
+}
+
+.fg-accent-3 {
+  --color-fg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.fg-accent-4 {
+  --color-fg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+[class*="fg-accent"] {
+  color: var(--color-fg);
+  font-weight: bold;
+}
+
+.bg-accent-1 {
+  --color-fg: var(--color-accent-1-contrast, #000);
+  --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.bg-accent-2 {
+  --color-fg: var(--color-accent-2-contrast, #000);
+  --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+
+  --color-link: white;
+}
+
+.bg-accent-3 {
+  --color-fg: var(--color-accent-3-contrast, #000);
+  --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.bg-accent-4 {
+  --color-fg: var(--color-accent-4-contrast, #000);
+  --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+.bg-accent-5 {
+  --color-fg: var(--color-accent-5-contrast, #fff);
+  --color-bg: var(--color-accent-5, #000);
+}
+
+[class*="bg-accent"] {
+  color: var(--color-fg, #000);
+  background: var(--color-bg, #fff);
+}
+
+ul {
+  list-style: none;
+  margin-left: var(--stack-spacing);
+}
+
+ul li::before {
+  content: "✦";
+  color: var(--color-fg, #000);
+  display: inline;
+  width: 1em;
+  margin-left: -1.25em;
+  padding-right: .5em;
+}
+
+.grid {
+  display: grid;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1em;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.gr-1 {
+  grid-row: 1;
+}
+
+.gr-2 {
+  grid-row: 2;
+}
+
+.gr-auto {
+  grid-row: auto;
+}
+
+.gc-full {
+  grid-column-start: 1;
+  grid-column-end: 12;
+}
+
+.gc-8-12 {
+  grid-column-start: 8;
+  grid-column-end: 12;
+}
+
+.gc-1-7 {
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 3), 1fr);
+  grid-gap: var(--stack-spacing, 2rem);
+}
+
+ul li {
+  margin-top: var(--stack-spacing, 1rem);
+}
+
+.c-skill-list__item {
+  padding: 1rem;
+  font-size: .75em;
+}
+
+.about {
+  grid-column-start: 5;
+  grid-column-end: 12;
+  grid-row: 2;
+}
+
+.c-full-width {
+  width: 100vw;
+}
+
+.c-full-height {
+  min-height: 100vh;
+}
+
+hgroup {
+  margin-bottom: calc(var(--stack-spacing, 2rem) * 2);
+}
+
+.f-ultra>* {
+  font-size: 2.75em;
+}
+
+.f-heading-big {
+  font-size: 3em;
+  color: var(--color-fg, #000);
+}
+
+section {
+  padding: var(--spacing, 2rem);
+}
+
+.section__styled {
+  margin-bottom: var(--spacing, 2rem);
+}
+
+.box-shadow__styled {
+  --c1: var(--color-fg, --box-shadow-color);
+
+  box-shadow: -1rem -1rem 0 var(--c1);
+  border: .25rem solid var(--c1);
+}
+
+.single-page {
+  font-size: .75em;
+  margin: calc(var(--spacing, 2rem) * 2);
+}
+
+.article-list {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.article-list--inline {
+  --box-shadow-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  font-size: 80%;
+}
+
+.article-list--inline>.article-list__item {
+  margin: var(--spacing, 2rem);
+  width: 100%;
+}
+
+.article-list__item>h2 {
+  text-shadow: none;
+}
+
+.article-list__more-link {
+  display: inline-block;
+  margin-top: var(--spacing);
+}
+
+.article-list__item {
+  margin: calc(var(--spacing) * 2) 0;
+  background: #fff;
+  padding: calc(var(--spacing) * 2)
+}
+
+.site-nav {
+  width: 100%;
+  padding: 2rem;
+  font-size: 2rem;
+  background: black;
+}
+
+.site-nav__wrapper {
+  padding: 0;
+}
+
+.animation-spin {
+  transition: all linear .7s;
+  display: inline-block;
+}
+
+.animation-spin:hover {
+  transform: rotate(360deg);
+}
+
+
+@media all and (max-width: 2000px) {
+  .about {
+    grid-column-start: 3;
+    grid-column-end: 13;
+    max-width: 60vw;
+    min-width: 60rem;
+  }
+}
+
+@media all and (min-width: 1000px) {
+  .article-list--inline {
+    flex-direction: row;
+  }
+
+  .article-list--inline>.article-list__item {
+    width: 33%;
+  }
+
+
+  .section__styled {
+    margin: var(--spacing, 2rem);
+    padding-right: calc(var(--spacing, 2rem) * 2);
+
+    max-width: calc(100% - calc(var(--spacing, 2rem) * 3));
+  }
+
+
+  section[id].section__styled {
+    max-width: calc(100vw - 8rem);
+    margin: var(--spacing, 2rem);
+  }
+}
+
+@media all and (max-width: 1200px) {
+  body {
+    font-size: 10px;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .start>* {
+    max-width: 100%;
+  }
+
+  .about,
+  .avatar {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .bg-accent-3 {
+    text-shadow: none;
+  }
+
+  .about {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    background: var(--color-contrast-bg);
+  }
+
+  .about .background {
+    display: none;
+  }
+
+  .c-skill-list {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .grid>* {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}</style>
+  
+  
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-page,
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    margin: 0 auto;
+    max-width: 75rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page {
+    margin: 4rem auto;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: #000;
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}
+
+.article__og-box {
+    font-size: 1rem;
+    font-weight: bold;
+    border: .25em solid var(--color-note--info-contrast);
+    background: var(--color-note--info);
+    color: var(--color-note--info-contrast);
+    padding: calc(var(--spacing) / 2);
+}
+
+.article__og-box a {
+    color: var(--color-note--info-contrast);
+}</style>
+  
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2023/11/til-why-there-is-bin-and-usr-bin-lib-and-usr-lib-on-unix-systems/" />
+
+</head>
+<body>
+  <main class="main-grid">
+    
+
+<section class="[ f-ultra ] [ gr-auto gc-full ] [ c-full-width ] [ site-nav__wrapper ]">
+    <nav class="site-nav"><a href="/ops/">Home</a> <a href="/blog/">Blog</a> <a href="/about/">About</a></nav>
+</section>
+
+<section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
+    
+    <div class="article__og-box">
+        <p><i>"TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, &amp;#8230; on Unix systems"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/11/til-why-there-is-bin-and-usr-bin-lib-and-usr-lib-on-unix-systems/" target="_blank" rel="nofollow" title="Read 'TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, &amp;#8230; on Unix systems' on kevingimbel.de">kevingimbel.de</a>.</p>
+    </div>
+    <hr />
+    <div class="content">
+        <h1>TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, &amp;#8230; on Unix systems</h1>
+        
+<p>If you&#8217;ve ever navigated around a Unix system you may have wondered why there are /bin and usr/bin directories or /lib and /usr/lib or /sbin and /usr/sbin &#8211; or like me, you just took it for something that probably has any meaning but isn&#8217;t relevant enough to look into.</p>
+
+
+
+<p>Well, today it became relevant: When upgrading a Docker image from Debian 11 to 12 I encountered a lot of issues with a utility called &#8220;<code>usrmerge</code>&#8220;, and this sent me down a rabbit hole.</p>
+
+
+
+<p>As with most things in the Unix world it started with someone doing a thing for reasons of technical limitation.</p>
+
+
+
+<blockquote class="wp-block-quote has-text-align-left">
+<p>You know how Ken Thompson and Dennis Ritchie created Unix on a PDP-7 in 1969? Well around 1971 they upgraded to a PDP-11 with a pair of RK05 disk packs (1.5 megabytes each) for storage. When the operating system grew too big to fit on the first RK05 disk pack (their root filesystem) they let it leak into the second one, which is where all the user home directories lived (which is why the mount was called /usr).</p>
+<cite><strong>Rob Landley</strong>, via <a href="http://lists.busybox.net/pipermail/busybox/2010-December/074114.html">http://lists.busybox.net/pipermail/busybox/2010-December/074114.html</a> </cite></blockquote>
+
+
+
+<p>So /usr/ existed because the Operating System no longer fit on the first disk, so &#8220;some parts but nut all&#8221; of the OS were split to the mounted second disk &#8211; <em>reasonable</em>.</p>
+
+
+
+<p>The quote continues: <em>&#8220;[&#8230;] They replicated all the OS directories under there (/bin, /sbin, /lib, /tmp&#8230;) and wrote files to those new directories because their original disk was out of space.&#8221;</em> &#8211; later on, they made a new <code>/home</code> directory where all the user specific stuff lived and <code>/usr</code> and <code>/bin</code> could both be used for the OS.</p>
+
+
+
+<p>Well, &#8230; the split between <code>/bin</code> and <code>/usr/bin</code> has never been reverted or &#8220;fixed&#8221;, which is why a thing from the 1970s still exists in modern-day Unix systems (Debian, Ubuntu, and MacOS all have these two directories)! </p>
+
+
+
+<p>Enter today, 28th November 2023, where I try and upgrade a Debian 11 based image in a Docker build and what breaks my build? A tool called usrmerge, which is supposed to fix this <code>/bin vs. /usr/bin</code> nonsense for Debian 12 and onward.The solution is &#8211; basically &#8211; to merge everything from <code>/bin</code> into <code>/usr/bin</code>, then symlink /bin/ to <code>/usr/bin</code> (and the same for <code>/lib</code> and <code>/sbin</code>).</p>
+
+
+
+<p>I ended up not upgrading the Debian 11 image to Debian 12, instead I enabled <code>bullseye-backports</code> to update the software inside the Docker image &#8211; but that&#8217;s a story for another day.</p>
+
+
+
+<h2 class="wp-block-heading">Additional reading</h2>
+
+
+
+<ul>
+<li><a href="http://lists.busybox.net/pipermail/busybox/2010-December/074114.html">http://lists.busybox.net/pipermail/busybox/2010-December/074114.html</a> </li>
+</ul>
+
+    </div>
+</section>
+
+
+    <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
+      <div class="content">
+        <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a>, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
+      </div>
+    </section>
+  </main>
+</body>
+<script>document.addEventListener('DOMContentLoaded', function () {
+  let favicon_txt = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%EMOJI%</text></svg>`
+  let favicon_el = document.head.querySelector('#favicon');
+  let sections = Array.from(document.querySelectorAll('section[data-icon]'));
+  let last_active_section = null;
+  let YEAR_NOW = new Date().getFullYear().toFixed(0);
+  let years_working = document.querySelector(".js-years-working");
+  let all_time_since = document.querySelectorAll(".js-time-since");
+
+  function set_favicon(emoji) {
+    let txt = favicon_txt.replace('%EMOJI%', emoji);
+    favicon_el.setAttribute('href', txt);
+  }
+
+  window.addEventListener('scroll', function (event) {
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
+    let active_section = sections_in_view[sections_in_view.length - 1];
+    if (last_active_section != active_section) {
+      last_active_section = active_section;
+      set_favicon(active_section.dataset.icon);
+    }
+  });
+
+  all_time_since.forEach((element, key) => {
+    let year = element.dataset.year;
+
+    if (year) {
+      try {
+        let year_num = parseInt(year);
+        element.textContent = YEAR_NOW - year_num;
+      } catch (err) {
+        console.log("Error calculating year: ", err);
+      }
+    }
+  })
+
+  if (years_working) {
+    years_working.textContent = YEAR_NOW - 2009;
+  }
+});
+</script>
+</html>
