@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>
-Unpinned dependencies just broke my plugin - Kevin.Gimbel.Dev/Blog
+TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, etc on Unix systems - Kevin.Gimbel.Dev/Blog
 </title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -544,7 +544,7 @@ blockquote cite {
   
   
   
-<link rel="canonical" href="https://kevingimbel.de/blog/2023/02/unpinned-dependencies-just-broke-my-plugin/" />
+<link rel="canonical" href="https://kevingimbel.de/blog/2023/11/til-why-there-is-bin-and-usr-bin-lib-and-usr-lib-on-unix-systems/" />
 
 </head>
 <body>
@@ -558,29 +558,57 @@ blockquote cite {
 <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
     
     <div class="article__og-box">
-        <p><i>"Unpinned dependencies just broke my plugin"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/02/unpinned-dependencies-just-broke-my-plugin/" target="_blank" rel="nofollow" title="Read 'Unpinned dependencies just broke my plugin' on kevingimbel.de">kevingimbel.de</a>.</p>
+        <p><i>"TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, etc on Unix systems"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/11/til-why-there-is-bin-and-usr-bin-lib-and-usr-lib-on-unix-systems/" target="_blank" rel="nofollow" title="Read 'TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, etc on Unix systems' on kevingimbel.de">kevingimbel.de</a>.</p>
     </div>
     <hr />
     <div class="content">
-        <h1>Unpinned dependencies just broke my plugin</h1>
+        <h1>TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, etc on Unix systems</h1>
         
-<p class="has-medium-font-size">Hello and welcome to a little recap! My <a href="https://github.com/KevinGimbel/eleventy-plugin-mermaid">11ty MermaidJS plugin</a>  was just broken by MermaidJS release 10.0 because they no longer provided a minified JavaScript bundle and instead only provide a ESM module. </p>
+<p>If you&#8217;ve ever navigated around a Unix system you may have wondered why there are /bin and usr/bin directories or /lib and /usr/lib or /sbin and /usr/sbin &#8211; or like me, you just took it for something that probably has any meaning but isn&#8217;t relevant enough to look into.</p>
 
 
 
-<p>My plugin was referencing <code>https://unpkg.com/mermaid/dist/mermaid.min.js</code> by default for including the javascript code, but with version 10 this now leads to a 404 on unpkg.com, resulting in the plugin breaking for everyone using it. <em>Oops.</em> 😬</p>
+<p>Well, today it became relevant: When upgrading a Docker image from Debian 11 to 12 I encountered a lot of issues with a utility called &#8220;<code>usrmerge</code>&#8220;, and this sent me down a rabbit hole.</p>
 
 
 
-<p>As a quick fix I&#8217;ve moved the code to use the ESM module instead, which luckily was fairy straight forward. The change can be seen on GitHub here <a href="https://github.com/KevinGimbel/eleventy-plugin-mermaid/commit/3f356d603dafb0801c4fe90ff75aa0a54f73eceb">https://github.com/KevinGimbel/eleventy-plugin-mermaid/commit/3f356d603dafb0801c4fe90ff75aa0a54f73eceb</a></p>
+<p>As with most things in the Unix world it started with someone doing a thing for reasons of technical limitation.</p>
 
 
 
-<p>I should&#8217;ve know better than to reference the latest version by default, but sometimes I&#8217;m lazy and I initially developed the plugin for my self without thinking much about it.</p>
+<blockquote class="wp-block-quote has-text-align-left">
+<p>You know how Ken Thompson and Dennis Ritchie created Unix on a PDP-7 in 1969? Well around 1971 they upgraded to a PDP-11 with a pair of RK05 disk packs (1.5 megabytes each) for storage. When the operating system grew too big to fit on the first RK05 disk pack (their root filesystem) they let it leak into the second one, which is where all the user home directories lived (which is why the mount was called /usr).</p>
+<cite><strong>Rob Landley</strong>, via <a href="http://lists.busybox.net/pipermail/busybox/2010-December/074114.html">http://lists.busybox.net/pipermail/busybox/2010-December/074114.html</a> </cite></blockquote>
 
 
 
-<p>Sorry if I broke your website. 🖤 </p>
+<p>So /usr/ existed because the Operating System no longer fit on the first disk, so &#8220;some parts but nut all&#8221; of the OS were split to the mounted second disk &#8211; <em>reasonable</em>.</p>
+
+
+
+<p>The quote continues: <em>&#8220;[&#8230;] They replicated all the OS directories under there (/bin, /sbin, /lib, /tmp&#8230;) and wrote files to those new directories because their original disk was out of space.&#8221;</em> &#8211; later on, they made a new <code>/home</code> directory where all the user specific stuff lived and <code>/usr</code> and <code>/bin</code> could both be used for the OS.</p>
+
+
+
+<p>Well, &#8230; the split between <code>/bin</code> and <code>/usr/bin</code> has never been reverted or &#8220;fixed&#8221;, which is why a thing from the 1970s still exists in modern-day Unix systems (Debian, Ubuntu, and MacOS all have these two directories)! </p>
+
+
+
+<p>Enter today, 28th November 2023, where I try and upgrade a Debian 11 based image in a Docker build and what breaks my build? A tool called usrmerge, which is supposed to fix this <code>/bin vs. /usr/bin</code> nonsense for Debian 12 and onward.The solution is &#8211; basically &#8211; to merge everything from <code>/bin</code> into <code>/usr/bin</code>, then symlink /bin/ to <code>/usr/bin</code> (and the same for <code>/lib</code> and <code>/sbin</code>).</p>
+
+
+
+<p>I ended up not upgrading the Debian 11 image to Debian 12, instead I enabled <code>bullseye-backports</code> to update the software inside the Docker image &#8211; but that&#8217;s a story for another day.</p>
+
+
+
+<h2 class="wp-block-heading">Additional reading</h2>
+
+
+
+<ul>
+<li><a href="http://lists.busybox.net/pipermail/busybox/2010-December/074114.html">http://lists.busybox.net/pipermail/busybox/2010-December/074114.html</a> </li>
+</ul>
 
     </div>
 </section>

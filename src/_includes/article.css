@@ -78,3 +78,17 @@ pre,
 .article__og-box a {
     color: var(--color-note--info-contrast);
 }
+
+blockquote {
+    font-family: math, serif, ui-serif;
+    font-weight: bold;
+    max-width: 90%;
+    padding: var(--spacing);
+    background: var(--color-bg);
+    border-left: 0.5em solid var(--color-accent-2);
+}
+
+blockquote cite {
+    font-size: .6em;
+    font-family: monospace;
+}
