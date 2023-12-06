@@ -326,7 +326,7 @@ section {
 
 .article-list--inline>.article-list__item {
   margin: var(--spacing, 2rem);
-  width: 100%;
+  width: 95%;
 }
 
 .article-list__item>h2 {
@@ -374,7 +374,8 @@ section {
   }
 }
 
-@media all and (min-width: 1000px) {
+/* Only on BIG screens we want this */
+@media all and (min-width: 1800px) {
   .article-list--inline {
     flex-direction: row;
   }
@@ -382,8 +383,9 @@ section {
   .article-list--inline>.article-list__item {
     width: 33%;
   }
+}
 
-
+@media all and (min-width: 1000px) {
   .section__styled {
     margin: var(--spacing, 2rem);
     padding-right: calc(var(--spacing, 2rem) * 2);
