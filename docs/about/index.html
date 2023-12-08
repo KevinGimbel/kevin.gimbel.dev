@@ -133,7 +133,25 @@ a:hover {
   100% {
     border-radius: 65% 72% 53% 41%;
   }
+}
 
+.anim-typing:after {
+  content: "|";
+  animation: typing linear 0.3s;
+}
+
+@keyframes typing {
+  from {
+    color: var(--color-fg);
+  }
+
+  50% {
+    color: var(--color-bg);
+  }
+
+  to {
+    color: var(--color-fg);
+  }
 }
 
 
@@ -305,6 +323,11 @@ section {
 .single-page {
   font-size: .75em;
   margin: calc(var(--spacing, 2rem) * 2);
+  background: #fff;
+  padding: 4rem;
+  margin: 4rem auto;
+  max-width: 75rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .article-list {
@@ -324,7 +347,7 @@ section {
 
 .article-list--inline>.article-list__item {
   margin: var(--spacing, 2rem);
-  width: 100%;
+  width: 95%;
 }
 
 .article-list__item>h2 {
@@ -372,7 +395,8 @@ section {
   }
 }
 
-@media all and (min-width: 1000px) {
+/* Only on BIG screens we want this */
+@media all and (min-width: 1800px) {
   .article-list--inline {
     flex-direction: row;
   }
@@ -380,8 +404,9 @@ section {
   .article-list--inline>.article-list__item {
     width: 33%;
   }
+}
 
-
+@media all and (min-width: 1000px) {
   .section__styled {
     margin: var(--spacing, 2rem);
     padding-right: calc(var(--spacing, 2rem) * 2);
@@ -445,6 +470,98 @@ section {
 }</style>
   
   
+  <style>.article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    margin: 0 auto;
+    max-width: 75rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    background: #000;
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}
+
+.article__og-box {
+    font-size: 1rem;
+    font-weight: bold;
+    border: .25em solid var(--color-note--info-contrast);
+    background: var(--color-note--info);
+    color: var(--color-note--info-contrast);
+    padding: calc(var(--spacing) / 2);
+}
+
+.article__og-box a {
+    color: var(--color-note--info-contrast);
+}
+
+blockquote {
+    font-family: math, serif, ui-serif;
+    font-weight: bold;
+    max-width: 90%;
+    padding: var(--spacing);
+    background: var(--color-bg);
+    border-left: 0.5em solid var(--color-accent-2);
+}
+
+blockquote cite {
+    font-size: .6em;
+    font-family: monospace;
+}</style>
+  
+  
+  
   
 </head>
 <body>
@@ -455,7 +572,7 @@ section {
     <nav class="site-nav"><a href="/ops/">Home</a> <a href="/blog/">Blog</a> <a href="/about/">About</a></nav>
 </section>
 
-<section class="[ f-ultra stack ] [ section__styled box-shadow__styled ] [ gr-auto gc-full ] single-page">
+<section class="[ f-ultra stack ] [ box-shadow__styled ] [ gr-auto gc-full ] single-page">
   <div class="content">
     <p>I’m a self-taught <strong>DevOps Engineer</strong> with a background in <em>Front-End Development</em>, my first contact with HTML and CSS was around 2007 when I wanted to style my MySpace profile, later I made a websites for my Habbo Hotel trading business (yes, we had dragon statues in all colors!)</p>
 <p>Following those first steps I started to get into photography and wanted to specialize in web development to showcase my photographs, at the time I still wanted to work as a concert photographer or designer professionally and didn’t really think about becoming a programmer. When I did an year-long internship with a Design agency and my boss asked if I could build a website for a client I said “Yes of course!”, bought “PHP for Dummies” and coded the website while learning PHP (yes, I was very confident at the time). Like a miracle, it worked and the client was happy.</p>
@@ -474,7 +591,7 @@ section {
 
     <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
       <div class="content">
-        <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a>, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
+        <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 2.0.1, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
       </div>
     </section>
   </main>
@@ -487,6 +604,8 @@ section {
   let YEAR_NOW = new Date().getFullYear().toFixed(0);
   let years_working = document.querySelector(".js-years-working");
   let all_time_since = document.querySelectorAll(".js-time-since");
+
+  let job_title = document.querySelector('.js-job-title');
 
   function set_favicon(emoji) {
     let txt = favicon_txt.replace('%EMOJI%', emoji);
@@ -517,6 +636,26 @@ section {
 
   if (years_working) {
     years_working.textContent = YEAR_NOW - 2009;
+  }
+
+  if (job_title) {
+    let titles = ["Platform Engineer", "Site-Reliability Engineer", "DevOps Engineer"];
+    let idx = 0;
+    let max_idx = titles.length - 1;
+    let letter = 1;
+    setInterval(() => {
+      let title = titles[idx];
+      job_title.textContent = `${title.substring(0, letter)}_`;
+      letter++;
+
+      if (letter == title.length) {
+        setTimeout(() => {
+          idx = (idx >= max_idx) ? 0 : idx + 1;
+          letter = -1;
+        }, 2000);
+      }
+
+    }, 150);
   }
 });
 </script>

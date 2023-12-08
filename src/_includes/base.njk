@@ -22,7 +22,7 @@
     {% endblock %}
     <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
       <div class="content">
-        <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a>, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
+        <p>Made with <a class="a-splash" href=" {% 11ty_meta "homepage" %}">11ty</a> {% 11ty_meta "version" %}, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
       </div>
     </section>
   </main>

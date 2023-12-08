@@ -25,6 +25,13 @@ module.exports = function (eleventyConfig) {
     return posts;
   });
 
+  eleventyConfig.addShortcode("11ty_meta", function (field) {
+    if (eleventyPackage[field]) {
+      return eleventyPackage[field]
+    }
+    return "";
+  })
+
   eleventyConfig.addFilter("debug", (content) => `<pre>${inspect(content)}</pre>`);
 
   eleventyConfig.addPairedShortcode("note", (content) => `<div class="note">${inspect(content)}</div>`);

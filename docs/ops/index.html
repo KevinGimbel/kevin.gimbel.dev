@@ -133,7 +133,25 @@ a:hover {
   100% {
     border-radius: 65% 72% 53% 41%;
   }
+}
 
+.anim-typing:after {
+  content: "|";
+  animation: typing linear 0.3s;
+}
+
+@keyframes typing {
+  from {
+    color: var(--color-fg);
+  }
+
+  50% {
+    color: var(--color-bg);
+  }
+
+  to {
+    color: var(--color-fg);
+  }
 }
 
 
@@ -305,6 +323,11 @@ section {
 .single-page {
   font-size: .75em;
   margin: calc(var(--spacing, 2rem) * 2);
+  background: #fff;
+  padding: 4rem;
+  margin: 4rem auto;
+  max-width: 75rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .article-list {
@@ -324,7 +347,7 @@ section {
 
 .article-list--inline>.article-list__item {
   margin: var(--spacing, 2rem);
-  width: 100%;
+  width: 95%;
 }
 
 .article-list__item>h2 {
@@ -372,7 +395,8 @@ section {
   }
 }
 
-@media all and (min-width: 1000px) {
+/* Only on BIG screens we want this */
+@media all and (min-width: 1800px) {
   .article-list--inline {
     flex-direction: row;
   }
@@ -380,8 +404,9 @@ section {
   .article-list--inline>.article-list__item {
     width: 33%;
   }
+}
 
-
+@media all and (min-width: 1000px) {
   .section__styled {
     margin: var(--spacing, 2rem);
     padding-right: calc(var(--spacing, 2rem) * 2);
@@ -465,13 +490,14 @@ section {
 
 
 <svg class="verified" role="img" aria-label="A blue verified badge as seen around the internetz" viewBox="0 0 22 22"><path d="M20.396 11a3.487 3.487 0 0 0-2.008-3.062 3.474 3.474 0 0 0-.742-3.584 3.474 3.474 0 0 0-3.584-.742A3.468 3.468 0 0 0 11 1.604a3.463 3.463 0 0 0-3.053 2.008 3.472 3.472 0 0 0-1.902-.14c-.635.13-1.22.436-1.69.882a3.461 3.461 0 0 0-.734 3.584A3.49 3.49 0 0 0 1.604 11a3.496 3.496 0 0 0 2.017 3.062 3.471 3.471 0 0 0 .733 3.584 3.49 3.49 0 0 0 3.584.742A3.487 3.487 0 0 0 11 20.396a3.476 3.476 0 0 0 3.062-2.007 3.335 3.335 0 0 0 4.326-4.327A3.487 3.487 0 0 0 20.396 11zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"/></svg></h1>
-        <h2>A <b>DevOps Engineer</b><br> working at <a href="https://aoe.com" title="AOE">AOE GmbH</a>.</h2>
+        <h2>A <span class="js-job-title">DevOps Engineer</span><br> working at <a href="https://aoe.com" title="AOE">AOE GmbH</a>.</h2>
       </div>
       <div class="gc-8-12">
         <img src="/assets/img/avatar-aoe.jpg" class="box-shadow__styled" style="max-height: 25rem;" alt="A photograph of me, Kevin Gimbel, in front of a grey background" />
       </div>
       <div class="gc-full">
-        <p>I've spent the last <span class="js-years-working">14</span> years learning to build websites & run servers; worked in e-Commerce since 2013, and focused on <a href="#cloud-computing" class="fg-accent-1 a-blank">Cloud Computing</a>, <a href="#containers" class="fg-accent-2 a-blank">Containers</a>, <a href="#automation" class="fg-accent-3 a-blank">Automation</a>, and <a href="#monitoring" class="fg-accent-4 a-blank">Monitoring</a> since starting DevOps full-time in 2018.</p>
+        <p>I've spent the last <span class="js-years-working">14</span> years learning to build websites & run servers; worked in e-Commerce from 2013 to 2023, and started focusing on Platform Engineering in early 2023. Right now I'm part of a DevOps/Platform Team running and building a Kubernetes based Platform for multiple developer teams.</p>
+        <p><small>🐝 Buzzwords: <a href="#cloud-computing" class="fg-accent-1 a-blank">Cloud Computing</a> <a href="#kubernetes" class="fg-accent-2 a-blank">Kubernetes</a> <a href="#automation" class="fg-accent-3 a-blank">Automation</a> <a href="#monitoring" class="fg-accent-4 a-blank">Monitoring</a></small></p>
         <p><center>⬇</center></p>
       </div>
   </section>
@@ -694,7 +720,7 @@ section {
 
     <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
       <div class="content">
-        <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a>, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
+        <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 2.0.1, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
       </div>
     </section>
   </main>
@@ -707,6 +733,8 @@ section {
   let YEAR_NOW = new Date().getFullYear().toFixed(0);
   let years_working = document.querySelector(".js-years-working");
   let all_time_since = document.querySelectorAll(".js-time-since");
+
+  let job_title = document.querySelector('.js-job-title');
 
   function set_favicon(emoji) {
     let txt = favicon_txt.replace('%EMOJI%', emoji);
@@ -737,6 +765,26 @@ section {
 
   if (years_working) {
     years_working.textContent = YEAR_NOW - 2009;
+  }
+
+  if (job_title) {
+    let titles = ["Platform Engineer", "Site-Reliability Engineer", "DevOps Engineer"];
+    let idx = 0;
+    let max_idx = titles.length - 1;
+    let letter = 1;
+    setInterval(() => {
+      let title = titles[idx];
+      job_title.textContent = `${title.substring(0, letter)}_`;
+      letter++;
+
+      if (letter == title.length) {
+        setTimeout(() => {
+          idx = (idx >= max_idx) ? 0 : idx + 1;
+          letter = -1;
+        }, 2000);
+      }
+
+    }, 150);
   }
 });
 </script>

@@ -133,7 +133,25 @@ a:hover {
   100% {
     border-radius: 65% 72% 53% 41%;
   }
+}
 
+.anim-typing:after {
+  content: "|";
+  animation: typing linear 0.3s;
+}
+
+@keyframes typing {
+  from {
+    color: var(--color-fg);
+  }
+
+  50% {
+    color: var(--color-bg);
+  }
+
+  to {
+    color: var(--color-fg);
+  }
 }
 
 
@@ -305,6 +323,11 @@ section {
 .single-page {
   font-size: .75em;
   margin: calc(var(--spacing, 2rem) * 2);
+  background: #fff;
+  padding: 4rem;
+  margin: 4rem auto;
+  max-width: 75rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .article-list {
@@ -324,7 +347,7 @@ section {
 
 .article-list--inline>.article-list__item {
   margin: var(--spacing, 2rem);
-  width: 100%;
+  width: 95%;
 }
 
 .article-list__item>h2 {
@@ -372,7 +395,8 @@ section {
   }
 }
 
-@media all and (min-width: 1000px) {
+/* Only on BIG screens we want this */
+@media all and (min-width: 1800px) {
   .article-list--inline {
     flex-direction: row;
   }
@@ -380,8 +404,9 @@ section {
   .article-list--inline>.article-list__item {
     width: 33%;
   }
+}
 
-
+@media all and (min-width: 1000px) {
   .section__styled {
     margin: var(--spacing, 2rem);
     padding-right: calc(var(--spacing, 2rem) * 2);
@@ -455,7 +480,7 @@ section {
     <nav class="site-nav"><a href="/ops/">Home</a> <a href="/blog/">Blog</a> <a href="/about/">About</a></nav>
 </section>
 
-<section class="[ f-ultra stack ] [ section__styled box-shadow__styled ] [ gr-auto gc-full ] single-page">
+<section class="[ f-ultra stack ] [ box-shadow__styled ] [ gr-auto gc-full ] single-page">
   <div class="content">
     <p>Responsible for the content of this website:</p>
 <p><strong>Kevin Gimbel</strong><br>
@@ -482,7 +507,7 @@ Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
 
     <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
       <div class="content">
-        <p>Made with <a class="a-splash" href="https://11ty.dev/">11ty</a>, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
+        <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 2.0.1, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
       </div>
     </section>
   </main>
@@ -495,6 +520,8 @@ Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
   let YEAR_NOW = new Date().getFullYear().toFixed(0);
   let years_working = document.querySelector(".js-years-working");
   let all_time_since = document.querySelectorAll(".js-time-since");
+
+  let job_title = document.querySelector('.js-job-title');
 
   function set_favicon(emoji) {
     let txt = favicon_txt.replace('%EMOJI%', emoji);
@@ -525,6 +552,26 @@ Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
 
   if (years_working) {
     years_working.textContent = YEAR_NOW - 2009;
+  }
+
+  if (job_title) {
+    let titles = ["Platform Engineer", "Site-Reliability Engineer", "DevOps Engineer"];
+    let idx = 0;
+    let max_idx = titles.length - 1;
+    let letter = 1;
+    setInterval(() => {
+      let title = titles[idx];
+      job_title.textContent = `${title.substring(0, letter)}_`;
+      letter++;
+
+      if (letter == title.length) {
+        setTimeout(() => {
+          idx = (idx >= max_idx) ? 0 : idx + 1;
+          letter = -1;
+        }, 2000);
+      }
+
+    }, 150);
   }
 });
 </script>
