@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (job_title) {
-    let titles = ["Platform Engineer", "Site-Reliability Engineer", "DevOps Engineer"];
+    let titles = ["Platform Engineer", "SRE", "DevOps Engineer"];
     let idx = 0;
     let max_idx = titles.length - 1;
     let letter = 1;

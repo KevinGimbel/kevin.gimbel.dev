@@ -81,6 +81,7 @@ hr {
 
 a {
   color: var(--color-link, hotpink);
+  word-break: break-word;
 }
 
 a:hover {
@@ -428,11 +429,32 @@ section {
     font-size: 10px;
   }
 
+  .f-heading-big {
+    font-size: 2.5rem;
+  }
+
+  .f-ultra>* {
+    font-size: 1.5rem;
+  }
+
+  .c-skill-list__item {
+    padding: 0;
+    margin-top: 0;
+  }
+
   section {
     padding: 2rem;
   }
 
   .start>* {
+    max-width: 90vw;
+  }
+
+  .start h2 {
+    font-size: 2rem;
+  }
+
+  .start img {
     max-width: 100%;
   }
 
@@ -450,10 +472,6 @@ section {
     grid-column-start: 1;
     grid-column-end: 13;
     background: var(--color-contrast-bg);
-  }
-
-  .about .background {
-    display: none;
   }
 
   .c-skill-list {
@@ -787,7 +805,7 @@ blockquote cite {
   }
 
   if (job_title) {
-    let titles = ["Platform Engineer", "Site-Reliability Engineer", "DevOps Engineer"];
+    let titles = ["Platform Engineer", "SRE", "DevOps Engineer"];
     let idx = 0;
     let max_idx = titles.length - 1;
     let letter = 1;
