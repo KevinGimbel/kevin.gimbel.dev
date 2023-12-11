@@ -297,6 +297,10 @@ hgroup {
   color: var(--color-fg, #000);
 }
 
+.f-small {
+  font-size: 1rem;
+}
+
 section {
   padding: var(--spacing, 2rem);
 }

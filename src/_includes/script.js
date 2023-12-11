@@ -7,14 +7,12 @@ document.addEventListener('DOMContentLoaded', function () {
   let years_working = document.querySelector(".js-years-working");
   let all_time_since = document.querySelectorAll(".js-time-since");
 
-  let job_title = document.querySelector('.js-job-title');
-
-  function set_favicon(emoji) {
+  const set_favicon = (emoji) => {
     let txt = favicon_txt.replace('%EMOJI%', emoji);
     favicon_el.setAttribute('href', txt);
   }
 
-  window.addEventListener('scroll', function (event) {
+  window.addEventListener('scroll', (event) => {
     let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
     let active_section = sections_in_view[sections_in_view.length - 1];
     if (last_active_section != active_section) {
@@ -23,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  all_time_since.forEach((element, key) => {
+  all_time_since.forEach((element, _key) => {
     let year = element.dataset.year;
 
     if (year) {
@@ -38,25 +36,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (years_working) {
     years_working.textContent = YEAR_NOW - 2009;
-  }
-
-  if (job_title) {
-    let titles = ["Platform Engineer", "SRE", "DevOps Engineer"];
-    let idx = 0;
-    let max_idx = titles.length - 1;
-    let letter = 1;
-    setInterval(() => {
-      let title = titles[idx];
-      job_title.textContent = `${title.substring(0, letter)}_`;
-      letter++;
-
-      if (letter == title.length) {
-        setTimeout(() => {
-          idx = (idx >= max_idx) ? 0 : idx + 1;
-          letter = -1;
-        }, 2000);
-      }
-
-    }, 150);
   }
 });

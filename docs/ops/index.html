@@ -306,6 +306,10 @@ hgroup {
   color: var(--color-fg, #000);
 }
 
+.f-small {
+  font-size: 1rem;
+}
+
 section {
   padding: var(--spacing, 2rem);
 }
@@ -508,7 +512,8 @@ section {
 
 
 <svg class="verified" role="img" aria-label="A blue verified badge as seen around the internetz" viewBox="0 0 22 22"><path d="M20.396 11a3.487 3.487 0 0 0-2.008-3.062 3.474 3.474 0 0 0-.742-3.584 3.474 3.474 0 0 0-3.584-.742A3.468 3.468 0 0 0 11 1.604a3.463 3.463 0 0 0-3.053 2.008 3.472 3.472 0 0 0-1.902-.14c-.635.13-1.22.436-1.69.882a3.461 3.461 0 0 0-.734 3.584A3.49 3.49 0 0 0 1.604 11a3.496 3.496 0 0 0 2.017 3.062 3.471 3.471 0 0 0 .733 3.584 3.49 3.49 0 0 0 3.584.742A3.487 3.487 0 0 0 11 20.396a3.476 3.476 0 0 0 3.062-2.007 3.335 3.335 0 0 0 4.326-4.327A3.487 3.487 0 0 0 20.396 11zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"/></svg></h1>
-        <h2>A <span class="js-job-title">DevOps Engineer</span><br> working at <a href="https://aoe.com" title="AOE">AOE GmbH</a>.</h2>
+        <h2>a Platform&nbsp;/&nbsp;DevOps Engineer <br>working at <a href="https://aoe.com" title="AOE">AOE GmbH</a>.</h2>
+        <p class="f-small">Random facts: <kg-type style="--kg-type-color: #fff;" delete-reverse="true" interval="100" shuffle="true" words='big Rust fan,(used to) love Go,Punk at heart,kinda soft <3,digital native... I guess??,Loved Tumblr - and MySpace -- and MSN!,Always loved publishing on the web,Love to blog and used to tweet a lot,<3 photography,I develop my own B&W analog film at home using coffee'>Big Rust fan.</kg-type></p>
       </div>
       <div class="gc-8-12">
         <img src="/assets/img/avatar-aoe.jpg" class="box-shadow__styled" style="max-height: 25rem;" alt="A photograph of me, Kevin Gimbel, in front of a grey background" />
@@ -519,9 +524,12 @@ section {
         <p><center>⬇</center></p>
       </div>
   </section>
-  
   <section class="[ f-ultra ] [ gr-auto gc-full ] [ c-full-width ] [ site-nav__wrapper ]">
-    <nav class="site-nav"><a href="/ops/">Home</a> <a href="/blog/">Blog</a> <a href="/about/">About</a></nav>
+    <nav class="site-nav">
+        <a href="/ops/">Home</a> 
+        <a href="/blog/">Blog</a> 
+        <a href="/about/">About</a>
+    </nav>
 </section>
 
   <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]">
@@ -739,6 +747,7 @@ section {
     <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
       <div class="content">
         <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 2.0.1, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
+        <p class="f-small">Views and opinions expressed on this websites do not represents views and opinions of my employer.</p>
       </div>
     </section>
   </main>
@@ -752,14 +761,12 @@ section {
   let years_working = document.querySelector(".js-years-working");
   let all_time_since = document.querySelectorAll(".js-time-since");
 
-  let job_title = document.querySelector('.js-job-title');
-
-  function set_favicon(emoji) {
+  const set_favicon = (emoji) => {
     let txt = favicon_txt.replace('%EMOJI%', emoji);
     favicon_el.setAttribute('href', txt);
   }
 
-  window.addEventListener('scroll', function (event) {
+  window.addEventListener('scroll', (event) => {
     let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
     let active_section = sections_in_view[sections_in_view.length - 1];
     if (last_active_section != active_section) {
@@ -768,7 +775,7 @@ section {
     }
   });
 
-  all_time_since.forEach((element, key) => {
+  all_time_since.forEach((element, _key) => {
     let year = element.dataset.year;
 
     if (year) {
@@ -784,26 +791,119 @@ section {
   if (years_working) {
     years_working.textContent = YEAR_NOW - 2009;
   }
+});</script>
+<script>class KGType extends HTMLElement {
 
-  if (job_title) {
-    let titles = ["Platform Engineer", "SRE", "DevOps Engineer"];
-    let idx = 0;
-    let max_idx = titles.length - 1;
-    let letter = 1;
-    setInterval(() => {
-      let title = titles[idx];
-      job_title.textContent = `${title.substring(0, letter)}_`;
-      letter++;
+    static register(tagName) {
+        if ("customElements" in window) {
+            customElements.define(tagName || "kg-type", KGType);
+        }
+    }
 
-      if (letter == title.length) {
-        setTimeout(() => {
-          idx = (idx >= max_idx) ? 0 : idx + 1;
-          letter = -1;
-        }, 2000);
-      }
+    static css = `:host {
+        display: var(--kg-type-display, inline-block);
+        color: var(--kg-type-color, #000);
+        font-size: var(--kg-type-fontsize, 1rem);
+    }`;
 
-    }, 150);
-  }
-});
-</script>
+    constructor() {
+        // Web Component setup
+        super();
+
+        // Get settings from element
+        this._seperator = this.getAttribute("seperator") || ",";
+        this._cursor = this.getAttribute("cursor") || "_";
+        this._words = (this.getAttribute("words") || "").split(this._seperator);
+        this._currentWord = this._words[0] || "";
+        this._timeout = parseInt(this.getAttribute("clear-interval")) || 2000;
+        this._typeInterval = parseInt(this.getAttribute("type-interval")) || 150;
+        this._shuffle = this.getAttribute("shuffle") || false;
+        this._deleteReverse = this.getAttribute("delete-reverse") || false;
+        this._interval = null;
+
+        // if shuffle, the array is shuffled
+        if (this._shuffle) {
+            // much random, very shuffle. 
+            this._words.sort(() => Math.random() - 0.5);
+        }
+
+        this.connectedCallback();
+        this.render();
+    }
+
+    connectedCallback() {
+        // https://caniuse.com/mdn-api_cssstylesheet_replacesync
+        if (this.shadowRoot || !("replaceSync" in CSSStyleSheet.prototype)) {
+            return;
+        }
+
+        let root = this.attachShadow({ mode: "open" });
+        let sheet = new CSSStyleSheet();
+        sheet.replaceSync(KGType.css);
+        root.adoptedStyleSheets = [sheet];
+    }
+
+    render() {
+        this.typeTextByLetter();
+    }
+
+    setNextWord() {
+        let nextIdx = this._words.indexOf(this._currentWord) + 1;
+        if (this._words[nextIdx]) {
+            this._currentWord = this._words[nextIdx];
+        } else {
+            this._currentWord = this._words[0];
+        }
+    }
+
+    removeTextByLetter() {
+        let word = this.shadowRoot.textContent.slice(0, -1);
+        let cursor = this._cursor;
+        let idx = word.length;
+        let typeInterval = this._typeInterval;
+
+        this._interval = setInterval(() => {
+            word = word.slice(0, idx);
+            this.shadowRoot.textContent = `${word}${cursor}`;
+            idx--;
+
+            if (idx == 0 || word == "") {
+                clearInterval(this._interval);
+                this.setNextWord();
+                this.typeTextByLetter();
+            }
+        }, typeInterval);
+    }
+
+    typeTextByLetter() {
+        let timeout = this._timeout;
+        let cursor = this._cursor;
+        let typeInterval = this._typeInterval;
+        let letter = -1;
+
+        if (this._currentWord.length == 0) { return; }
+
+        this._interval = setInterval(() => {
+            let word = this._currentWord;
+            this.shadowRoot.textContent = `${word.substring(0, letter)}${cursor}`;
+            letter++;
+
+            if (letter == word.length + 1) {
+                // setTimeout blocks execution until the timer is done, 
+                // which will clear the word after two seconds.
+                setTimeout(() => {
+                    clearInterval(this._interval);
+                    if (this._deleteReverse) {
+                        this.removeTextByLetter();
+                    } else {
+                        this.setNextWord()
+                        this.typeTextByLetter();
+                    }
+                }, timeout);
+            }
+        }, typeInterval);
+    }
+}
+
+KGType.register();</script>
 </html>
