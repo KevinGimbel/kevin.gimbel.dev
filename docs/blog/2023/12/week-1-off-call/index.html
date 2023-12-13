@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>
-Validating variables in terraform - Kevin.Gimbel.Dev/Blog
+Week 1: Off call - Kevin.Gimbel.Dev/Blog
 </title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -586,7 +586,7 @@ blockquote cite {
   
   
   
-<link rel="canonical" href="https://kevingimbel.de/blog/2021/06/validating-variables-in-terraform/" />
+<link rel="canonical" href="https://kevingimbel.de/blog/2023/12/week-1-off-call/" />
 
 </head>
 <body>
@@ -604,308 +604,35 @@ blockquote cite {
 <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
     
     <div class="article__og-box">
-        <p><i>"Validating variables in terraform"</i> was originally published on <a href="https://kevingimbel.de/blog/2021/06/validating-variables-in-terraform/" target="_blank" rel="nofollow" title="Read 'Validating variables in terraform' on kevingimbel.de">kevingimbel.de</a>.</p>
+        <p><i>"Week 1: Off call"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/12/week-1-off-call/" target="_blank" rel="nofollow" title="Read 'Week 1: Off call' on kevingimbel.de">kevingimbel.de</a>.</p>
     </div>
     <hr />
     <div class="content">
-        <h1>Validating variables in terraform</h1>
+        <h1>Week 1: Off call</h1>
         
-<h2 class="wp-block-heading">Finally, terraform can validate input variables!</h2>
-
-
-
-<p>With the 0.13 release terraform introduces input validation, and with the 1.0.0 releases it was stabilized! Before there was no way of validating variables other than checking their length or doing basic checks inside the code, for example in the&nbsp;<code>locals.tf</code>&nbsp;file, and errors with variables mostly came to light during deployments. There was also no way of telling the user&nbsp;<em>what</em>&nbsp;what wrong with a variable.</p>
-
-
-
-<p>Excited about this feature I took a deep-dive at work and implemented validation for all variables in our new infrastructure modules. This blog post will go over the possibilities of validations and how to implement them and how to combine multiple asserts. All code examples are&nbsp;<em>practical</em>&nbsp;and no foo-bar-baz made-up code!</p>
-
-
-
-<p>Knowledge of terraform is not required, however you should be somewhat familiar with&nbsp;<a href="https://github.com/hashicorp/hcl">HCL</a>, the configuration language of terraform.</p>
-
-
-
-<p class="has-contrast-color has-secondary-background-color has-text-color has-background has-link-color wp-elements-59c3d6777f2eba925f3d2bfe4cbe96fe">All examples are available in a repo at <a href="https://github.com/KevinGimbel/blog-terraform-validation-example">github.com/KevinGimbel/blog-terraform-validation-example</a>. At times this post says &#8220;To test this, run&#8230;&#8221;; All of these can be run against the code inside the example repo. To use the repo, follow these steps:<br><br>$ <code>git clone https://github.com/KevinGimbel/blog-terraform-validation-example.git </code><br><code>$ cd blog-terraform-validation-example </code><br>$ <code>terraform init</code></p>
-
-
-
-<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#syntax-of-a-validation"></a>Syntax of a validation</h2>
-
-
-
-<p>All validations happen in the&nbsp;<code>variables.tf</code>&nbsp;file where variables are defined. Inside the block defining a variable a new&nbsp;<code>validation</code>&nbsp;block is placed:</p>
-
-
-
-<pre class="wp-block-code"><code class="">variable "my_var" {
-  type = number
-  default = 0
-
-  validation {
-    condition = var.my_var &gt;= 0
-    error_message = "Please set my_var to a positive number or 0."
-  }
-}</code></pre>
-
-
-
-<p class="has-contrast-color has-secondary-background-color has-text-color has-background">Terraform requires the sentence to start with an uppercase letter and end with a dot.</p>
-
-
-
-<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#validating-the-length-of-a-string"></a>Validating the length of a string</h2>
-
-
-
-<p>The following defines a variable named&nbsp;<code>hetzner_api_token</code>&nbsp;that represents a&nbsp;<a href="https://hetzner.cloud/">Hetzner Cloud</a>&nbsp;API token.</p>
-
-
-
-<pre class="wp-block-code"><code class=""># file: variables.tf
-variable "hetzner_api_token" {
-  type        = string
-  description = "Hetzner API token"
-}</code></pre>
-
-
-
-<p>If somebody would specify&nbsp;<code>hetzner_api_token = ""</code>&nbsp;the variable would be defined as far as terraform is concerned and terraform would start deploying until it reaches a point where the missing token causes an issue; To prevent this we can apply validations like so</p>
-
-
-
-<pre class="wp-block-code"><code lang="" class=""># file: variables.tf
-variable "hetzner_api_token" {
-  type        = string
-  description = "Hetzner API token"
-
-  validation {
-    condition     = length(var.hetzner_api_token) == 64
-    error_message = "Must be a 64 character long Hetzner API token."
-  }
-}</code></pre>
-
-
-
-<p>This validates that the variable is set AND is exactly 64 characters long, which is the length of Hetzner Cloud API tokens.</p>
-
-
-
-<p>To test this, run</p>
-
-
-
-<pre class="wp-block-code"><code lang="bash" class="language-bash"># Shows no error and logs the configured token
-terraform apply -target=null_resource.validate_hetzner_api_token
-# Invalid, shows error message
-terraform apply -target=null_resource.validate_hetzner_api_token -var "hetzner_api_token=xxx"</code></pre>
-
-
-
-<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#advanced-validation-with-regex"></a>Advanced validation with regex</h2>
-
-
-
-<p>Checking the&nbsp;<code>length</code>&nbsp;might be helpful for simple assertions but sometimes more advanced checks are needed. This is where regex comes into play. To use regex terraform provides the&nbsp;<code>can</code>&nbsp;function.</p>
-
-
-
-<pre class="wp-block-code"><code class="">variable "server_role_arn" {
-  type        = string
-  description = "AWS arn of the role to assign to servers"
-
-  validation {
-    condition     = can(regex("^arn:aws:iam::[[:digit:]]{12}:role/.+", var.server_role_arn))
-    error_message = "Must be a valid AWS IAM role ARN."
-  }
-}</code></pre>
-
-
-
-<p>This validation fails if the provides string doesn&#8217;t match the format of an&nbsp;<em>AWS IAM role ARN</em>. This means it will also fail if an ARN is provided that matches a user, like&nbsp;<code>arn:aws:iam::012345678912:user/kevin</code>! The&nbsp;<code>[[:digit:]]{12}</code>&nbsp;checks for exactly 12 digits, it&#8217;s equal to&nbsp;<code>\d{12}</code>&nbsp;in other regex engines.&nbsp;<code>.+</code>&nbsp;at the end matches any character one or more times.</p>
-
-
-
-<p>To test this, run</p>
-
-
-
-<pre class="wp-block-code"><code lang="bash" class="language-bash">terraform apply
-# Invalid, shows error message
-terraform apply -target=null_resource.validate_server_role_arn
-terraform apply -target=null_resource.validate_server_role_arn -var "server_role_arn=arn:aws:iam::012345678912:user/kevin"</code></pre>
-
-
-
-<pre class="wp-block-code"><code class="">│ Error: Invalid value for variable
-│ 
-│   on variables.tf line 1:
-│    1: variable "server_role_arn" {
-│ 
-│ Must be a valid AWS IAM role ARN.
-│ 
-│ This was checked by the validation rule at variables.tf:5,3-13.
-</code></pre>
-
-
-
-<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#multiple-conditions"></a>Multiple conditions</h2>
-
-
-
-<p>Validations can have more than one condition. Conditions are grouped together with the&nbsp;<code>alltrue</code>&nbsp;and&nbsp;<code>anytrue</code>&nbsp;functions, which take a list of conditions and returns&nbsp;<code>true</code>&nbsp;or&nbsp;<code>false</code>.</p>
-
-
-
-<pre class="wp-block-code"><code class="">variable "env" {
-  type        = string
-  description = "Environment to deploy, can be production, staging, development, or test."
-
-  validation {
-    condition = anytrue([
-      var.env == "production",
-      var.env == "staging",
-      var.env == "development",
-      var.env == "test"
-    ])
-    error_message = "Must be a valid env, can be production, staging, development, or test."
-  }
-}</code></pre>
-
-
-
-<p>To test this, run</p>
-
-
-
-<pre class="wp-block-code"><code lang="bash" class="language-bash"># valid 
-terraform apply -target=null_resource.validate_env
-# Invalid 
-terraform apply -target=null_resource.validate_env -var "env=prod"</code></pre>
-
-
-
-<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#multiple-nested-conditions"></a>Multiple, nested conditions</h2>
-
-
-
-<p><code>alltrue</code>&nbsp;and&nbsp;<code>anytrue</code>&nbsp;can be nested! The next example validates the variable is a legit Hetzner Server type identifier, without requiring any regex magic!&nbsp;🥸</p>
-
-
-
-<pre class="wp-block-code"><code class="">variable "hetzner_server_type" {
-  type        = string
-  description = "Server type to use, see https://www.hetzner.com/cloud#pricing"
-  default     = "cx21"
-
-  validation {
-    condition = alltrue([
-      anytrue([
-        can(regex("cx*", var.hetzner_server_type)),
-        can(regex("cpx*", var.hetzner_server_type)),
-        can(regex("ccx*", var.hetzner_server_type))
-      ]),
-      anytrue([
-        length(var.hetzner_server_type) == 5,
-        length(var.hetzner_server_type) == 4
-      ])
-    ])
-    error_message = "Must be a valid Hetzner server type, e.g. cx21, cx11, ccx22 see https://www.hetzner.com/cloud#pricing for available options."
-  }
-}</code></pre>
-
-
-
-<p>It checks that both of these are true:</p>
-
-
-
 <ul>
-<li>The variable starts with&nbsp;<code>cx</code>,&nbsp;<code>cpx</code>, or&nbsp;<code>ccx</code></li>
+<li>My first all alone on-call duty is over with no incident!</li>
 
 
 
-<li>The variable is 4 or 5 characters long</li>
+<li>I&#8217;ve had a good time working on <a href="https://kevin.gimbel.dev/">kevin.gimbel.dev</a>, enjoying working with 11ty, HTML, CSS, and JavaScript. Despite doing DevOps / SRE / Platform Engineering full time I still love doing web dev</li>
+
+
+
+<li>I&#8217;m once again at a point where I wonder if I want to combine all my websites back into one. I&#8217;ve spent considerable time moving from one-site-for-all to four different once. For now I&#8217;ll not do it.</li>
+
+
+
+<li>Hosting stuff is expensive. I pay 40 EUR each month for my two web servers and I&#8217;d like to cut costs, maybe by hosting some non-public stuff at home (<em>Rabbit hole potential!</em>)</li>
+
+
+
+<li>I&#8217;ll need to up my Python game, as there&#8217;s a lot of Python Glue-code and tooling at work and even if I&#8217;m not the biggest fan of Python I am no longer a one person team so it&#8217;s time to adapt 🙂 </li>
 </ul>
 
 
 
-<p>To test this, run</p>
-
-
-
-<pre class="wp-block-code"><code class=""># valid 
-terraform apply -target=null_resource.validate_hetzner_server_type
-# invalid, shows validation error
-terraform apply -target=null_resource.validate_hetzner_server_type -var "hetzner_server_type=nope"</code></pre>
-
-
-
-<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#validating-elements-in-a-list"></a>Validating elements in a list</h2>
-
-
-
-<p>Lastly, using a&nbsp;<code>for</code>&nbsp;loop entries inside of a list can be validated.</p>
-
-
-
-<pre class="wp-block-code"><code class="">variable "hetzner_datacenters" {
-  type        = list(string)
-  description = "List of datacenter identifier into which the server can be launched, chosen at random"
-  default     = ["nbg1", "fsn1"]
-
-  validation {
-    condition = alltrue([
-      for dc in var.hetzner_datacenters : contains(["nbg1", "fsn1", "hel1"], dc)
-    ])
-    error_message = "Must one or more of: 'nbg1', 'fsn1', or 'hel1' - no other value is allowed."
-  }
-}</code></pre>
-
-
-
-<p>Right now Hetzner has three datacenter locations, two in Germany (Nürnberg (<code>nbg1</code>) and Falkenstein (<code>fsn1</code>)) and one in Finland (Helsinki (<code>hel1</code>)), so validating them is doable; for AWS, GPC, or Azure this would be a lot harder and require regex instead.</p>
-
-
-
-<p>To test this, run</p>
-
-
-
-<pre class="wp-block-code"><code lang="bash" class="language-bash"># valid 
-terraform apply -target=null_resource.validate_hetzner_datacenters
-# invalid, shows validation error
-terraform apply -target=null_resource.validate_hetzner_datacenters -var 'hetzner_datacenters=["fsn1", "lax1"]' </code></pre>
-
-
-
-<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#conclusion"></a>Conclusion</h2>
-
-
-
-<p>Using the shown functions like&nbsp;<code>regex</code>,&nbsp;<code>length</code>&nbsp;and loops we can validate a variable has a certain value or follows a certain format.</p>
-
-
-
-<p>With&nbsp;<code>anytrue</code>&nbsp;and&nbsp;<code>alltrue</code>&nbsp;we can group together multiple validations so that either all or one of multiple conditions must match.</p>
-
-
-
-<h2 class="wp-block-heading"><a href="https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2021/06/11-validating-variables-in-terraform/index.md#further-reading"></a>Further reading</h2>
-
-
-
-<ul>
-<li><a href="https://www.terraform.io/docs/language/values/variables.html">Terraform variable documentation</a></li>
-
-
-
-<li><a href="https://www.terraform.io/docs/language/functions/can.html">Terraform&nbsp;<code>can</code>&nbsp;function</a></li>
-
-
-
-<li><a href="https://www.terraform.io/docs/language/functions/regex.html">Terraform&nbsp;<code>regex</code>&nbsp;function</a></li>
-</ul>
+<p>(Let&#8217;s see how long I can keep week notes up. Heavily inspited by <a href="https://alicebartlett.co.uk/blog/weaknotes">Alice Bartlett and her weaknotes</a> &#8211; not sure how personal I want to get.)</p>
 
     </div>
 </section>
