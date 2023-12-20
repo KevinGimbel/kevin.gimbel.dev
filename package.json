@@ -1,10 +1,11 @@
 {
   "name": "kevin.gimbel.dev",
-  "version": "2.0.0",
+  "type": "module",
+  "version": "3.0.0",
   "description": "A personal website ✨",
   "scripts": {
     "build": "npx @11ty/eleventy",
-    "dev": "npx @11ty/eleventy --serve --watch"
+    "dev": "npx @11ty/eleventy --serve"
   },
   "author": "Kevin Gimbel",
   "license": "MIT",

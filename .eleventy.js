@@ -1,7 +1,7 @@
-const inspect = require("util").inspect;
-const eleventyPackage = require('@11ty/eleventy/package.json')
+import { inspect } from "util";
+import eleventyPackage from "@11ty/eleventy/package.json" with { type: 'json' };
 
-module.exports = function (eleventyConfig) {
+export default async function (eleventyConfig) {
   // Copy `assets/css` to `_site/assets/css`
   eleventyConfig.addPassthroughCopy("src/assets/css");
   eleventyConfig.addPassthroughCopy("src/assets/img");
