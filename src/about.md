@@ -15,7 +15,8 @@ In 2014, after specializing more in HTML and CSS I, started as a Front-End Devel
 In 2023 I started working as a DevOps Engineer at [AOE GmbH](https://aoe.com/).
 
 ## My pronouns
-I prefer **he/him**.
+
+*he/him*
 
 ## Social media
 
