@@ -45,6 +45,27 @@
 </section>
 
 {% for page in collections.sections %}
-  {% include "section.njk" %}
+  <section id="{{ page.data.id }}" class="[ f-ultra bg-accent-{{ page.data.accent_id }} stack ] [ section__styled box-shadow__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;{% for style in page.data.styles %} {{ style }}{% endfor %}" data-icon="{{ page.data.icon or "~" }}">
+    {%- if page.data.sub_heading or page.data.title -%}
+    <hgroup>
+      {%- if page.data.title -%}
+      <h3 class="f-heading-big">{{ page.data.title }} {{ page.data.icon }}</h3>
+      {%- endif -%}
+      {%- if page.data.sub_heading -%}
+      <h4>{{ page.data.sub_heading | safe }}</h4>
+      {%- endif -%}
+    </hgroup>
+    {%- endif -%}
+    <div class="content">
+      {{ page.templateContent | safe }}
+      {%- if page.data.skills.length -%}
+      <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
+        {% for skill in page.data.skills %}
+        <li class="[ c-skill-list__item ]">{{ skill | safe }}</li>
+        {% endfor %}
+      </ul>
+      {%- endif -%}
+    </div>
+</section>
 {%- endfor -%}
 {% endblock %}
