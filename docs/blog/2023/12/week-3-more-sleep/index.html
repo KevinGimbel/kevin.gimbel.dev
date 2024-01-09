@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>
-Unpinned dependencies just broke my plugin - Kevin.Gimbel.Dev/Blog
+Week 3: More sleep - Kevin.Gimbel.Dev/Blog
 </title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -595,7 +595,7 @@ blockquote cite {
   
   
   
-<link rel="canonical" href="https://kevingimbel.de/blog/2023/02/unpinned-dependencies-just-broke-my-plugin/" />
+<link rel="canonical" href="https://kevingimbel.de/blog/2023/12/week-3-more-sleep/" />
 
 </head>
 <body>
@@ -613,29 +613,47 @@ blockquote cite {
 <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
     
     <div class="article__og-box">
-        <p><i>"Unpinned dependencies just broke my plugin"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/02/unpinned-dependencies-just-broke-my-plugin/" target="_blank" rel="nofollow" title="Read 'Unpinned dependencies just broke my plugin' on kevingimbel.de">kevingimbel.de</a>.</p>
+        <p><i>"Week 3: More sleep"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/12/week-3-more-sleep/" target="_blank" rel="nofollow" title="Read 'Week 3: More sleep' on kevingimbel.de">kevingimbel.de</a>.</p>
     </div>
     <hr />
     <div class="content">
-        <h1>Unpinned dependencies just broke my plugin</h1>
+        <h1>Week 3: More sleep</h1>
         
-<p class="has-medium-font-size">Hello and welcome to a little recap! My <a href="https://github.com/KevinGimbel/eleventy-plugin-mermaid">11ty MermaidJS plugin</a>  was just broken by MermaidJS release 10.0 because they no longer provided a minified JavaScript bundle and instead only provide a ESM module. </p>
+<ul>
+<li>After last weeks Christmas party I got a sick &#8211; no Corona luckily! Nevertheless  I worked from home all week just to be on the safe side.</li>
 
 
 
-<p>My plugin was referencing <code>https://unpkg.com/mermaid/dist/mermaid.min.js</code> by default for including the javascript code, but with version 10 this now leads to a 404 on unpkg.com, resulting in the plugin breaking for everyone using it. <em>Oops.</em> 😬</p>
+<li><strong>I should sleep more.</strong> Once again I chose to not call in sick in the beginning of the week and &#8220;buckled up&#8221; instead. <em>(I want to be clear that <strong>this is my mistake</strong>, not my employers! I still have the mindset I need to be available all the time from years of being in very small teams (or the only person responsible))</em></li>
 
 
 
-<p>As a quick fix I&#8217;ve moved the code to use the ESM module instead, which luckily was fairy straight forward. The change can be seen on GitHub here <a href="https://github.com/KevinGimbel/eleventy-plugin-mermaid/commit/3f356d603dafb0801c4fe90ff75aa0a54f73eceb">https://github.com/KevinGimbel/eleventy-plugin-mermaid/commit/3f356d603dafb0801c4fe90ff75aa0a54f73eceb</a></p>
+<li><strong>Working from home sucks</strong>. I really do not like this anymore. I want to be in the office, I want to have a dedicated place I work and not work from my bedroom.</li>
 
 
 
-<p>I should&#8217;ve know better than to reference the latest version by default, but sometimes I&#8217;m lazy and I initially developed the plugin for my self without thinking much about it.</p>
+<li>With Christmas around the corner I look forward to some quite time with the family. Growing older I thoroughly enjoy the time spent with loved once.</li>
 
 
 
-<p>Sorry if I broke your website. 🖤 </p>
+<li>I finished reading &#8220;<a href="https://nerdcultu.re/2023/12/19/we-are-all-completely-beside-ourselves-karen-joy-fowler/">We Are All Completely Beside Ourselves</a>&#8221; by Karen Joy Fowler and really enjoyed it!</li>
+
+
+
+<li>I also read &#8220;<a href="https://www.goodreads.com/book/show/25664965-a-spy-in-europa">A Spy in Europa</a>&#8220;, a short-story by Alastair Reynolds and enjoyed this as well.</li>
+
+
+
+<li>I look forward to reading some more short stories from the &#8220;Galactic North&#8221; collection by Alastair Reynolds over the holidays</li>
+
+
+
+<li>I started planning a big ol&#8217; website restructure for 2024 by doing a classic Mind Map. The idea is to replace my 3 WordPress websites with one WordPress Multisite which I then use to render 3 11ty websites; Effectively using WordPress only for the CMS part.</li>
+
+
+
+<li>I also started working on a Rust tool named &#8220;<code>rss2social</code>&#8221; which I want to use to post my blog feeds automatically to Mastodon and LinkedIn. So far it doesn&#8217;t do much.</li>
+</ul>
 
     </div>
 </section>

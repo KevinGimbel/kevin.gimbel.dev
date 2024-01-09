@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>
-Unpinned dependencies just broke my plugin - Kevin.Gimbel.Dev/Blog
+TIL: k9s plugins - Kevin.Gimbel.Dev/Blog
 </title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -595,7 +595,7 @@ blockquote cite {
   
   
   
-<link rel="canonical" href="https://kevingimbel.de/blog/2023/02/unpinned-dependencies-just-broke-my-plugin/" />
+<link rel="canonical" href="https://kevingimbel.de/blog/2024/01/til-k9s-plugins/" />
 
 </head>
 <body>
@@ -613,29 +613,117 @@ blockquote cite {
 <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
     
     <div class="article__og-box">
-        <p><i>"Unpinned dependencies just broke my plugin"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/02/unpinned-dependencies-just-broke-my-plugin/" target="_blank" rel="nofollow" title="Read 'Unpinned dependencies just broke my plugin' on kevingimbel.de">kevingimbel.de</a>.</p>
+        <p><i>"TIL: k9s plugins"</i> was originally published on <a href="https://kevingimbel.de/blog/2024/01/til-k9s-plugins/" target="_blank" rel="nofollow" title="Read 'TIL: k9s plugins' on kevingimbel.de">kevingimbel.de</a>.</p>
     </div>
     <hr />
     <div class="content">
-        <h1>Unpinned dependencies just broke my plugin</h1>
+        <h1>TIL: k9s plugins</h1>
         
-<p class="has-medium-font-size">Hello and welcome to a little recap! My <a href="https://github.com/KevinGimbel/eleventy-plugin-mermaid">11ty MermaidJS plugin</a>  was just broken by MermaidJS release 10.0 because they no longer provided a minified JavaScript bundle and instead only provide a ESM module. </p>
+<p><a href="https://k9scli.io">k9s</a> is an awesome terminal UI and tool to work with Kubernetes clusters. I&#8217;m using it daily for basically all my Kubernetes related work tasks.</p>
 
 
 
-<p>My plugin was referencing <code>https://unpkg.com/mermaid/dist/mermaid.min.js</code> by default for including the javascript code, but with version 10 this now leads to a 404 on unpkg.com, resulting in the plugin breaking for everyone using it. <em>Oops.</em> 😬</p>
+<p>Recently I learned there&#8217;s a super straight forward way of adding &#8220;<a href="https://k9scli.io/topics/plugins/">plugins</a>&#8221; to k9s, which are basically shortcuts for calling (<em>shell</em>) commands.</p>
 
 
 
-<p>As a quick fix I&#8217;ve moved the code to use the ESM module instead, which luckily was fairy straight forward. The change can be seen on GitHub here <a href="https://github.com/KevinGimbel/eleventy-plugin-mermaid/commit/3f356d603dafb0801c4fe90ff75aa0a54f73eceb">https://github.com/KevinGimbel/eleventy-plugin-mermaid/commit/3f356d603dafb0801c4fe90ff75aa0a54f73eceb</a></p>
+<p>Take the following example from my <code>$XDG_CONFIG_HOME/k9s/plugins.yaml</code> file</p>
 
 
 
-<p>I should&#8217;ve know better than to reference the latest version by default, but sometimes I&#8217;m lazy and I initially developed the plugin for my self without thinking much about it.</p>
+<pre class="wp-block-code"><code lang="yaml" class="language-yaml">grafana-pod:
+    shortCut: Ctrl-L
+    confirm: false
+    description: Grafana
+    scopes:
+    - pods
+    background: true
+    command: open
+    args:
+    - https://my-grafana.tld/d/abcdefghi/my-dashboard?orgId=1&amp;var-Datasource=prometheus-$CLUSTER&amp;var-Namespace=$NAMESPACE&amp;var-app_kubernetes_io_name=All&amp;var-Pod=$COL-NAME&amp;from=now-6h&amp;to=now
+</code></pre>
 
 
 
-<p>Sorry if I broke your website. 🖤 </p>
+<p>Let&#8217;s have a look at each line:</p>
+
+
+
+<ul>
+<li><code>shortCut</code> defines the key combination which invokes the plugin</li>
+
+
+
+<li><code>confirm</code> can be true or false and will show a confirmation dialog if set to true before invoking the plugin</li>
+
+
+
+<li><code>description</code> is the name shown in the UI</li>
+
+
+
+<li><code>scopes</code> defines on what resources the plugin is available (will be hidden in the UI otherwise)</li>
+
+
+
+<li><code>background</code> defines if the plugin runs in the background or re-uses the same terminal (minimising k9s) </li>
+
+
+
+<li><code>command</code> is the command or tool to be invoked. It can be any command available in the shell, like <code>open</code> (to open a URL), <code>kubectl</code>, &#8230;</li>
+
+
+
+<li><code>args</code> is a list of arguments passed to the <code>command</code></li>
+</ul>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="632" src="https://kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17-1024x632.png" alt="" class="wp-image-492" srcset="https://kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17-1024x632.png 1024w, https://kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17-300x185.png 300w, https://kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17-768x474.png 768w, https://kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17-1536x949.png 1536w, https://kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17-2048x1265.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption class="wp-element-caption">A screenshot showing the ctrl-l shortcut of the Grafana plugin</figcaption></figure>
+
+
+
+<p>When I hit <code>CTRL-L</code>, the <code>open</code> command is invoked and open Grafana in my browser. It passes all relevant variables to the dashboard: </p>
+
+
+
+<ul>
+<li><code>$CLUSTER</code> is the name of the current cluster</li>
+
+
+
+<li><code>$NAMESPACE</code> is the currently active namespace</li>
+
+
+
+<li><code>$COL-NAME</code> is the Name in the current column (the selected pod in the list of pods)</li>
+</ul>
+
+
+
+<p>It&#8217;s a super powerful shortcut do view metrics about a pod in an instant, and made my life a lot easier! </p>
+
+
+
+<p>More fields can be seen in the documentation at <a href="https://k9scli.io/topics/plugins/">https://k9scli.io/topics/plugins/</a> </p>
+
+
+
+<p>k9s itself is already a powerful tool, but this extensibility just makes it so much more flexible!</p>
+
+
+
+<h2 class="wp-block-heading">Additional links</h2>
+
+
+
+<ul>
+<li><a href="https://github.com/derailed/k9s/tree/master/plugins" target="_blank" rel="noreferrer noopener">Community plugins</a> </li>
+
+
+
+<li><a href="https://k9scli.io">k9s website</a></li>
+</ul>
 
     </div>
 </section>

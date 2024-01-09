@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>
-Unpinned dependencies just broke my plugin - Kevin.Gimbel.Dev/Blog
+Eleventy 3.0.0-alpha.2 - Kevin.Gimbel.Dev/Blog
 </title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -595,7 +595,7 @@ blockquote cite {
   
   
   
-<link rel="canonical" href="https://kevingimbel.de/blog/2023/02/unpinned-dependencies-just-broke-my-plugin/" />
+<link rel="canonical" href="https://kevingimbel.de/blog/2023/12/eleventy-3-0-0-alpha-2/" />
 
 </head>
 <body>
@@ -613,29 +613,51 @@ blockquote cite {
 <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
     
     <div class="article__og-box">
-        <p><i>"Unpinned dependencies just broke my plugin"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/02/unpinned-dependencies-just-broke-my-plugin/" target="_blank" rel="nofollow" title="Read 'Unpinned dependencies just broke my plugin' on kevingimbel.de">kevingimbel.de</a>.</p>
+        <p><i>"Eleventy 3.0.0-alpha.2"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/12/eleventy-3-0-0-alpha-2/" target="_blank" rel="nofollow" title="Read 'Eleventy 3.0.0-alpha.2' on kevingimbel.de">kevingimbel.de</a>.</p>
     </div>
     <hr />
     <div class="content">
-        <h1>Unpinned dependencies just broke my plugin</h1>
+        <h1>Eleventy 3.0.0-alpha.2</h1>
         
-<p class="has-medium-font-size">Hello and welcome to a little recap! My <a href="https://github.com/KevinGimbel/eleventy-plugin-mermaid">11ty MermaidJS plugin</a>  was just broken by MermaidJS release 10.0 because they no longer provided a minified JavaScript bundle and instead only provide a ESM module. </p>
+<p class="has-large-font-size">I just updated <a href="https://kevin.gimbel.dev/ops" target="_blank" rel="noreferrer noopener">https://kevin.gimbel.dev/ops</a> to Eleventy 3.0.0-alpha.2 </p>
 
 
 
-<p>My plugin was referencing <code>https://unpkg.com/mermaid/dist/mermaid.min.js</code> by default for including the javascript code, but with version 10 this now leads to a 404 on unpkg.com, resulting in the plugin breaking for everyone using it. <em>Oops.</em> 😬</p>
+<p>The update was rather smooth, which I expected given the small code base of my website. The diff can be seen here on GitHub: <a href="https://github.com/KevinGimbel/kevin.gimbel.dev/commit/c4bf1eba988869b54131a2cb85e031311503707e">https://github.com/KevinGimbel/kevin.gimbel.dev/commit/c4bf1eba988869b54131a2cb85e031311503707e</a></p>
 
 
 
-<p>As a quick fix I&#8217;ve moved the code to use the ESM module instead, which luckily was fairy straight forward. The change can be seen on GitHub here <a href="https://github.com/KevinGimbel/eleventy-plugin-mermaid/commit/3f356d603dafb0801c4fe90ff75aa0a54f73eceb">https://github.com/KevinGimbel/eleventy-plugin-mermaid/commit/3f356d603dafb0801c4fe90ff75aa0a54f73eceb</a></p>
+<p>After setting <code>"type": "module"</code> in my package json I went through the files one by one changing all <code>require()</code> calls to <code>imports</code>.</p>
 
 
 
-<p>I should&#8217;ve know better than to reference the latest version by default, but sometimes I&#8217;m lazy and I initially developed the plugin for my self without thinking much about it.</p>
+<p>One thing took a bit to get working: I use the eleventy package.json to read meta data about eleventy, and apparently with imports the type must be set:</p>
 
 
 
-<p>Sorry if I broke your website. 🖤 </p>
+<pre class="wp-block-code"><code lang="javascript" class="language-javascript">import eleventyPackage from "@11ty/eleventy/package.json" with { type: 'json' };</code></pre>
+
+
+
+<p><code>with { type: 'json' };</code> tells Node that this thing should be imported as JSON. The syntax is new to me and I&#8217;ve never seen it before so that was exciting!</p>
+
+
+
+<p>The only thing that isn&#8217;t working on MacOS is the built-in. There&#8217;s already a GitHub issue about it <a href="https://github.com/11ty/eleventy/issues/3128">https://github.com/11ty/eleventy/issues/3128</a> &#8211; everything else seems to work fine.</p>
+
+
+
+<h2 class="wp-block-heading">Additional Links</h2>
+
+
+
+<ul>
+<li><a href="https://www.zachleat.com/web/eleventy-v3-alpha/" target="_blank" rel="noreferrer noopener">https://www.zachleat.com/web/eleventy-v3-alpha/</a> </li>
+
+
+
+<li><a href="https://www.11ty.dev/blog/canary-eleventy-v3/" target="_blank" rel="noreferrer noopener">https://www.11ty.dev/blog/canary-eleventy-v3/ </a></li>
+</ul>
 
     </div>
 </section>

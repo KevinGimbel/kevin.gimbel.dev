@@ -9,9 +9,9 @@
   <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
   <style>:root {
   --color-bg: hsl(279, 19%, 93%);
-  --color-fg: #000;
-  --color-contrast-fg: #000;
-  --color-contrast-bg: #000;
+  --color-fg: #211000;
+  --color-contrast-fg: #211000;
+  --color-contrast-bg: #211000;
 
   --stack-spacing: 2rem;
   --spacing: 2rem;
@@ -27,6 +27,7 @@
   --color-accent-5: hsl(47, 100%, 70%);
   --color-accent-5-contrast: hsl(47, 50%, 40%);
 
+  --color-black: #211000;
 
   --color-note--info: var(--color-accent-4, red);
   --color-note--info-contrast: var(--color-accent-4-contrast, white);
@@ -46,7 +47,7 @@ body {
     Menlo, Monaco, Consolas,
     monospace;
   background: var(--color-bg, #f1f1f1);
-  color: #000;
+  color: #211000;
 }
 
 h1,
@@ -100,8 +101,8 @@ a:hover {
 }
 
 .a-splash {
-  color: var(--color-bg);
-  background: var(--color-fg);
+  color: var(--color-fg);
+  background: var(--color-bg);
   border-radius: 65% 72% 53% 41%;
   padding: .25em;
   animation: wobble linear 4s infinite;
@@ -180,34 +181,34 @@ a:hover {
 }
 
 .bg-accent-1 {
-  --color-fg: var(--color-accent-1-contrast, #000);
+  --color-fg: var(--color-accent-1-contrast, #211000);
   --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
 }
 
 .bg-accent-2 {
-  --color-fg: var(--color-accent-2-contrast, #000);
+  --color-fg: var(--color-accent-2-contrast, #211000);
   --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
 
   --color-link: white;
 }
 
 .bg-accent-3 {
-  --color-fg: var(--color-accent-3-contrast, #000);
+  --color-fg: var(--color-accent-3-contrast, #211000);
   --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
 }
 
 .bg-accent-4 {
-  --color-fg: var(--color-accent-4-contrast, #000);
+  --color-fg: var(--color-accent-4-contrast, #211000);
   --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
 }
 
 .bg-accent-5 {
   --color-fg: var(--color-accent-5-contrast, #fff);
-  --color-bg: var(--color-accent-5, #000);
+  --color-bg: var(--color-accent-5, #211000);
 }
 
 [class*="bg-accent"] {
-  color: var(--color-fg, #000);
+  color: var(--color-fg, #211000);
   background: var(--color-bg, #fff);
 }
 
@@ -218,7 +219,7 @@ ul {
 
 ul li::before {
   content: "✦";
-  color: var(--color-fg, #000);
+  color: var(--color-fg, #211000);
   display: inline;
   width: 1em;
   margin-left: -1.25em;
@@ -303,7 +304,7 @@ hgroup {
 
 .f-heading-big {
   font-size: 3em;
-  color: var(--color-fg, #000);
+  color: var(--color-fg, #211000);
 }
 
 .f-small {
@@ -400,6 +401,11 @@ section {
   }
 }
 
+.footer {
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+
 /* Only on BIG screens we want this */
 @media all and (min-width: 1800px) {
   .article-list--inline {
@@ -413,7 +419,7 @@ section {
 
 @media all and (min-width: 1000px) {
   .section__styled {
-    margin: var(--spacing, 2rem);
+    margin: calc(var(--spacing, 2rem) * 2) 0;
     padding-right: calc(var(--spacing, 2rem) * 2);
 
     max-width: calc(100% - calc(var(--spacing, 2rem) * 3));
@@ -541,25 +547,24 @@ section {
         
         
         <li class="article-list__item [ section__styled box-shadow__styled ]">
-            <h2><a href="/blog/2023/12/week-2-christmas-party/">Week 2: Christmas Party</a></h2>
-            <p><p>Week 2: A Major Incident (it was DNS), a two-day Kubernetes workshop and the company Christmas party!</p>
-<p>(Also Alien: Resurrection and Doctor Who!)</p>
+            <h2><a href="/blog/2024/01/week-5-back-in-the-office-and-open-source/">Week 5: Back in the office and Open Source</a></h2>
+            <p><p>Week 5: back in the office and open source releases</p>
 </p>
-            <a href="/blog/2023/12/week-2-christmas-party/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/01/week-5-back-in-the-office-and-open-source/" class="article-list__more-link">Continue reading &gt;&gt;</a>
         </li>
         
         <li class="article-list__item [ section__styled box-shadow__styled ]">
-            <h2><a href="/blog/2023/12/week-1-off-call/">Week 1: Off call</a></h2>
-            <p><p>(Let&#8217;s see how long I can keep week notes up. Heavily inspited by Alice Bartlett and her weaknotes &#8211; not sure how personal I want to get.)</p>
+            <h2><a href="/blog/2024/01/til-k9s-plugins/">TIL: k9s plugins</a></h2>
+            <p><p>k9s is a powerful Kubernetes terminal UI. Recently, I discovered how to add plugins, to make it even more powerful and integrate with other tools and systems!</p>
 </p>
-            <a href="/blog/2023/12/week-1-off-call/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/01/til-k9s-plugins/" class="article-list__more-link">Continue reading &gt;&gt;</a>
         </li>
         
         <li class="article-list__item [ section__styled box-shadow__styled ]">
-            <h2><a href="/blog/2023/11/til-why-there-is-bin-and-usr-bin-lib-and-usr-lib-on-unix-systems/">TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, etc on Unix systems</a></h2>
-            <p><p>If you&#8217;ve ever navigated around a Unix system you may have wondered why there are /bin and usr/bin directories or /lib and /usr/lib or /sbin and /usr/sbin &#8211; or like me, you just took it for something that probably has any meaning but isn&#8217;t relevant enough to look into. Well, today it became relevant: When [&hellip;]</p>
+            <h2><a href="/blog/2023/12/week-4-food-coma-and-a-raspberry-pi/">Week 4: Food-coma and a Raspberry Pi</a></h2>
+            <p><p>Week 4: Looooots of Christmas food, ordering a Raspberry Pi 5, and short stories by Edgar Allan Poe.</p>
 </p>
-            <a href="/blog/2023/11/til-why-there-is-bin-and-usr-bin-lib-and-usr-lib-on-unix-systems/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/12/week-4-food-coma-and-a-raspberry-pi/" class="article-list__more-link">Continue reading &gt;&gt;</a>
         </li></ul>
     </div>
 </section>
@@ -745,9 +750,9 @@ section {
 </div>
 </section>
 
-    <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
+    <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent ] [ c-full-width ] [ footer ]">
       <div class="content">
-        <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.2, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
+        <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.4, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
         <p class="f-small">Views and opinions expressed on this websites do not represents views and opinions of my employer.</p>
       </div>
     </section>

@@ -20,6 +20,8 @@
     background: var(--color-code-bg);
     color: var(--color-code-fg);
     padding: .15em .25em;
+    box-shadow: -4px -4px 0 #aaa;
+    border: 1px solid #aaa;
 }
 
 .wp-smiley {
@@ -43,7 +45,8 @@ figure {
 
 figcaption {
     font-size: .65em;
-    background: #000;
+    padding: .25em .5em;
+    background: #211000;
     color: #fff;
 }
 
@@ -51,7 +54,7 @@ pre,
 .wp-block-code,
 .wp-block-preformatted {
     background: #f1f1f1;
-    color: #000;
+    color: #211000;
     padding: var(--spacing);
     margin-left: calc(var(--spacing) * -2);
     width: calc(100% + calc(4 * var(--spacing)));

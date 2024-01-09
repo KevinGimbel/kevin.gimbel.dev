@@ -9,9 +9,9 @@
   <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥸</text></svg>">
   <style>:root {
   --color-bg: hsl(279, 19%, 93%);
-  --color-fg: #000;
-  --color-contrast-fg: #000;
-  --color-contrast-bg: #000;
+  --color-fg: #211000;
+  --color-contrast-fg: #211000;
+  --color-contrast-bg: #211000;
 
   --stack-spacing: 2rem;
   --spacing: 2rem;
@@ -27,6 +27,7 @@
   --color-accent-5: hsl(47, 100%, 70%);
   --color-accent-5-contrast: hsl(47, 50%, 40%);
 
+  --color-black: #211000;
 
   --color-note--info: var(--color-accent-4, red);
   --color-note--info-contrast: var(--color-accent-4-contrast, white);
@@ -46,7 +47,7 @@ body {
     Menlo, Monaco, Consolas,
     monospace;
   background: var(--color-bg, #f1f1f1);
-  color: #000;
+  color: #211000;
 }
 
 h1,
@@ -100,8 +101,8 @@ a:hover {
 }
 
 .a-splash {
-  color: var(--color-bg);
-  background: var(--color-fg);
+  color: var(--color-fg);
+  background: var(--color-bg);
   border-radius: 65% 72% 53% 41%;
   padding: .25em;
   animation: wobble linear 4s infinite;
@@ -180,34 +181,34 @@ a:hover {
 }
 
 .bg-accent-1 {
-  --color-fg: var(--color-accent-1-contrast, #000);
+  --color-fg: var(--color-accent-1-contrast, #211000);
   --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
 }
 
 .bg-accent-2 {
-  --color-fg: var(--color-accent-2-contrast, #000);
+  --color-fg: var(--color-accent-2-contrast, #211000);
   --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
 
   --color-link: white;
 }
 
 .bg-accent-3 {
-  --color-fg: var(--color-accent-3-contrast, #000);
+  --color-fg: var(--color-accent-3-contrast, #211000);
   --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
 }
 
 .bg-accent-4 {
-  --color-fg: var(--color-accent-4-contrast, #000);
+  --color-fg: var(--color-accent-4-contrast, #211000);
   --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
 }
 
 .bg-accent-5 {
   --color-fg: var(--color-accent-5-contrast, #fff);
-  --color-bg: var(--color-accent-5, #000);
+  --color-bg: var(--color-accent-5, #211000);
 }
 
 [class*="bg-accent"] {
-  color: var(--color-fg, #000);
+  color: var(--color-fg, #211000);
   background: var(--color-bg, #fff);
 }
 
@@ -218,7 +219,7 @@ ul {
 
 ul li::before {
   content: "✦";
-  color: var(--color-fg, #000);
+  color: var(--color-fg, #211000);
   display: inline;
   width: 1em;
   margin-left: -1.25em;
@@ -303,7 +304,7 @@ hgroup {
 
 .f-heading-big {
   font-size: 3em;
-  color: var(--color-fg, #000);
+  color: var(--color-fg, #211000);
 }
 
 .f-small {
@@ -400,6 +401,11 @@ section {
   }
 }
 
+.footer {
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+
 /* Only on BIG screens we want this */
 @media all and (min-width: 1800px) {
   .article-list--inline {
@@ -413,7 +419,7 @@ section {
 
 @media all and (min-width: 1000px) {
   .section__styled {
-    margin: var(--spacing, 2rem);
+    margin: calc(var(--spacing, 2rem) * 2) 0;
     padding-right: calc(var(--spacing, 2rem) * 2);
 
     max-width: calc(100% - calc(var(--spacing, 2rem) * 3));
@@ -514,6 +520,8 @@ section {
     background: var(--color-code-bg);
     color: var(--color-code-fg);
     padding: .15em .25em;
+    box-shadow: -4px -4px 0 #aaa;
+    border: 1px solid #aaa;
 }
 
 .wp-smiley {
@@ -537,7 +545,8 @@ figure {
 
 figcaption {
     font-size: .65em;
-    background: #000;
+    padding: .25em .5em;
+    background: #211000;
     color: #fff;
 }
 
@@ -545,7 +554,7 @@ pre,
 .wp-block-code,
 .wp-block-preformatted {
     background: #f1f1f1;
-    color: #000;
+    color: #211000;
     padding: var(--spacing);
     margin-left: calc(var(--spacing) * -2);
     width: calc(100% + calc(4 * var(--spacing)));
@@ -605,19 +614,16 @@ blockquote cite {
 <p>In 2014, after specializing more in HTML and CSS I, started as a Front-End Developer at Synoa GmbH and then shifted into DevOps in 2018.</p>
 <p>In 2023 I started working as a DevOps Engineer at <a href="https://aoe.com/">AOE GmbH</a>.</p>
 <h2>My pronouns</h2>
-<p>I prefer <strong>he/him</strong>, but I don’t mind <em>they/them</em> if you prefer those.</p>
-<h2>Certifications</h2>
-<p>I was a AWS Certified Developer, but the certs only last two years and I did not renew mine when it expired.</p>
+<p>I prefer <strong>he/him</strong>.</p>
 <h2>Social media</h2>
 <p>You can connect with me on <a href="https://linkedin.com/in/kevingimbel">LinkedIn</a>, follow my <a href="https://github.com/KevinGimbel/">GitHub</a>, or follow me on <a href="https://fosstodon.org/@KevinGimbel">Mastodon</a></p>
-<p>If you’re somewhere on the Fediverse (Mastodon, Pleroma, Misskey, …) you can search for <code>@kevin@kevingimbel.de</code> and follow my <a href="https://kevingimbel.de/blog/">tech blog</a> via ActivityPub! 🙂</p>
 
   </div>
 </section>
 
-    <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent] [ c-full-width ]" style="--color-bg: #000; --color-fg: #fff;">
+    <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent ] [ c-full-width ] [ footer ]">
       <div class="content">
-        <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.2, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
+        <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.4, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
         <p class="f-small">Views and opinions expressed on this websites do not represents views and opinions of my employer.</p>
       </div>
     </section>
