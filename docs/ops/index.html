@@ -547,24 +547,22 @@ section {
         
         
         <li class="article-list__item [ section__styled box-shadow__styled ]">
+            <h2><a href="/blog/2024/01/week-7-sleep-mask/">Week 7: Sleep mask</a></h2>
+            <p></p>
+            <a href="/blog/2024/01/week-7-sleep-mask/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
+            <h2><a href="/blog/2024/01/week-6-sports/">Week 6: Sports!</a></h2>
+            <p></p>
+            <a href="/blog/2024/01/week-6-sports/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/01/week-5-back-in-the-office-and-open-source/">Week 5: Back in the office and Open Source</a></h2>
             <p><p>Week 5: back in the office and open source releases</p>
 </p>
             <a href="/blog/2024/01/week-5-back-in-the-office-and-open-source/" class="article-list__more-link">Continue reading &gt;&gt;</a>
-        </li>
-        
-        <li class="article-list__item [ section__styled box-shadow__styled ]">
-            <h2><a href="/blog/2024/01/til-k9s-plugins/">TIL: k9s plugins</a></h2>
-            <p><p>k9s is a powerful Kubernetes terminal UI. Recently, I discovered how to add plugins, to make it even more powerful and integrate with other tools and systems!</p>
-</p>
-            <a href="/blog/2024/01/til-k9s-plugins/" class="article-list__more-link">Continue reading &gt;&gt;</a>
-        </li>
-        
-        <li class="article-list__item [ section__styled box-shadow__styled ]">
-            <h2><a href="/blog/2023/12/week-4-food-coma-and-a-raspberry-pi/">Week 4: Food-coma and a Raspberry Pi</a></h2>
-            <p><p>Week 4: Looooots of Christmas food, ordering a Raspberry Pi 5, and short stories by Edgar Allan Poe.</p>
-</p>
-            <a href="/blog/2023/12/week-4-food-coma-and-a-raspberry-pi/" class="article-list__more-link">Continue reading &gt;&gt;</a>
         </li></ul>
     </div>
 </section>
@@ -735,6 +733,7 @@ section {
 <ul>
 <li>🧑‍💼 <a href="https://www.linkedin.com/in/kevingimbel/">LinkedIn</a></li>
 <li>🐘 <a rel="me" href="https://fosstodon.org/@KevinGimbel">Mastodon</a></li>
+<li>🦋 <a href="https://bsky.app/profile/kevin.gimbel.dev">Bluesky @kevin.gimbel.dev</a></li>
 <li>🤓 <a href="https://github.com/KevinGimbel">GitHub @KevinGimbel</a></li>
 <li>💖 <a href="mailto:kevin@gimbel.dev">e-Mail kevin@gimbel.dev</a></li>
 </ul>
@@ -765,7 +764,7 @@ section {
   }
 
   window.addEventListener('scroll', (event) => {
-    let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.scrollY);
     let active_section = sections_in_view[sections_in_view.length - 1];
     if (last_active_section != active_section) {
       last_active_section = active_section;

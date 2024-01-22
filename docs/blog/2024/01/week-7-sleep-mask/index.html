@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>
-TIL: Run a script on every k8s Node using  a DaemonSet - Kevin.Gimbel.Dev/Blog
+Week 7: Sleep mask - Kevin.Gimbel.Dev/Blog
 </title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -595,7 +595,7 @@ blockquote cite {
   
   
   
-<link rel="canonical" href="https://kevingimbel.de/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/" />
+<link rel="canonical" href="https://kevingimbel.de/blog/2024/01/week-7-sleep-mask/" />
 
 </head>
 <body>
@@ -613,130 +613,47 @@ blockquote cite {
 <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
     
     <div class="article__og-box">
-        <p><i>"TIL: Run a script on every k8s Node using  a DaemonSet"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/" target="_blank" rel="nofollow" title="Read 'TIL: Run a script on every k8s Node using  a DaemonSet' on kevingimbel.de">kevingimbel.de</a>.</p>
+        <p><i>"Week 7: Sleep mask"</i> was originally published on <a href="https://kevingimbel.de/blog/2024/01/week-7-sleep-mask/" target="_blank" rel="nofollow" title="Read 'Week 7: Sleep mask' on kevingimbel.de">kevingimbel.de</a>.</p>
     </div>
     <hr />
     <div class="content">
-        <h1>TIL: Run a script on every k8s Node using  a DaemonSet</h1>
+        <h1>Week 7: Sleep mask</h1>
         
-<p>I&#8217;ve known that DaemonSets are used to run containers on all Nodes of a Kubernetes Cluster (or some), but I&#8217;ve never thought of using them to run a (shell) script on each node &#8211; a not-so-uncommon task when maintaining clusters!</p>
-
-
-
-<h2 class="wp-block-heading">What we need</h2>
-
-
-
-<p>We need two resources: A ConfigMap and a DaemonSet.</p>
-
-
-
-<h3 class="wp-block-heading">ConfigMap</h3>
-
-
-
-<p>The config map holds the script, which will be mounted into the container started by the DaemonSet. </p>
-
-
-
-<pre class="wp-block-code"><code lang="yaml" class="language-yaml">---
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: my-script
-  namespace: kube-system
-data:
-  my-script.sh: |
-    #!/usr/bin/env bash
-    while true; do
-       echo "hello world!"
-       sleep 60
-    done</code></pre>
-
-
-
-<p>The data is just the shell script we want to execute.</p>
-
-
-
-<h3 class="wp-block-heading">DaemonSet</h3>
-
-
-
-<p>The DaemonSet is used to run a <code>busybox</code> container on each node which is used to execute the (shell) script specified in the ConfigMap &#8211; in the last lines the config map is mounted as <code>my-script.sh</code> file, and marked as readable and executable  (<a href="https://kevingimbel.github.io/unix-permission-generator/?u=5&amp;g=5&amp;o=5">0555, or r-xr-xr-x</a>). It is then used as <code>command</code> for the busybox container.</p>
-
-
-
-<pre class="wp-block-code"><code lang="yaml" class="language-yaml">apiVersion: apps/v1
-kind: DaemonSet
-metadata:
-  name: my-script
-  namespace: kube-system
-  labels:
-    k8s-app: my-script
-spec:
-  selector:
-    matchLabels:
-      name: my-script
-  template:
-    metadata:
-      labels:
-        name: my-script
-    spec:
-      hostPID: true
-      containers:
-        - name: my-script
-          securityContext:
-            privileged: true
-          image: busybox:1.36.0
-          command: ["/my-script.sh"]
-          resources:
-            requests:
-              cpu: 10m
-              memory: 50Mi
-          volumeMounts:
-            - name: my-script-script
-              mountPath: /my-script.sh
-              subPath: my-script.sh
-      volumes:
-        - name: my-script-script
-          configMap:
-            name: my-script-script
-            defaultMode: 0555</code></pre>
-
-
-
-<h3 class="wp-block-heading">Use case</h3>
-
-
-
-<p>At work I encountered an issue with the AWS EFS CSI driver, a component which mounts and unmounts EFS volumes in a Kubernetes cluster. Occasionally the EFS mount would become unresponsive and be in a &#8220;Zombie-like&#8221; state, where the EFS driver still believed the volume was mounted and healthy when it actually wasn&#8217;t.</p>
-
-
-
-<p>Turns out, the issue was with <code>stunnel</code>, a SSL tunnel used by EFS/the EFS driver. The solution for the problem was to kill the <code>stunnel</code> processes when the mount can no longer be accessed which makes the EFS process re-create the tunnel and mount. Fun times!</p>
-
-
-
-<h2 class="wp-block-heading">Links</h2>
-
-
-
 <ul>
-<li><a href="https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/">Kubernetes Docs for DaemonSet</a></li>
+<li><strong>🤿 I spent the first night at home with my sleep mask</strong> and it was very shitty &#8211; I slept well and I guess I didn&#8217;t stop breathing at night which is cool but it&#8217;s also very uncomfortable &#8211; I hope I won&#8217;t need it for the rest of my life.</li>
 
 
 
-<li><a href="https://linux.die.net/man/8/stunnel">Stunnel man page</a></li>
+<li>🤔 It baffles me that it took this long &#8211; and my wife&#8217;s sharp mind &#8211; to realise something is wrong with my sleeping. I&#8217;ve been to (multiple) doctors related to snorting at night and always feeling tired and shitty. Now within two months I&#8217;m hooked to a oxygen mask at night so I won&#8217;t suffocate &#8211; <em>the fuck??</em></li>
 
 
 
-<li><a href="https://github.com/kubernetes-sigs/aws-efs-csi-driver/issues/616">AWS EFS CSI driver issue on GitHub</a></li>
+<li>💍 <strong>Shoutout to my wife again &lt;3</strong></li>
+
+
+
+<li>🤖 Been working on some Terraform code at work and I&#8217;m enjoying it</li>
+
+
+
+<li>📚 I&#8217;ve read a lot, mainly <a href="https://en.wikipedia.org/wiki/Circe_(novel)">Circe</a> and <a href="https://anarchistfaq.org/afaq/">An Anarchist FAQ</a>.<br>Circe is a beautifully written novel about the <a href="https://en.wikipedia.org/wiki/Circe">minor greek goddess</a> of the same name; An Anarchist FAQ is a FAQ-style online wiki thingy about Anarchism which clears up a lot of common misunderstandings related to Anarchism.</li>
+
+
+
+<li>❤️‍🔥 It warms my heart to see the people in Germany take to the streets after recent <a href="https://www.theguardian.com/world/2024/jan/16/germans-take-to-streets-to-oppose-far-right-afds-mass-deportation-plan">news of mass deportation plans by the far-right, facist AfD</a> party were published. A list of protests can be found on <a href="https://zusammen-gegen-rechts.org">https://zusammen-gegen-rechts.org</a></li>
+
+
+
+<li>✍️ 1.4 million(!) people <a href="https://aktion.campact.de/weact/hocke-stoppen/teilnehmen">support a petition on WeAct to strip Höcke , the facist leader of AfD in Türingen, of his Grundrecht which prevents him from running again</a>, a measurement <a href="https://www.gesetze-im-internet.de/gg/art_18.html">backed by laws in Germany</a>. I hope this momentum carries on and we&#8217;ll see a lot less of the facist AfD in the future. <a rel="tag" class="hashtag u-tag u-category" href="https://kevingimbel.de/blog/tag/fcknzs/">#fcknzs</a> </li>
+
+
+
+<li>🤧 As I was partly sick and pretty occupied this past week I didn&#8217;t do any sport. Sucks! Gotta get back on track </li>
+
+
+
+<li>🎧 I&#8217;ve listend to &#8211; and reflected on &#8211; the <a href="https://lemonadamedia.com/podcast/social-media/">&#8220;social media&#8221; episode of Hard Feelings</a> by <a href="https://en.wikipedia.org/wiki/Jennette_McCurdy">Jennette McCurdy</a>. Social Media, especially instagram which I&#8217;ve used _a lot_ in the past 3 years to connect with photographers, gives me very little and costs me very much (time and energy, and mental health in a way), so I&#8217;ve decided to take it slower. There&#8217;s more important things in life which deserve my attention.</li>
 </ul>
-
-
-
-<p class="has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-294014fc3e40a4073b5b0c36b3840d35">Join the discussion on <a href="https://fosstodon.org/@KevinGimbel/111024007254844161" target="_blank" rel="noreferrer noopener">Mastodon</a> 🐘 or <a href="https://kevingimbel.de/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/#respond">comment on the original article on kevingimbel.de</a></p>
 
     </div>
 </section>

@@ -515,7 +515,7 @@ section {
 <section class="[ f-ultra stack ] [ box-shadow__styled ] [ gr-auto gc-full ] single-page">
   <div class="content">
     <h1>404</h1>
-<p>Nothing found here <a href="https://en.wikipedia.org/wiki/Gender_neutrality_in_Spanish">mi amgie</a>.</p>
+<p>Nothing found here <a href="https://en.wikipedia.org/wiki/Gender_neutrality_in_Spanish">mi amige</a>.</p>
 <p>You may want to check one of the following pages:</p>
 <ul>
 <li><a href="/blog/">blog</a></li>
@@ -548,7 +548,7 @@ section {
   }
 
   window.addEventListener('scroll', (event) => {
-    let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.scrollY);
     let active_section = sections_in_view[sections_in_view.length - 1];
     if (last_active_section != active_section) {
       last_active_section = active_section;

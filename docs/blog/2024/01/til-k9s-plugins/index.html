@@ -752,7 +752,7 @@ blockquote cite {
   }
 
   window.addEventListener('scroll', (event) => {
-    let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.scrollY);
     let active_section = sections_in_view[sections_in_view.length - 1];
     if (last_active_section != active_section) {
       last_active_section = active_section;

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>
-TIL: Run a script on every k8s Node using  a DaemonSet - Kevin.Gimbel.Dev/Blog
+Week 6: Sports! - Kevin.Gimbel.Dev/Blog
 </title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -595,7 +595,7 @@ blockquote cite {
   
   
   
-<link rel="canonical" href="https://kevingimbel.de/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/" />
+<link rel="canonical" href="https://kevingimbel.de/blog/2024/01/week-6-sports/" />
 
 </head>
 <body>
@@ -613,130 +613,35 @@ blockquote cite {
 <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
     
     <div class="article__og-box">
-        <p><i>"TIL: Run a script on every k8s Node using  a DaemonSet"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/" target="_blank" rel="nofollow" title="Read 'TIL: Run a script on every k8s Node using  a DaemonSet' on kevingimbel.de">kevingimbel.de</a>.</p>
+        <p><i>"Week 6: Sports!"</i> was originally published on <a href="https://kevingimbel.de/blog/2024/01/week-6-sports/" target="_blank" rel="nofollow" title="Read 'Week 6: Sports!' on kevingimbel.de">kevingimbel.de</a>.</p>
     </div>
     <hr />
     <div class="content">
-        <h1>TIL: Run a script on every k8s Node using  a DaemonSet</h1>
+        <h1>Week 6: Sports!</h1>
         
-<p>I&#8217;ve known that DaemonSets are used to run containers on all Nodes of a Kubernetes Cluster (or some), but I&#8217;ve never thought of using them to run a (shell) script on each node &#8211; a not-so-uncommon task when maintaining clusters!</p>
-
-
-
-<h2 class="wp-block-heading">What we need</h2>
-
-
-
-<p>We need two resources: A ConfigMap and a DaemonSet.</p>
-
-
-
-<h3 class="wp-block-heading">ConfigMap</h3>
-
-
-
-<p>The config map holds the script, which will be mounted into the container started by the DaemonSet. </p>
-
-
-
-<pre class="wp-block-code"><code lang="yaml" class="language-yaml">---
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: my-script
-  namespace: kube-system
-data:
-  my-script.sh: |
-    #!/usr/bin/env bash
-    while true; do
-       echo "hello world!"
-       sleep 60
-    done</code></pre>
-
-
-
-<p>The data is just the shell script we want to execute.</p>
-
-
-
-<h3 class="wp-block-heading">DaemonSet</h3>
-
-
-
-<p>The DaemonSet is used to run a <code>busybox</code> container on each node which is used to execute the (shell) script specified in the ConfigMap &#8211; in the last lines the config map is mounted as <code>my-script.sh</code> file, and marked as readable and executable  (<a href="https://kevingimbel.github.io/unix-permission-generator/?u=5&amp;g=5&amp;o=5">0555, or r-xr-xr-x</a>). It is then used as <code>command</code> for the busybox container.</p>
-
-
-
-<pre class="wp-block-code"><code lang="yaml" class="language-yaml">apiVersion: apps/v1
-kind: DaemonSet
-metadata:
-  name: my-script
-  namespace: kube-system
-  labels:
-    k8s-app: my-script
-spec:
-  selector:
-    matchLabels:
-      name: my-script
-  template:
-    metadata:
-      labels:
-        name: my-script
-    spec:
-      hostPID: true
-      containers:
-        - name: my-script
-          securityContext:
-            privileged: true
-          image: busybox:1.36.0
-          command: ["/my-script.sh"]
-          resources:
-            requests:
-              cpu: 10m
-              memory: 50Mi
-          volumeMounts:
-            - name: my-script-script
-              mountPath: /my-script.sh
-              subPath: my-script.sh
-      volumes:
-        - name: my-script-script
-          configMap:
-            name: my-script-script
-            defaultMode: 0555</code></pre>
-
-
-
-<h3 class="wp-block-heading">Use case</h3>
-
-
-
-<p>At work I encountered an issue with the AWS EFS CSI driver, a component which mounts and unmounts EFS volumes in a Kubernetes cluster. Occasionally the EFS mount would become unresponsive and be in a &#8220;Zombie-like&#8221; state, where the EFS driver still believed the volume was mounted and healthy when it actually wasn&#8217;t.</p>
-
-
-
-<p>Turns out, the issue was with <code>stunnel</code>, a SSL tunnel used by EFS/the EFS driver. The solution for the problem was to kill the <code>stunnel</code> processes when the mount can no longer be accessed which makes the EFS process re-create the tunnel and mount. Fun times!</p>
-
-
-
-<h2 class="wp-block-heading">Links</h2>
-
-
-
 <ul>
-<li><a href="https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/">Kubernetes Docs for DaemonSet</a></li>
+<li>🏋️<strong> I went to the gym, yay!</strong> I hope I can finally keep at it, given I&#8217;ve been paying the membership for 3,5 yeas now and the longest streak I went was maybe 4 or 5 month.</li>
 
 
 
-<li><a href="https://linux.die.net/man/8/stunnel">Stunnel man page</a></li>
+<li>🤖 <strong>I started working on a <s>Rust</s> <s>Python</s> Node Script</strong> to publish new posts on various social networks (<em>Mastodon</em> and <em>LinkedIn</em>)</li>
 
 
 
-<li><a href="https://github.com/kubernetes-sigs/aws-efs-csi-driver/issues/616">AWS EFS CSI driver issue on GitHub</a></li>
+<li>🤷 <strong>I&#8217;m still not sure how I want to consolidate my websites.</strong> I think I&#8217;ll move the photo blog to <code>kevingimbel.de</code> and the tech blog to <code>kevin.gimbel.dev</code> &#8211; and keep a secondary, German blog for all things life and whatever. </li>
+
+
+
+<li>I&#8217;ve joined <a href="https://en.wikipedia.org/wiki/Bluesky_(social_network)" target="_blank" rel="noreferrer noopener">Bluesky</a>, the new decentralised Twitter thingy. It feels a lot like the <em>Old Twitter</em>, with some fresh breath. I&#8217;m excited to see where this goes! I also plan on using this account privately and not for work; For work stuff you find me on Mastodon at <a href="https://fosstodon.org/@KevinGimbel">@KevinGimbel@Fosstodon.org</a></li>
+
+
+
+<li>🐦‍⬛ <a href="https://chat.openai.com/c/32851899-0083-49c3-a667-294825acb0d6">I let ChatGPT write a poem about waifus on the internet in the style of Edgar Allan Poe</a> &#8211; it did a pretty good job. <br>My stand on AI is very torn; On one hand I see a lot of potential and it&#8217;s fun to experiment with it, especially in a chat based way. On the other hand<em> they literally stole all the data</em> &#8211; <em>super uncool; And super illegal I guess?</em> If AI was a common good, trained on public data usable for free by the public it would be a different story, but the case is: OpenAI uses public data without given consent to train AI and sell it for profit (same as the other AI companies). </li>
+
+
+
+<li>😴 <strong>I spent two nights in a sleeping lab.</strong> Very weird to be hooked up to lots of cables and monitored with a camera and some sort of Infrared (I think). The employees where super nice, and the room I stayed in wasn&#8217;t bad as well. Late last year my wife suggested I may habe a <a href="https://en.wikipedia.org/wiki/Sleep_apnea">Sleep apnea</a>, a sleep disorder in which breathing stops at night (scary!) and the body goes into some sort of panic mode to wake you up; Mostly one doesn&#8217;t remember this the next day and the only clues we had was my (loud) snorting, which I&#8217;ve had all my life, and me feeling unrested and shit almost every morning no matter how much I slept the night before. So anyway, here we are. Glad it&#8217;s being looked into, and I&#8217;m very glad I got appointments so quickly. </li>
 </ul>
-
-
-
-<p class="has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-294014fc3e40a4073b5b0c36b3840d35">Join the discussion on <a href="https://fosstodon.org/@KevinGimbel/111024007254844161" target="_blank" rel="noreferrer noopener">Mastodon</a> 🐘 or <a href="https://kevingimbel.de/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/#respond">comment on the original article on kevingimbel.de</a></p>
 
     </div>
 </section>
