@@ -733,6 +733,7 @@ section {
 <ul>
 <li>🧑‍💼 <a href="https://www.linkedin.com/in/kevingimbel/">LinkedIn</a></li>
 <li>🐘 <a rel="me" href="https://fosstodon.org/@KevinGimbel">Mastodon</a></li>
+<li>🦋 <a href="https://bsky.app/profile/kevin.gimbel.dev">Bluesky @kevin.gimbel.dev</a></li>
 <li>🤓 <a href="https://github.com/KevinGimbel">GitHub @KevinGimbel</a></li>
 <li>💖 <a href="mailto:kevin@gimbel.dev">e-Mail kevin@gimbel.dev</a></li>
 </ul>
@@ -763,7 +764,7 @@ section {
   }
 
   window.addEventListener('scroll', (event) => {
-    let sections_in_view = sections.filter((section) => section.offsetTop <= window.pageYOffset);
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.scrollY);
     let active_section = sections_in_view[sections_in_view.length - 1];
     if (last_active_section != active_section) {
       last_active_section = active_section;
