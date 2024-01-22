@@ -1,5 +1,9 @@
 import { inspect } from "util";
-import eleventyPackage from "@11ty/eleventy/package.json" with { type: 'json' };
+
+// Workaround for https://github.com/11ty/eleventy/issues/3128
+import { createRequire } from "node:module";
+const require = createRequire(import.meta.url);
+const eleventyPackage = require("@11ty/eleventy/package.json");
 
 export default async function (eleventyConfig) {
   // Copy `assets/css` to `_site/assets/css`
