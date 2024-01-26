@@ -3,13 +3,30 @@
     <title>KevinGimbel.Dev/Ops</title>
     <subtitle>DevOps, SRE, Rust, and all things related + some real life</subtitle>
     <link href="https://kevin.gimbel.dev/" rel="self"/>
-    <updated>2024-01-19T13:30:27</updated>
+    <updated>2024-01-22T17:35:43</updated>
     <id>https://kevin.gimbel.dev/</id>
     <author>
     <name>Kevin Gimbel</name>
     <email>kevin@gimbel.dev</email>
     </author>
 
+    <entry>
+        <title>Week 8: Table tennis</title>
+        <link href="blog/2024/01/week-8-table-tennis/" />
+        <updated>2024-01-22T17:35:43</updated>
+        <id>https://kevin.gimbel.dev/blog/2024/01/week-8-table-tennis/</id>
+        <content xml:lang="en" type="html">
+&lt;ul&gt;
+&lt;li class=&quot;has-x-large-font-size&quot;&gt;🏓 &lt;strong&gt;shout out to the AOE Table Tennis Crew&lt;/strong&gt;, who are loyal readers of these weekly updates. ✊&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;not really much happening this week. See you next week. 👋&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </entry>
     <entry>
         <title>Week 7: Sleep mask</title>
         <link href="blog/2024/01/week-7-sleep-mask/" />
