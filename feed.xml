@@ -3,13 +3,48 @@
     <title>KevinGimbel.Dev/Ops</title>
     <subtitle>DevOps, SRE, Rust, and all things related + some real life</subtitle>
     <link href="https://kevin.gimbel.dev/" rel="self"/>
-    <updated>2024-01-22T17:35:43</updated>
+    <updated>2024-02-02T13:21:25</updated>
     <id>https://kevin.gimbel.dev/</id>
     <author>
     <name>Kevin Gimbel</name>
     <email>kevin@gimbel.dev</email>
     </author>
 
+    <entry>
+        <title>Week 9: Muskelkater</title>
+        <link href="blog/2024/02/week-9-muskelkater/" />
+        <updated>2024-02-02T13:21:25</updated>
+        <id>https://kevin.gimbel.dev/blog/2024/02/week-9-muskelkater/</id>
+        <content xml:lang="en" type="html">
+&lt;ul&gt;
+&lt;li&gt;💪 &lt;strong&gt;Muskelkater&lt;/strong&gt; (&lt;em&gt;literal translation: muscle cat&lt;/em&gt;) is the German word for aching muscles. I&amp;#8217;ve lots of it right now and moving my arms hurts quite a bit. &lt;strong&gt;&lt;em&gt;Sports!&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;📝 I&amp;#8217;ve done some work on my personal websites, preparing the move from multiple WordPress installations to a single multi-site WordPress installation with 11ty frontends. Exciting and fun to work on!&lt;/li&gt;
+
+
+
+&lt;li&gt;🥗 I&amp;#8217;m eating a lot of proteins and vegetables and I feel a lot better&lt;/li&gt;
+
+
+
+&lt;li&gt;☎️ I was on-call (&lt;em&gt;still am as I write this, Hi Team!&lt;/em&gt;) and it was gladly a quite week&lt;/li&gt;
+
+
+
+&lt;li&gt;😴 Next week I&amp;#8217;ll be on a one-week Holiday. I&amp;#8217;ve still some leftover days from last year, and I plan to move my private Blog off WP entirely and start working on the Photo blog more.&lt;/li&gt;
+
+
+
+&lt;li&gt;🌞 I also plan to go outside, the weather is quite nice! &lt;/li&gt;
+
+
+
+&lt;li&gt;🖤 I listened to a lot of &lt;a href=&quot;https://en.wikipedia.org/wiki/Bring_Me_the_Horizon&quot;&gt;Bring Me The Horizon&lt;/a&gt;. Feels like it&amp;#8217;s 2007 again. &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </entry>
     <entry>
         <title>Week 8: Table tennis</title>
         <link href="blog/2024/01/week-8-table-tennis/" />
