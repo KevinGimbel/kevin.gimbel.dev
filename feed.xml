@@ -3,13 +3,44 @@
     <title>KevinGimbel.Dev/Ops</title>
     <subtitle>DevOps, SRE, Rust, and all things related + some real life</subtitle>
     <link href="https://kevin.gimbel.dev/" rel="self"/>
-    <updated>2024-02-02T13:21:25</updated>
+    <updated>2024-02-09T14:54:16</updated>
     <id>https://kevin.gimbel.dev/</id>
     <author>
     <name>Kevin Gimbel</name>
     <email>kevin@gimbel.dev</email>
     </author>
 
+    <entry>
+        <title>Week 10: Video Games and no table tennis</title>
+        <link href="blog/2024/02/week-10-video-games-and-no-table-tennis/" />
+        <updated>2024-02-09T14:54:16</updated>
+        <id>https://kevin.gimbel.dev/blog/2024/02/week-10-video-games-and-no-table-tennis/</id>
+        <content xml:lang="en" type="html">
+&lt;ul&gt;
+&lt;li&gt;🚫I had the week off, so no table tennis&lt;/li&gt;
+
+
+
+&lt;li&gt;🗞️ I used the week to work on my websites, moving the first of three off WordPress. “Off WordPress” isn’t quite right &amp;#8211; it still uses WP in the backend, but the front end is now build with 11ty&lt;/li&gt;
+
+
+
+&lt;li&gt;🎮 I finished The Surge 2, and amazing souls-like Game by Frankfurt based studio Deck13!&lt;/li&gt;
+
+
+
+&lt;li&gt;🗡️ I also started playing Dark Souls 2, finally!&lt;/li&gt;
+
+
+
+&lt;li&gt;📺 Spent an evening folding clothes and watching Foundation in Apple TV, it’s a fantastic SciFi show and I can’t wait to watch more&lt;/li&gt;
+
+
+
+&lt;li&gt;🤧 I got sick so I stayed home most week (as seen above), and tried to take it slow. &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </entry>
     <entry>
         <title>Week 9: Muskelkater</title>
         <link href="blog/2024/02/week-9-muskelkater/" />
