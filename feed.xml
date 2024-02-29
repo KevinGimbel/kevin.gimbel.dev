@@ -3,13 +3,44 @@
     <title>KevinGimbel.Dev/Ops</title>
     <subtitle>DevOps, SRE, Rust, and all things related + some real life</subtitle>
     <link href="https://kevin.gimbel.dev/" rel="self"/>
-    <updated>2024-02-29T09:07:07</updated>
+    <updated>2024-02-29T17:13:55</updated>
     <id>https://kevin.gimbel.dev/</id>
     <author>
     <name>Kevin Gimbel</name>
     <email>kevin@gimbel.dev</email>
     </author>
 
+    <entry>
+        <title>Week 13: Kubernetes 101, Dark Souls, and Circe</title>
+        <link href="blog/2024/02/week-13-kubernetes-101-dark-souls-and-circe/" />
+        <updated>2024-02-29T17:13:55</updated>
+        <id>https://kevin.gimbel.dev/blog/2024/02/week-13-kubernetes-101-dark-souls-and-circe/</id>
+        <content xml:lang="en" type="html">
+&lt;ul&gt;
+&lt;li&gt;⚓️ I held a &lt;a href=&quot;https://www.aoe.com/en/academy/cloud-devops/kubernetes-101.html&quot;&gt;Kubernetes 101&lt;/a&gt; workshop with my colleague Simon, it was good! We&amp;#8217;ve held the course a few times now and I really enjoy teaching Kubernetes basics.&lt;/li&gt;
+
+
+
+&lt;li&gt;🗡️ I&amp;#8217;ve played some more &lt;a href=&quot;https://en.wikipedia.org/wiki/Dark_Souls_II&quot;&gt;Dark Souls 2&lt;/a&gt; and I&amp;#8217;m really digging it! &lt;/li&gt;
+
+
+
+&lt;li&gt;🏺 I took some time to finish reading &lt;a href=&quot;https://en.wikipedia.org/wiki/Circe_(novel)&quot;&gt;Circe&lt;/a&gt;, and I&amp;#8217;m totally in awe. It&amp;#8217;s a real page turner and so beautifully written! (&lt;em&gt;I&amp;#8217;m also completely in love with the witch aesthetic and the herbalism of Circe 🧙‍♀️&lt;/em&gt;)&lt;/li&gt;
+
+
+
+&lt;li&gt;🤧 I&amp;#8217;m still &amp;#8211; &lt;em&gt;or again?&lt;/em&gt; &amp;#8211; sick and it sucks. It makes everything unnecessarily more complicated, and I&amp;#8217;m really tired of it. &lt;em&gt;C&amp;#8217;mon body, do ur job!&lt;/em&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;🧘 I&amp;#8217;ve been doing some reflecting and I came to the conclusion that I need to spent my (free) time differently again. I&amp;#8217;m spending too much time in front of screens and with the weather getting better I need to be out more &amp;#8211; spring can&amp;#8217;t come fast enough!&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;I guess that&amp;#8217;s it. See you some other week 🙂 &lt;/p&gt;
+</content>
+    </entry>
     <entry>
         <title>Where to put things?</title>
         <link href="blog/2024/02/where-to-put-things/" />
