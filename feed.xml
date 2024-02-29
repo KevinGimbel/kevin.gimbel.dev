@@ -3,13 +3,60 @@
     <title>KevinGimbel.Dev/Ops</title>
     <subtitle>DevOps, SRE, Rust, and all things related + some real life</subtitle>
     <link href="https://kevin.gimbel.dev/" rel="self"/>
-    <updated>2024-02-26T09:10:02</updated>
+    <updated>2024-02-29T09:07:07</updated>
     <id>https://kevin.gimbel.dev/</id>
     <author>
     <name>Kevin Gimbel</name>
     <email>kevin@gimbel.dev</email>
     </author>
 
+    <entry>
+        <title>Where to put things?</title>
+        <link href="blog/2024/02/where-to-put-things/" />
+        <updated>2024-02-29T09:07:07</updated>
+        <id>https://kevin.gimbel.dev/blog/2024/02/where-to-put-things/</id>
+        <content xml:lang="en" type="html">
+&lt;p&gt;In the middle of moving my websites around I wonder where to put things. I blog in German on a more &amp;#8220;private-and-casual&amp;#8221; blog, and I blog more professionally (&lt;em&gt;lol&lt;/em&gt;) and in English here. I like to keep the technical stuff on &lt;a href=&quot;https://kevin.gimbel.dev/&quot;&gt;kevin.gimbel.dev&lt;/a&gt; to have a &amp;#8220;this  is professional me&amp;#8221; sort of website. At the same time, some &amp;#8220;private&amp;#8221; topics leak into the &amp;#8220;business&amp;#8221; topics &amp;#8211; like last weeks Weeknotes featuring me and my depression. It&amp;#8217;s part of me, and I don&amp;#8217;t mind having it in the &amp;#8220;business&amp;#8221; context of my online persona &amp;#8212; I even &lt;em&gt;want it there&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;Reading &lt;a href=&quot;https://joni.omg.lol/&quot;&gt;Joni&amp;#8217;s&lt;/a&gt; &lt;a href=&quot;https://www.breakfastletters.com/&quot;&gt;Breakfast Letters&lt;/a&gt; I felt the urge to explore and write down my thoughts more. I love this sort of personal &amp;#8220;I&amp;#8217;ve been thinking about X and now I&amp;#8217;m having a monologue about it&amp;#8221; blogs. I yearn for them! I&amp;#8217;ve been kind of isolating myself over the past decade: Working from home and remote, loosing touch to my old school friends, not really going out to find new ones; I&amp;#8217;ve become lonely. Twitter filled that gap for a long time, I&amp;#8217;ve had my online friends there and loved reading their everyday non-sense little tweets. But it&amp;#8217;s gone now. It was already gone before Elon &amp;#8212; and it&amp;#8217;s certainly no longer a fun and nice platform to connect and have a good time.&lt;/p&gt;
+
+
+
+&lt;p&gt;So that leaves me with my thoughts and no real place to put them. &lt;a href=&quot;https://www.tumblr.com/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Tumblr&lt;/a&gt; was a lot of fun, but is no longer. &lt;a href=&quot;https://joinmastodon.org/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Mastodon&lt;/a&gt; is not it, as much as I&amp;#8217;m rooting for it. &lt;a href=&quot;https://bsky.social/about&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Bsky&lt;/a&gt; is close, but it&amp;#8217;s not it &amp;#8211; or I&amp;#8217;m just getting too old. Instagram is horrible for me. The algorithm keep putting bullshit into my feeds, and as a Photographer the grind is insane with no reward. So lot of time spent and work put into the platform with little reward (alas I did meet a handful of nice people through our shared interest in photography).&lt;/p&gt;
+
+
+
+&lt;p&gt;Another problem is language. Do I want to explore my thoughts in English, opening the writing to a broader audience? Or do I want to keep it in German? I don&amp;#8217;t blog for views, and I never have. I&amp;#8217;m not a content creator, and I&amp;#8217;m not trying to grow my audience for the sake of growing it &amp;#8211; I want to give interested people a way to follow along on my journey.&lt;/p&gt;
+
+
+
+&lt;p&gt;So anyway, all this rambling leaves me with two problems:&lt;/p&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;I want to share (personal, non-sense) content online&lt;/li&gt;
+
+
+
+&lt;li&gt;I want to connect to people with like-minded interests&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;I haven&amp;#8217;t found any &lt;strong&gt;single platform&lt;/strong&gt; which suites my needs well. At the moment I&amp;#8217;m blogging in German on my private blog, sharing a mix of &amp;#8220;Things I found online and like&amp;#8221;, Reviews, Books, and all things that keep me interested. &lt;/p&gt;
+
+
+
+&lt;p&gt;I blog about Tech stuff on this website, and I also have other stuff which interests me on here (Games I made, Open Source Software I coded, &amp;#8230;). Maybe a new &amp;#8220;Thoughts&amp;#8221; Section on this website could be it, then I can share the links to the networks as I see fit. &lt;/p&gt;
+
+
+
+&lt;p&gt;Right now I think I&amp;#8217;ll move the content from art.atarijunge.de to kevingimbel.de, so I have my photography under my name, and keep the &amp;#8220;special pages&amp;#8221; like &lt;a href=&quot;https://kevingimbel.de/games/&quot;&gt;Games&lt;/a&gt; and &lt;a href=&quot;https://kevingimbel.de/oss/&quot;&gt;OSS&lt;/a&gt; here as well.&lt;/p&gt;
+</content>
+    </entry>
     <entry>
         <title>Week 12: Depression, winter, and grey skies</title>
         <link href="blog/2024/02/week-12-depression-winter-and-grey-skies/" />
@@ -3142,6 +3189,206 @@ http_status{job=&quot;customer-prd&quot;,instance=&quot;https://some-api.link/se
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://prometheus.io/docs/prometheus/latest/querying/basics/&quot;&gt;Prometheus Query documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Apply a patch from a Github PR</title>
+        <link href="blog/2020/12/apply-a-patch-from-a-github-pr/" />
+        <updated>2020-12-04T09:23:00</updated>
+        <id>https://kevin.gimbel.dev/blog/2020/12/apply-a-patch-from-a-github-pr/</id>
+        <content xml:lang="en" type="html">
+&lt;p&gt;Ever found yourself needing that one fix from a PR on GitHub that hasn&amp;#8217;t been released yet? How can you get the code, for example a Magento fix, into your code base? Copy-paste it? That might work for small changes, but for large and complex changes copy-pasting is no solution. Luckily, we can use GitHub to generate a patch file, which can then be applied with either the&amp;nbsp;&lt;code&gt;git&lt;/code&gt;&amp;nbsp;or&amp;nbsp;&lt;code&gt;patch&lt;/code&gt;&amp;nbsp;command.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;patch-file what?&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2020/12/04-apply-patch-from-github-pr/index.md#patch-file-what&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;A patch file is a text file containing instructions on how to apply a change to files. If you run&amp;nbsp;&lt;code&gt;git diff&lt;/code&gt;&amp;nbsp;and see the changed files with&amp;nbsp;&lt;code&gt;+/-&lt;/code&gt;&amp;nbsp;in front of lines that were added (&lt;code&gt;+&lt;/code&gt;) or removed (&lt;code&gt;-&lt;/code&gt;) you are looking at a patch file.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Example code&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2020/12/04-apply-patch-from-github-pr/index.md#example-code&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;For illustration purpose I created a example repo:&amp;nbsp;&lt;a href=&quot;https://github.com/KevinGimbel/blog-patch-example&quot;&gt;https://github.com/KevinGimbel/blog-patch-example&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;You can clone the main branch and then apply the patch from the&amp;nbsp;&lt;a href=&quot;https://github.com/KevinGimbel/blog-patch-example/pull/1&quot;&gt;Pull Request&lt;/a&gt;&amp;nbsp;to it, if you want to follow along.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Getting the patch file&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2020/12/04-apply-patch-from-github-pr/index.md#getting-the-patch-file&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;First we will need to get the patch file. GitHub makes this easy, but for some reason hides it from us. You can &lt;strong&gt;append .patch to the URL of any pull request to get the patch file&lt;/strong&gt;. So for the example above, open the URL &lt;a href=&quot;https://github.com/KevinGimbel/blog-patch-example/pull/1.patch&quot;&gt;https://github.com/KevinGimbel/blog-patch-example/pull/1.patch&lt;/a&gt; to see the plain text patch file.&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;From 6da12536ff4da0efdabdf1a4dd55ded127fa247c 
+Mon Sep 17 00:00:00 2001 
+From: Kevin Gimbel &amp;lt;hallo@kevingimbel.com&gt; 
+Date: Fri, 4 Dec 2020 16:31:30 +0100 
+Subject: [PATCH] docs: add actual URL 
+
+&lt;strong&gt;---&lt;/strong&gt; README.md | 2 +- 1 file changed, 
+1 insertion(+), 1 deletion(-) 
+diff --git a/README.md b/README.md 
+index 0fe5e72..7f6398a 100644 
+--- a/README.md 
++++ b/README.md 
+&lt;strong&gt;@@ -2,4 +2,4 @@&lt;/strong&gt; 
+
+This repo is part of a Blog Post on how to get and apply patch files from GitHub.com 
+
+-You can read the full post here: ENTER_URL_HERE 
+&#92; No newline at end of file 
+
++You can read the full post here: [https://kevingimbel.de/blog/2020/12/apply-patch-from-github-pr/](https://kevingimbel.de/blog/2020/12/apply-patch-from-github-pr/) 
+&#92; No newline at end of file&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;The patch file is both human and machine readable. Now to continue, get the patchfile!&lt;/p&gt;
+
+
+
+&lt;ol&gt;
+&lt;li&gt;Open a terminal and navigate to the repo you cloned earlier (&lt;code&gt;github.com/KevinGimbel/blog-patch-example&lt;/code&gt;)&lt;/li&gt;
+
+
+
+&lt;li&gt;Download the patch file with&amp;nbsp;&lt;code&gt;wget&lt;/code&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;$ wget &quot;https://github.com/KevinGimbel/blog-patch-example/pull/1.patch&quot;&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;This downloads a file named &lt;code&gt;1.patch&lt;/code&gt; into the current directory, which we can verify by running &lt;code&gt;ls -l&lt;/code&gt;&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;ls -l 
+total 16 
+-rw-r--r--@ 1 kevingimbel staff 733 Dec 4 16:33 1.patch # 👈 there it is 
+-rw-r--r-- 1 kevingimbel staff 155 Dec 4 16:33 README.md&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;You can look at the file if you want to, it contains the same text as the example in this article.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Applying a patch with&amp;nbsp;&lt;code&gt;git&lt;/code&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2020/12/04-apply-patch-from-github-pr/index.md#applying-a-patch-with-git&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;We can use&amp;nbsp;&lt;code&gt;git&lt;/code&gt;&amp;nbsp;to apply the patch. For manual patching git has the&amp;nbsp;&lt;code&gt;apply&lt;/code&gt;&amp;nbsp;command: If we want to test the changes to see if they can be applied but don&amp;#8217;t want to change any files yet, we can use the&amp;nbsp;&lt;code&gt;--check&lt;/code&gt;&amp;nbsp;and&amp;nbsp;&lt;code&gt;-v&lt;/code&gt;&amp;nbsp;(verbose) flag:&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;$ git apply -v --check 1.patch
+Checking patch README.md...
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;To really apply the patch, we remove the &lt;code&gt;--check&lt;/code&gt; flag:&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;$ git apply -v 1.patch 
+Checking patch README.md... Applied patch README.md cleanly.&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;Now check the &lt;code&gt;README.md&lt;/code&gt; file and you&amp;#8217;ll see the new content!&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;$ cat README.md 
+# blog-patch-example 
+This repo is part of a Blog Post on how to get and apply patch files from GitHub.com You can read the full post here: [https://kevingimbel.de/blog/2020/12/apply-patch-from-github-pr/](https://kevingimbel.de/blog/2020/12/apply-patch-from-github-pr/)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Patching without git&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2020/12/04-apply-patch-from-github-pr/index.md#patching-without-git&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Sometimes you may not have git available, especially when patching software running on some server that &amp;#8211; for whatever reasons &amp;#8211; has no deployment process (no judging here!) or version control.&lt;/p&gt;
+
+
+
+&lt;p&gt;Even without the&amp;nbsp;&lt;code&gt;git&lt;/code&gt;&amp;nbsp;command the patch can still be applied by using the&amp;nbsp;&lt;code&gt;patch&lt;/code&gt;&amp;nbsp;tool installed on most (all?) Linux systems. To do this, follow these steps:&lt;/p&gt;
+
+
+
+&lt;ol&gt;
+&lt;li&gt;Get the patch from the pull request by appending &lt;code&gt;.patch&lt;/code&gt; to the URL&lt;/li&gt;
+
+
+
+&lt;li&gt;Apply the patch with the&amp;nbsp;&lt;code&gt;patch&lt;/code&gt;&amp;nbsp;command&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;$ patch -p 1 &amp;lt; filename.patch 
+
+# To try out changes first, use `--dry-run` 
+$ patch -p 1 --dry-run &amp;lt; filename.patch&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;And that&amp;#8217;s it for today! Feel free to create PRs in the repo&amp;nbsp;&lt;a href=&quot;https://github.com/KevinGimbel/blog-patch-example/&quot;&gt;https://github.com/KevinGimbel/blog-patch-example/&lt;/a&gt;&amp;nbsp;if you want to play around with patching.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Additional resources&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2020/12/04-apply-patch-from-github-pr/index.md#additional-resources&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://linux.die.net/man/1/patch&quot;&gt;patch man page&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://git-scm.com/docs/git-apply&quot;&gt;git apply documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </entry>
