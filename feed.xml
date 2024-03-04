@@ -3,13 +3,32 @@
     <title>KevinGimbel.Dev/Ops</title>
     <subtitle>DevOps, SRE, Rust, and all things related + some real life</subtitle>
     <link href="https://kevin.gimbel.dev/" rel="self"/>
-    <updated>2024-02-29T17:13:55</updated>
+    <updated>2024-03-04T15:10:01</updated>
     <id>https://kevin.gimbel.dev/</id>
     <author>
     <name>Kevin Gimbel</name>
     <email>kevin@gimbel.dev</email>
     </author>
 
+    <entry>
+        <title>RE: Hacking Terraform State for Privilege Escalation</title>
+        <link href="blog/2024/03/re-hacking-terraform-state-for-privilege-escalation/" />
+        <updated>2024-03-04T15:10:01</updated>
+        <id>https://kevin.gimbel.dev/blog/2024/03/re-hacking-terraform-state-for-privilege-escalation/</id>
+        <content xml:lang="en" type="html">
+&lt;p&gt;An interesting attack vector which uses empty terraform providers and a modified state file to execute code! &lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote&quot;&gt;
+&lt;p&gt;There’s lots to be excited about as a red teamer and scared of as a blue teamer, but at the top of the list is that the attack does not require a “terraform apply”. &lt;strong&gt;Even if the human reviewing this plan doesn’t approve it, the code has already executed.&lt;/strong&gt;&lt;/p&gt;
+&lt;cite&gt;— Daniel Grzelak&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Read the full article on &lt;a href=&quot;https://blog.plerion.com/hacking-terraform-state-privilege-escalation/&quot;&gt;https://blog.plerion.com/hacking-terraform-state-privilege-escalation/&lt;/a&gt;&lt;/p&gt;
+</content>
+    </entry>
     <entry>
         <title>Week 13: Kubernetes 101, Dark Souls, and Circe</title>
         <link href="blog/2024/02/week-13-kubernetes-101-dark-souls-and-circe/" />
