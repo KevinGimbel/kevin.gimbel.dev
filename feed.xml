@@ -3,13 +3,44 @@
     <title>KevinGimbel.Dev/Ops</title>
     <subtitle>DevOps, SRE, Rust, and all things related + some real life</subtitle>
     <link href="https://kevin.gimbel.dev/" rel="self"/>
-    <updated>2024-03-04T15:10:01</updated>
+    <updated>2024-03-08T09:57:17</updated>
     <id>https://kevin.gimbel.dev/</id>
     <author>
     <name>Kevin Gimbel</name>
     <email>kevin@gimbel.dev</email>
     </author>
 
+    <entry>
+        <title>Week 14: New server who dis?</title>
+        <link href="blog/2024/03/week-14-new-server-who-dis/" />
+        <updated>2024-03-08T09:57:17</updated>
+        <id>https://kevin.gimbel.dev/blog/2024/03/week-14-new-server-who-dis/</id>
+        <content xml:lang="en" type="html">
+&lt;p&gt;I&amp;#8217;ve been moving servers around and it&amp;#8217;s  ✨ s t r e s s f u l  ✨&lt;/p&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;☁️ I turned off one of the bigger servers I had, moving my site (kevingimbel.de) off this server and onto a new one, live-migrating everything including Let&amp;#8217;s Encrypt certificates and DNS which is a very shitty combination. Very stressful, but it worked out.&lt;/li&gt;
+
+
+
+&lt;li&gt;🏋️ Speaking of work out, I did not. I&amp;#8217;m finally no longer sick, but I just didn&amp;#8217;t find the time this week &amp;#8211; really sucks! Next week will be better.&lt;/li&gt;
+
+
+
+&lt;li&gt;📦 In a all-hands-on we moved a cluster and related infra from one AWS account to the other, things went smooth and it was a nice experience working with all my colleagues in a big session together. Since my team is full remote, I really miss this sort of &amp;#8220;get &amp;amp; work together&amp;#8221;&lt;/li&gt;
+
+
+
+&lt;li&gt;🎁 We got brand new Hoodies @ &lt;a href=&quot;https://jobs.aoe.com/de/home.html&quot;&gt;AOE&lt;/a&gt;, and they&amp;#8217;re really comfy! 👇&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;768&quot; height=&quot;1024&quot; src=&quot;https://kevingimbel.de/wp-content/uploads/2024/03/IMG_2395-768x1024.jpeg&quot; alt=&quot;Selfie in a mirror in a bathroom. Person standing  in front of mirror with a dark blue hoodie with small AOE print on the front left&quot; class=&quot;wp-image-562&quot; srcset=&quot;https://kevingimbel.de/wp-content/uploads/2024/03/IMG_2395-768x1024.jpeg 768w, https://kevingimbel.de/wp-content/uploads/2024/03/IMG_2395-225x300.jpeg 225w, https://kevingimbel.de/wp-content/uploads/2024/03/IMG_2395-1152x1536.jpeg 1152w, https://kevingimbel.de/wp-content/uploads/2024/03/IMG_2395-1536x2048.jpeg 1536w, https://kevingimbel.de/wp-content/uploads/2024/03/IMG_2395-scaled.jpeg 1920w&quot; sizes=&quot;(max-width: 768px) 100vw, 768px&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;Bathroom selfie: A classic.&lt;/figcaption&gt;&lt;/figure&gt;
+</content>
+    </entry>
     <entry>
         <title>RE: Hacking Terraform State for Privilege Escalation</title>
         <link href="blog/2024/03/re-hacking-terraform-state-for-privilege-escalation/" />
