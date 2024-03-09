@@ -3,13 +3,26 @@
     <title>KevinGimbel.Dev/Ops</title>
     <subtitle>DevOps, SRE, Rust, and all things related + some real life</subtitle>
     <link href="https://kevin.gimbel.dev/" rel="self"/>
-    <updated>2024-03-08T09:57:17</updated>
+    <updated>2024-03-08T21:29:14</updated>
     <id>https://kevin.gimbel.dev/</id>
     <author>
     <name>Kevin Gimbel</name>
     <email>kevin@gimbel.dev</email>
     </author>
 
+    <entry>
+        <title>A little hiccup</title>
+        <link href="blog/2024/03/a-little-hiccup/" />
+        <updated>2024-03-08T21:29:14</updated>
+        <id>https://kevin.gimbel.dev/blog/2024/03/a-little-hiccup/</id>
+        <content xml:lang="en" type="html">
+&lt;p&gt;Well, looks like kevingimbel.de was (partly?) down &amp;#8211; as far as I can tell the culprit was ipv6! In the past I&amp;#8217;ve not really bothered with ipv6 much but it feels odd to leave it out these days.&lt;/p&gt;
+
+
+
+&lt;p&gt;Sorry for the inconvenience to all my 2 readers, I&amp;#8217;m sure you&amp;#8217;ve missed my blog on this Friday night. Once I know more I’ll write a follow-up. &lt;/p&gt;
+</content>
+    </entry>
     <entry>
         <title>Week 14: New server who dis?</title>
         <link href="blog/2024/03/week-14-new-server-who-dis/" />
