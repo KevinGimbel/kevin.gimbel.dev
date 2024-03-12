@@ -3,13 +3,123 @@
     <title>KevinGimbel.Dev/Ops</title>
     <subtitle>DevOps, SRE, Rust, and all things related + some real life</subtitle>
     <link href="https://kevin.gimbel.dev/" rel="self"/>
-    <updated>2024-03-08T21:29:14</updated>
+    <updated>2024-03-12T08:46:30</updated>
     <id>https://kevin.gimbel.dev/</id>
     <author>
     <name>Kevin Gimbel</name>
     <email>kevin@gimbel.dev</email>
     </author>
 
+    <entry>
+        <title>I don&#8217;t like Python</title>
+        <link href="blog/2024/03/i-dont-like-python/" />
+        <updated>2024-03-12T08:46:30</updated>
+        <id>https://kevin.gimbel.dev/blog/2024/03/i-dont-like-python/</id>
+        <content xml:lang="en" type="html">
+&lt;p&gt;&amp;#8230; and there&amp;#8217;s a reason: &lt;em&gt;Dependency Management&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;Coming from languages like Node, Go, and Rust I am used to decent dependency management (&lt;em&gt;although Go was really bad at it for the first years&lt;/em&gt;, and has become decent only recently with the addition of &lt;code&gt;go mod&lt;/code&gt;.). Python, &lt;em&gt;in my opinion&lt;/em&gt;, lacks a good and well-defined Package Management. I&amp;#8217;m sure there are ways, but the past days I spent working with and around Virtual Environments, global installations, and figuring out what the heck &lt;a href=&quot;https://peps.python.org/pep-0668/&quot;&gt;PEP-668&lt;/a&gt; is supposed to mean. I don&amp;#8217;t want to rant, I could do that on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel&quot;&gt;Mastodon&lt;/a&gt; or &lt;a href=&quot;https://bsky.app/profile/kevin.gimbel.dev&quot;&gt;Bsky&lt;/a&gt;. No, I want to share some of my thoughts as a non-Python Developer having to work with Python as part of my Job.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: There&amp;#8217;s a not-so-small chance I&amp;#8217;m just not deep enough into Python and its eco system. I&amp;#8217;m very happy to learn and discuss so &lt;em&gt;please tell me&lt;/em&gt; if and where I am wrong.&lt;br&gt;Also, I do enjoy writing Python. It&amp;#8217;s a fun language, and I&amp;#8217;m starting to like it. This is also part of the reason I&amp;#8217;m so frustrated with the package and dependency management.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;pip&lt;/h2&gt;
+
+
+
+&lt;p&gt;My first touchpoint with Python dependency management was &lt;a href=&quot;https://pypi.org/project/pip/&quot;&gt;pip&lt;/a&gt;. It&amp;#8217;s a tool which can be used to install python packages, for example by reading a &lt;code&gt;requirements.txt&lt;/code&gt; or being passed a name on the CLI directly. All the things are installed&amp;#8230; in a global directory?! In my case things are placed in &lt;code&gt;/opt/homebrew/lib/python3.12/site-packages&lt;/code&gt; &amp;#8211; and it looks as if this is where all the packages for all my installed tools are. 😳&lt;/p&gt;
+
+
+
+&lt;p&gt;So if two tools require different versions &amp;#8230; what happens? &lt;a href=&quot;https://pip.pypa.io/en/stable/topics/dependency-resolution/&quot;&gt;According to the pip documentation&lt;/a&gt;, pip will try and resolve all the dependencies and the dependency dependencies and so on &amp;#8211; it&amp;#8217;s a lot of resolving to do, and a complex task. This is something all package managers need to do, especially if they try to be smart about re-using already installed libraries.&lt;/p&gt;
+
+
+
+&lt;p&gt;Anyhow, with pip install we have global packages and nothing is scoped to the tool being installed (or the library required by code). &lt;strong&gt;&lt;em&gt;Everything is global.&lt;/em&gt;&lt;/strong&gt; So we must be lucky that things don&amp;#8217;t break, and tool requirements must be loose to allow for minor or patch updates.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;venv&lt;/h2&gt;
+
+
+
+&lt;p&gt;Enter &lt;code&gt;venv&lt;/code&gt;, or virtual environments. &lt;code&gt;venv&lt;/code&gt; itself is part of the &lt;a href=&quot;https://docs.python.org/3/library/venv.html&quot;&gt;Python standard library&lt;/a&gt; and solves the issue of globally installed dependencies. It creates a folder in the project path, installs all libraries into the path and uses pip and python binaries from this path as well so we have a encapsulated environment in which we can execute our code. This is awesome!&lt;/p&gt;
+
+
+
+&lt;p&gt;It feels a bit like &lt;code&gt;npm&lt;/code&gt;, which also installs copies of the used libraries in a local folder (&lt;code&gt;node_modules&lt;/code&gt;). Why this is not something pip does I do not understand. It seems reasonable to offer a way of managing and using virtual environment directly from pip-  which brings us to the next tool. &lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;pipx&lt;/h2&gt;
+
+
+
+&lt;p&gt;Now this are coming together!&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://pipx.pypa.io/stable/&quot;&gt;&lt;code&gt;pipx&lt;/code&gt; is a tool especially used for installing python executables&lt;/a&gt; &amp;#8211; in self-contained virtual environments, all managed by &lt;code&gt;pipx&lt;/code&gt;. This is functionallity I would expect from pip, and similar to &lt;code&gt;npm install -g&lt;/code&gt;, which installs a tool and its dependencies in a global scope.&lt;/p&gt;
+
+
+
+&lt;p&gt;With pipx, we &lt;em&gt;finally&lt;/em&gt; have a tool which allows us to execute a command like &amp;#8220;&lt;code&gt;pipx install ansible&lt;/code&gt;&amp;#8221; and get a fully working, venv-enabled ansible installation in &lt;code&gt;~/.local/pipx/venvs/ansible&lt;/code&gt; (the path may differ on your system).&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;Perfection&lt;/em&gt; 🧑‍🍳😘&lt;/p&gt;
+
+
+
+&lt;p&gt;Although pipx is a great solution, and I&amp;#8217;m using it for all tool installations myself, for my specific work-related case it wasn&amp;#8217;t a good solution. The problem I faced was developers having issues updating one of the tools my team provides them. They ran into the &lt;em&gt;PEP-668&lt;/em&gt; issue and couldn&amp;#8217;t update the tool unless they specified &lt;code&gt;--break-system-packages&lt;/code&gt; which isn&amp;#8217;t something they should do &amp;#8211; and I wouldn&amp;#8217;t want to tell them to do!&lt;/p&gt;
+
+
+
+&lt;p&gt;I ended up using &lt;code&gt;venv&lt;/code&gt; directly to ensure our tool is installed in a reliable location on ever users computer, the installer we used will also manage the &lt;code&gt;PATH&lt;/code&gt; by adding the venv binary into the &lt;code&gt;.bashrc&lt;/code&gt; or &lt;code&gt;.zshrc&lt;/code&gt;, and also creates a symlink into &lt;code&gt;/usr/local/bin&lt;/code&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;In the process I also added a &amp;#8220;update&amp;#8221; command to make further updates easier, and I found a nice way of doing it in my opinion:&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;python&quot; class=&quot;language-python&quot;&gt;import sys
+import subprocess
+
+def update():
+  subprocess.check_call([
+    sys.executable, 
+    &quot;-m&quot;, 
+    &quot;pip&quot;, 
+    &quot;install&quot;, 
+    &quot;-U&quot;, 
+    &quot;--index-url&quot;, f&quot;{index_url}&quot;, 
+    &quot;--extra-index-url&quot;, &quot;https://pypi.org/simple&quot;,  
+    &quot;toolname&quot;
+  ])&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;This code will use the python executable which is used to run the code, then execute a &lt;code&gt;pip install -U&lt;/code&gt; which updates the tool (here named &lt;code&gt;toolname&lt;/code&gt;). The python executable is the one from the virtual environment, so the update command is always executed in the context of the venv &amp;#8211; neat! 🐍&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Conclusion&lt;/h2&gt;
+
+
+
+&lt;p&gt;I wanna say that &lt;em&gt;&amp;#8220;I don&amp;#8217;t like Python&amp;#8221;&lt;/em&gt; was a little clickbait-y. I do like Python, and I see its benefits. Especially when compared to shell scripting, especially for &lt;a href=&quot;https://en.wikipedia.org/wiki/Glue_code&quot;&gt;Glue code&lt;/a&gt; in Infrastructure and in one-off tooling and scripting. Still, for complex CLI tools I, &lt;em&gt;personally&lt;/em&gt;, would choose either Go or Rust. Both have great libraries (&lt;a href=&quot;https://github.com/clap-rs/clap&quot;&gt;clap&lt;/a&gt; for Rust, and &lt;a href=&quot;https://github.com/spf13/cobra&quot;&gt;cobra&lt;/a&gt; for Go), compile to binaries, and are easy to distribute with all dependencies being bundled in the binary.&lt;/p&gt;
+
+
+
+&lt;p&gt;If you want to discuss this post, feel free to comment or join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/112081606795855915&quot;&gt;Mastodon&lt;/a&gt;, &lt;a href=&quot;https://bsky.app/profile/kevin.gimbel.dev/post/3knibkmkmgs2b&quot;&gt;Bluesky&lt;/a&gt;, or &lt;a href=&quot;https://www.linkedin.com/posts/kevingimbel_i-dont-likepython-activity-7173222831135117312-Jgh7?utm_source=share&amp;amp;utm_medium=member_desktop&quot;&gt;LinkedIn&lt;/a&gt;!&lt;/p&gt;
+</content>
+    </entry>
     <entry>
         <title>A little hiccup</title>
         <link href="blog/2024/03/a-little-hiccup/" />
