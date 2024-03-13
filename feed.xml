@@ -2371,6 +2371,23 @@ my-other-block:
 </content>
     </entry>
     <entry>
+        <title>One of my pictures was chosen by Lomography.de as &#8220;Foto Der Woche&#8221;</title>
+        <link href="blog/2022/05/one-of-my-pictures-was-chosen-by-lomography-de-as-foto-der-woche/" />
+        <updated>2022-05-30T13:10:32</updated>
+        <id>https://kevin.gimbel.dev/blog/2022/05/one-of-my-pictures-was-chosen-by-lomography-de-as-foto-der-woche/</id>
+        <content xml:lang="en" type="html">
+&lt;p&gt;Right now one of my photos is featured on &lt;a href=&quot;https://www.lomography.de/photos/&quot;&gt;Lomography.de&lt;/a&gt; as &amp;#8220;Foto der Woche&amp;#8221; (&lt;em&gt;Photo of the week&lt;/em&gt;).&lt;/p&gt;
+
+
+
+&lt;p&gt;I&amp;#8217;m incredibly happy (and proud!) that this photo was chosen and it truly made my day!&lt;/p&gt;
+
+
+
+&lt;p&gt;You can see the photo and more of this kind on &lt;a href=&quot;https://www.lomography.de/homes/atarijunge/albums/2401620-konica-fs-1-with-agfa-apx-100-200/25711221&quot;&gt;here on my Lomography page&lt;/a&gt;.&lt;/p&gt;
+</content>
+    </entry>
+    <entry>
         <title>TIL: Replace git URLs in Gitlab CI</title>
         <link href="blog/2021/12/replace-git-urls-in-gitlab-ci/" />
         <updated>2021-12-30T09:00:00</updated>
