@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>
-Week 14: New server who dis? - Kevin.Gimbel.Dev/Blog
-</title>
+  <title>Kevin.Gimbel.Dev/Ops</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -510,7 +508,18 @@ section {
     padding: 4rem;
     margin: 0 auto;
     max-width: 75rem;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        "Open Sans",
+        "Helvetica Neue",
+        sans-serif;
 }
 
 .article-page h2,
@@ -521,7 +530,7 @@ section {
 .article-page p code {
     background: var(--color-code-bg);
     color: var(--color-code-fg);
-    padding: .15em .25em;
+    padding: 0.15em 0.25em;
     box-shadow: -4px -4px 0 #aaa;
     border: 1px solid #aaa;
 }
@@ -546,8 +555,8 @@ figure {
 }
 
 figcaption {
-    font-size: .65em;
-    padding: .25em .5em;
+    font-size: 0.65em;
+    padding: 0.25em 0.5em;
     background: #211000;
     color: #fff;
 }
@@ -562,14 +571,14 @@ pre,
     width: calc(100% + calc(4 * var(--spacing)));
     overflow: auto;
     font-size: 90%;
-    border-left: .25em solid #ddd;
-    border-top: .25em solid #ddd;
+    border-left: 0.25em solid #ddd;
+    border-top: 0.25em solid #ddd;
 }
 
 .article__og-box {
     font-size: 1rem;
     font-weight: bold;
-    border: .25em solid var(--color-note--info-contrast);
+    border: 0.25em solid var(--color-note--info-contrast);
     background: var(--color-note--info);
     color: var(--color-note--info-contrast);
     padding: calc(var(--spacing) / 2);
@@ -589,70 +598,219 @@ blockquote {
 }
 
 blockquote cite {
-    font-size: .6em;
+    font-size: 0.6em;
     font-family: monospace;
-}</style>
+}
+</style>
   
   
   
-<link rel="canonical" href="https://kevingimbel.de/blog/2024/03/week-14-new-server-who-dis/" />
-
+  
 </head>
 <body>
   <main class="main-grid">
     
-
-<section class="[ f-ultra ] [ gr-auto gc-full ] [ c-full-width ] [ site-nav__wrapper ]">
-    <nav class="site-nav">
-        <a href="/ops/">Home</a> 
-        <a href="/blog/">Blog</a> 
-        <a href="/about/">About</a>
-    </nav>
-</section>
-
-<section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
-    
-    <div class="article__og-box">
-        <p><i>"Week 14: New server who dis?"</i> was originally published on <a href="https://kevingimbel.de/blog/2024/03/week-14-new-server-who-dis/" target="_blank" rel="nofollow" title="Read 'Week 14: New server who dis?' on kevingimbel.de">kevingimbel.de</a>.</p>
-    </div>
-    <hr />
-    <div class="content">
-        <h1>Week 14: New server who dis?</h1>
+<section class="stack single-page [ f-ultra ] [ gr-auto gc-full ] [ c-full-width ]">
+    <div class="content centered">
+        <header>
+            <h1>mktoc</h1>
+            <nav class="f-small">
+            <p><a href="/">Home</a>
+                / <a href="/oss/">Open Source Software</a>
+                / <em>mktoc</em>
+                </p>
+                <hr>
+            </nav>
+        </header>
         
-<p>I&#8217;ve been moving servers around and it&#8217;s  ✨ s t r e s s f u l  ✨</p>
+<p><code>mktoc</code> (<em>make table of contents</em>) is a CLI tool written in Rust to generate Table of Contents in Markdown files. It can be hooked up to execute on file save with third-party extensions like &#8220;<a href="https://github.com/emeraldwalk/vscode-runonsave">Run on Save</a>&#8221; for VSCode.</p>
 
 
 
-<ul>
-<li>☁️ I turned off one of the bigger servers I had, moving my site (kevingimbel.de) off this server and onto a new one, live-migrating everything including Let&#8217;s Encrypt certificates and DNS which is a very shitty combination. Very stressful, but it worked out.</li>
+<h2 class="wp-block-heading">Usage</h2>
 
 
 
-<li>🏋️ Speaking of work out, I did not. I&#8217;m finally no longer sick, but I just didn&#8217;t find the time this week &#8211; really sucks! Next week will be better.</li>
+<h3 class="wp-block-heading">CLI</h3>
 
 
 
-<li>📦 In a all-hands-on we moved a cluster and related infra from one AWS account to the other, things went smooth and it was a nice experience working with all my colleagues in a big session together. Since my team is full remote, I really miss this sort of &#8220;get &amp; work together&#8221;</li>
+<p>mktoc provides a few options and has sensible default values, see below.</p>
 
 
 
-<li>🎁 We got brand new Hoodies @ <a href="https://jobs.aoe.com/de/home.html">AOE</a>, and they&#8217;re really comfy! 👇</li>
-</ul>
+<pre class="wp-block-code has-tiny-font-size"><code lang="bash" class="language-bash">$ mktoc README.md
+$ mktoc -m 4 -M 2 README.md
+
+$ mktoc -h
+
+USAGE:
+mktoc [FLAGS] [OPTIONS] [file]
+
+FLAGS:
+-h, --help       Prints help information
+-s, --stdout     If set will output to stdout instead of replacing content in file
+-V, --version    Prints version information
+
+OPTIONS:
+-M, --max-depth &lt;max-depth&gt;    Maximum heading level [env: MKTOC_MAX_DEPTH=]  [default: 6]
+-m, --min-depth &lt;min-depth&gt;    Minimum heading level [env: MKTOC_MIN_DEPTH=2]  [default: 1]
+
+ARGS:
+&lt;file&gt;     [default: README.md]</code></pre>
 
 
 
-<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="768" height="1024" src="https://kevingimbel.de/wp-content/uploads/2024/03/IMG_2395-768x1024.jpeg" alt="Selfie in a mirror in a bathroom. Person standing  in front of mirror with a dark blue hoodie with small AOE print on the front left" class="wp-image-562" srcset="https://kevingimbel.de/wp-content/uploads/2024/03/IMG_2395-768x1024.jpeg 768w, https://kevingimbel.de/wp-content/uploads/2024/03/IMG_2395-225x300.jpeg 225w, https://kevingimbel.de/wp-content/uploads/2024/03/IMG_2395-1152x1536.jpeg 1152w, https://kevingimbel.de/wp-content/uploads/2024/03/IMG_2395-1536x2048.jpeg 1536w, https://kevingimbel.de/wp-content/uploads/2024/03/IMG_2395-scaled.jpeg 1920w" sizes="(max-width: 768px) 100vw, 768px" /><figcaption class="wp-element-caption">Bathroom selfie: A classic.</figcaption></figure>
+<p>The Markdown file must contain the following HTML comment:</p>
+
+
+
+<pre class="wp-block-code has-tiny-font-size"><code lang="markup" class="language-markup">&lt;!-- BEGIN mktoc --&gt;
+&lt;!-- END mktoc --&gt;</code></pre>
+
+
+
+<p>or optionally, it can contain a inline config</p>
+
+
+
+<pre class="wp-block-code has-tiny-font-size"><code lang="markup" class="language-markup">&lt;!-- BEGIN mktoc {"min_depth": 2, "max_depth": 4, "wrap_in_details": true} -->
+&lt;!-- END mktoc --></code></pre>
+
+
+
+<p>The ToC will be placed inside the comment.</p>
+
+
+
+<p><a href="https://docs.rs/clap/4.2.4/clap/" target="_blank" rel="noreferrer noopener">clap.rs</a> is used for CLI parameter setup and parsing which is a great library for handling CLI parameters in Rust. </p>
+
+
+
+<h3 class="wp-block-heading">Library</h3>
+
+
+
+<p>As a library <code>mktoc</code> provides one main function: <code>mktoc::make_toc()</code>. This function takes the file name and the min and max heading levels as arguments and returns a <code>Result&lt;String, ::std::io::Error&gt;</code>.</p>
+
+
+
+<p>There&#8217;s lots of text parsing and re-writing involved to get the heading levels right and build the Markdown menu. All of this can be found in the <a href="https://github.com/KevinGimbel/mktoc/blob/master/src/lib.rs">src/lib.rs</a> file.</p>
+
+
+
+<p>Building mktoc is a  great exercise in file parsing. I use the tool everyday with the <em>Run on Save</em> plugin in VSCode to generate  Table of Contents in README files, and I like the challenges it brings. Doing all parsing by myself instead of using a finished markdown parser is a great exercise.</p>
+
+
+
+<figure class="wp-block-table"><table><tbody><tr><td>Source</td><td><a href="https://github.com/KevinGimbel/mktoc">https://github.com/KevinGimbel/mktoc</a></td></tr><tr><td>crates.io</td><td><a href="https://crates.io/crates/mktoc">https://crates.io/crates/mktoc</a></td></tr><tr><td>Docs.rs</td><td><a href="https://docs.rs/mktoc/latest/mktoc/">https://docs.rs/mktoc/latest/mktoc/</a></td></tr></tbody></table></figure>
 
     </div>
 </section>
 
-
-    <section id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent ] [ c-full-width ] [ footer ]">
+    <footer id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent ] [ c-full-width ] [ footer ]">
       <div class="content">
-        <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.4, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>. <a href="/imprint">Imprint</a></p>
-        <p class="f-small">Views and opinions expressed on this websites do not represents views and opinions of my employer.</p>
+        <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.4, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
+        <p class="f-small">More pages on this website:</p>
+        
+        
+            <a href="/uses/" class="f-small" title="Uses">Uses</a>
+        
+        
+        
+            <a href="/blogroll/" class="f-small" title="Blogroll">Blogroll</a>
+        
+        
+        
+        
+        
+            <a href="/games/" class="f-small" title="Games">Games</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            <a href="/links/" class="f-small" title="Links">Links</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            <a href="/oss/" class="f-small" title="Open Source Software">Open Source Software</a>
+        
+        
+        
+            <a href="/now/" class="f-small" title="Now">Now</a>
+        
+        
+        
+            <a href="/blog/" class="f-small" title="Blog">Blog</a>
+        
+        
+        
+            <a href="/" class="f-small" title="Home is where 127.0.0.1 is">Home is where 127.0.0.1 is</a>
+        
+        
+        
+            <a href="/imprint/" class="f-small" title="Imprint, or Impressum, or Legal Info, or whatever.">Imprint, or Impressum, or Legal Info, or whatever.</a>
+        
+        
+        
+            <a href="/about/" class="f-small" title="About me; part of any personal website since forever.">About me; part of any personal website since forever.</a>
+        
+        
+        
+            <a href="/privacy-policy/" class="f-small" title="Privacy Policy">Privacy Policy</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            <a href="/zines/" class="f-small" title="Zines">Zines</a>
+        
+        
+        
+        
+        
+            <a href="/series/" class="f-small" title="Series">Series</a>
+        
+        
+        
+            <a href="/photo-links/" class="f-small" title="Links">Links</a>
+        
+        
+        
+        
+        
+            <a href="/privacy-policy-2/" class="f-small" title="Privacy Policy">Privacy Policy</a>
+        
+        
+
+        <a href="/feed/" class="f-small" title="Subscribe via RSS">RSS Feed</a>
+
+        <p class="f-small"><b>↙↙↙</b> | Views and opinions expressed on this websites do not represents views and opinions of my employer.</p>
       </div>
-    </section>
+    </footer>
   </main>
 </body>
 <script>document.addEventListener('DOMContentLoaded', function () {
