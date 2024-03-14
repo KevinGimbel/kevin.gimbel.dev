@@ -446,7 +446,7 @@ section {
     margin-top: 0;
   }
 
-  section {
+  section, .single-page {
     padding: 2rem;
   }
 
