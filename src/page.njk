@@ -1,0 +1,34 @@
+---
+pagination:
+    data: kg_wp.pages
+    size: 1
+    alias: wp_page
+eleventyComputed:
+    title: "{{ wp_page.title.rendered | safe }}"
+    permalink: "{% if (['blog', '/', ''].indexOf(wp_page.link) >= 0) %}/mirror/{% endif %}/{{ wp_page.link }}"
+custom_styles:
+    - "article.css"
+---
+{% extends "base.njk" %}
+
+{% block content %}
+<section class="stack single-page [ f-ultra ] [ gr-auto gc-full ] [ c-full-width ]">
+    <div class="content centered">
+        <header>
+            <h1>{{ wp_page.title.rendered | safe }}</h1>
+            <nav class="f-small">
+            <p><a href="/">Home</a>
+                {% for page in kg_wp.pages -%}
+                    {%- if wp_page.parent == page.id -%}
+                       / <a href="/{{ page.link }}">{{ page.title.rendered | safe }}</a>
+                    {%- endif -%}
+                {% endfor %}
+                / <em>{{ wp_page.title.rendered }}</em>
+                </p>
+                <hr>
+            </nav>
+        </header>
+        {{ wp_page.content.rendered | safe }}
+    </div>
+</section>
+{% endblock %}

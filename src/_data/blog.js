@@ -1,5 +1,5 @@
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-const response = fetch('https://kevingimbel.de/wp-json/wp/v2/posts?orderby=date&order=desc&per_page=100');
+const response = fetch('https://kevingimbel.de/wp-json/wp/v2/posts?orderby=date&order=desc&per_page=100&categories=5,33,83,14');
 
 
 let data = response.then((response) => {

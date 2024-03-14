@@ -4,6 +4,7 @@ import { inspect } from "util";
 import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 const eleventyPackage = require("@11ty/eleventy/package.json");
+const WPEleventy = require("kg-eleventy-plugin-wordpress");
 
 export default async function (eleventyConfig) {
   // Copy `assets/css` to `_site/assets/css`
@@ -13,6 +14,17 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/.ht*");
   eleventyConfig.addPassthroughCopy("src/CNAME");
+
+  eleventyConfig.addPlugin(WPEleventy, {
+    base_url: "https://kevingimbel.de",
+    include: {
+      posts: false,
+      pages: true,
+      media: false,
+      tags: false,
+    },
+    data_name: "kg_wp",
+  });
 
   eleventyConfig.addCollection("sections", function (collectionApi) {
     // get unsorted items
@@ -24,26 +36,32 @@ export default async function (eleventyConfig) {
 
     posts.sort((a, b) => {
       return a.data.position - b.data.position;
-    })
+    });
 
     return posts;
   });
 
   eleventyConfig.addShortcode("11ty_meta", function (field) {
     if (eleventyPackage[field]) {
-      return eleventyPackage[field]
+      return eleventyPackage[field];
     }
     return "";
-  })
+  });
 
-  eleventyConfig.addFilter("debug", (content) => `<pre>${inspect(content)}</pre>`);
+  eleventyConfig.addFilter(
+    "debug",
+    (content) => `<pre>${inspect(content)}</pre>`,
+  );
 
-  eleventyConfig.addPairedShortcode("note", (content) => `<div class="note">${inspect(content)}</div>`);
+  eleventyConfig.addPairedShortcode(
+    "note",
+    (content) => `<div class="note">${inspect(content)}</div>`,
+  );
 
   return {
     dir: {
       input: "src",
-      output: "docs"
-    }
-  }
+      output: "docs",
+    },
+  };
 }

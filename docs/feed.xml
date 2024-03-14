@@ -3,7 +3,7 @@
     <title>KevinGimbel.Dev/Ops</title>
     <subtitle>DevOps, SRE, Rust, and all things related + some real life</subtitle>
     <link href="https://kevin.gimbel.dev/" rel="self"/>
-    <updated>2024-01-19T13:30:27</updated>
+    <updated>2024-03-12T08:46:30</updated>
     <id>https://kevin.gimbel.dev/</id>
     <author>
     <name>Kevin Gimbel</name>
@@ -11,100 +11,145 @@
     </author>
 
     <entry>
-        <title>Week 7: Sleep mask</title>
-        <link href="blog/2024/01/week-7-sleep-mask/" />
-        <updated>2024-01-19T13:30:27</updated>
-        <id>https://kevin.gimbel.dev/blog/2024/01/week-7-sleep-mask/</id>
+        <title>I don&#8217;t like Python</title>
+        <link href="blog/2024/03/i-dont-like-python/" />
+        <updated>2024-03-12T08:46:30</updated>
+        <id>https://kevin.gimbel.dev/blog/2024/03/i-dont-like-python/</id>
         <content xml:lang="en" type="html">
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🤿 I spent the first night at home with my sleep mask&lt;/strong&gt; and it was very shitty &amp;#8211; I slept well and I guess I didn&amp;#8217;t stop breathing at night which is cool but it&amp;#8217;s also very uncomfortable &amp;#8211; I hope I won&amp;#8217;t need it for the rest of my life.&lt;/li&gt;
+&lt;p&gt;&amp;#8230; and there&amp;#8217;s a reason: &lt;em&gt;Dependency Management&lt;/em&gt;.&lt;/p&gt;
 
 
 
-&lt;li&gt;🤔 It baffles me that it took this long &amp;#8211; and my wife&amp;#8217;s sharp mind &amp;#8211; to realise something is wrong with my sleeping. I&amp;#8217;ve been to (multiple) doctors related to snorting at night and always feeling tired and shitty. Now within two months I&amp;#8217;m hooked to a oxygen mask at night so I won&amp;#8217;t suffocate &amp;#8211; &lt;em&gt;the fuck??&lt;/em&gt;&lt;/li&gt;
+&lt;p&gt;Coming from languages like Node, Go, and Rust I am used to decent dependency management (&lt;em&gt;although Go was really bad at it for the first years&lt;/em&gt;, and has become decent only recently with the addition of &lt;code&gt;go mod&lt;/code&gt;.). Python, &lt;em&gt;in my opinion&lt;/em&gt;, lacks a good and well-defined Package Management. I&amp;#8217;m sure there are ways, but the past days I spent working with and around Virtual Environments, global installations, and figuring out what the heck &lt;a href=&quot;https://peps.python.org/pep-0668/&quot;&gt;PEP-668&lt;/a&gt; is supposed to mean. I don&amp;#8217;t want to rant, I could do that on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel&quot;&gt;Mastodon&lt;/a&gt; or &lt;a href=&quot;https://bsky.app/profile/kevin.gimbel.dev&quot;&gt;Bsky&lt;/a&gt;. No, I want to share some of my thoughts as a non-Python Developer having to work with Python as part of my Job.&lt;/p&gt;
 
 
 
-&lt;li&gt;💍 &lt;strong&gt;Shoutout to my wife again &amp;lt;3&lt;/strong&gt;&lt;/li&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: There&amp;#8217;s a not-so-small chance I&amp;#8217;m just not deep enough into Python and its eco system. I&amp;#8217;m very happy to learn and discuss so &lt;em&gt;please tell me&lt;/em&gt; if and where I am wrong.&lt;br&gt;Also, I do enjoy writing Python. It&amp;#8217;s a fun language, and I&amp;#8217;m starting to like it. This is also part of the reason I&amp;#8217;m so frustrated with the package and dependency management.&lt;/p&gt;
 
 
 
-&lt;li&gt;🤖 Been working on some Terraform code at work and I&amp;#8217;m enjoying it&lt;/li&gt;
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;pip&lt;/h2&gt;
 
 
 
-&lt;li&gt;📚 I&amp;#8217;ve read a lot, mainly &lt;a href=&quot;https://en.wikipedia.org/wiki/Circe_(novel)&quot;&gt;Circe&lt;/a&gt; and &lt;a href=&quot;https://anarchistfaq.org/afaq/&quot;&gt;An Anarchist FAQ&lt;/a&gt;.&lt;br&gt;Circe is a beautifully written novel about the &lt;a href=&quot;https://en.wikipedia.org/wiki/Circe&quot;&gt;minor greek goddess&lt;/a&gt; of the same name; An Anarchist FAQ is a FAQ-style online wiki thingy about Anarchism which clears up a lot of common misunderstandings related to Anarchism.&lt;/li&gt;
+&lt;p&gt;My first touchpoint with Python dependency management was &lt;a href=&quot;https://pypi.org/project/pip/&quot;&gt;pip&lt;/a&gt;. It&amp;#8217;s a tool which can be used to install python packages, for example by reading a &lt;code&gt;requirements.txt&lt;/code&gt; or being passed a name on the CLI directly. All the things are installed&amp;#8230; in a global directory?! In my case things are placed in &lt;code&gt;/opt/homebrew/lib/python3.12/site-packages&lt;/code&gt; &amp;#8211; and it looks as if this is where all the packages for all my installed tools are. 😳&lt;/p&gt;
 
 
 
-&lt;li&gt;❤️‍🔥 It warms my heart to see the people in Germany take to the streets after recent &lt;a href=&quot;https://www.theguardian.com/world/2024/jan/16/germans-take-to-streets-to-oppose-far-right-afds-mass-deportation-plan&quot;&gt;news of mass deportation plans by the far-right, facist AfD&lt;/a&gt; party were published. A list of protests can be found on &lt;a href=&quot;https://zusammen-gegen-rechts.org&quot;&gt;https://zusammen-gegen-rechts.org&lt;/a&gt;&lt;/li&gt;
+&lt;p&gt;So if two tools require different versions &amp;#8230; what happens? &lt;a href=&quot;https://pip.pypa.io/en/stable/topics/dependency-resolution/&quot;&gt;According to the pip documentation&lt;/a&gt;, pip will try and resolve all the dependencies and the dependency dependencies and so on &amp;#8211; it&amp;#8217;s a lot of resolving to do, and a complex task. This is something all package managers need to do, especially if they try to be smart about re-using already installed libraries.&lt;/p&gt;
 
 
 
-&lt;li&gt;✍️ 1.4 million(!) people &lt;a href=&quot;https://aktion.campact.de/weact/hocke-stoppen/teilnehmen&quot;&gt;support a petition on WeAct to strip Höcke , the facist leader of AfD in Türingen, of his Grundrecht which prevents him from running again&lt;/a&gt;, a measurement &lt;a href=&quot;https://www.gesetze-im-internet.de/gg/art_18.html&quot;&gt;backed by laws in Germany&lt;/a&gt;. I hope this momentum carries on and we&amp;#8217;ll see a lot less of the facist AfD in the future. &lt;a rel=&quot;tag&quot; class=&quot;hashtag u-tag u-category&quot; href=&quot;https://kevingimbel.de/blog/tag/fcknzs/&quot;&gt;#fcknzs&lt;/a&gt; &lt;/li&gt;
+&lt;p&gt;Anyhow, with pip install we have global packages and nothing is scoped to the tool being installed (or the library required by code). &lt;strong&gt;&lt;em&gt;Everything is global.&lt;/em&gt;&lt;/strong&gt; So we must be lucky that things don&amp;#8217;t break, and tool requirements must be loose to allow for minor or patch updates.&lt;/p&gt;
 
 
 
-&lt;li&gt;🤧 As I was partly sick and pretty occupied this past week I didn&amp;#8217;t do any sport. Sucks! Gotta get back on track &lt;/li&gt;
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;venv&lt;/h2&gt;
 
 
 
-&lt;li&gt;🎧 I&amp;#8217;ve listend to &amp;#8211; and reflected on &amp;#8211; the &lt;a href=&quot;https://lemonadamedia.com/podcast/social-media/&quot;&gt;&amp;#8220;social media&amp;#8221; episode of Hard Feelings&lt;/a&gt; by &lt;a href=&quot;https://en.wikipedia.org/wiki/Jennette_McCurdy&quot;&gt;Jennette McCurdy&lt;/a&gt;. Social Media, especially instagram which I&amp;#8217;ve used _a lot_ in the past 3 years to connect with photographers, gives me very little and costs me very much (time and energy, and mental health in a way), so I&amp;#8217;ve decided to take it slower. There&amp;#8217;s more important things in life which deserve my attention.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Enter &lt;code&gt;venv&lt;/code&gt;, or virtual environments. &lt;code&gt;venv&lt;/code&gt; itself is part of the &lt;a href=&quot;https://docs.python.org/3/library/venv.html&quot;&gt;Python standard library&lt;/a&gt; and solves the issue of globally installed dependencies. It creates a folder in the project path, installs all libraries into the path and uses pip and python binaries from this path as well so we have a encapsulated environment in which we can execute our code. This is awesome!&lt;/p&gt;
+
+
+
+&lt;p&gt;It feels a bit like &lt;code&gt;npm&lt;/code&gt;, which also installs copies of the used libraries in a local folder (&lt;code&gt;node_modules&lt;/code&gt;). Why this is not something pip does I do not understand. It seems reasonable to offer a way of managing and using virtual environment directly from pip-  which brings us to the next tool. &lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;pipx&lt;/h2&gt;
+
+
+
+&lt;p&gt;Now this are coming together!&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://pipx.pypa.io/stable/&quot;&gt;&lt;code&gt;pipx&lt;/code&gt; is a tool especially used for installing python executables&lt;/a&gt; &amp;#8211; in self-contained virtual environments, all managed by &lt;code&gt;pipx&lt;/code&gt;. This is functionallity I would expect from pip, and similar to &lt;code&gt;npm install -g&lt;/code&gt;, which installs a tool and its dependencies in a global scope.&lt;/p&gt;
+
+
+
+&lt;p&gt;With pipx, we &lt;em&gt;finally&lt;/em&gt; have a tool which allows us to execute a command like &amp;#8220;&lt;code&gt;pipx install ansible&lt;/code&gt;&amp;#8221; and get a fully working, venv-enabled ansible installation in &lt;code&gt;~/.local/pipx/venvs/ansible&lt;/code&gt; (the path may differ on your system).&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;Perfection&lt;/em&gt; 🧑‍🍳😘&lt;/p&gt;
+
+
+
+&lt;p&gt;Although pipx is a great solution, and I&amp;#8217;m using it for all tool installations myself, for my specific work-related case it wasn&amp;#8217;t a good solution. The problem I faced was developers having issues updating one of the tools my team provides them. They ran into the &lt;em&gt;PEP-668&lt;/em&gt; issue and couldn&amp;#8217;t update the tool unless they specified &lt;code&gt;--break-system-packages&lt;/code&gt; which isn&amp;#8217;t something they should do &amp;#8211; and I wouldn&amp;#8217;t want to tell them to do!&lt;/p&gt;
+
+
+
+&lt;p&gt;I ended up using &lt;code&gt;venv&lt;/code&gt; directly to ensure our tool is installed in a reliable location on ever users computer, the installer we used will also manage the &lt;code&gt;PATH&lt;/code&gt; by adding the venv binary into the &lt;code&gt;.bashrc&lt;/code&gt; or &lt;code&gt;.zshrc&lt;/code&gt;, and also creates a symlink into &lt;code&gt;/usr/local/bin&lt;/code&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;In the process I also added a &amp;#8220;update&amp;#8221; command to make further updates easier, and I found a nice way of doing it in my opinion:&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;python&quot; class=&quot;language-python&quot;&gt;import sys
+import subprocess
+
+def update():
+  subprocess.check_call([
+    sys.executable, 
+    &quot;-m&quot;, 
+    &quot;pip&quot;, 
+    &quot;install&quot;, 
+    &quot;-U&quot;, 
+    &quot;--index-url&quot;, f&quot;{index_url}&quot;, 
+    &quot;--extra-index-url&quot;, &quot;https://pypi.org/simple&quot;,  
+    &quot;toolname&quot;
+  ])&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;This code will use the python executable which is used to run the code, then execute a &lt;code&gt;pip install -U&lt;/code&gt; which updates the tool (here named &lt;code&gt;toolname&lt;/code&gt;). The python executable is the one from the virtual environment, so the update command is always executed in the context of the venv &amp;#8211; neat! 🐍&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Conclusion&lt;/h2&gt;
+
+
+
+&lt;p&gt;I wanna say that &lt;em&gt;&amp;#8220;I don&amp;#8217;t like Python&amp;#8221;&lt;/em&gt; was a little clickbait-y. I do like Python, and I see its benefits. Especially when compared to shell scripting, especially for &lt;a href=&quot;https://en.wikipedia.org/wiki/Glue_code&quot;&gt;Glue code&lt;/a&gt; in Infrastructure and in one-off tooling and scripting. Still, for complex CLI tools I, &lt;em&gt;personally&lt;/em&gt;, would choose either Go or Rust. Both have great libraries (&lt;a href=&quot;https://github.com/clap-rs/clap&quot;&gt;clap&lt;/a&gt; for Rust, and &lt;a href=&quot;https://github.com/spf13/cobra&quot;&gt;cobra&lt;/a&gt; for Go), compile to binaries, and are easy to distribute with all dependencies being bundled in the binary.&lt;/p&gt;
+
+
+
+&lt;p&gt;If you want to discuss this post, feel free to comment or join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/112081606795855915&quot;&gt;Mastodon&lt;/a&gt;, &lt;a href=&quot;https://bsky.app/profile/kevin.gimbel.dev/post/3knibkmkmgs2b&quot;&gt;Bluesky&lt;/a&gt;, or &lt;a href=&quot;https://www.linkedin.com/posts/kevingimbel_i-dont-likepython-activity-7173222831135117312-Jgh7?utm_source=share&amp;amp;utm_medium=member_desktop&quot;&gt;LinkedIn&lt;/a&gt;!&lt;/p&gt;
 </content>
     </entry>
     <entry>
-        <title>Week 6: Sports!</title>
-        <link href="blog/2024/01/week-6-sports/" />
-        <updated>2024-01-12T07:53:47</updated>
-        <id>https://kevin.gimbel.dev/blog/2024/01/week-6-sports/</id>
+        <title>A little hiccup</title>
+        <link href="blog/2024/03/a-little-hiccup/" />
+        <updated>2024-03-08T21:29:14</updated>
+        <id>https://kevin.gimbel.dev/blog/2024/03/a-little-hiccup/</id>
         <content xml:lang="en" type="html">
-&lt;ul&gt;
-&lt;li&gt;🏋️&lt;strong&gt; I went to the gym, yay!&lt;/strong&gt; I hope I can finally keep at it, given I&amp;#8217;ve been paying the membership for 3,5 yeas now and the longest streak I went was maybe 4 or 5 month.&lt;/li&gt;
+&lt;p&gt;Well, looks like kevingimbel.de was (partly?) down &amp;#8211; as far as I can tell the culprit was ipv6! In the past I&amp;#8217;ve not really bothered with ipv6 much but it feels odd to leave it out these days.&lt;/p&gt;
 
 
 
-&lt;li&gt;🤖 &lt;strong&gt;I started working on a &lt;s&gt;Rust&lt;/s&gt; &lt;s&gt;Python&lt;/s&gt; Node Script&lt;/strong&gt; to publish new posts on various social networks (&lt;em&gt;Mastodon&lt;/em&gt; and &lt;em&gt;LinkedIn&lt;/em&gt;)&lt;/li&gt;
-
-
-
-&lt;li&gt;🤷 &lt;strong&gt;I&amp;#8217;m still not sure how I want to consolidate my websites.&lt;/strong&gt; I think I&amp;#8217;ll move the photo blog to &lt;code&gt;kevingimbel.de&lt;/code&gt; and the tech blog to &lt;code&gt;kevin.gimbel.dev&lt;/code&gt; &amp;#8211; and keep a secondary, German blog for all things life and whatever. &lt;/li&gt;
-
-
-
-&lt;li&gt;I&amp;#8217;ve joined &lt;a href=&quot;https://en.wikipedia.org/wiki/Bluesky_(social_network)&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Bluesky&lt;/a&gt;, the new decentralised Twitter thingy. It feels a lot like the &lt;em&gt;Old Twitter&lt;/em&gt;, with some fresh breath. I&amp;#8217;m excited to see where this goes! I also plan on using this account privately and not for work; For work stuff you find me on Mastodon at &lt;a href=&quot;https://fosstodon.org/@KevinGimbel&quot;&gt;@KevinGimbel@Fosstodon.org&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;🐦‍⬛ &lt;a href=&quot;https://chat.openai.com/c/32851899-0083-49c3-a667-294825acb0d6&quot;&gt;I let ChatGPT write a poem about waifus on the internet in the style of Edgar Allan Poe&lt;/a&gt; &amp;#8211; it did a pretty good job. &lt;br&gt;My stand on AI is very torn; On one hand I see a lot of potential and it&amp;#8217;s fun to experiment with it, especially in a chat based way. On the other hand&lt;em&gt; they literally stole all the data&lt;/em&gt; &amp;#8211; &lt;em&gt;super uncool; And super illegal I guess?&lt;/em&gt; If AI was a common good, trained on public data usable for free by the public it would be a different story, but the case is: OpenAI uses public data without given consent to train AI and sell it for profit (same as the other AI companies). &lt;/li&gt;
-
-
-
-&lt;li&gt;😴 &lt;strong&gt;I spent two nights in a sleeping lab.&lt;/strong&gt; Very weird to be hooked up to lots of cables and monitored with a camera and some sort of Infrared (I think). The employees where super nice, and the room I stayed in wasn&amp;#8217;t bad as well. Late last year my wife suggested I may habe a &lt;a href=&quot;https://en.wikipedia.org/wiki/Sleep_apnea&quot;&gt;Sleep apnea&lt;/a&gt;, a sleep disorder in which breathing stops at night (scary!) and the body goes into some sort of panic mode to wake you up; Mostly one doesn&amp;#8217;t remember this the next day and the only clues we had was my (loud) snorting, which I&amp;#8217;ve had all my life, and me feeling unrested and shit almost every morning no matter how much I slept the night before. So anyway, here we are. Glad it&amp;#8217;s being looked into, and I&amp;#8217;m very glad I got appointments so quickly. &lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Sorry for the inconvenience to all my 2 readers, I&amp;#8217;m sure you&amp;#8217;ve missed my blog on this Friday night. Once I know more I’ll write a follow-up. &lt;/p&gt;
 </content>
     </entry>
     <entry>
-        <title>Week 5: Back in the office and Open Source</title>
-        <link href="blog/2024/01/week-5-back-in-the-office-and-open-source/" />
-        <updated>2024-01-05T10:07:11</updated>
-        <id>https://kevin.gimbel.dev/blog/2024/01/week-5-back-in-the-office-and-open-source/</id>
+        <title>RE: Hacking Terraform State for Privilege Escalation</title>
+        <link href="blog/2024/03/re-hacking-terraform-state-for-privilege-escalation/" />
+        <updated>2024-03-04T15:10:01</updated>
+        <id>https://kevin.gimbel.dev/blog/2024/03/re-hacking-terraform-state-for-privilege-escalation/</id>
         <content xml:lang="en" type="html">
-&lt;ul&gt;
-&lt;li&gt;⚙️ I released a new version of &lt;a href=&quot;https://github.com/KevinGimbel/eleventy-plugin-mermaid&quot;&gt;eleventy-plugin-mermaid&lt;/a&gt;, which now supports all the customisations one could wish for&lt;/li&gt;
+&lt;p&gt;An interesting attack vector which uses empty terraform providers and a modified state file to execute code! &lt;/p&gt;
 
 
 
-&lt;li&gt;🤖 Work on the Raspberry Pi 5 began and I&amp;#8217;m soooo excited, it&amp;#8217;s a lot of fun to work with hardware that&amp;#8217;s in the house and I&amp;#8217;m in awe of the Raspberry Pi 5&amp;#8217;s power &lt;/li&gt;
+&lt;blockquote class=&quot;wp-block-quote&quot;&gt;
+&lt;p&gt;There’s lots to be excited about as a red teamer and scared of as a blue teamer, but at the top of the list is that the attack does not require a “terraform apply”. &lt;strong&gt;Even if the human reviewing this plan doesn’t approve it, the code has already executed.&lt;/strong&gt;&lt;/p&gt;
+&lt;cite&gt;— Daniel Grzelak&lt;/cite&gt;&lt;/blockquote&gt;
 
 
 
-&lt;li&gt;🎒 My back still hurts from carrying a big backpack and suitcase after our Christmas trip. I hope it&amp;#8217;ll get better within the week as I want to start doing sports again! &lt;/li&gt;
-
-
-
-&lt;li&gt;💆 I had my monthly free massage at the office &amp;#8211; one of the perks of &lt;a href=&quot;https://www.aoe.com/en/career/vacancies.html&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;working at AOE&lt;/a&gt; (and coming to the Wiesbaden office!)&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Read the full article on &lt;a href=&quot;https://blog.plerion.com/hacking-terraform-state-privilege-escalation/&quot;&gt;https://blog.plerion.com/hacking-terraform-state-privilege-escalation/&lt;/a&gt;&lt;/p&gt;
 </content>
     </entry>
     <entry>
@@ -221,80 +266,6 @@
 </content>
     </entry>
     <entry>
-        <title>Week 4: Food-coma and a Raspberry Pi</title>
-        <link href="blog/2023/12/week-4-food-coma-and-a-raspberry-pi/" />
-        <updated>2023-12-31T13:04:23</updated>
-        <id>https://kevin.gimbel.dev/blog/2023/12/week-4-food-coma-and-a-raspberry-pi/</id>
-        <content xml:lang="en" type="html">
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Christmas was fun&lt;/strong&gt;. Spending time with family and (a little too much) good food left me in a food coma on the sofa 🫃&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;I ordered a Raspberry Pi 5&lt;/strong&gt; to be used as a home server. It’s the first step in reducing my cloud server usage and also the monthly pricing that comes with it. I’ll write about it as I implement the things I’ve planned. &lt;/li&gt;
-
-
-
-&lt;li&gt;We visited family over the holidays and it was super nice to be out of the house and spent time with them. Hopefully there’ll be more of that next year!&lt;/li&gt;
-
-
-
-&lt;li&gt;I finished “Galactic North”, a short story collection by Alastair Reynolds and I’m once again in awe. Definitely my favourite author! &lt;/li&gt;
-
-
-
-&lt;li&gt;I’ve read a few more short stories, among them two by Edgar Allan Poe which sparked my interest in his writing. It’s all free and public domain so I’ll read more of him! &lt;/li&gt;
-
-
-
-&lt;li&gt;Also, happy new year to y’all hope you have a wonderful 2024! &lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    </entry>
-    <entry>
-        <title>Week 3: More sleep</title>
-        <link href="blog/2023/12/week-3-more-sleep/" />
-        <updated>2023-12-22T10:38:24</updated>
-        <id>https://kevin.gimbel.dev/blog/2023/12/week-3-more-sleep/</id>
-        <content xml:lang="en" type="html">
-&lt;ul&gt;
-&lt;li&gt;After last weeks Christmas party I got a sick &amp;#8211; no Corona luckily! Nevertheless  I worked from home all week just to be on the safe side.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;I should sleep more.&lt;/strong&gt; Once again I chose to not call in sick in the beginning of the week and &amp;#8220;buckled up&amp;#8221; instead. &lt;em&gt;(I want to be clear that &lt;strong&gt;this is my mistake&lt;/strong&gt;, not my employers! I still have the mindset I need to be available all the time from years of being in very small teams (or the only person responsible))&lt;/em&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Working from home sucks&lt;/strong&gt;. I really do not like this anymore. I want to be in the office, I want to have a dedicated place I work and not work from my bedroom.&lt;/li&gt;
-
-
-
-&lt;li&gt;With Christmas around the corner I look forward to some quite time with the family. Growing older I thoroughly enjoy the time spent with loved once.&lt;/li&gt;
-
-
-
-&lt;li&gt;I finished reading &amp;#8220;&lt;a href=&quot;https://nerdcultu.re/2023/12/19/we-are-all-completely-beside-ourselves-karen-joy-fowler/&quot;&gt;We Are All Completely Beside Ourselves&lt;/a&gt;&amp;#8221; by Karen Joy Fowler and really enjoyed it!&lt;/li&gt;
-
-
-
-&lt;li&gt;I also read &amp;#8220;&lt;a href=&quot;https://www.goodreads.com/book/show/25664965-a-spy-in-europa&quot;&gt;A Spy in Europa&lt;/a&gt;&amp;#8220;, a short-story by Alastair Reynolds and enjoyed this as well.&lt;/li&gt;
-
-
-
-&lt;li&gt;I look forward to reading some more short stories from the &amp;#8220;Galactic North&amp;#8221; collection by Alastair Reynolds over the holidays&lt;/li&gt;
-
-
-
-&lt;li&gt;I started planning a big ol&amp;#8217; website restructure for 2024 by doing a classic Mind Map. The idea is to replace my 3 WordPress websites with one WordPress Multisite which I then use to render 3 11ty websites; Effectively using WordPress only for the CMS part.&lt;/li&gt;
-
-
-
-&lt;li&gt;I also started working on a Rust tool named &amp;#8220;&lt;code&gt;rss2social&lt;/code&gt;&amp;#8221; which I want to use to post my blog feeds automatically to Mastodon and LinkedIn. So far it doesn&amp;#8217;t do much.&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    </entry>
-    <entry>
         <title>Eleventy 3.0.0-alpha.2</title>
         <link href="blog/2023/12/eleventy-3-0-0-alpha-2/" />
         <updated>2023-12-21T09:09:23</updated>
@@ -339,64 +310,6 @@
 
 &lt;li&gt;&lt;a href=&quot;https://www.11ty.dev/blog/canary-eleventy-v3/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://www.11ty.dev/blog/canary-eleventy-v3/ &lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-    </entry>
-    <entry>
-        <title>Week 2: Christmas Party</title>
-        <link href="blog/2023/12/week-2-christmas-party/" />
-        <updated>2023-12-13T10:33:25</updated>
-        <id>https://kevin.gimbel.dev/blog/2023/12/week-2-christmas-party/</id>
-        <content xml:lang="en" type="html">
-&lt;ul&gt;
-&lt;li&gt;There was a major incident at work. Of course it was &lt;a href=&quot;https://en.wikipedia.org/wiki/Domain_Name_System&quot;&gt;DNS&lt;/a&gt;. A truly exciting experience, but one I don’t need again. 🤖&lt;/li&gt;
-
-
-
-&lt;li&gt;I held a &lt;a href=&quot;https://www.aoe.com/en/academy/cloud-devops/kubernetes-101.html&quot;&gt;two-day Kubernetes Workshop&lt;/a&gt; with my colleague Simon which we could barely prepare for because of the incident. I&amp;#8217;m glad we&amp;#8217;ve held it a few times already so it was still good and feedback was very positive! ⎈&lt;/li&gt;
-
-
-
-&lt;li&gt;The company Christmas party happened at &lt;a href=&quot;https://www.halle45.de&quot;&gt;HALLE 45&lt;/a&gt; in Mainz! Good food, table tennis (which is a BIG thing at AOE 🏓), dancing, more table tennis, and Glühwein made the evening a fun time! 🎉 There was a Kettcar race and a ugly Christmas sweater contest, and now I’m  looking forward to the after movie! &lt;/li&gt;
-
-
-
-&lt;li&gt;I watched &lt;a href=&quot;https://www.imdb.com/title/tt0118583/&quot;&gt;Alien: Resurrection&lt;/a&gt;, the only one I couldn’t watch when I watched all  the other movies including prequels on a &lt;em&gt;two-day-binge-watch weekend&lt;/em&gt;. The movie was good. 👾&lt;/li&gt;
-
-
-
-&lt;li&gt;A few weeks ago, the wife and I started watching Doctor Who with &lt;a href=&quot;https://en.wikipedia.org/wiki/Jodie_Whittaker&quot;&gt;Jodie Whittaker&lt;/a&gt; as the &lt;a href=&quot;https://en.wikipedia.org/wiki/Thirteenth_Doctor&quot;&gt;Thirteenth Doctor&lt;/a&gt; &amp;#8211; finally! When she started being the Doctor there was no legal way of streaming in Germany, so we didn’t watch it. Luckily, now Amazon Prime offers a BBC subscription for 3,99€/months so we are finally able to watch it! 👩‍⚕️&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    </entry>
-    <entry>
-        <title>Week 1: Off call</title>
-        <link href="blog/2023/12/week-1-off-call/" />
-        <updated>2023-12-12T10:15:01</updated>
-        <id>https://kevin.gimbel.dev/blog/2023/12/week-1-off-call/</id>
-        <content xml:lang="en" type="html">
-&lt;ul&gt;
-&lt;li&gt;My first all alone on-call duty is over with no incident!&lt;/li&gt;
-
-
-
-&lt;li&gt;I&amp;#8217;ve had a good time working on &lt;a href=&quot;https://kevin.gimbel.dev/&quot;&gt;kevin.gimbel.dev&lt;/a&gt;, enjoying working with 11ty, HTML, CSS, and JavaScript. Despite doing DevOps / SRE / Platform Engineering full time I still love doing web dev&lt;/li&gt;
-
-
-
-&lt;li&gt;I&amp;#8217;m once again at a point where I wonder if I want to combine all my websites back into one. I&amp;#8217;ve spent considerable time moving from one-site-for-all to four different once. For now I&amp;#8217;ll not do it.&lt;/li&gt;
-
-
-
-&lt;li&gt;Hosting stuff is expensive. I pay 40 EUR each month for my two web servers and I&amp;#8217;d like to cut costs, maybe by hosting some non-public stuff at home (&lt;em&gt;Rabbit hole potential!&lt;/em&gt;)&lt;/li&gt;
-
-
-
-&lt;li&gt;I&amp;#8217;ll need to up my Python game, as there&amp;#8217;s a lot of Python Glue-code and tooling at work and even if I&amp;#8217;m not the biggest fan of Python I am no longer a one person team so it&amp;#8217;s time to adapt 🙂 &lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;(Let&amp;#8217;s see how long I can keep week notes up. Heavily inspited by &lt;a href=&quot;https://alicebartlett.co.uk/blog/weaknotes&quot;&gt;Alice Bartlett and her weaknotes&lt;/a&gt; &amp;#8211; not sure how personal I want to get.)&lt;/p&gt;
 </content>
     </entry>
     <entry>
@@ -1601,23 +1514,6 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
 </content>
     </entry>
     <entry>
-        <title>A new chapter</title>
-        <link href="blog/2023/04/a-new-chapter/" />
-        <updated>2023-04-02T12:40:43</updated>
-        <id>https://kevin.gimbel.dev/blog/2023/04/a-new-chapter/</id>
-        <content xml:lang="en" type="html">
-&lt;p&gt;In January 2014, I joined Synoa in its founding days as a Web Developer, focused on Magento 1 and WordPress at the time.&lt;/p&gt;
-
-
-
-&lt;p&gt;Now, 9 years later, I decided it’s time to move on. I’m super exited to say that as of April 2023 I’ve joined &lt;a rel=&quot;noreferrer noopener&quot; href=&quot;https://aoe.com&quot; target=&quot;_blank&quot;&gt;AOE &lt;/a&gt;as a DevOps Engineer!&lt;/p&gt;
-
-
-
-&lt;p&gt;🥳&lt;/p&gt;
-</content>
-    </entry>
-    <entry>
         <title>Unpinned dependencies just broke my plugin</title>
         <link href="blog/2023/02/unpinned-dependencies-just-broke-my-plugin/" />
         <updated>2023-02-22T16:55:56</updated>
@@ -1787,56 +1683,6 @@ jobs:
 
 
 &lt;p&gt;&lt;/p&gt;
-</content>
-    </entry>
-    <entry>
-        <title>Back to basics: WordPress!</title>
-        <link href="blog/2022/11/back-to-basics-wordpress/" />
-        <updated>2022-11-21T12:28:35</updated>
-        <id>https://kevin.gimbel.dev/blog/2022/11/back-to-basics-wordpress/</id>
-        <content xml:lang="en" type="html">
-&lt;p&gt;If you&amp;#8217;re a regular (LOL) on this website you may have noticed that literally everything is different and all old content is gone as well. Sorry about that!&lt;/p&gt;
-
-
-
-&lt;p&gt;I&amp;#8217;ve moved my website from a static webpage made with 11ty to a WordPress powered site again because I&amp;#8217;ve noticed over the past years that Markdown-based solutions slow me down in simply creating content; They&amp;#8217;re amazing tools, and I love working with 11ty, but I don&amp;#8217;t like publishing content with it.&lt;/p&gt;
-
-
-
-&lt;p&gt;So, full cycle I&amp;#8217;ve come back to WordPress, the first CMS I ever used back in 2009ish when I first started writing about tech stuff.&lt;/p&gt;
-
-
-
-&lt;h2 class=&quot;wp-block-heading&quot;&gt;What to expect?&lt;/h2&gt;
-
-
-
-&lt;p&gt;Nothing, really. &lt;/p&gt;
-
-
-
-&lt;p&gt;I want to write about things I learn but I don&amp;#8217;t want to pressure myself into writing X articles each month or week or whatever; I just want to write when I have something to write about.&lt;/p&gt;
-
-
-
-&lt;p&gt;So that&amp;#8217;s it.&lt;/p&gt;
-
-
-
-&lt;p&gt;So long, and thanks for all the fish 🐟&lt;/p&gt;
-</content>
-    </entry>
-    <entry>
-        <title>Hello, world!</title>
-        <link href="blog/2022/11/hello-world/" />
-        <updated>2022-11-16T12:02:17</updated>
-        <id>https://kevin.gimbel.dev/blog/2022/11/hello-world/</id>
-        <content xml:lang="en" type="html">
-&lt;p&gt;The classic first blog post.&lt;/p&gt;
-
-
-
-&lt;p&gt;This post marks the move to WordPress. All content before this one is from my old 11ty based website.&lt;/p&gt;
 </content>
     </entry>
     <entry>
@@ -3011,6 +2857,206 @@ http_status{job=&quot;customer-prd&quot;,instance=&quot;https://some-api.link/se
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://prometheus.io/docs/prometheus/latest/querying/basics/&quot;&gt;Prometheus Query documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </entry>
+    <entry>
+        <title>Apply a patch from a Github PR</title>
+        <link href="blog/2020/12/apply-a-patch-from-a-github-pr/" />
+        <updated>2020-12-04T09:23:00</updated>
+        <id>https://kevin.gimbel.dev/blog/2020/12/apply-a-patch-from-a-github-pr/</id>
+        <content xml:lang="en" type="html">
+&lt;p&gt;Ever found yourself needing that one fix from a PR on GitHub that hasn&amp;#8217;t been released yet? How can you get the code, for example a Magento fix, into your code base? Copy-paste it? That might work for small changes, but for large and complex changes copy-pasting is no solution. Luckily, we can use GitHub to generate a patch file, which can then be applied with either the&amp;nbsp;&lt;code&gt;git&lt;/code&gt;&amp;nbsp;or&amp;nbsp;&lt;code&gt;patch&lt;/code&gt;&amp;nbsp;command.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;patch-file what?&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2020/12/04-apply-patch-from-github-pr/index.md#patch-file-what&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;A patch file is a text file containing instructions on how to apply a change to files. If you run&amp;nbsp;&lt;code&gt;git diff&lt;/code&gt;&amp;nbsp;and see the changed files with&amp;nbsp;&lt;code&gt;+/-&lt;/code&gt;&amp;nbsp;in front of lines that were added (&lt;code&gt;+&lt;/code&gt;) or removed (&lt;code&gt;-&lt;/code&gt;) you are looking at a patch file.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Example code&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2020/12/04-apply-patch-from-github-pr/index.md#example-code&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;For illustration purpose I created a example repo:&amp;nbsp;&lt;a href=&quot;https://github.com/KevinGimbel/blog-patch-example&quot;&gt;https://github.com/KevinGimbel/blog-patch-example&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;You can clone the main branch and then apply the patch from the&amp;nbsp;&lt;a href=&quot;https://github.com/KevinGimbel/blog-patch-example/pull/1&quot;&gt;Pull Request&lt;/a&gt;&amp;nbsp;to it, if you want to follow along.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Getting the patch file&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2020/12/04-apply-patch-from-github-pr/index.md#getting-the-patch-file&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;First we will need to get the patch file. GitHub makes this easy, but for some reason hides it from us. You can &lt;strong&gt;append .patch to the URL of any pull request to get the patch file&lt;/strong&gt;. So for the example above, open the URL &lt;a href=&quot;https://github.com/KevinGimbel/blog-patch-example/pull/1.patch&quot;&gt;https://github.com/KevinGimbel/blog-patch-example/pull/1.patch&lt;/a&gt; to see the plain text patch file.&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;From 6da12536ff4da0efdabdf1a4dd55ded127fa247c 
+Mon Sep 17 00:00:00 2001 
+From: Kevin Gimbel &amp;lt;hallo@kevingimbel.com&gt; 
+Date: Fri, 4 Dec 2020 16:31:30 +0100 
+Subject: [PATCH] docs: add actual URL 
+
+&lt;strong&gt;---&lt;/strong&gt; README.md | 2 +- 1 file changed, 
+1 insertion(+), 1 deletion(-) 
+diff --git a/README.md b/README.md 
+index 0fe5e72..7f6398a 100644 
+--- a/README.md 
++++ b/README.md 
+&lt;strong&gt;@@ -2,4 +2,4 @@&lt;/strong&gt; 
+
+This repo is part of a Blog Post on how to get and apply patch files from GitHub.com 
+
+-You can read the full post here: ENTER_URL_HERE 
+&#92; No newline at end of file 
+
++You can read the full post here: [https://kevingimbel.de/blog/2020/12/apply-patch-from-github-pr/](https://kevingimbel.de/blog/2020/12/apply-patch-from-github-pr/) 
+&#92; No newline at end of file&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;The patch file is both human and machine readable. Now to continue, get the patchfile!&lt;/p&gt;
+
+
+
+&lt;ol&gt;
+&lt;li&gt;Open a terminal and navigate to the repo you cloned earlier (&lt;code&gt;github.com/KevinGimbel/blog-patch-example&lt;/code&gt;)&lt;/li&gt;
+
+
+
+&lt;li&gt;Download the patch file with&amp;nbsp;&lt;code&gt;wget&lt;/code&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;$ wget &quot;https://github.com/KevinGimbel/blog-patch-example/pull/1.patch&quot;&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;This downloads a file named &lt;code&gt;1.patch&lt;/code&gt; into the current directory, which we can verify by running &lt;code&gt;ls -l&lt;/code&gt;&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;ls -l 
+total 16 
+-rw-r--r--@ 1 kevingimbel staff 733 Dec 4 16:33 1.patch # 👈 there it is 
+-rw-r--r-- 1 kevingimbel staff 155 Dec 4 16:33 README.md&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;You can look at the file if you want to, it contains the same text as the example in this article.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Applying a patch with&amp;nbsp;&lt;code&gt;git&lt;/code&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2020/12/04-apply-patch-from-github-pr/index.md#applying-a-patch-with-git&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;We can use&amp;nbsp;&lt;code&gt;git&lt;/code&gt;&amp;nbsp;to apply the patch. For manual patching git has the&amp;nbsp;&lt;code&gt;apply&lt;/code&gt;&amp;nbsp;command: If we want to test the changes to see if they can be applied but don&amp;#8217;t want to change any files yet, we can use the&amp;nbsp;&lt;code&gt;--check&lt;/code&gt;&amp;nbsp;and&amp;nbsp;&lt;code&gt;-v&lt;/code&gt;&amp;nbsp;(verbose) flag:&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;$ git apply -v --check 1.patch
+Checking patch README.md...
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;To really apply the patch, we remove the &lt;code&gt;--check&lt;/code&gt; flag:&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;$ git apply -v 1.patch 
+Checking patch README.md... Applied patch README.md cleanly.&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;Now check the &lt;code&gt;README.md&lt;/code&gt; file and you&amp;#8217;ll see the new content!&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;$ cat README.md 
+# blog-patch-example 
+This repo is part of a Blog Post on how to get and apply patch files from GitHub.com You can read the full post here: [https://kevingimbel.de/blog/2020/12/apply-patch-from-github-pr/](https://kevingimbel.de/blog/2020/12/apply-patch-from-github-pr/)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Patching without git&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2020/12/04-apply-patch-from-github-pr/index.md#patching-without-git&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Sometimes you may not have git available, especially when patching software running on some server that &amp;#8211; for whatever reasons &amp;#8211; has no deployment process (no judging here!) or version control.&lt;/p&gt;
+
+
+
+&lt;p&gt;Even without the&amp;nbsp;&lt;code&gt;git&lt;/code&gt;&amp;nbsp;command the patch can still be applied by using the&amp;nbsp;&lt;code&gt;patch&lt;/code&gt;&amp;nbsp;tool installed on most (all?) Linux systems. To do this, follow these steps:&lt;/p&gt;
+
+
+
+&lt;ol&gt;
+&lt;li&gt;Get the patch from the pull request by appending &lt;code&gt;.patch&lt;/code&gt; to the URL&lt;/li&gt;
+
+
+
+&lt;li&gt;Apply the patch with the&amp;nbsp;&lt;code&gt;patch&lt;/code&gt;&amp;nbsp;command&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;$ patch -p 1 &amp;lt; filename.patch 
+
+# To try out changes first, use `--dry-run` 
+$ patch -p 1 --dry-run &amp;lt; filename.patch&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;And that&amp;#8217;s it for today! Feel free to create PRs in the repo&amp;nbsp;&lt;a href=&quot;https://github.com/KevinGimbel/blog-patch-example/&quot;&gt;https://github.com/KevinGimbel/blog-patch-example/&lt;/a&gt;&amp;nbsp;if you want to play around with patching.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Additional resources&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/KevinGimbel/kevingimbel.de/blob/main/src/_blog/2020/12/04-apply-patch-from-github-pr/index.md#additional-resources&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://linux.die.net/man/1/patch&quot;&gt;patch man page&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://git-scm.com/docs/git-apply&quot;&gt;git apply documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </entry>
