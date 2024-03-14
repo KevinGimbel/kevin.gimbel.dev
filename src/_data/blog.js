@@ -12,8 +12,7 @@ let data = response.then((response) => {
             link: item.link,
             content: item.content.rendered.replace("comment below 👇", `<a href="${item.link}#respond">comment on the original article on kevingimbel.de</a>`),
             excerpt: item.excerpt.rendered,
-            slug: item.link.replace('https://kevingimbel.de/', ''),
-            date: item.date
+            slug: item.link.replace('https://kevingimbel.de/', '')
         }
         _posts.push(post);
 
