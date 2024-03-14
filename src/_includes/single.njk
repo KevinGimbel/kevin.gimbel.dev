@@ -4,11 +4,13 @@
 
 {% block content %}
 
-{% include "nav.njk" %}
-
-<section class="[ f-ultra stack ] [ box-shadow__styled ] [ gr-auto gc-full ] single-page">
-  <div class="content">
-    {{ content | safe }}
-  </div>
+<section class="stack single-page [ f-ultra ] [ gr-auto gc-full ] [ c-full-width ]">
+    <div class="content centered">
+        <header>
+            <h1>{{ title}}</h1>
+            {% include "site-nav.njk" %}
+        </header>
+        {{ content | safe }}
+    </div>
 </section>
 {% endblock %}

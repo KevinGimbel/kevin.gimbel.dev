@@ -504,17 +504,18 @@ section {
   <main class="main-grid">
     
 
-<section class="[ f-ultra ] [ gr-auto gc-full ] [ c-full-width ] [ site-nav__wrapper ]">
-    <nav class="site-nav">
-        <a href="/ops/">Home</a> 
-        <a href="/blog/">Blog</a> 
-        <a href="/about/">About</a>
-    </nav>
-</section>
-
-<section class="[ f-ultra stack ] [ box-shadow__styled ] [ gr-auto gc-full ] single-page">
-  <div class="content">
-    <p>Responsible for the content of this website:</p>
+<section class="stack single-page [ f-ultra ] [ gr-auto gc-full ] [ c-full-width ]">
+    <div class="content centered">
+        <header>
+            <h1>Imprint</h1>
+            <nav class="f-small">
+    <p><a href="/">Home</a>
+    / <em>Imprint</em>
+    </p>
+    <hr>
+</nav>
+        </header>
+        <p>Responsible for the content of this website:</p>
 <p><strong>Kevin Gimbel</strong><br>
 Wiesbaden, Germany<br>
 Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
@@ -534,109 +535,13 @@ Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
 <li><a href="https://www.linkedin.com/in/denis-zas/">Denis Zastanceanu</a> for the amazing photos of me</li>
 </ul>
 
-  </div>
+    </div>
 </section>
 
     <footer id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent ] [ c-full-width ] [ footer ]">
       <div class="content">
         <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.4, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
-        <p class="f-small">More pages on this website:</p>
         
-        
-            <a href="/uses/" class="f-small" title="Uses">Uses</a>
-        
-        
-        
-            <a href="/blogroll/" class="f-small" title="Blogroll">Blogroll</a>
-        
-        
-        
-        
-        
-            <a href="/games/" class="f-small" title="Games">Games</a>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-            <a href="/links/" class="f-small" title="Links">Links</a>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-            <a href="/oss/" class="f-small" title="Open Source Software">Open Source Software</a>
-        
-        
-        
-            <a href="/now/" class="f-small" title="Now">Now</a>
-        
-        
-        
-            <a href="/blog/" class="f-small" title="Blog">Blog</a>
-        
-        
-        
-            <a href="/" class="f-small" title="Home is where 127.0.0.1 is">Home is where 127.0.0.1 is</a>
-        
-        
-        
-            <a href="/imprint/" class="f-small" title="Imprint, or Impressum, or Legal Info, or whatever.">Imprint, or Impressum, or Legal Info, or whatever.</a>
-        
-        
-        
-            <a href="/about/" class="f-small" title="About me; part of any personal website since forever.">About me; part of any personal website since forever.</a>
-        
-        
-        
-            <a href="/privacy-policy/" class="f-small" title="Privacy Policy">Privacy Policy</a>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-            <a href="/zines/" class="f-small" title="Zines">Zines</a>
-        
-        
-        
-        
-        
-            <a href="/series/" class="f-small" title="Series">Series</a>
-        
-        
-        
-            <a href="/photo-links/" class="f-small" title="Links">Links</a>
-        
-        
-        
-        
-        
-            <a href="/privacy-policy-2/" class="f-small" title="Privacy Policy">Privacy Policy</a>
-        
-        
-
-        <a href="/feed/" class="f-small" title="Subscribe via RSS">RSS Feed</a>
-
         <p class="f-small"><b>↙↙↙</b> | Views and opinions expressed on this websites do not represents views and opinions of my employer.</p>
       </div>
     </footer>

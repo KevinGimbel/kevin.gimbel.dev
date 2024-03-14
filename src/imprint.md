@@ -2,7 +2,7 @@
 layout: single
 title: "Imprint"
 icon: "💌"
-permalink: "md/imprint"
+permalink: "imprint"
 ---
 
 Responsible for the content of this website:

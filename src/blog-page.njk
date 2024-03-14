@@ -12,7 +12,7 @@ custom_styles:
 {% extends "base.njk" %}
 
 {% block custom_title %}
-{{ article.title }} - Kevin.Gimbel.Dev/Blog
+{{ article.title | safe }} - Kevin.Gimbel.Dev/Blog
 {% endblock %}
 
 {% block head %}
@@ -26,11 +26,11 @@ custom_styles:
 <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
     
     <div class="article__og-box">
-        <p><i>"{{ article.title}}"</i> was originally published on <a href="{{ article.link }}" target="_blank" rel="nofollow" title="Read '{{ article.title}}' on kevingimbel.de">kevingimbel.de</a>.</p>
+        <p><i>"{{ article.title | safe }}"</i> was originally published on <a href="{{ article.link }}" target="_blank" rel="nofollow" title="Read '{{ article.title}}' on kevingimbel.de">kevingimbel.de</a>.</p>
     </div>
     <hr />
     <div class="content">
-        <h1>{{ article.title }}</h1>
+        <h1>{{ article.title | safe }}</h1>
         {{ article.content | safe }}
     </div>
 </section>
