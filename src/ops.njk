@@ -27,7 +27,7 @@
         {% for idx in [0, 1, 2] %}
         {% set article = blog[idx] %}
         <li class="article-list__item [ section__styled box-shadow__styled ]">
-            <h2><a href="/{{ article.slug }}">{{ article.title }}</a></h2>
+            <h2><a href="/{{ article.slug }}">{{ article.title | safe }}</a></h2>
             <p>{{ article.excerpt | safe }}</p>
             <a href="/{{ article.slug }}" class="article-list__more-link">Continue reading &gt;&gt;</a>
         </li>
