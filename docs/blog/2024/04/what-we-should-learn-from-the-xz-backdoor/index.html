@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>
-Building for the web, with Rust and WebAssembly - Kevin.Gimbel.Dev/Blog
+What we should learn from the xz backdoor - Kevin.Gimbel.Dev/Blog
 </title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -600,7 +600,7 @@ blockquote cite {
   
   
   
-<link rel="canonical" href="https://kevingimbel.de/blog/2023/07/building-for-the-web-with-rust-and-webassembly/" />
+<link rel="canonical" href="https://kevingimbel.de/blog/2024/04/what-we-should-learn-from-the-xz-backdoor/" />
 
 </head>
 <body>
@@ -618,307 +618,142 @@ blockquote cite {
 <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
     
     <div class="article__og-box">
-        <p><i>"Building for the web, with Rust and WebAssembly"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/07/building-for-the-web-with-rust-and-webassembly/" target="_blank" rel="nofollow" title="Read 'Building for the web, with Rust and WebAssembly' on kevingimbel.de">kevingimbel.de</a>.</p>
+        <p><i>"What we should learn from the xz backdoor"</i> was originally published on <a href="https://kevingimbel.de/blog/2024/04/what-we-should-learn-from-the-xz-backdoor/" target="_blank" rel="nofollow" title="Read 'What we should learn from the xz backdoor' on kevingimbel.de">kevingimbel.de</a>.</p>
     </div>
     <hr />
     <div class="content">
-        <h1>Building for the web, with Rust and WebAssembly</h1>
+        <h1>What we should learn from the xz backdoor</h1>
         
-<p class="has-medium-font-size"><a rel="noreferrer noopener" href="https://webassembly.org" target="_blank">WebAssembly</a> (<em>WASM</em>) has been around for a few years now. It&#8217;s a binary format that runs in the browser, allowing programmers to write code in Rust (<em>or Java, Go, C/C++</em>), compile it into WebAssembly and then execute the code in the browser.</p>
+<p>You may have heard that <a href="https://www.cert.europa.eu/publications/security-advisories/2024-032/">a vulnerability was found in the xz tool and liblzma library on Friday, 29th of March 2024</a> which specifically targeted <code>sshd</code> being managed by <code>systemd</code> on Debian and RedHat Linux systems.</p>
 
 
 
-<p>I&#8217;ve been wanting to build <em>something</em> in WebAssembly for a while and just recently it hit me that I have a thing: <strong>mktoc</strong>! <a rel="noreferrer noopener" href="https://github.com/KevinGimbel/mktoc" target="_blank">mktoc</a> is a table of contents generator written in Rust, it comes as a Binary and a Library and can be compiled into WebAssembly with <em>zero effort</em>!</p>
-
-
-
-<h2 class="wp-block-heading">Quick (Technical) Overview</h2>
+<h2 class="wp-block-heading">What happened</h2>
 
 
 
 <ul>
-<li>The Rust code gets compiled for the target <br><strong>wasm32-unknown-unknown</strong></li>
+<li>The xz backdoor was very sophisticated and carried out by a professional, this is no work of an amateur</li>
 
 
 
-<li><a href="https://rustwasm.github.io/wasm-pack/installer/" target="_blank" rel="noreferrer noopener">wasm-pack</a> is used to compile and bundle the generated WASM code</li>
+<li>The attack was carried our over years, <a href="https://research.swtch.com/xz-timeline" target="_blank" rel="noreferrer noopener">Russ Cox has put together a timeline which shows the attack started around 2021</a></li>
 
 
 
-<li>Some JavaScript and a static HTML page is used to build the Front-end</li>
-
-
-
-<li>The web app is deployed on GitHub pages</li>
+<li><a href="https://github.com/anarazel" target="_blank" rel="noreferrer noopener nofollow">Andres Freund</a>  reports on the <a href="https://www.openwall.com/lists/oss-security/2024/03/29/4">oss-security mailing list about an upstream backdoor in xz</a>, he previously notified linux distro maintainers about the backdoor, giving them time do downgrade the tool</li>
 </ul>
 
 
 
-<h2 class="wp-block-heading">Compiling to WASM</h2>
+<h2 class="wp-block-heading">The catastrophic scope of the attack</h2>
 
 
 
-<p>Compiling to WASM is surprisingly straight forward. Rust has a target for WASM, <code>wasm32-unknown-unknown</code>, and a nice build tool for generating the &#8220;glue code&#8221; around the WASM binary: <code><strong>wasm-pack</strong></code></p>
+<p>At first the backdoor seems very odd. <code>xz</code> is a compression tool and library which is not used by ssh directly, so how can it attack <code>ssh</code>? By using <code>systemd</code>! <code>systemd</code> uses <code>liblzma</code>, the xz library, and this is where <code>sshd</code> gets compromised: During loading of the <code>liblzma</code> library by <code>systemd</code>, the malicious code gets executed and patches the backdoor into <code>sshd</code> before the ssh daemon is started. The compromised daemon runs just like a normal ssh daemon, but when a connection is initiated with a specific key it allows remote code execution &#8211; so the compromise is incredibly hard to detect.</p>
 
 
 
-<pre class="wp-block-code"><code lang="bash" class="language-bash">wasm-pack build --release --target web</code></pre>
+<p>Wait, what? Imagine sending a ssh-login request to any server with a specifically forged key and the remote ssh-server executes code without any actual login happening<sup data-fn="c7269876-e32a-4568-85b7-3aea8fe8b880" class="fn"><a href="#c7269876-e32a-4568-85b7-3aea8fe8b880" id="c7269876-e32a-4568-85b7-3aea8fe8b880-link">1</a></sup> &#8211; quoting from Filippo on bluesky:</p>
 
 
 
-<p>This command builds the code as an optimised release with web as the target platform &#8211; other targets are <code><em>bundler, nodejs, web, no-modules</em> </code>&#8211; <code>bundler</code> being the default here. </p>
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p class="has-medium-font-size" style="padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">The hooked RSA_public_decrypt verifies a signature on the server&#8217;s host key by a fixed Ed448 key, and then passes a payload to system(). It&#8217;s RCE<sup data-fn="4aa8b4c0-c8ca-4495-8c32-000c22f4c938" class="fn"><a href="#4aa8b4c0-c8ca-4495-8c32-000c22f4c938" id="4aa8b4c0-c8ca-4495-8c32-000c22f4c938-link">2</a></sup>, not auth bypass, and gated/unreplayable.<br><br>The payload is extracted from the N value (the public key) passed to RSA_public_decrypt, checked against a simple fingerprint, and decrypted with a fixed ChaCha20 key before the Ed448 signature verification.</p>
+<cite>Filippo Valsorda</cite></blockquote>
 
 
 
-<p>A few things more are required to get the Rust code to compile to WASM:</p>
+<p><a href="https://github.com/systemd/systemd/pull/31550">systemd was about to refactor its usage of liblzma</a>, making the exploit impossible (or harder), which is probably why they pushed for a release so fast in the last weeks instead of keeping a low profile. </p>
+
+
+
+<p>If this code would&#8217;ve shipped to major distributions, all linux servers running systemd and sshd would&#8217;ve been compromised, and the attackers would be able to execute code on any of them.</p>
+
+
+
+<p>As far as I understand, the only visible log one could see is failed logging attempts in sshd logs, which is not unusual if you run a public ssh server (<em>which a lot of people do, me included</em>).</p>
+
+
+
+<p>As I see the exploit the code would be executed in the context of sshd, which usually runs as root so the attackers would have a way of executing code on any compromised server using root rights. <em>An absolute nightmare</em>.</p>
+
+
+
+<h2 class="wp-block-heading">The same old Open Source problem</h2>
+
+
+
+<p><strong>We all need to be super careful</strong> when we use Open Source &#8211; and we all do use it, either by choice or because literally every computer on this planet runs on some sort of Open Source software. Open Source is the base of all of computing, it&#8217;s the software which runs public clouds (AWS, Azure, Google, &#8230;), its the code used in Apps and Websites, it&#8217;s the editors we use (Code, vim, &#8230;), in the apps on our phones &#8212; we really dodged a huge bullet here, and who knows how many are hidden. It&#8217;s unlikely this is the only such attack going on, and we all need to be on alert. </p>
+
+
+
+<p>At the core of this issue we once again have a tool maintained by a single person, which is used in production at every company (due to it being a dependency in tools such as <code>systemd</code>).</p>
+
+
+
+<p>As always, <a href="https://xkcd.com/2347/">there&#8217;s a relevant xkcd comic</a>.</p>
+
+
+
+<figure class="wp-block-image aligncenter size-large"><img decoding="async" src="https://i0.wp.com/imgs.xkcd.com/comics/dependency.png?ssl=1" alt="A xkcd comic depicting a lot of tiny wooden blocks standing on each other, with one small block holding a lot of the weight. Text on top reads &quot;All modern digital infrastructure&quot;, a arrow pointing to the small wooden block holding everything reads &quot;A project some random person in Nebraska has been thanklessly maintaining since 2003&quot;" style="object-fit:cover" data-recalc-dims="1"/></figure>
+
+
+
+<h2 class="wp-block-heading">Final notes</h2>
+
+
+
+<h3 class="wp-block-heading">systemd is not at fault, neither is the maintainer of xz </h3>
+
+
+
+<p>It&#8217;s easy to point fingers, and it&#8217;s not my intend to do. Neither <code>systemd</code> nor the Lasse Collin (the original xz maintainer) are at fault. </p>
+
+
+
+<p>The attack targeted <code>xz</code> for its usage in <code>systemd</code>, and probably for its small maintainer base (<em>1 person</em>), which made getting in on the project easier than getting into a big community.</p>
+
+
+
+<h3 class="wp-block-heading">This is no easy attack</h3>
+
+
+
+<p>The amount of planning and time required to pull of such an attack is massive. It requires deep knowledge of linux systems and the way various  system parts interact with each other during system initialisation and scheduling.</p>
+
+
+
+<h2 class="wp-block-heading">Links and sources</h2>
 
 
 
 <ul>
-<li><code>[lib]</code> must be set to <code>crate-type = ["cdylib"]</code></li>
+<li>Russ Cox xz Timeline <a href="https://research.swtch.com/xz-timeline">https://research.swtch.com/xz-timeline</a></li>
 
 
 
-<li><code>wasm-bindgen</code> must be added as a dependency</li>
+<li>Exploit demo <a href="https://github.com/amlweems/xzbot/tree/main">https://github.com/amlweems/xzbot</a></li>
+
+
+
+<li>Techies vs. spies <a href="https://lcamtuf.substack.com/p/technologist-vs-spy-the-xz-backdoor">https://lcamtuf.substack.com/p/technologist-vs-spy-the-xz-backdoor</a></li>
+
+
+
+<li>Original report on openwall.com <a href="https://www.openwall.com/lists/oss-security/2024/03/29/4">https://www.openwall.com/lists/oss-security/2024/03/29/4</a></li>
+
+
+
+<li>xz Developer notes on the incident <a href="https://tukaani.org/xz-backdoor/">https://tukaani.org/xz-backdoor/</a></li>
 </ul>
 
 
 
-<p>So the <code>Cargo.toml</code> looks something like this:</p>
+<h2 class="wp-block-heading">Footnotes</h2>
 
 
-
-<pre class="wp-block-code"><code lang="toml" class="language-toml">[...]
-
-[lib]
-crate-type = ["cdylib"]
-
-[dependencies]
-mktoc = { path = "../" }
-wasm-bindgen = "0.2.87"</code></pre>
-
-
-
-<p>The mktoc dependency is loaded relatively because I included the WASM code as a sub-directory in the <a rel="noreferrer noopener" href="https://github.com/KevinGimbel/mktoc/tree/main/wasm" target="_blank">mktoc repository</a>.</p>
-
-
-
-<p>With the dependencies and crate-type in place it&#8217;s finally time for some Rust code!</p>
-
-
-
-<pre class="wp-block-code"><code lang="rust" class="language-rust">use mktoc;
-use wasm_bindgen::prelude::*;
-
-#[wasm_bindgen]
-pub fn make_toc(content: &amp;str) -&gt; String {
-    mktoc::add_toc(
-        content.to_string(),
-        mktoc::generate_toc(content.to_string(), mktoc::Config::default()),
-    )
-}
-#[wasm_bindgen]
-pub fn make_toc_only(content: &amp;str) -&gt; String {
-    mktoc::generate_toc(content.to_string(), mktoc::Config::default())
-}</code></pre>
-
-
-
-<p>Here we create two functions, <code>make_toc</code> and <code>make_toc_only</code>, which are attributed with <code>#[wasm_bindgen]</code>, which tells the compiler to make these functions available through WebAssembly. </p>
-
-
-
-<p>And that&#8217;s it. The Rust code in mktoc doesn&#8217;t need to be updated at all!</p>
-
-
-
-<p>For compiling, <code>wasm-pack</code> is used:</p>
-
-
-
-<pre class="wp-block-code"><code lang="bash" class="language-bash">wasm-pack build --release --target web</code></pre>
-
-
-
-<p>The files will be written to the <code>pkg</code> directory by default and can be loaded via JavaScript.</p>
-
-
-
-<pre class="wp-block-code"><code lang="markup" class="language-markup">&lt;script type="module"&gt;
-import init, { make_toc, make_toc_only } from "./pkg/webtoc.js";
-
-init().then(() =&gt; {
-// wasm code is loaded
-// make_toc is the function defined in Rust
-make_toc(`
-# Sample
-
-&lt;!-- BEGIN mktoc --&gt;
-
-&lt;!-- END mktoc --&gt;
-
-This is an example document.
-
-## Sample heading 2
-
-\`\`\`rust 
-pub fn hello(name: &amp;str) -&gt; String {
-    format!("Hello, {}!", name)
-}
-\`\`\``);
-});
-&lt;/script&gt;</code></pre>
-
-
-
-<p>A full working example can also be found on CodePen <a rel="noreferrer noopener" href="https://codepen.io/kevingimbel/pen/GRwGrQZ" target="_blank">https://codepen.io/kevingimbel/pen/GRwGrQZ</a> &#8211; the code uses a packaged and released version from NPM at <a rel="noreferrer noopener" href="https://npmjs.com/webtoc" target="_blank">https://npmjs.com/webtoc</a> via unpkg.</p>
-
-
-
-<h2 class="wp-block-heading">Using the WASM code in a Web App </h2>
-
-
-
-<p>The same code is available as a &#8220;web app&#8221; at <a href="https://kevingimbel.github.io/webtoc/">https://kevingimbel.github.io/webtoc/</a> &#8211; you can paste or load your own Markdown files. When &#8220;uploading&#8221; a file there&#8217;s no need to actually transmit it to a browser: It&#8217;s accessible via JavaScript without being processed by a backend!</p>
-
-
-
-<div class="wp-block-columns alignwide is-layout-flex wp-container-core-columns-is-layout-1 wp-block-columns-is-layout-flex">
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<pre class="wp-block-code"><code lang="javascript" class="language-javascript line-numbers">markdown_file.addEventListener("change", readFile);
-function readFile() {
-    const [file] = markdown_file.files;
-    const reader = new FileReader();
-
-    let dot_split = file.name.split(".");
-    let file_ext = dot_split[dot_split.length - 1].toLowerCase()
-
-    if (file_ext !== "md" &amp;&amp; file_ext !== "markdown") {
-        triggerError("Not a markdown file. Please add .md or .markdown file");
-        // reset the file input
-        markdown_file.value = "";
-        return;
-    }
-
-    reader.addEventListener("load", () =&gt; {
-        markdown_input.value = "";
-        // pass the file to make_toc
-        generate_toc(reader.result);
-    });
-
-    if (file) {
-        reader.readAsText(file);
-    }
-}</code></pre>
-</div>
-
-
-
-<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-<p>Here&#8217;s how it&#8217;s done: </p>
-
-
-
-<ul>
-<li><strong>Line 1: </strong><code>markdown_file</code> identifier is the Input element.</li>
-
-
-
-<li><strong>Line 2: </strong><code>readFile</code> will be called on &#8220;change&#8221;: The change event is triggered when a file has been selected via the input</li>
-
-
-
-<li><strong>Line 3: </strong><code>markdown_file.files</code> contains an array of selected files &#8211; we only care about one, so we load it with <code>const [file]</code></li>
-
-
-
-<li><strong>Line 6-7:</strong> <code>dot_split</code> and <code>file_ext</code> are used to get the file extension from the file name &#8211; we won&#8217;t process files which aren&#8217;t markdown.</li>
-
-
-
-<li><strong>Line 9-14:</strong> I&#8217;ve decided that markdown files must end in <code>.md</code> or <code>.markdown</code>, if they do not an error is thrown</li>
-
-
-
-<li><strong>Line 16-20:</strong> adds a load event on the reader we created. This triggers once the file has been loaded by the browser &#8211; this happens <em>BEFORE any form is submitted!</em> Here we reset the input value (= remove the file from the element), then pass the file content to the <code>generate_toc</code> function</li>
-
-
-
-<li><strong>Line 22-24:</strong>Here the file is read &#8211; this will trigger the <code>load</code> event defined in line 16-20. </li>
-</ul>
-</div>
-</div>
-
-
-
-<p>This setup is incredibly fast. A fairly large Markdown file is processed in milliseconds!</p>
-
-
-
-<h2 class="wp-block-heading">Takeaways</h2>
-
-
-
-<ul>
-<li><strong><em>Compiling Rust to WASM is surprisingly easy</em></strong>! <br>Without adjustments I was able to bring my Rust library to the web (and NPM!)</li>
-
-
-
-<li><em><strong>WASM enables Rust code to be used &#8220;Full Stack&#8221;</strong></em><br>The mktoc code can be used to preview a Markdown file in the browser, and write it to disk via a backend</li>
-
-
-
-<li><strong><em>Rust is awesome</em></strong><br>Not a takeaway, but I love Rust!</li>
-</ul>
-
-
-
-<h2 class="wp-block-heading">Code</h2>
-
-
-
-<p>All code used in this blog post is available on Github:</p>
-
-
-
-<ul>
-<li><a href="https://github.com/KevinGimbel/mktoc/tree/main" target="_blank" rel="noreferrer noopener">mktoc</a></li>
-
-
-
-<li><a href="https://github.com/KevinGimbel/mktoc/tree/main/wasm" target="_blank" rel="noreferrer noopener">mktoc WASM</a></li>
-
-
-
-<li><a href="https://github.com/KevinGimbel/webtoc/" target="_blank" rel="noreferrer noopener">webtoc</a> </li>
-</ul>
-
-
-
-<h2 class="wp-block-heading">Further reading</h2>
-
-
-
-<ul>
-<li><a href="https://rustwasm.github.io/docs/wasm-pack/" target="_blank" rel="noreferrer noopener">https://rustwasm.github.io/docs/wasm-pack/</a></li>
-
-
-
-<li><a href="https://webassembly.org" target="_blank" rel="noreferrer noopener">https://webassembly.org</a></li>
-
-
-
-<li><a rel="noreferrer noopener" href="https://developer.mozilla.org/en-US/docs/WebAssembly" target="_blank">https://developer.mozilla.org/en-US/docs/WebAssembly</a></li>
-</ul>
-
-
-
-<hr class="wp-block-separator has-alpha-channel-opacity"/>
-
-
-
-<p class="has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-9c42702dc0604635bad2da123662bada">Join the discussion on <a rel="noreferrer noopener" href="https://fosstodon.org/@KevinGimbel/110784659700280987" target="_blank">Mastodon</a> 🐘 or <a href="https://kevingimbel.de/blog/2023/07/building-for-the-web-with-rust-and-webassembly/#respond">comment on the original article on kevingimbel.de</a></p>
-
+<ol class="wp-block-footnotes"><li id="c7269876-e32a-4568-85b7-3aea8fe8b880">Filippo Valsorda explains the exploit <a href="https://bsky.app/profile/filippo.abyssdomain.expert/post/3kowjkx2njy2b" target="_blank" rel="noreferrer noopener nofollow">in this bluesky thread</a> <a href="#c7269876-e32a-4568-85b7-3aea8fe8b880-link" aria-label="Jump to footnote reference 1">↩︎</a></li><li id="4aa8b4c0-c8ca-4495-8c32-000c22f4c938"><code>RCE</code> = Remote Code Execution <a href="#4aa8b4c0-c8ca-4495-8c32-000c22f4c938-link" aria-label="Jump to footnote reference 2">↩︎</a></li></ol>
     </div>
 </section>
 
