@@ -90,3 +90,8 @@ blockquote cite {
     font-size: .6em;
     font-family: monospace;
 }
+.article__footer {
+    font-size: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+}

@@ -33,6 +33,11 @@ custom_styles:
         <h1>{{ article.title | safe }}</h1>
         {{ article.content | safe }}
     </div>
+    <footer class="article__footer">
+        <hr>
+        <p>Did you like this article? Subscribe to the <a href="{{ meta.permalinks.feed }}" class="f-small" title="Subscribe via RSS">RSS Feed</a> to get notified about new posts! 🗞️</p>
+        <p>You can also follow me on <a href="https://bsky.app/profile/kevin.gimbel.dev" title="@kevin.gimbel.dev on Bluesky">🦋 Bluesky @kevin.gimbel.dev</a> or <a href="https://fosstodon.org/@KevinGimbel" title="Follow Kevin Gimbel on Mastodon">🐘 Mastodon @KevinGimbel@fosstodon.org</a>
+    </footer>
 </section>
 
 {% endblock %}

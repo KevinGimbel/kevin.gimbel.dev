@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>
-RE: The OpenTofu fork is now available! - Kevin.Gimbel.Dev/Blog
+Oh no my gpg key expired (like every year) - Kevin.Gimbel.Dev/Blog
 </title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -605,7 +605,7 @@ blockquote cite {
   
   
   
-<link rel="canonical" href="https://kevingimbel.de/blog/2023/09/re-the-opentofu-fork-is-now-available/" />
+<link rel="canonical" href="https://kevingimbel.de/blog/2024/04/oh-no-my-gpg-key-expired-like-every-year/" />
 
 </head>
 <body>
@@ -623,29 +623,101 @@ blockquote cite {
 <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
     
     <div class="article__og-box">
-        <p><i>"RE: The OpenTofu fork is now available!"</i> was originally published on <a href="https://kevingimbel.de/blog/2023/09/re-the-opentofu-fork-is-now-available/" target="_blank" rel="nofollow" title="Read 'RE: The OpenTofu fork is now available!' on kevingimbel.de">kevingimbel.de</a>.</p>
+        <p><i>"Oh no my gpg key expired (like every year)"</i> was originally published on <a href="https://kevingimbel.de/blog/2024/04/oh-no-my-gpg-key-expired-like-every-year/" target="_blank" rel="nofollow" title="Read 'Oh no my gpg key expired (like every year)' on kevingimbel.de">kevingimbel.de</a>.</p>
     </div>
     <hr />
     <div class="content">
-        <h1>RE: The OpenTofu fork is now available!</h1>
+        <h1>Oh no my gpg key expired (like every year)</h1>
         
-<p class="has-medium-font-size"><em>In reply to <a class="in-reply-to" href="https://opentofu.org/blog/the-opentofu-fork-is-now-available">https://opentofu.org/blog/the-opentofu-fork-is-now-available</a></em></p>
+<p><em>Who doesn&#8217;t love encryption and security?</em> I like to<a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits"> sign my git commits</a>, and for this I need <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">PGP keys</a>. They are cool when they work and you don&#8217;t need to think about them, but every now and then they need to be renewed (<em>unless you use never expiring keys which of course you shouldn&#8217;t!</em>).</p>
 
 
 
-<p>A few weeks ago HashiCorp decided to switch the terraform license model from an open source license to the Business Source License (BSL) model, so there&#8217;s now a community driven terraform fork called OpenTofu.I love the name, and I hope the project can establish itself as a alternative to the now not-so-open terraform project.</p>
+<p>So, as always when a key expires, I started looking around the internet what needs to be done because I only ever do this once a year and I cannot remember what I did.</p>
 
 
 
-<p>OpenTofu already has support from companies like <a href="https://gruntwork.io/">Gruntwork</a> and projects such as <a href="https://github.com/terraform-docs/terraform-docs">terraform-docs</a> &#8211; both well known in the terraform ecosystem. </p>
+<p>Here&#8217;s what needs to be done:</p>
 
 
 
-<p>News about OpenTF can be found on their blog at <a href="https://opentofu.org/blog/">https://opentofu.org/blog</a>, source code can be found on <a href="https://github.com/opentofu/opentofu">GitHub at github.com/opentofu/opentofu</a>.</p>
+<ul>
+<li>Run <code>gpg --list-secret-keys</code></li>
 
 
 
-<p class="has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-c8ed469a80b15a67fb9124797853e50a">Join the discussion on <a href="https://fosstodon.org/@KevinGimbel/111102411848066204">Mastodon</a> or <a href="https://www.linkedin.com/feed/update/urn:li:activity:7110554353777655809/">LinkedIn</a>, or <a href="https://kevingimbel.de/blog/2023/09/re-the-opentofu-fork-is-now-available/#respond">comment on the original article on kevingimbel.de</a></p>
+<li>Find the key to edit</li>
+
+
+
+<li>Run <code>gpg --edit-key [key-id]</code></li>
+
+
+
+<li>This opens the gpg prompt (indicated by <code>gpg&gt;</code>)</li>
+
+
+
+<li>Enter <code>expire</code></li>
+
+
+
+<li>Follow the instructions to set the new expire date</li>
+
+
+
+<li>Type <code>save</code></li>
+</ul>
+
+
+
+<p>The key now has a new expiration date and can be uploaded to GitHub &#8211; the old one needs to be deleted first. <em>This does not invalidate old signed commits!</em></p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="644" height="438" data-attachment-id="2424" data-permalink="https://kevingimbel.de/blog/2024/04/oh-no-my-gpg-key-expired-like-every-year/screenshot-2024-04-17-at-09-12-30/" data-orig-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=644%2C438&amp;ssl=1" data-orig-size="644,438" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=300%2C204&amp;ssl=1" data-large-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=644%2C438&amp;ssl=1" src="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?resize=644%2C438&#038;ssl=1" alt="Screenshot of GitHub's Verification pop-up.
+
+Text: &quot;This commit was signed with the committer's verified signature.&quot;
+
+&quot;KevinGimbel GPG Key ID: A6937F93CF7FDC4E&quot;" class="wp-image-2424" srcset="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?w=644&amp;ssl=1 644w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?resize=300%2C204&amp;ssl=1 300w" sizes="(max-width: 644px) 100vw, 644px" data-recalc-dims="1" /></figure>
+
+
+
+<p>The image shows the signed commit, signed with my PGP key, and verified on GitHub. This means that the commit was sent by me (or somebody with access to my key).</p>
+
+
+
+<p>It&#8217;s a nice little add-on which I really like. </p>
+
+
+
+<p>I globally configured my git to sign all commits via the <code>~/.gitconfig</code> file</p>
+
+
+
+<pre title="~/.gitconfig" class="wp-block-code"><code class="">[user]<br>name = Kevin Gimbel<br>email = kevin@gimbel.dev<br>signingkey = A6937F93CF7FDC4E<br><br>[commit]<br>gpgsign = true<br></code></pre>
+
+
+
+<p>This config will sign all commits with my GPG key automatically. Yay!</p>
+
+
+
+<h2 class="wp-block-heading">More information</h2>
+
+
+
+<ul>
+<li><a href="https://riseup.net/en/security/message-security/openpgp/best-practices">https://riseup.net/en/security/message-security/openpgp/best-practices</a></li>
+
+
+
+<li><a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits">https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits</a> </li>
+
+
+
+<li><a href="https://superuser.com/a/1141251">https://superuser.com/a/1141251</a></li>
+</ul>
 
     </div>
     <footer class="article__footer">
