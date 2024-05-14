@@ -17,7 +17,11 @@ In 2014, after specializing more in HTML and CSS I, started as a Front-End Devel
 In 2023 I started working as a DevOps Engineer at [AOE GmbH](https://aoe.com/).
 
 ## My pronouns
-I prefer **he/him**.
+
+In English both **he/him** and _they/them_ are fine.
+Since German has no real gender neutral pronouns, _er/ihm_ is fine; and in Spanish _él_ for the same reason.
+
+I generally do not care too much so address me however you feel comfortable. 🙂
 
 ## Social media
 
