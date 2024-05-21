@@ -2785,7 +2785,9 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;p&gt;{% codepen &amp;#8220;jOBKjar&amp;#8221; %}&lt;/p&gt;
+&lt;figure class=&quot;wp-block-embed is-type-wp-embed is-provider-codepen wp-block-embed-codepen&quot;&gt;&lt;div class=&quot;wp-block-embed__wrapper&quot;&gt;
+&lt;iframe class=&quot;wp-embedded-content&quot; sandbox=&quot;allow-scripts&quot; security=&quot;restricted&quot; title=&quot;dynamic darken() function with css&quot; src=&quot;https://codepen.io/kevingimbel/embed/preview/zYZaVPp?default-tabs=html%2Cresult&amp;#038;height=300&amp;#038;host=https%3A%2F%2Fcodepen.io&amp;#038;slug-hash=zYZaVPp#?secret=VBF8hzCvpe&quot; data-secret=&quot;VBF8hzCvpe&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;&lt;/figure&gt;
 
 
 
