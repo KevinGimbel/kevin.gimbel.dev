@@ -12,6 +12,72 @@
   </author>
   
   <entry>
+    <title type="html">Slop Slop Slop!</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/05/slop-slop-slop/" />
+    <id>https://kevingimbel.de/blog/2024/05/slop-slop-slop/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;There&amp;#8217;s a new word in town: slop! slop is rapidly taking the Fediverse, blogging scene (lol) and Twitter by storm as a term for AI-generated trash text: basically AI spam. The first mention I&amp;#8217;ve seen is of a Twitter post by @deepfates https://twitter.com/deepfates/status/1787472784106639418, which I saw shared on Mastodon by Simon Willison https://fedi.simonwillison.net/@simon/112402587787781767. I like [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p class=&quot;has-medium-font-size&quot;&gt;There&amp;#8217;s a new word in town: &lt;em&gt;&lt;strong&gt;slop&lt;/strong&gt;&lt;/em&gt;! &lt;/p&gt;
+
+
+
+&lt;p&gt;slop is rapidly taking the Fediverse, blogging scene (&lt;em&gt;lol&lt;/em&gt;) and Twitter by storm as a term for AI-generated trash text: basically AI spam.&lt;/p&gt;
+
+
+
+&lt;p&gt;The first mention I&amp;#8217;ve seen is of a Twitter post by &lt;a href=&quot;https://twitter.com/deepfates/status/1787472784106639418&quot;&gt;@deepfates https://twitter.com/deepfates/status/1787472784106639418&lt;/a&gt;, which I saw shared on Mastodon by &lt;a href=&quot;https://fedi.simonwillison.net/@simon/112402587787781767&quot;&gt;Simon Willison https://fedi.simonwillison.net/@simon/112402587787781767&lt;/a&gt;. I like the term, it&amp;#8217;s catchy and short and there&amp;#8217;s already a ton of slop on the &lt;em&gt;WWW&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://kevingimbel.de/blog/2024/05/re-heat-death-of-the-internet/&quot; data-type=&quot;post&quot; data-id=&quot;2499&quot;&gt;Yesterday&lt;/a&gt; I quoted &lt;a href=&quot;https://www.takahe.org.nz/heat-death-of-the-internet/&quot;&gt;&amp;#8220;Heat Death of the Internet&amp;#8221;&lt;/a&gt; and &amp;#8211; quoting it again &amp;#8211; there&amp;#8217;s also a passage about AI in it, which fits the slop problem perfectly:&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-style-plain has-medium-font-size is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;&lt;em&gt;The first page of Google results are links to pages that have scraped other pages for information from other pages that have been scraped for information. All the sources seem to link back to one another. There is no origin. The photos on the page look weird. The hands are disfigured. There is no image credit.&lt;/em&gt;&lt;/p&gt;
+&lt;cite&gt;via &lt;a href=&quot;https://www.takahe.org.nz/heat-death-of-the-internet/&quot;&gt;https://www.takahe.org.nz/heat-death-of-the-internet/&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;While AI is the next cool hype and all is well now (&lt;em&gt;all it is not well&lt;/em&gt;), AI companies really need to be careful from where they steal their training data. The point of AI generated content everywhere is approaching, and I can&amp;#8217;t wait to see the next big LLM trained on slop spitting out bullshit.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title type="html">RE: Heat Death of the Internet</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/05/re-heat-death-of-the-internet/" />
+    <id>https://kevingimbel.de/blog/2024/05/re-heat-death-of-the-internet/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;You want to watch the trailer for an upcoming movie on YouTube but you first have to sit through an ad. Then you sit through a preview for the trailer itself. Then you watch the trailer, which is literally another ad. When it ends, it cues up a new trailer, with a new ad at [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;You want to watch the trailer for an upcoming movie on YouTube but you first have to sit through an ad. &lt;br&gt;Then you sit through a preview for the trailer itself. Then you watch the trailer, which is literally another ad. When it ends, it cues up a new trailer, with a new ad at the start of it.&lt;/p&gt;
+&lt;cite&gt;via &lt;a href=&quot;https://www.takahe.org.nz/heat-death-of-the-internet/&quot;&gt;https://www.takahe.org.nz/heat-death-of-the-internet/&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;An absurd&lt;sup data-fn=&quot;5edd7162-1fc9-471e-83bd-48f259b38d93&quot; class=&quot;fn&quot;&gt;&lt;a href=&quot;#5edd7162-1fc9-471e-83bd-48f259b38d93&quot; id=&quot;5edd7162-1fc9-471e-83bd-48f259b38d93-link&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; piece of fiction on how the online world is these days. It&amp;#8217;s broken, and maybe that&amp;#8217;s what makes it so rewarding when you find an unbroken piece (&lt;em&gt;like this blog&lt;/em&gt; 🙃).&lt;/p&gt;
+
+
+
+&lt;p&gt;Another quote from the text&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;You buy a microwave and receive ads for microwaves. You buy a mattress and receive ads for mattresses.&lt;/p&gt;
+&lt;cite&gt;via &lt;a href=&quot;https://www.takahe.org.nz/heat-death-of-the-internet/&quot;&gt;https://www.takahe.org.nz/heat-death-of-the-internet/&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The rest of the text is good as well, and worth the few minutes it takes to read. &lt;/p&gt;
+
+
+&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;5edd7162-1fc9-471e-83bd-48f259b38d93&quot;&gt;I mean &amp;#8220;&lt;em&gt;absurd&lt;/em&gt;&amp;#8221; in the most beautiful, encouraging way possible. It&amp;#8217;s a great piece of fiction which resonated a lot with how I perceive the internet lately.  &lt;a href=&quot;#5edd7162-1fc9-471e-83bd-48f259b38d93-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content>
+  </entry>
+  <entry>
     <title type="html">I&amp;#8217;ll be speaking at Container Days Hamburg in September</title>
     <link href="https://kevin.gimbel.dev/blog/2024/05/ill-be-speaking-at-container-days-hamburg-in-september/" />
     <id>https://kevingimbel.de/blog/2024/05/ill-be-speaking-at-container-days-hamburg-in-september/</id>
@@ -763,7 +829,7 @@ let data = response.then((response) =&amp;gt; {
         var post = {
             title: item.title.rendered,
             link: item.link,
-            content: item.content.rendered.replace(&quot;&lt;a href=&quot;https://kevingimbel.de/blog/2023/11/integrating-wordpress-posts-with-11ty/#respond&quot;&gt;comment on the original article on kevingimbel.de&lt;/a&gt;&quot;, `&amp;lt;a href=&quot;${item.link}#respond&quot;&amp;gt;comment on the original article on kevingimbel.de&amp;lt;/a&amp;gt;`),
+            content: item.content.rendered.replace(&quot;comment below 👇&quot;, `&amp;lt;a href=&quot;${item.link}#respond&quot;&amp;gt;comment on the original article on kevingimbel.de&amp;lt;/a&amp;gt;`),
             excerpt: item.excerpt.rendered,
             slug: item.link.replace(&#39;https://kevingimbel.de/&#39;, &#39;&#39;)
         }
@@ -1044,7 +1110,7 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 
-&lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-c8ed469a80b15a67fb9124797853e50a&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/111102411848066204&quot;&gt;Mastodon&lt;/a&gt; or &lt;a href=&quot;https://www.linkedin.com/feed/update/urn:li:activity:7110554353777655809/&quot;&gt;LinkedIn&lt;/a&gt;, or &lt;a href=&quot;https://kevingimbel.de/blog/2023/09/re-the-opentofu-fork-is-now-available/#respond&quot;&gt;comment on the original article on kevingimbel.de&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-c8ed469a80b15a67fb9124797853e50a&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/111102411848066204&quot;&gt;Mastodon&lt;/a&gt; or &lt;a href=&quot;https://www.linkedin.com/feed/update/urn:li:activity:7110554353777655809/&quot;&gt;LinkedIn&lt;/a&gt;, or comment below 👇&lt;/p&gt;
 </content>
   </entry>
   <entry>
@@ -1071,7 +1137,7 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 
-&lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-f8cb5aaeb760680055176b4072c1bc5c&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/111090687977575559&quot;&gt;Mastodon&lt;/a&gt; 🐘, &lt;a href=&quot;https://www.linkedin.com/feed/update/urn:li:activity:7109804023955759104/&quot;&gt;LinkedIn&lt;/a&gt; 🧑‍💻 or &lt;a href=&quot;https://kevingimbel.de/blog/2023/09/til-scale-down-a-kubernetes-daemonset/#respond&quot;&gt;comment on the original article on kevingimbel.de&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-f8cb5aaeb760680055176b4072c1bc5c&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/111090687977575559&quot;&gt;Mastodon&lt;/a&gt; 🐘, &lt;a href=&quot;https://www.linkedin.com/feed/update/urn:li:activity:7109804023955759104/&quot;&gt;LinkedIn&lt;/a&gt; 🧑‍💻 or comment below 👇&lt;/p&gt;
 </content>
   </entry>
   <entry>
@@ -1199,7 +1265,7 @@ spec:
 
 
 
-&lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-294014fc3e40a4073b5b0c36b3840d35&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/111024007254844161&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Mastodon&lt;/a&gt; 🐘 or &lt;a href=&quot;https://kevingimbel.de/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/#respond&quot;&gt;comment on the original article on kevingimbel.de&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-294014fc3e40a4073b5b0c36b3840d35&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/111024007254844161&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Mastodon&lt;/a&gt; 🐘 or comment below 👇&lt;/p&gt;
 </content>
   </entry>
   <entry>
@@ -1261,7 +1327,7 @@ spec:
 
 
 
-&lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-e94811fefbbc09de37e9b6f3f9e485f9&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/110932587822939667&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Mastodon&lt;/a&gt; 🐘 or &lt;a href=&quot;https://kevingimbel.de/blog/2023/08/til-named-return-parameters-in-go/#respond&quot;&gt;comment on the original article on kevingimbel.de&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-e94811fefbbc09de37e9b6f3f9e485f9&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/110932587822939667&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Mastodon&lt;/a&gt; 🐘 or comment below 👇&lt;/p&gt;
 </content>
   </entry>
   <entry>
@@ -1565,7 +1631,7 @@ function readFile() {
 
 
 
-&lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-9c42702dc0604635bad2da123662bada&quot;&gt;Join the discussion on &lt;a rel=&quot;noreferrer noopener&quot; href=&quot;https://fosstodon.org/@KevinGimbel/110784659700280987&quot; target=&quot;_blank&quot;&gt;Mastodon&lt;/a&gt; 🐘 or &lt;a href=&quot;https://kevingimbel.de/blog/2023/07/building-for-the-web-with-rust-and-webassembly/#respond&quot;&gt;comment on the original article on kevingimbel.de&lt;/a&gt;&lt;/p&gt;
+&lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-9c42702dc0604635bad2da123662bada&quot;&gt;Join the discussion on &lt;a rel=&quot;noreferrer noopener&quot; href=&quot;https://fosstodon.org/@KevinGimbel/110784659700280987&quot; target=&quot;_blank&quot;&gt;Mastodon&lt;/a&gt; 🐘 or comment below 👇&lt;/p&gt;
 </content>
   </entry>
   <entry>
@@ -2719,7 +2785,9 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;p&gt;{% codepen &amp;#8220;jOBKjar&amp;#8221; %}&lt;/p&gt;
+&lt;figure class=&quot;wp-block-embed is-type-wp-embed is-provider-codepen wp-block-embed-codepen&quot;&gt;&lt;div class=&quot;wp-block-embed__wrapper&quot;&gt;
+&lt;iframe class=&quot;wp-embedded-content&quot; sandbox=&quot;allow-scripts&quot; security=&quot;restricted&quot; title=&quot;dynamic darken() function with css&quot; src=&quot;https://codepen.io/kevingimbel/embed/preview/zYZaVPp?default-tabs=html%2Cresult&amp;#038;height=300&amp;#038;host=https%3A%2F%2Fcodepen.io&amp;#038;slug-hash=zYZaVPp#?secret=VBF8hzCvpe&quot; data-secret=&quot;VBF8hzCvpe&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;&lt;/figure&gt;
 
 
 

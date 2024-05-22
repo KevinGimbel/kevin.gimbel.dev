@@ -1,5 +1,9 @@
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-const response = fetch('https://kevingimbel.de/wp-json/wp/v2/posts?orderby=date&order=desc&per_page=100&categories=5,33,83,14');
+// 5 = Coding
+// 14 = TIL
+// 33 = DevOps
+// 83 = RE
+const response = fetch('https://kevingimbel.de/wp-json/wp/v2/posts?orderby=date&order=desc&per_page=100&categories=5,14,33,83');
 
 
 let data = response.then((response) => {
@@ -10,7 +14,7 @@ let data = response.then((response) => {
         var post = {
             title: item.title.rendered,
             link: item.link,
-            content: item.content.rendered.replace("comment below 👇", `<a href="${item.link}#respond">comment on the original article on kevingimbel.de</a>`),
+            content: item.content.rendered,
             excerpt: item.excerpt.rendered,
             slug: item.link.replace('https://kevingimbel.de/', '')
         }
