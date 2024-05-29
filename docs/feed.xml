@@ -12,6 +12,165 @@
   </author>
   
   <entry>
+    <title type="html">RE: Trust</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/05/re-trust/" />
+    <id>https://kevingimbel.de/blog/2024/05/re-trust/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;A very good take on putting AI into everything because that&amp;#8217;s the big thing right now: Trust is a precious commodity. It takes a long time to build trust. It takes a short time to destroy it. I am honestly astonished that so many companies don’t seem to realise what they’re destroying. Jeremy Keith via [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;A very good take on putting AI into everything because that&amp;#8217;s the big thing right now:&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Trust is a precious commodity. It takes a long time to build trust. It takes a short time to destroy it.&lt;/p&gt;
+
+
+
+&lt;p&gt;I am honestly astonished that so many companies don’t seem to realise what they’re destroying.&lt;/p&gt;
+&lt;cite&gt;Jeremy Keith via &lt;a href=&quot;https://adactio.com/journal/21160&quot;&gt;https://adactio.com/journal/21160&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Google putting AI on top of all search results, &lt;a href=&quot;https://mastodon.online/@stvfrnzl/112503498038440780&quot;&gt;then having it recommend jumping of the Golden Gate Bridge if you&amp;#8217;re depressed&lt;/a&gt;&lt;sup data-fn=&quot;071d9189-5ddb-41e1-a3ff-566683ae6300&quot; class=&quot;fn&quot;&gt;&lt;a href=&quot;#071d9189-5ddb-41e1-a3ff-566683ae6300&quot; id=&quot;071d9189-5ddb-41e1-a3ff-566683ae6300-link&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; is peak &amp;#8220;we need AI, ship now&amp;#8221;-bullshit. I don&amp;#8217;t care if they&amp;#8217;ll have better AI soon, they&amp;#8217;ll be the ones recommending people to die based on a reddit comment (&lt;a href=&quot;https://toot.cat/@ionizedgirl/112493337252943357&quot;&gt;and also to eat stones&lt;/a&gt;).&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Large Corporations&lt;/strong&gt; &lt;strong&gt;are destroying trust&lt;/strong&gt;, trust they build over decades.&lt;/p&gt;
+
+
+
+&lt;p&gt;I use Google to get good, accurate results. To find what I want to find fast and efficiently, and they already destroyed that with a lot of SEO bullshit over the years where one finds the content with the best SEO tags, not the best content. &lt;/p&gt;
+
+
+
+&lt;p&gt;I use StackOverflow for the community, and because it has good resources and sometimes good discussion. I don&amp;#8217;t need any AI to do that, I need good search.&lt;/p&gt;
+
+
+
+&lt;p&gt;The amount of apps which are &lt;em&gt;really improved&lt;/em&gt; with AI is limited, and the fact everybody puts AI into everything these days reminds me A LOT of the big blockchain hype from a few years ago.&lt;/p&gt;
+
+
+
+&lt;p&gt;WordPress, or better Jetpack, added AI to in some places, for example there&amp;#8217;s a function to generate Excerpts based on the content of a blogpost. This is an OK feature, and actually a real world use case. The generated excerpt for this post is:&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;The post criticizes the overuse of AI in various platforms, particularly Google, for deteriorating trust and replacing quality content with AI-driven results. It compares the current AI hype to past blockchain trends.&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;hr class=&quot;wp-block-separator has-alpha-channel-opacity&quot;/&gt;
+
+
+
+&lt;p&gt;This post is a response to &lt;a href=&quot;https://adactio.com/journal/21160&quot;&gt;https://adactio.com/journal/21160&lt;/a&gt; by Jeremy Keith.&lt;/p&gt;
+
+
+&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;071d9189-5ddb-41e1-a3ff-566683ae6300&quot;&gt;Here&amp;#8217;s a copy of the screenshot from the original Mastodon post in case it ever gets deleted. &lt;a href=&quot;https://kevingimbel.de/wp-content/uploads/2024/05/google-ai-depressed-screenshot.jpeg&quot;&gt;https://kevingimbel.de/wp-content/uploads/2024/05/google-ai-depressed-screenshot.jpeg&lt;/a&gt; &lt;a href=&quot;#071d9189-5ddb-41e1-a3ff-566683ae6300-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content>
+  </entry>
+  <entry>
+    <title type="html">RE: Why blog anonymous</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/05/re-why-blog-anonymous/" />
+    <id>https://kevingimbel.de/blog/2024/05/re-why-blog-anonymous/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;A few notes on publishing anonymously on the web. &lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;I feel weird about using my full, legal name on the internet. I don&amp;#8217;t like the idea of being Google-able. If I Google myself, the first thing that comes up is my work profile, as that is pretty much the only place on the internet that has my full name.&lt;/p&gt;
+&lt;cite&gt;Frills via &lt;a href=&quot;https://frills.dev/blog/240411-anon/&quot;&gt;https://frills.dev/blog/240411-anon/&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;I&amp;#8217;m long beyond the point of being anonymous on the internet. I tend to link all the things I do together and use the same or similar names on all networks (mostly my full name or &lt;em&gt;atarijunge&lt;/em&gt; a nick-name I got on Twitter back in the day).&lt;/p&gt;
+
+
+
+&lt;p&gt;For most parts I do not mind linking things together and being non-anonymous on the web. It also keeps me in check about what I publish, if I don&amp;#8217;t want something online to be associated with my name I wouldn&amp;#8217;t wanna publish it under a pseudonym as well, given that some clever h4ckerz might one day find the pseudonym and link it back to me.&lt;/p&gt;
+
+
+
+&lt;p&gt;Before I started using my real name online I used a bunch of different usernames, all lost to the digital void now (sometimes for the better &lt;code&gt;#cringe&lt;/code&gt;). I still publish one blog that&amp;#8217;s somewhat private-focused and completely cut from work. It&amp;#8217;s &lt;a href=&quot;https://nerdcultu.re/blog/&quot;&gt;https://nerdcultu.re/blog/&lt;/a&gt; where I write about all things I like (games, movies, music, books, &amp;#8230;) in German. It&amp;#8217;s more for me than for others, really. Otherwise I publish everything under my full name and on kevingimbel.de &amp;#8211; and I&amp;#8217;m fine with that.&lt;/p&gt;
+
+
+
+&lt;p&gt;So, if you Google my name you&amp;#8217;ll probably find a bunch of social media profiles, my linked in, and this very website here (or &lt;em&gt;kevin.gimbel.dev&lt;/em&gt;, depending where you read this post :D). For the future I&amp;#8217;d like to mix-in even more personal things, after all this website is about me.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title type="html">RE: Cloudflare took down our website after trying to force us to pay 120k$ within 24h</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/05/re-cloudflare-took-down-our-website-after-trying-to-force-us-to-pay-120k-within-24h/" />
+    <id>https://kevingimbel.de/blog/2024/05/re-cloudflare-took-down-our-website-after-trying-to-force-us-to-pay-120k-within-24h/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;They would not offer us anything apart from a full deal for $10k per month, which would magically resolve the issue. They were not interested in any other resolution. via https://robindev.substack.com/p/cloudflare-took-down-our-website Now that&amp;#8217;s just fucked up. The screenshots in the post are completely insane as well, the sales tactics hidden behind alleged problems with the account [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;They would not offer us anything apart from a full deal &lt;strong&gt;for $10k per month&lt;/strong&gt;, which would magically resolve the issue. They were not interested in any other resolution.&lt;/p&gt;
+&lt;cite&gt;&lt;em&gt;via &lt;/em&gt;&lt;a href=&quot;https://robindev.substack.com/p/cloudflare-took-down-our-website&quot;&gt;https://robindev.substack.com/p/cloudflare-took-down-our-website&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Now that&amp;#8217;s just fucked up. The screenshots in the post are completely insane as well, the sales tactics hidden behind alleged problems with the account are absolutely unethical, how they try and force them to pay up or be kicked off the platform without giving any real context of what the &amp;#8220;probelm&amp;#8221; is (other then Cloudflare wanting more money) is such a bad move over all.&lt;/p&gt;
+
+
+
+&lt;p&gt;I&amp;#8217;m glad neither I nor my (work-) projects are using Cloudflare services, and I just lost a big chunk of trust in them. &lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title type="html">Regexle #9</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/05/regexle-9/" />
+    <id>https://kevingimbel.de/blog/2024/05/regexle-9/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;Solution for Regexle #9&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;Todays regex had me confused! I kept thinking the solution was strings starting with &lt;code&gt;v[aeiou]&lt;/code&gt;, then strings ending &lt;code&gt;[ing]&lt;/code&gt; or &lt;code&gt;[m|n]e&lt;/code&gt;, but in the end the solution was a lot simpler.&lt;/p&gt;
+
+
+
+&lt;p&gt;The regex today was: &lt;code&gt;&lt;code&gt;[nm].$&lt;/code&gt;&lt;/code&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;This matches the end of strings (as indicated by the &lt;code&gt;$&lt;/code&gt; &lt;em&gt;(dollar sign)&lt;/em&gt;). The regex itself matches &lt;code&gt;n&lt;/code&gt; or &lt;code&gt;m&lt;/code&gt; (&lt;code&gt;[nm]&lt;/code&gt;) followed by exactly one character (&lt;code&gt;.&lt;/code&gt; &lt;em&gt;(dot)&lt;/em&gt;).&lt;/p&gt;
+
+
+
+&lt;p&gt;This matches strings ending in &lt;code&gt;ing &lt;/code&gt;as well as strings ending in &lt;code&gt;me&lt;/code&gt; and &lt;code&gt;ne&lt;/code&gt;. Once again I was thinking way too complicated and didn&amp;#8217;t see the pattern. I hope daily Regexle can sharpen my mind to recognise these sort of string patterns.&lt;/p&gt;
+
+
+
+&lt;p&gt;All in all it took me 24 tries and 4 regexes, my solution was &lt;code&gt;/ing$|[mn].$/&lt;/code&gt;, which matches the patterns but is unnecessarily complex.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title type="html">Regexle #8</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/05/regexle-8/" />
+    <id>https://kevingimbel.de/blog/2024/05/regexle-8/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;Solution for todays Regexle puzzle&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;I&amp;#8217;ve been doing &lt;a href=&quot;https://regexle.ithea.de/&quot;&gt;Regexle&lt;/a&gt; for the past days, and decided to write a short note about them here on the blog.&lt;/p&gt;
+
+
+
+&lt;p&gt;Todays Regex was &lt;a href=&quot;https://regex101.com/r/u1plvN/1&quot;&gt;&lt;code&gt;q$|^w&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;This matches all words ending with q (&lt;code&gt;q$&lt;/code&gt;) or (&lt;code&gt;|&lt;/code&gt;)  starting with w (&lt;code&gt;^w&lt;/code&gt;).&lt;/p&gt;
+
+
+
+&lt;p&gt;I didn&amp;#8217;t solve the puzzle today but already look forward to tomorrows!&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
     <title type="html">Slop Slop Slop!</title>
     <link href="https://kevin.gimbel.dev/blog/2024/05/slop-slop-slop/" />
     <id>https://kevingimbel.de/blog/2024/05/slop-slop-slop/</id>

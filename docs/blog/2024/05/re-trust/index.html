@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>
-TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, etc on Unix systems - Kevin.Gimbel.Dev/Blog
+RE: Trust - Kevin.Gimbel.Dev/Blog
 </title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -450,7 +450,7 @@ blockquote cite {
   
   
   
-<link rel="canonical" href="https://kevingimbel.de/blog/2023/11/til-why-there-is-bin-and-usr-bin-lib-and-usr-lib-on-unix-systems/" />
+<link rel="canonical" href="https://kevingimbel.de/blog/2024/05/re-trust/" />
 
 </head>
 <body>
@@ -469,62 +469,66 @@ blockquote cite {
 
 <section class="[ single-page article-page ]">
     <header>
-        <h1>TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, etc on Unix systems</h1>
+        <h1>RE: Trust</h1>
     </header>
     <div class="content">
         
-<p>If you&#8217;ve ever navigated around a Unix system you may have wondered why there are /bin and usr/bin directories or /lib and /usr/lib or /sbin and /usr/sbin &#8211; or like me, you just took it for something that probably has any meaning but isn&#8217;t relevant enough to look into.</p>
+<p>A very good take on putting AI into everything because that&#8217;s the big thing right now:</p>
 
 
 
-<p>Well, today it became relevant: When upgrading a Docker image from Debian 11 to 12 I encountered a lot of issues with a utility called &#8220;<code>usrmerge</code>&#8220;, and this sent me down a rabbit hole.</p>
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>Trust is a precious commodity. It takes a long time to build trust. It takes a short time to destroy it.</p>
 
 
 
-<p>As with most things in the Unix world it started with someone doing a thing for reasons of technical limitation.</p>
+<p>I am honestly astonished that so many companies don’t seem to realise what they’re destroying.</p>
+<cite>Jeremy Keith via <a href="https://adactio.com/journal/21160">https://adactio.com/journal/21160</a></cite></blockquote>
 
 
 
-<blockquote class="wp-block-quote has-text-align-left is-layout-flow wp-block-quote-is-layout-flow">
-<p>You know how Ken Thompson and Dennis Ritchie created Unix on a PDP-7 in 1969? Well around 1971 they upgraded to a PDP-11 with a pair of RK05 disk packs (1.5 megabytes each) for storage. When the operating system grew too big to fit on the first RK05 disk pack (their root filesystem) they let it leak into the second one, which is where all the user home directories lived (which is why the mount was called /usr).</p>
-<cite><strong>Rob Landley</strong>, via <a href="http://lists.busybox.net/pipermail/busybox/2010-December/074114.html">http://lists.busybox.net/pipermail/busybox/2010-December/074114.html</a> </cite></blockquote>
+<p>Google putting AI on top of all search results, <a href="https://mastodon.online/@stvfrnzl/112503498038440780">then having it recommend jumping of the Golden Gate Bridge if you&#8217;re depressed</a><sup data-fn="071d9189-5ddb-41e1-a3ff-566683ae6300" class="fn"><a href="#071d9189-5ddb-41e1-a3ff-566683ae6300" id="071d9189-5ddb-41e1-a3ff-566683ae6300-link">1</a></sup> is peak &#8220;we need AI, ship now&#8221;-bullshit. I don&#8217;t care if they&#8217;ll have better AI soon, they&#8217;ll be the ones recommending people to die based on a reddit comment (<a href="https://toot.cat/@ionizedgirl/112493337252943357">and also to eat stones</a>).</p>
 
 
 
-<p>So /usr/ existed because the Operating System no longer fit on the first disk, so &#8220;some parts but nut all&#8221; of the OS were split to the mounted second disk &#8211; <em>reasonable</em>.</p>
+<p><strong>Large Corporations</strong> <strong>are destroying trust</strong>, trust they build over decades.</p>
 
 
 
-<p>The quote continues: <em>&#8220;[&#8230;] They replicated all the OS directories under there (/bin, /sbin, /lib, /tmp&#8230;) and wrote files to those new directories because their original disk was out of space.&#8221;</em> &#8211; later on, they made a new <code>/home</code> directory where all the user specific stuff lived and <code>/usr</code> and <code>/bin</code> could both be used for the OS.</p>
+<p>I use Google to get good, accurate results. To find what I want to find fast and efficiently, and they already destroyed that with a lot of SEO bullshit over the years where one finds the content with the best SEO tags, not the best content. </p>
 
 
 
-<p>Well, &#8230; the split between <code>/bin</code> and <code>/usr/bin</code> has never been reverted or &#8220;fixed&#8221;, which is why a thing from the 1970s still exists in modern-day Unix systems (Debian, Ubuntu, and MacOS all have these two directories)! </p>
+<p>I use StackOverflow for the community, and because it has good resources and sometimes good discussion. I don&#8217;t need any AI to do that, I need good search.</p>
 
 
 
-<p>Enter today, 28th November 2023, where I try and upgrade a Debian 11 based image in a Docker build and what breaks my build? A tool called usrmerge, which is supposed to fix this <code>/bin vs. /usr/bin</code> nonsense for Debian 12 and onward.The solution is &#8211; basically &#8211; to merge everything from <code>/bin</code> into <code>/usr/bin</code>, then symlink /bin/ to <code>/usr/bin</code> (and the same for <code>/lib</code> and <code>/sbin</code>).</p>
+<p>The amount of apps which are <em>really improved</em> with AI is limited, and the fact everybody puts AI into everything these days reminds me A LOT of the big blockchain hype from a few years ago.</p>
 
 
 
-<p>I ended up not upgrading the Debian 11 image to Debian 12, instead I enabled <code>bullseye-backports</code> to update the software inside the Docker image &#8211; but that&#8217;s a story for another day.</p>
+<p>WordPress, or better Jetpack, added AI to in some places, for example there&#8217;s a function to generate Excerpts based on the content of a blogpost. This is an OK feature, and actually a real world use case. The generated excerpt for this post is:</p>
 
 
 
-<h2 class="wp-block-heading">Additional reading</h2>
+<pre class="wp-block-code"><code class="">The post criticizes the overuse of AI in various platforms, particularly Google, for deteriorating trust and replacing quality content with AI-driven results. It compares the current AI hype to past blockchain trends.</code></pre>
 
 
 
-<ul>
-<li><a href="http://lists.busybox.net/pipermail/busybox/2010-December/074114.html">http://lists.busybox.net/pipermail/busybox/2010-December/074114.html</a> </li>
-</ul>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
 
+
+
+<p>This post is a response to <a href="https://adactio.com/journal/21160">https://adactio.com/journal/21160</a> by Jeremy Keith.</p>
+
+
+<ol class="wp-block-footnotes"><li id="071d9189-5ddb-41e1-a3ff-566683ae6300">Here&#8217;s a copy of the screenshot from the original Mastodon post in case it ever gets deleted. <a href="https://kevingimbel.de/wp-content/uploads/2024/05/google-ai-depressed-screenshot.jpeg">https://kevingimbel.de/wp-content/uploads/2024/05/google-ai-depressed-screenshot.jpeg</a> <a href="#071d9189-5ddb-41e1-a3ff-566683ae6300-link" aria-label="Jump to footnote reference 1">↩︎</a></li></ol>
     </div>
     <footer class="article__footer">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" style="top: 4px;position: relative;">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5706 1.07915L12.9519 0.460419L12.3332 1.07914L8.6363 4.77601L9.87373 6.01345L12.0754 3.8118C12.0758 4.19678 12.0764 4.58119 12.077 4.96525V4.9653V4.96533C12.0799 6.74156 12.0828 8.51005 12.063 10.291C11.9514 12.51 10.2821 14.5766 8.13549 15.0249L8.12156 15.0278L8.10773 15.0311C6.21947 15.49 4.06987 14.5395 3.24835 12.8164L3.24176 12.8025L3.23468 12.7889C2.46106 11.3026 2.86462 9.29521 4.17623 8.31823L4.18926 8.30852L4.20193 8.29834C5.33152 7.3898 7.12207 7.44889 8.09598 8.45611L8.10921 8.46979L8.12302 8.48289C8.65152 8.9839 8.85928 9.70255 8.85928 10.7436V10.8568H10.6093V10.7436C10.6093 9.51128 10.3691 8.21034 9.34085 7.22607C7.68339 5.5272 4.88287 5.51577 3.11789 6.92446C1.07968 8.45342 0.548175 11.4013 1.67527 13.5832C2.88159 16.0953 5.88263 17.3657 8.50709 16.735C11.4878 16.1053 13.6724 13.3174 13.8118 10.3583L13.8126 10.3426L13.8127 10.3269C13.8328 8.53249 13.8299 6.73532 13.827 4.94338V4.9431V4.94298C13.8264 4.56468 13.8258 4.18661 13.8254 3.80885L16.03 6.01344L17.2674 4.77602L13.5706 1.07915Z" fill="currentColor"/>
         </svg>
-        <a href="https://shareopenly.org/share/?url=https://kevin.gimbel.dev/blog/2023/11/til-why-there-is-bin-and-usr-bin-lib-and-usr-lib-on-unix-systems/&text=TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, etc on Unix systems" title="Share this post via ShareOpenly!">Share this article on social media</a>
+        <a href="https://shareopenly.org/share/?url=https://kevin.gimbel.dev/blog/2024/05/re-trust/&text=RE: Trust" title="Share this post via ShareOpenly!">Share this article on social media</a>
         <p>Did you like this article? Subscribe to the <a href="/feed.xml" class="f-small" title="Subscribe via RSS">RSS Feed</a> to get notified about new posts! 🗞️</p>
         <p>You can also follow me on <a href="https://bsky.app/profile/kevin.gimbel.dev" title="@kevin.gimbel.dev on Bluesky">🦋 Bluesky @kevin.gimbel.dev</a> or <a href="https://fosstodon.org/@KevinGimbel" title="Follow Kevin Gimbel on Mastodon">🐘 Mastodon @KevinGimbel@fosstodon.org</a>
     </footer>
