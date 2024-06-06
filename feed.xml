@@ -12,6 +12,61 @@
   </author>
   
   <entry>
+    <title type="html">10 years of Kubernetes</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/10-years-of-kubernetes/" />
+    <id>https://kevingimbel.de/blog/2024/06/10-years-of-kubernetes/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;10 years ago, on June 6th 2014, the first commit was made to kubernetes. Quoting the original README file Kubernetes is an open source reference implementation of container cluster management. What a wild ride it has been from a reference implementation to the de-facto standard for running containerised workloads! I think the first time I [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;&lt;a href=&quot;https://github.com/kubernetes/kubernetes/commit/2c4b3a562ce34cddc3f8218a2c4d11c7310e6d56&quot;&gt;10 years ago, on June 6th 2014, the first commit was made to kubernetes.&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Quoting the original README file&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Kubernetes is an open source reference implementation of container cluster management.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;What a wild ride it has been from a &lt;em&gt;reference implementation&lt;/em&gt; to the de-facto standard for running containerised workloads!&lt;/p&gt;
+
+
+
+&lt;p&gt;I think the first time I came into contact with Kubernetes was around 2016 or 2017, when we evaluated different container orchestration frameworks with a customer at Synoa. In the end a partner company decided to use &lt;a href=&quot;https://mesosphere.github.io/marathon/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;Apache Marathon&lt;/a&gt; to run workloads, and we at Synoa chose &lt;a href=&quot;https://aws.amazon.com/ecs/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;Amazon ECS&lt;/a&gt; (Elastic Container Services) over Kubernetes since no managed Kubernetes was available at the time, and self hosting wasn&amp;#8217;t viable.&lt;/p&gt;
+
+
+
+&lt;p&gt;Since joining AOE in 2023 I started working with Kubernetes every day and also run &lt;a href=&quot;https://www.aoe.com/en/academy/cloud-devops/kubernetes-101.html&quot;&gt;Kubernetes Workshops&lt;/a&gt; (as part of &lt;a href=&quot;https://www.aoe.com/en/academy.html&quot;&gt;AOE Academy&lt;/a&gt;).&lt;/p&gt;
+
+
+
+&lt;p&gt;I&amp;#8217;m glad to be working with Kubernetes now, and I would recommend it for all medium and larger sized teams. It&amp;#8217;s an amazing product to build platforms on, and keeps evolving!&lt;/p&gt;
+
+
+
+&lt;p&gt;Onto the next 10 years! 🎉&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://kubernetes.io/blog/2024/06/06/10-years-of-kubernetes/&quot;&gt;Kubernetes Announcement Post&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://github.com/kubernetes/kubernetes/tree/2c4b3a562ce34cddc3f8218a2c4d11c7310e6d56&quot;&gt;Original Kubernetes source code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
     <title type="html">RE: Operation Overload</title>
     <link href="https://kevin.gimbel.dev/blog/2024/06/re-operation-overload/" />
     <id>https://kevingimbel.de/blog/2024/06/re-operation-overload/</id>
