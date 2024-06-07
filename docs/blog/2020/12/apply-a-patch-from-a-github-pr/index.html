@@ -99,6 +99,16 @@ main {
     min-height: 100vh;
 }
 
+a, a:visited {
+    color: var(--color-accent-2);
+    text-decoration: wavy;
+}
+
+a:hover, a:focus {
+    color: var(--color-accent-2-contrast);
+    text-decoration: underline;
+}
+
 .u-container {
     padding-inline: var(--grid-gutter);
     margin-inline: auto;
@@ -156,6 +166,8 @@ h3, .font-size-3 { font-size: var(--font-size-3); }
 h4, .font-size-2 { font-size: var(--font-size-2); }
 h5, .font-size-1 { font-size: var(--font-size-1); }
 h6, .font-size-0 { font-size: var(--font-size-0); }
+.font-size--1 { font-size: var(--font-size--1); }
+.font-size--2 { font-size: var(--font-size--2); }
 
 h1,
 h2,
@@ -207,13 +219,13 @@ img {
 }
 
 .bg-accent-5 {
---color-fg: var(--color-accent-5-contrast, #fff);
+--color-fg: var(--color-accent-5-contrast, #f1f1f1);
 --color-bg: var(--color-accent-5, #211000);
 }
 
 [class*="bg-accent"] {
 color: var(--color-fg, #211000);
-background: var(--color-bg, #fff);
+background: var(--color-bg, #f1f1f1);
 }
 
 /* Avatar on front page */
@@ -288,7 +300,7 @@ background: var(--color-bg, #fff);
 
 .skill-section {
     padding: var(--space-l-xl);
-    margin: var(--space-l-xl);
+    margin: var(--space-m-l);
     font-size: var(--font-size-2);
     border: .125rem solid;
 }
@@ -316,9 +328,11 @@ blockquote cite {
 */
 
 pre {
-    background: #ccc;
+    background: #f1f1f1;
+    color: var(--color-black);
     padding: var(--space-s);
     overflow: auto;
+    border: 2px inset var(--color-accent-2);
 }
 
 pre > code {
@@ -456,7 +470,7 @@ blockquote cite {
 <body>
   <header class="site-header">
     <aside class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="height:3rem;widht:3rem;"><text y=".9em" font-size="90">✪</text></svg>
+      <a href="/ops/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="height:3rem;widht:3rem;"><text y=".9em" font-size="90">✪</text></svg></a>
     </aside>
     <nav class="site-nav">
       <a href="/" class="a-blank">Home</a>
@@ -673,16 +687,16 @@ $ patch -p 1 --dry-run &lt; filename.patch</code></pre>
         </svg>
         <a href="https://shareopenly.org/share/?url=https://kevin.gimbel.dev/blog/2020/12/apply-a-patch-from-a-github-pr/&text=Apply a patch from a Github PR" title="Share this post via ShareOpenly!">Share this article on social media</a>
         <p>Did you like this article? Subscribe to the <a href="/feed.xml" class="f-small" title="Subscribe via RSS">RSS Feed</a> to get notified about new posts! 🗞️</p>
-        <p>You can also follow me on <a href="https://bsky.app/profile/kevin.gimbel.dev" title="@kevin.gimbel.dev on Bluesky">🦋 Bluesky @kevin.gimbel.dev</a> or <a href="https://fosstodon.org/@KevinGimbel" title="Follow Kevin Gimbel on Mastodon">🐘 Mastodon @KevinGimbel@fosstodon.org</a>
+        <p>You can also follow me on <a href="https://fosstodon.org/@KevinGimbel" title="Follow Kevin Gimbel on Mastodon">🐘 Mastodon @KevinGimbel@fosstodon.org</a></p>
     </footer>
 </section>
 
 
     <footer id="footer" class="[ footer ]">
       <div class="content">
-        <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.4, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
-        <a href="/feed.xml" class="f-small" title="Subscribe via RSS">RSS Feed</a>
-        <p class="f-small"><a href="/imprint" title="Imprint">Imprint</a> | Views and opinions expressed on this websites do not represents views and opinions of my employer | <b>↙↙↙</b></p>
+        <p class="font-size-2">Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.10, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
+        <a href="/feed.xml" class="font-size--1" title="Subscribe via RSS">RSS Feed</a> | <a href="/imprint" title="Imprint">Imprint</a>
+        <p class="font-size--2">Views and opinions expressed on this websites do not represents views and opinions of my employer</p>
       </div>
     </footer>
   </main>

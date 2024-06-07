@@ -19,7 +19,7 @@
 <body>
   <header class="site-header">
     <aside class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="height:3rem;widht:3rem;"><text y=".9em" font-size="90">{% if icon %}{{ icon }}{% else %}✪{% endif %}</text></svg>
+      <a href="/ops/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="height:3rem;widht:3rem;"><text y=".9em" font-size="90">✪</text></svg></a>
     </aside>
     <nav class="site-nav">
       <a href="/" class="a-blank">Home</a>
@@ -32,9 +32,9 @@
     {% endblock %}
     <footer id="footer" class="[ footer ]">
       <div class="content">
-        <p>Made with <a class="a-splash" href=" {% 11ty_meta "homepage" %}">11ty</a> {% 11ty_meta "version" %}, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
-        <a href="{{ meta.permalinks.feed }}" class="f-small" title="Subscribe via RSS">RSS Feed</a>
-        <p class="f-small"><a href="/imprint" title="Imprint">Imprint</a> | Views and opinions expressed on this websites do not represents views and opinions of my employer | <b>↙↙↙</b></p>
+        <p class="font-size-2">Made with <a class="a-splash" href=" {% 11ty_meta "homepage" %}">11ty</a> {% 11ty_meta "version" %}, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
+        <a href="{{ meta.permalinks.feed }}" class="font-size--1" title="Subscribe via RSS">RSS Feed</a> | <a href="/imprint" title="Imprint">Imprint</a>
+        <p class="font-size--2">Views and opinions expressed on this websites do not represents views and opinions of my employer</p>
       </div>
     </footer>
   </main>

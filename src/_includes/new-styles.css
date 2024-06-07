@@ -88,6 +88,16 @@ main {
     min-height: 100vh;
 }
 
+a, a:visited {
+    color: var(--color-accent-2);
+    text-decoration: wavy;
+}
+
+a:hover, a:focus {
+    color: var(--color-accent-2-contrast);
+    text-decoration: underline;
+}
+
 .u-container {
     padding-inline: var(--grid-gutter);
     margin-inline: auto;
@@ -145,6 +155,8 @@ h3, .font-size-3 { font-size: var(--font-size-3); }
 h4, .font-size-2 { font-size: var(--font-size-2); }
 h5, .font-size-1 { font-size: var(--font-size-1); }
 h6, .font-size-0 { font-size: var(--font-size-0); }
+.font-size--1 { font-size: var(--font-size--1); }
+.font-size--2 { font-size: var(--font-size--2); }
 
 h1,
 h2,
@@ -196,13 +208,13 @@ img {
 }
 
 .bg-accent-5 {
---color-fg: var(--color-accent-5-contrast, #fff);
+--color-fg: var(--color-accent-5-contrast, #f1f1f1);
 --color-bg: var(--color-accent-5, #211000);
 }
 
 [class*="bg-accent"] {
 color: var(--color-fg, #211000);
-background: var(--color-bg, #fff);
+background: var(--color-bg, #f1f1f1);
 }
 
 /* Avatar on front page */
@@ -277,7 +289,7 @@ background: var(--color-bg, #fff);
 
 .skill-section {
     padding: var(--space-l-xl);
-    margin: var(--space-l-xl);
+    margin: var(--space-m-l);
     font-size: var(--font-size-2);
     border: .125rem solid;
 }
@@ -305,9 +317,11 @@ blockquote cite {
 */
 
 pre {
-    background: #ccc;
+    background: #f1f1f1;
+    color: var(--color-black);
     padding: var(--space-s);
     overflow: auto;
+    border: 2px inset var(--color-accent-2);
 }
 
 pre > code {

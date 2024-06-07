@@ -97,6 +97,16 @@ main {
     min-height: 100vh;
 }
 
+a, a:visited {
+    color: var(--color-accent-2);
+    text-decoration: wavy;
+}
+
+a:hover, a:focus {
+    color: var(--color-accent-2-contrast);
+    text-decoration: underline;
+}
+
 .u-container {
     padding-inline: var(--grid-gutter);
     margin-inline: auto;
@@ -154,6 +164,8 @@ h3, .font-size-3 { font-size: var(--font-size-3); }
 h4, .font-size-2 { font-size: var(--font-size-2); }
 h5, .font-size-1 { font-size: var(--font-size-1); }
 h6, .font-size-0 { font-size: var(--font-size-0); }
+.font-size--1 { font-size: var(--font-size--1); }
+.font-size--2 { font-size: var(--font-size--2); }
 
 h1,
 h2,
@@ -205,13 +217,13 @@ img {
 }
 
 .bg-accent-5 {
---color-fg: var(--color-accent-5-contrast, #fff);
+--color-fg: var(--color-accent-5-contrast, #f1f1f1);
 --color-bg: var(--color-accent-5, #211000);
 }
 
 [class*="bg-accent"] {
 color: var(--color-fg, #211000);
-background: var(--color-bg, #fff);
+background: var(--color-bg, #f1f1f1);
 }
 
 /* Avatar on front page */
@@ -286,7 +298,7 @@ background: var(--color-bg, #fff);
 
 .skill-section {
     padding: var(--space-l-xl);
-    margin: var(--space-l-xl);
+    margin: var(--space-m-l);
     font-size: var(--font-size-2);
     border: .125rem solid;
 }
@@ -314,9 +326,11 @@ blockquote cite {
 */
 
 pre {
-    background: #ccc;
+    background: #f1f1f1;
+    color: var(--color-black);
     padding: var(--space-s);
     overflow: auto;
+    border: 2px inset var(--color-accent-2);
 }
 
 pre > code {
@@ -353,7 +367,7 @@ pre > code {
 <body>
   <header class="site-header">
     <aside class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="height:3rem;widht:3rem;"><text y=".9em" font-size="90">✪</text></svg>
+      <a href="/ops/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="height:3rem;widht:3rem;"><text y=".9em" font-size="90">✪</text></svg></a>
     </aside>
     <nav class="site-nav">
       <a href="/" class="a-blank">Home</a>
@@ -368,6 +382,18 @@ pre > code {
     <div class="content">
         <ul class="article-list">
         
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
+            <h2><a href="/blog/2024/06/10-years-of-kubernetes/">10 years of Kubernetes</a></h2>
+            <p><p>10 years ago, on June 6th 2014, the first commit was made to kubernetes. Quoting the original README file Kubernetes is an open source reference implementation of container cluster management. What a wild ride it has been from a reference implementation to the de-facto standard for running containerised workloads! I think the first time I [&hellip;]</p>
+</p>
+            <a href="/blog/2024/06/10-years-of-kubernetes/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
+            <h2><a href="/blog/2024/06/re-operation-overload/">RE: Operation Overload</a></h2>
+            <p><p>I do not envy the people who are working as fact checkers (or who volunteer!), because there sure is a ton of fakes and propaganda out there to be checked and debunked. The graffitis, videos or screenshots sent to newsrooms are fake and were fabricated for the purpose of diverting journalist’s ressources, or even try [&hellip;]</p>
+</p>
+            <a href="/blog/2024/06/re-operation-overload/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/05/re-trust/">RE: Trust</a></h2>
             <p><p>A very good take on putting AI into everything because that&#8217;s the big thing right now: Trust is a precious commodity. It takes a long time to build trust. It takes a short time to destroy it. I am honestly astonished that so many companies don’t seem to realise what they’re destroying. Jeremy Keith via [&hellip;]</p>
@@ -614,9 +640,9 @@ pre > code {
 
     <footer id="footer" class="[ footer ]">
       <div class="content">
-        <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.4, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
-        <a href="/feed.xml" class="f-small" title="Subscribe via RSS">RSS Feed</a>
-        <p class="f-small"><a href="/imprint" title="Imprint">Imprint</a> | Views and opinions expressed on this websites do not represents views and opinions of my employer | <b>↙↙↙</b></p>
+        <p class="font-size-2">Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.10, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
+        <a href="/feed.xml" class="font-size--1" title="Subscribe via RSS">RSS Feed</a> | <a href="/imprint" title="Imprint">Imprint</a>
+        <p class="font-size--2">Views and opinions expressed on this websites do not represents views and opinions of my employer</p>
       </div>
     </footer>
   </main>
