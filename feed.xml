@@ -12,6 +12,47 @@
   </author>
   
   <entry>
+    <title type="html">RE: The Justice Department Took Down the 911 S5 Botnet</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/re-the-justice-department-took-down-the-911-s5-botnet/" />
+    <id>https://kevingimbel.de/blog/2024/06/re-the-justice-department-took-down-the-911-s5-botnet/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;A big-ass botnet has been dismantled by an international cooperation of agencies led by law enforcement in the United States, Singapore, Thailand, and Germany. [&amp;#8230;] devices were associated with more than 19 million unique IP addresses, including 613,841 IP addresses located in the United States. Wang then generated millions of dollars by offering cybercriminals access [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;A big-ass botnet&lt;sup data-fn=&quot;ca841f68-06ca-432e-8856-093003c87556&quot; class=&quot;fn&quot;&gt;&lt;a href=&quot;#ca841f68-06ca-432e-8856-093003c87556&quot; id=&quot;ca841f68-06ca-432e-8856-093003c87556-link&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; has been dismantled by an international cooperation of agencies led by law enforcement in the United States, Singapore, Thailand, and Germany. &lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;[&amp;#8230;] devices were associated with more than 19 million unique IP addresses, including 613,841 IP addresses located in the United States. Wang then generated millions of dollars by offering cybercriminals access to these infected IP addresses for a fee.&lt;/p&gt;
+&lt;cite&gt;via USA Department of Justice press release  &lt;a href=&quot;https://www.justice.gov/opa/pr/911-s5-botnet-dismantled-and-its-administrator-arrested-coordinated-international-operation&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;https://www.justice.gov/opa/pr/911-s5-botnet-dismantled-and-its-administrator-arrested-coordinated-international-operation&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;That&amp;#8217;s one hell of a lot of compromised computers. At this size the chances of knowing somebody who&amp;#8217;s infected aren&amp;#8217;t so slim. &lt;/p&gt;
+
+
+
+&lt;p&gt;Stay vigilant, friends. 🛡️&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Article &lt;a href=&quot;https://www.schneier.com/blog/archives/2024/06/the-justice-department-took-down-the-911-s5-botnet.html&quot;&gt;https://www.schneier.com/blog/archives/2024/06/the-justice-department-took-down-the-911-s5-botnet.html&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;USA Department of Justice press release &lt;a href=&quot;https://www.justice.gov/opa/pr/911-s5-botnet-dismantled-and-its-administrator-arrested-coordinated-international-operation&quot;&gt;https://www.justice.gov/opa/pr/911-s5-botnet-dismantled-and-its-administrator-arrested-coordinated-international-operation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;ca841f68-06ca-432e-8856-093003c87556&quot;&gt;Pardon my French. Sorry not sorry. 🍑 &lt;a href=&quot;#ca841f68-06ca-432e-8856-093003c87556-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content>
+  </entry>
+  <entry>
     <title type="html">10 years of Kubernetes</title>
     <link href="https://kevin.gimbel.dev/blog/2024/06/10-years-of-kubernetes/" />
     <id>https://kevingimbel.de/blog/2024/06/10-years-of-kubernetes/</id>
