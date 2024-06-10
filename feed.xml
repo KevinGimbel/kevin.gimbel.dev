@@ -12,6 +12,43 @@
   </author>
   
   <entry>
+    <title type="html">RE: What if we worked together</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/re-what-if-we-worked-together/" />
+    <id>https://kevingimbel.de/blog/2024/06/re-what-if-we-worked-together/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;The folks at Ghost are building federation into &amp;#8230; Ghost! Ghost is the latest of a growing number of networks joining the Fediverse by implementing ActivityPub (among them are Flipboard and Threads, the new thingy from Meta)! I really love to see the Fediverse grow and evolve. It feels good to be part of it! [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;The folks at &lt;a href=&quot;https://ghost.org/&quot;&gt;Ghost&lt;/a&gt; are building &lt;a href=&quot;https://activitypub.ghost.org/day4/&quot;&gt;federation into &amp;#8230; Ghost&lt;/a&gt;! &lt;/p&gt;
+
+
+
+&lt;p&gt;Ghost is the latest of a growing number of networks joining the Fediverse by implementing ActivityPub (among them are &lt;a href=&quot;https://flipboard.com/&quot;&gt;Flipboard&lt;/a&gt; and &lt;a href=&quot;https://www.threads.net/&quot;&gt;Threads&lt;/a&gt;, the new thingy from Meta)! &lt;/p&gt;
+
+
+
+&lt;p&gt;I really love to see the Fediverse grow and evolve. It feels good to be part of it! &lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;(Hint: You can follow this blog as &lt;a rel=&quot;mention&quot; class=&quot;u-url mention&quot; href=&quot;https://kevingimbel.de/blog/author/kevin_g/&quot;&gt;@&lt;span&gt;kevin&lt;/span&gt;&lt;/a&gt; from anywhere in the Fediverse! Just search for it in your app of choice!)&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Ironically, the Ghost Dev blog is not activity pub enabled, and doesn&amp;#8217;t have RSS &amp;#8211; the only way to subscribe right now is &amp;#8230; &lt;em&gt;email&lt;/em&gt;. 💀&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Activity Pub implementation Dev Blog &lt;a href=&quot;https://activitypub.ghost.org&quot;&gt;https://activitypub.ghost.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
     <title type="html">RE: The Justice Department Took Down the 911 S5 Botnet</title>
     <link href="https://kevin.gimbel.dev/blog/2024/06/re-the-justice-department-took-down-the-911-s5-botnet/" />
     <id>https://kevingimbel.de/blog/2024/06/re-the-justice-department-took-down-the-911-s5-botnet/</id>
