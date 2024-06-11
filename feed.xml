@@ -12,6 +12,119 @@
   </author>
   
   <entry>
+    <title type="html">AI now means Apple Intelligence</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/ai-now-means-apple-intelligence/" />
+    <id>https://kevingimbel.de/blog/2024/06/ai-now-means-apple-intelligence/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;Yesterday (10. June 2024) Apple revealed its new features for the next releases of iOS, MacOS, et all. and with no big surprise the reveal included the addition of AI tools into the operating system and Siri. While I&amp;#8217;m very sceptical of AI build into the OS, I must say Apple seems to be on [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;Yesterday (&lt;em&gt;10. June 2024&lt;/em&gt;) Apple revealed its new features for the next releases of iOS, MacOS, et all. and with no big surprise the reveal included&lt;a href=&quot;https://www.apple.com/apple-intelligence/&quot;&gt; the addition of AI tools into the operating system and Siri&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;While I&amp;#8217;m very sceptical of AI build into the OS, I must say Apple seems to be on the right track again, focusing on privacy. &lt;/p&gt;
+
+
+&lt;a class=&quot;wp-block-read-more&quot; href=&quot;https://kevingimbel.de/blog/2024/06/ai-now-means-apple-intelligence/&quot; target=&quot;_self&quot;&gt;Read more&lt;span class=&quot;screen-reader-text&quot;&gt;: AI now means Apple Intelligence&lt;/span&gt;&lt;/a&gt;
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Apple Intelligence is designed to protect your privacy at every step. It’s integrated into the core of your iPhone, iPad, and Mac through on-device processing. So it’s aware of your personal information without collecting your personal information. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;on-device processing&lt;/em&gt; is powered by the A17 chips in iPhone 15  and iPads &amp;amp; MacBooks with M1 or later chips. &lt;/p&gt;
+
+
+
+&lt;p&gt;But not everything can be processed on device, and for these requests information &amp;#8211; &amp;#8220;&lt;em&gt;only relevant information&lt;/em&gt;&amp;#8221; is sent to a Private Compute Cloud running on Apple Sillicon.&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;When you make a request, Apple Intelligence analyses whether it can be processed on device. If it needs greater computational capacity, it can draw on Private Cloud Compute, and send only the data that&amp;#8217;s relevant to your task to be processed on Apple Silicon servers.&lt;/p&gt;
+
+
+
+&lt;p&gt;Your data is never stored or made accessible to Apple. It&amp;#8217;s used exclusively to fulfil your request.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Given that Apple has shown interest in securing user data in the past I have a lot more confidence in this solution that the &lt;s&gt;Total&lt;/s&gt; Recall feature of Microsoft 11.&lt;/p&gt;
+
+
+
+&lt;p&gt;Speaking of Microsoft, Apple is including ChatGPT into its writing AI tools.&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;With ChatGPT from OpenAI integrated into Siri and Writing Tools, you get even more expertise when it might be helpful for you — no need to jump between tools. Siri can tap into ChatGPT for certain requests, including questions about photos or documents.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;But again, with a focus on privacy they give the user control of when information is sent to ChatGPT.&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;You control when ChatGPT is used and will be asked before any of your information is shared.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Integration with ChatGPT will be free &amp;#8211; including the newest 4o model, and so far there has been no mention of pricing for the other AI features &amp;#8211; they&amp;#8217;ll most likely be part of the package you get when buying Apple hardware.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://simonwillison.net/2024/Jun/10/apple-intelligence/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Simon Willison has longer article covering more details from the presentation&lt;/a&gt;, and raises an important question:&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Siri will be able to both access data on your device and trigger actions based on your instructions.&lt;/p&gt;
+
+
+
+&lt;p&gt;This is the exact feature combination that’s&amp;nbsp;&lt;a href=&quot;https://simonwillison.net/2023/Apr/14/worst-that-can-happen/#rogue-assistant&quot;&gt;most at risk from prompt injection attacks&lt;/a&gt;: what happens if someone sends you a text message that tricks Siri into forwarding a password reset email to them, and you ask for a summary of that message?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;It&amp;#8217;s a valid concern, and it might open up a whole new attack vector, when you get specifically crafted messages sent via email or iMessage in the hopes people will run them through AI processing. How and if Apple can prevent this we will see.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Conclusion&lt;/h2&gt;
+
+
+
+&lt;p&gt;All in all I feel like Apple AI could be a very nice integration and addition to the suite of Apple products, and it seems to have a great focus on privacy as well &amp;#8211; which is tremendously important when doing anything with AI these days (or data processing in general). &lt;/p&gt;
+
+
+
+&lt;p&gt;Apple AI is launching this fall.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.apple.com/apple-intelligence/&quot;&gt;https://www.apple.com/apple-intelligence/&lt;/a&gt; &lt;/li&gt;
+
+
+
+&lt;li&gt;WWDC 2024 recording &lt;a href=&quot;https://www.youtube.com/watch?v=RXeOiIDNNek&quot;&gt;https://www.youtube.com/watch?v=RXeOiIDNNek&lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
     <title type="html">RE: BundID: Eine digitale Identität schafft (falsches) Vertrauen</title>
     <link href="https://kevin.gimbel.dev/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/" />
     <id>https://kevingimbel.de/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/</id>
@@ -72,7 +185,7 @@
 
 
 
-&lt;p&gt;&lt;em&gt;(Hint: You can follow this blog as &lt;a rel=&quot;mention&quot; class=&quot;u-url mention&quot; href=&quot;https://kevingimbel.de/blog/author/kevin_g/&quot;&gt;@&lt;span&gt;kevin&lt;/span&gt;&lt;/a&gt; from anywhere in the Fediverse! Just search for it in your app of choice!)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(Hint: You can follow this blog as &lt;code&gt;@kevin@kevingimbel.de&lt;/code&gt; from anywhere in the Fediverse! Just search for it in your app of choice!)&lt;/em&gt;&lt;/p&gt;
 
 
 
