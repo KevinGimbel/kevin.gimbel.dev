@@ -12,6 +12,47 @@
   </author>
   
   <entry>
+    <title type="html">RE: BundID: Eine digitale Identität schafft (falsches) Vertrauen</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/" />
+    <id>https://kevingimbel.de/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;Ohje… was ist da wieder los? Lilith Wittmann dokumentiert, wie sie innerhalb von kürzester Zeit eine Fake Seite mit dem BundID Login ausstatten konnte und somit legitim wirken lies. Wild! Weil ich weiß, wie oft SAML falsch implementiert wird, habe ich also in den Verwaltungsportalen von Städten gezielt nach solchen Sicherheitslücken gesucht und bin auch [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;Ohje… was ist da wieder los? Lilith Wittmann dokumentiert, wie sie innerhalb von kürzester Zeit eine Fake Seite mit dem BundID Login ausstatten konnte und somit legitim wirken lies. Wild!&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Weil ich weiß, wie oft SAML falsch implementiert wird, habe ich also in den Verwaltungsportalen von Städten gezielt nach solchen Sicherheitslücken gesucht und bin auch innerhalb von etwa einer Stunde beim Durchsehen von Anmeldeprozessen fündig geworden.&lt;/p&gt;
+&lt;cite&gt;Lilith Wittmann, via &lt;a href=&quot;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&quot;&gt;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Lilith stellt in ihrem Artikel wichtige Fragen: Warum wird SAML statt oAuth genutzt? Wieso muss jeder Betreiber SAML selbst implementieren? Und wieso gibt es nicht eine zentrale Stelle?&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Grundsätzlich ist die Frage, ob viele einzelne Verwaltungsportale überhaupt eine gute Idee sind. Oder ob es nicht eigentlich eher ein Portal/App geben sollte, mit dem Bürger interagieren und welches dann die Daten direkt in die Systeme der zuständigen Verwaltung übermittelt. Dadurch könnten weniger Fehler in der Umsetzung passieren, es müssen keine 300 Hundesteueranträge gebaut und gewartet werden und die Qualität der User Experience könnte einfacher verbessert werden.&lt;/p&gt;
+&lt;cite&gt;Lilith Wittmann&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Die Betreiber von BundID haben den Fehler zum Glück schnell behoben, und präventiv alle betroffenen Systeme abgeschaltet während der fix implementiert wurde &amp;#8211; sehr vorbildlich! &lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&quot;&gt;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
     <title type="html">RE: What if we worked together</title>
     <link href="https://kevin.gimbel.dev/blog/2024/06/re-what-if-we-worked-together/" />
     <id>https://kevingimbel.de/blog/2024/06/re-what-if-we-worked-together/</id>
