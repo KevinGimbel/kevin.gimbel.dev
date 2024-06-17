@@ -12,6 +12,173 @@
   </author>
   
   <entry>
+    <title type="html">Learning Haskell: Caesar cipher</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/learning-haskell-caesar-cipher/" />
+    <id>https://kevingimbel.de/blog/2024/06/learning-haskell-caesar-cipher/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;In my quest to learn Haskell I&amp;#8217;ve been reading through Learn You A Haskell, a great book on understanding Haskell. BEFORE WE START: I do not know much about Haskell, I&amp;#8217;ve started learning it literally last week. So please do correct me if I make mistakes in this post 🙂 While reading about function signatures [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;In my quest to learn Haskell I&amp;#8217;ve been reading through &lt;a href=&quot;https://learnyouahaskell.com/types-and-typeclasses#believe-the-type&quot;&gt;Learn You A Haskell,&lt;/a&gt; a great book on understanding Haskell.&lt;/p&gt;
+
+
+
+&lt;p class=&quot;has-contrast-color has-base-2-background-color has-text-color has-background has-link-color wp-elements-c1316fffbf93842266c2e529b0e7613d&quot;&gt;&lt;strong&gt;BEFORE WE START:&lt;/strong&gt; I do not know much about Haskell, I&amp;#8217;ve started learning it literally last week. So please do correct me if I make mistakes in this post 🙂 &lt;/p&gt;
+
+
+
+&lt;p&gt;While reading about function signatures and recursion yesterday it came to my mind that a &lt;a href=&quot;https://en.wikipedia.org/wiki/Caesar_cipher&quot;&gt;Caesar cipher&lt;/a&gt; should be quite easy to implement in Haskell &amp;#8211; and surprise, it is!&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&amp;gt; Int -&amp;gt; Char
+shiftLetter &#39; &#39; _ = &#39; &#39;
+shiftLetter letter 0 = letter
+shiftLetter letter offset = shiftLetter (succ letter) (offset - 1)
+
+encode :: [Char] -&amp;gt; Int -&amp;gt; [Char]
+encode input offset = [ shiftLetter x offset | x &amp;lt;- input ]
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;The syntax looks super weird, especially if you&amp;#8217;ve never seen Haskell, but it actually makes sense.&lt;/p&gt;
+
+
+
+&lt;p&gt;First we have function called &lt;code&gt;shiftLetter&lt;/code&gt; which takes a &lt;code&gt;Char&lt;/code&gt; and &lt;code&gt;Int&lt;/code&gt; as parameters, and returns a &lt;code&gt;Char&lt;/code&gt;. In Haskell this is defined like so&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&amp;gt; Int -&amp;gt; Char&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;Then right below is the actual function body &amp;#8211; or bodies in our case! In Haskell, multiple function bodies can be defined depending on input variables. &lt;/p&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;The first line matches the case we get a space as input in which case a space is returned. &lt;/li&gt;
+
+
+
+&lt;li&gt;The second matches the case where we receive an offset of 0, in which case the letter is returned. &lt;/li&gt;
+
+
+
+&lt;li&gt;The third is the recursive function which takes a letter and offset, and calls the shiftLetter function with the next letter (&lt;code&gt;succ letter&lt;/code&gt;) and &lt;code&gt;offset - 1&lt;/code&gt;.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;code&gt;succ&lt;/code&gt; is a Haskell build-in function which returns the successor of something. Since Haskell is aware of how the alphabet looks, we can do &lt;code&gt;succ &#39;A&#39;&lt;/code&gt; to get &lt;code&gt;&#39;B&#39;&lt;/code&gt;!&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;This function runs recursively until we reach the case where &lt;code&gt;offset = 0&lt;/code&gt; and then we just return the letter.&lt;/p&gt;
+
+
+
+&lt;p&gt;To illustrate this more, take the following example which shows each execution step&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;shiftLetter &#39;A&#39; 2
+
+# function calls
+shiftLetter (succ &#39;A&#39;) (2 - 1) -&amp;gt; shiftLetter B 1
+shiftLetter (succ &#39;B&#39;) (1 - 1) -&amp;gt; shiftLetter C 0
+
+-&amp;gt; return C&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;With a function to shift single letter all we need is to wrap it in some form of recursion. In Haskell Strings are just lists of Chars, so we can use list comprehension function on strings!&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;encode :: [Char] -&amp;gt; Int -&amp;gt; [Char]
+encode input offset = [ shiftLetter x offset | x &amp;lt;- input ]&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;The weird looking function body is a &lt;a href=&quot;https://learnyouahaskell.com/starting-out#im-a-list-comprehension&quot;&gt;list comprehension&lt;/a&gt; with a syntax of &lt;code&gt;[ function | list-input ]&lt;/code&gt; &amp;#8211; we basically do the following:&lt;/p&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;take every single char out of &lt;code&gt;[Char]&lt;/code&gt; and assign it to &lt;code&gt;x&lt;/code&gt; (&lt;code&gt;x &amp;lt;- input&lt;/code&gt;)&lt;/li&gt;
+
+
+
+&lt;li&gt;calculate the cipher (&lt;code&gt;shiftLetter x offset&lt;/code&gt;) for each letter&lt;/li&gt;
+
+
+
+&lt;li&gt;return the ciphered text as a [Char], which is just a String in Haskell.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;I was surprised that the code worked exactly like I wanted on first try. I thought about how it could be implemented, wrote it down, executed it and it just worked. I&amp;#8217;ve rarely had this in any other language!&lt;/p&gt;
+
+
+
+&lt;p&gt;Sadly, I do not have any use case to try Haskell somewhere yet, but I&amp;#8217;m enjoying learning it a &lt;strong&gt;LOT&lt;/strong&gt;. I&amp;#8217;ll now think about how to implement a decode function.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Update&lt;/h2&gt;
+
+
+
+&lt;p&gt;I implemented the decode function with some slight changes to the signatures.&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&amp;gt; Int -&amp;gt; Bool -&amp;gt; Char&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;The &lt;code&gt;Bool&lt;/code&gt; is used to determine if we want to encode (True) or decode (False).&lt;/p&gt;
+
+
+
+&lt;p&gt;The body can than match the two possible values and decide if we want to shift the letter using &lt;code&gt;succ&lt;/code&gt; or &lt;code&gt;pred&lt;/code&gt; &amp;#8211; the only difference between encoding and decoding.&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&gt; Int -&gt; Bool -&gt; Char
+shiftLetter &#39; &#39; _ _ = &#39; &#39;
+shiftLetter letter 0 _ = letter
+shiftLetter letter offset True = shiftLetter (succ letter) (offset - 1) True
+shiftLetter letter offset False = shiftLetter (pred letter) (offset - 1) False&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Caesar_cipher&quot;&gt;https://en.wikipedia.org/wiki/Caesar_cipher&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/starting-out/baby.hs#L111-L125&quot;&gt;https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/starting-out/baby.hs#L111-L125&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/01_fun/caesar-cipher.hs&quot;&gt;https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/01_fun/caesar-cipher.hs&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://learnyouahaskell.com/starting-out#im-a-list-comprehension&quot;&gt;https://learnyouahaskell.com/starting-out#im-a-list-comprehension&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
     <title type="html">AI now means Apple Intelligence</title>
     <link href="https://kevin.gimbel.dev/blog/2024/06/ai-now-means-apple-intelligence/" />
     <id>https://kevingimbel.de/blog/2024/06/ai-now-means-apple-intelligence/</id>
