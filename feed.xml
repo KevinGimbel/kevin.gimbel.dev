@@ -86,11 +86,11 @@ encode input offset = [ shiftLetter x offset | x &amp;lt;- input ]
 
 &lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;shiftLetter &#39;A&#39; 2
 
-# function calls
-shiftLetter (succ &#39;A&#39;) (2 - 1) -&amp;gt; shiftLetter B 1
-shiftLetter (succ &#39;B&#39;) (1 - 1) -&amp;gt; shiftLetter C 0
+# how the function is called
+shiftLetter (succ &#39;A&#39;) (2 - 1) -&gt; shiftLetter B 1
+shiftLetter (succ &#39;B&#39;) (1 - 1) -&gt; shiftLetter C 0
 
--&amp;gt; return C&lt;/code&gt;&lt;/pre&gt;
+-&gt; return C&lt;/code&gt;&lt;/pre&gt;
 
 
 
@@ -149,7 +149,7 @@ encode input offset = [ shiftLetter x offset | x &amp;lt;- input ]&lt;/code&gt;&
 
 
 
-&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&gt; Int -&gt; Bool -&gt; Char
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&amp;gt; Int -&amp;gt; Bool -&amp;gt; Char
 shiftLetter &#39; &#39; _ _ = &#39; &#39;
 shiftLetter letter 0 _ = letter
 shiftLetter letter offset True = shiftLetter (succ letter) (offset - 1) True
