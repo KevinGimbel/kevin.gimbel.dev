@@ -697,10 +697,10 @@ encode input offset = [ shiftLetter x offset | x &lt;- input ]
 <pre class="wp-block-code"><code class="">shiftLetter 'A' 2
 
 # how the function is called
-shiftLetter (succ 'A') (2 - 1) -> shiftLetter B 1
-shiftLetter (succ 'B') (1 - 1) -> shiftLetter C 0
+shiftLetter (succ 'A') (2 - 1) -&gt; shiftLetter B 1
+shiftLetter (succ 'B') (1 - 1) -&gt; shiftLetter C 0
 
--> return C</code></pre>
+-&gt; return C</code></pre>
 
 
 
@@ -764,6 +764,40 @@ shiftLetter ' ' _ _ = ' '
 shiftLetter letter 0 _ = letter
 shiftLetter letter offset True = shiftLetter (succ letter) (offset - 1) True
 shiftLetter letter offset False = shiftLetter (pred letter) (offset - 1) False</code></pre>
+
+
+
+<h2 class="wp-block-heading">Update 2</h2>
+
+
+
+<p>I extracted the code into a module and published it on my GitHub! <a href="https://github.com/KevinGimbel/caesar-cipher/tree/main">https://github.com/KevinGimbel/caesar-cipher</a></p>
+
+
+
+<p>I&#8217;ve also slightly updated it to avoid going out of bounds of the English alphabet. Instead of using <code>succ</code> and <code>pred</code> directly, they&#8217;re now wrapped in functions to handle the beginning and end of the alphabet.</p>
+
+
+
+<pre class="wp-block-code"><code lang="haskell" class="language-haskell">-- get next letter, if we reach Z the next is A
+succLetter :: Char -> Char
+succLetter 'z' = 'a'
+succLetter 'Z' = 'A'
+succLetter x = succ x
+
+-- get prev letter, if we reach A the previous is Z again
+predLetter :: Char -> Char
+predLetter 'a' = 'z'
+predLetter 'A' = 'Z'
+predLetter x = pred x</code></pre>
+
+
+
+<p>Where other languages would require some <code>ifs</code> and <code>elses</code>, Haskell can &#8220;just&#8221; work with parameter matching of the functions.</p>
+
+
+
+<p><code>succLetter z</code> will return &#8220;a&#8221;, <code>succLetter f</code> will return &#8220;g&#8221;, and so on. The same applies to <code>predLetter</code> which will return &#8220;z&#8221; when &#8220;a&#8221; is given.</p>
 
 
 
