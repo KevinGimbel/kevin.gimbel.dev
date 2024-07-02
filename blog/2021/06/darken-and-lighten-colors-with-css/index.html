@@ -645,14 +645,14 @@ blockquote cite {
 
 
 
-<pre class="wp-block-preformatted">:root {
+<pre class="wp-block-code"><code lang="css" class="language-css">:root {
   --color: 0, 100%; 
   --l:50%;
     
   --color-primary: hsl(var(--color),var(--l));
   --color-primary-darker: hsl(var(--color),calc(var(--l) - 10%));
   --color-primary-darkest: hsl(var(--color),calc(var(--l) - 30%)); 
-}</pre>
+}</code></pre>
 
 
 
@@ -687,7 +687,7 @@ blockquote cite {
 
 
 <figure class="wp-block-embed is-type-wp-embed is-provider-codepen wp-block-embed-codepen"><div class="wp-block-embed__wrapper">
-<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" title="dynamic darken() function with css" src="https://codepen.io/kevingimbel/embed/preview/zYZaVPp?default-tabs=html%2Cresult&#038;height=300&#038;host=https%3A%2F%2Fcodepen.io&#038;slug-hash=zYZaVPp#?secret=VBF8hzCvpe" data-secret="VBF8hzCvpe" scrolling="no" frameborder="0" height="300"></iframe>
+<iframe class="wp-embedded-content" sandbox="allow-scripts" security="restricted" title="dynamic darken() function with css" src="https://codepen.io/kevingimbel/embed/preview/zYZaVPp?default-tabs=html%2Cresult&#038;height=300&#038;host=https%3A%2F%2Fcodepen.io&#038;slug-hash=zYZaVPp#?secret=sBu6YRG4sX" data-secret="sBu6YRG4sX" scrolling="no" frameborder="0" height="300"></iframe>
 </div></figure>
 
 
@@ -708,7 +708,7 @@ blockquote cite {
 
 
 
-<pre class="wp-block-preformatted">:root {
+<pre class="wp-block-code"><code lang="css" class="language-css">:root {
   --color: 0, 100%;
   --l:50%; /*the initial lightness*/
 }
@@ -729,7 +729,7 @@ blockquote cite {
 .blue {
   --color:245, 60%;
   --l: 80%;
-}</pre>
+}</code></pre>
 
 
 
@@ -741,14 +741,14 @@ blockquote cite {
 
 
 
-<pre class="wp-block-preformatted">.lighten {
+<pre class="wp-block-code"><code lang="css" class="language-css">.lighten {
   --color: 0, 100%; 
   --l:50%;
     
   --color-primary: hsl(var(--color),var(--l));
   --color-primary-lighter: hsl(var(--color),calc(var(--l) + 10%));
   --color-primary-lightest: hsl(var(--color),calc(var(--l) + 30%)); 
-}</pre>
+}</code></pre>
 
 
 
@@ -756,11 +756,7 @@ blockquote cite {
 
 
 
-<p>Just for completeness, here&#8217;s the Browser support. It&#8217;s looking&nbsp;<em>pretty good</em>&nbsp;with over 90% for both features used (as of June 2021).</p>
-
-
-
-<p>{% caniuse &#8220;calc&#8221; %} {% caniuse &#8220;css-variables&#8221; %}</p>
+<p>Just for completeness, here&#8217;s the Browser support. It&#8217;s looking <em>pretty good</em> with over 90% for both features used (as of June 2021): <a href="https://caniuse.com/css-variables">https://caniuse.com/css-variables</a></p>
 
 
 

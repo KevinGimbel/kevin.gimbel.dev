@@ -3448,14 +3448,14 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;pre class=&quot;wp-block-preformatted&quot;&gt;:root {
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;css&quot; class=&quot;language-css&quot;&gt;:root {
   --color: 0, 100%; 
   --l:50%;
     
   --color-primary: hsl(var(--color),var(--l));
   --color-primary-darker: hsl(var(--color),calc(var(--l) - 10%));
   --color-primary-darkest: hsl(var(--color),calc(var(--l) - 30%)); 
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 
 
 
@@ -3490,7 +3490,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 &lt;figure class=&quot;wp-block-embed is-type-wp-embed is-provider-codepen wp-block-embed-codepen&quot;&gt;&lt;div class=&quot;wp-block-embed__wrapper&quot;&gt;
-&lt;iframe class=&quot;wp-embedded-content&quot; sandbox=&quot;allow-scripts&quot; security=&quot;restricted&quot; title=&quot;dynamic darken() function with css&quot; src=&quot;https://codepen.io/kevingimbel/embed/preview/zYZaVPp?default-tabs=html%2Cresult&amp;#038;height=300&amp;#038;host=https%3A%2F%2Fcodepen.io&amp;#038;slug-hash=zYZaVPp#?secret=VBF8hzCvpe&quot; data-secret=&quot;VBF8hzCvpe&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;
+&lt;iframe class=&quot;wp-embedded-content&quot; sandbox=&quot;allow-scripts&quot; security=&quot;restricted&quot; title=&quot;dynamic darken() function with css&quot; src=&quot;https://codepen.io/kevingimbel/embed/preview/zYZaVPp?default-tabs=html%2Cresult&amp;#038;height=300&amp;#038;host=https%3A%2F%2Fcodepen.io&amp;#038;slug-hash=zYZaVPp#?secret=sBu6YRG4sX&quot; data-secret=&quot;sBu6YRG4sX&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;
 &lt;/div&gt;&lt;/figure&gt;
 
 
@@ -3511,7 +3511,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;pre class=&quot;wp-block-preformatted&quot;&gt;:root {
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;css&quot; class=&quot;language-css&quot;&gt;:root {
   --color: 0, 100%;
   --l:50%; /*the initial lightness*/
 }
@@ -3532,7 +3532,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 .blue {
   --color:245, 60%;
   --l: 80%;
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 
 
 
@@ -3544,14 +3544,14 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;pre class=&quot;wp-block-preformatted&quot;&gt;.lighten {
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;css&quot; class=&quot;language-css&quot;&gt;.lighten {
   --color: 0, 100%; 
   --l:50%;
     
   --color-primary: hsl(var(--color),var(--l));
   --color-primary-lighter: hsl(var(--color),calc(var(--l) + 10%));
   --color-primary-lightest: hsl(var(--color),calc(var(--l) + 30%)); 
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 
 
 
@@ -3559,11 +3559,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;p&gt;Just for completeness, here&amp;#8217;s the Browser support. It&amp;#8217;s looking&amp;nbsp;&lt;em&gt;pretty good&lt;/em&gt;&amp;nbsp;with over 90% for both features used (as of June 2021).&lt;/p&gt;
-
-
-
-&lt;p&gt;{% caniuse &amp;#8220;calc&amp;#8221; %} {% caniuse &amp;#8220;css-variables&amp;#8221; %}&lt;/p&gt;
+&lt;p&gt;Just for completeness, here&amp;#8217;s the Browser support. It&amp;#8217;s looking &lt;em&gt;pretty good&lt;/em&gt; with over 90% for both features used (as of June 2021): &lt;a href=&quot;https://caniuse.com/css-variables&quot;&gt;https://caniuse.com/css-variables&lt;/a&gt;&lt;/p&gt;
 
 
 
