@@ -22,7 +22,7 @@
 
     --color-accent-1: hsl(150, 90%, 70%);
     --color-accent-1-contrast: hsl(150, 30%, 40%);
-    --color-accent-2: hsl(250, 100%, 80%);
+    --color-accent-2: hsl(250, 100%, 77%);
     --color-accent-2-contrast: hsl(250, 30%, 40%);
     --color-accent-3: hsl(300, 88%, 94%);
     --color-accent-3-contrast: hsl(300, 33%, 39%);
@@ -98,12 +98,12 @@ main {
 }
 
 a, a:visited {
-    color: var(--color-accent-2);
-    text-decoration: wavy;
+    color: var(--color-accent-2-contrast);
+    text-decoration: dashed;
 }
 
 a:hover, a:focus {
-    color: var(--color-accent-2-contrast);
+    color: var(--color-accent-2);
     text-decoration: underline;
 }
 
@@ -241,7 +241,8 @@ background: var(--color-bg, #f1f1f1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing)
+    padding: var(--spacing);
+    border-bottom: 1px dashed var(--color-black);
 }
 
 .site-nav {
@@ -359,6 +360,18 @@ pre > code {
         max-width: 60vw;
     }
 }
+
+[class~="has-background"] {
+    background: var(--color-accent-2);
+    color: var(--color-black);
+    padding: var(--space-s-m);
+}
+
+.article-page h1, 
+.article-page h2, 
+.article-page h3 {
+    text-shadow: -3px 3px 0 #ccc;
+}
 </style>
   
   
@@ -407,24 +420,24 @@ pre > code {
         
         
         <li class="article-list__item">
-            <h4 class="font-size-3"><a href="/blog/2024/06/10-years-of-kubernetes/">10 years of Kubernetes</a></h4>
-            <p>10 years ago, on June 6th 2014, the first commit was made to kubernetes. Quoting the original README file Kubernetes is an open source reference implementation of container cluster management. What a wild ride it has been from a reference implementation to the de-facto standard for running containerised workloads! I think the first time I [&hellip;]</p>
+            <h4 class="font-size-3"><a href="/blog/2024/06/learning-haskell-caesar-cipher/">Learning Haskell: Caesar cipher</a></h4>
+            <p>In my quest to learn Haskell I&#8217;ve been reading through Learn You A Haskell, a great book on understanding Haskell. BEFORE WE START: I do not know much about Haskell, I&#8217;ve started learning it literally last week. So please do correct me if I make mistakes in this post 🙂 While reading about function signatures [&hellip;]</p>
 
-            <a href="/blog/2024/06/10-years-of-kubernetes/" class="article-list__more-link" title="Continue reading 10 years of Kubernetes">Continue reading →</a>
+            <a href="/blog/2024/06/learning-haskell-caesar-cipher/" class="article-list__more-link" title="Continue reading Learning Haskell: Caesar cipher">Continue reading →</a>
         </li>
         
         <li class="article-list__item">
-            <h4 class="font-size-3"><a href="/blog/2024/06/re-operation-overload/">RE: Operation Overload</a></h4>
-            <p>I do not envy the people who are working as fact checkers (or who volunteer!), because there sure is a ton of fakes and propaganda out there to be checked and debunked. The graffitis, videos or screenshots sent to newsrooms are fake and were fabricated for the purpose of diverting journalist’s ressources, or even try [&hellip;]</p>
+            <h4 class="font-size-3"><a href="/blog/2024/06/ai-now-means-apple-intelligence/">AI now means Apple Intelligence</a></h4>
+            <p>Yesterday (10. June 2024) Apple revealed its new features for the next releases of iOS, MacOS, et all. and with no big surprise the reveal included the addition of AI tools into the operating system and Siri. While I&#8217;m very sceptical of AI build into the OS, I must say Apple seems to be on [&hellip;]</p>
 
-            <a href="/blog/2024/06/re-operation-overload/" class="article-list__more-link" title="Continue reading RE: Operation Overload">Continue reading →</a>
+            <a href="/blog/2024/06/ai-now-means-apple-intelligence/" class="article-list__more-link" title="Continue reading AI now means Apple Intelligence">Continue reading →</a>
         </li>
         
         <li class="article-list__item">
-            <h4 class="font-size-3"><a href="/blog/2024/05/re-trust/">RE: Trust</a></h4>
-            <p>A very good take on putting AI into everything because that&#8217;s the big thing right now: Trust is a precious commodity. It takes a long time to build trust. It takes a short time to destroy it. I am honestly astonished that so many companies don’t seem to realise what they’re destroying. Jeremy Keith via [&hellip;]</p>
+            <h4 class="font-size-3"><a href="/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/">RE: BundID: Eine digitale Identität schafft (falsches) Vertrauen</a></h4>
+            <p>Ohje… was ist da wieder los? Lilith Wittmann dokumentiert, wie sie innerhalb von kürzester Zeit eine Fake Seite mit dem BundID Login ausstatten konnte und somit legitim wirken lies. Wild! Weil ich weiß, wie oft SAML falsch implementiert wird, habe ich also in den Verwaltungsportalen von Städten gezielt nach solchen Sicherheitslücken gesucht und bin auch [&hellip;]</p>
 
-            <a href="/blog/2024/05/re-trust/" class="article-list__more-link" title="Continue reading RE: Trust">Continue reading →</a>
+            <a href="/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/" class="article-list__more-link" title="Continue reading RE: BundID: Eine digitale Identität schafft (falsches) Vertrauen">Continue reading →</a>
         </li></ul>
   </section>
 
@@ -598,7 +611,7 @@ pre > code {
 <li>💖 <a href="mailto:kevin@gimbel.dev">e-Mail kevin@gimbel.dev</a></li>
 </ul>
 <p>If you write me on <strong>LinkedIn</strong> or request to connect please be patient: I get a lot of messages and catch up only once a week!</p>
-<p>Still not read enough? Well, there's the <a href="/about/">about</a> page left!</p>
+<p>Still not read enough? Well, there's the <a href="/about/">about</a> page left or you check my all-in-one wesite at <a href="https://kevingimbel.de">kevingimbel.de</a> where I also post photography content and other stuff.</p>
 </div>
     </section></section>
 

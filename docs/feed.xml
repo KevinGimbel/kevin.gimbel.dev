@@ -12,6 +12,437 @@
   </author>
   
   <entry>
+    <title type="html">Learning Haskell: Caesar cipher</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/learning-haskell-caesar-cipher/" />
+    <id>https://kevingimbel.de/blog/2024/06/learning-haskell-caesar-cipher/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;In my quest to learn Haskell I&amp;#8217;ve been reading through Learn You A Haskell, a great book on understanding Haskell. BEFORE WE START: I do not know much about Haskell, I&amp;#8217;ve started learning it literally last week. So please do correct me if I make mistakes in this post 🙂 While reading about function signatures [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;In my quest to learn Haskell I&amp;#8217;ve been reading through &lt;a href=&quot;https://learnyouahaskell.com/types-and-typeclasses#believe-the-type&quot;&gt;Learn You A Haskell,&lt;/a&gt; a great book on understanding Haskell.&lt;/p&gt;
+
+
+
+&lt;p class=&quot;has-contrast-color has-base-2-background-color has-text-color has-background has-link-color wp-elements-c1316fffbf93842266c2e529b0e7613d&quot;&gt;&lt;strong&gt;BEFORE WE START:&lt;/strong&gt; I do not know much about Haskell, I&amp;#8217;ve started learning it literally last week. So please do correct me if I make mistakes in this post 🙂 &lt;/p&gt;
+
+
+
+&lt;p&gt;While reading about function signatures and recursion yesterday it came to my mind that a &lt;a href=&quot;https://en.wikipedia.org/wiki/Caesar_cipher&quot;&gt;Caesar cipher&lt;/a&gt; should be quite easy to implement in Haskell &amp;#8211; and surprise, it is!&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&amp;gt; Int -&amp;gt; Char
+shiftLetter &#39; &#39; _ = &#39; &#39;
+shiftLetter letter 0 = letter
+shiftLetter letter offset = shiftLetter (succ letter) (offset - 1)
+
+encode :: [Char] -&amp;gt; Int -&amp;gt; [Char]
+encode input offset = [ shiftLetter x offset | x &amp;lt;- input ]
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;The syntax looks super weird, especially if you&amp;#8217;ve never seen Haskell, but it actually makes sense.&lt;/p&gt;
+
+
+
+&lt;p&gt;First we have function called &lt;code&gt;shiftLetter&lt;/code&gt; which takes a &lt;code&gt;Char&lt;/code&gt; and &lt;code&gt;Int&lt;/code&gt; as parameters, and returns a &lt;code&gt;Char&lt;/code&gt;. In Haskell this is defined like so&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&amp;gt; Int -&amp;gt; Char&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;Then right below is the actual function body &amp;#8211; or bodies in our case! In Haskell, multiple function bodies can be defined depending on input variables. &lt;/p&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;The first line matches the case we get a space as input in which case a space is returned. &lt;/li&gt;
+
+
+
+&lt;li&gt;The second matches the case where we receive an offset of 0, in which case the letter is returned. &lt;/li&gt;
+
+
+
+&lt;li&gt;The third is the recursive function which takes a letter and offset, and calls the shiftLetter function with the next letter (&lt;code&gt;succ letter&lt;/code&gt;) and &lt;code&gt;offset - 1&lt;/code&gt;.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;code&gt;succ&lt;/code&gt; is a Haskell build-in function which returns the successor of something. Since Haskell is aware of how the alphabet looks, we can do &lt;code&gt;succ &#39;A&#39;&lt;/code&gt; to get &lt;code&gt;&#39;B&#39;&lt;/code&gt;!&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;This function runs recursively until we reach the case where &lt;code&gt;offset = 0&lt;/code&gt; and then we just return the letter.&lt;/p&gt;
+
+
+
+&lt;p&gt;To illustrate this more, take the following example which shows each execution step&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;shiftLetter &#39;A&#39; 2
+
+# how the function is called
+shiftLetter (succ &#39;A&#39;) (2 - 1) -&amp;gt; shiftLetter B 1
+shiftLetter (succ &#39;B&#39;) (1 - 1) -&amp;gt; shiftLetter C 0
+
+-&amp;gt; return C&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;With a function to shift single letter all we need is to wrap it in some form of recursion. In Haskell Strings are just lists of Chars, so we can use list comprehension function on strings!&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;encode :: [Char] -&amp;gt; Int -&amp;gt; [Char]
+encode input offset = [ shiftLetter x offset | x &amp;lt;- input ]&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;The weird looking function body is a &lt;a href=&quot;https://learnyouahaskell.com/starting-out#im-a-list-comprehension&quot;&gt;list comprehension&lt;/a&gt; with a syntax of &lt;code&gt;[ function | list-input ]&lt;/code&gt; &amp;#8211; we basically do the following:&lt;/p&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;take every single char out of &lt;code&gt;[Char]&lt;/code&gt; and assign it to &lt;code&gt;x&lt;/code&gt; (&lt;code&gt;x &amp;lt;- input&lt;/code&gt;)&lt;/li&gt;
+
+
+
+&lt;li&gt;calculate the cipher (&lt;code&gt;shiftLetter x offset&lt;/code&gt;) for each letter&lt;/li&gt;
+
+
+
+&lt;li&gt;return the ciphered text as a [Char], which is just a String in Haskell.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;I was surprised that the code worked exactly like I wanted on first try. I thought about how it could be implemented, wrote it down, executed it and it just worked. I&amp;#8217;ve rarely had this in any other language!&lt;/p&gt;
+
+
+
+&lt;p&gt;Sadly, I do not have any use case to try Haskell somewhere yet, but I&amp;#8217;m enjoying learning it a &lt;strong&gt;LOT&lt;/strong&gt;. I&amp;#8217;ll now think about how to implement a decode function.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Update&lt;/h2&gt;
+
+
+
+&lt;p&gt;I implemented the decode function with some slight changes to the signatures.&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&amp;gt; Int -&amp;gt; Bool -&amp;gt; Char&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;The &lt;code&gt;Bool&lt;/code&gt; is used to determine if we want to encode (True) or decode (False).&lt;/p&gt;
+
+
+
+&lt;p&gt;The body can than match the two possible values and decide if we want to shift the letter using &lt;code&gt;succ&lt;/code&gt; or &lt;code&gt;pred&lt;/code&gt; &amp;#8211; the only difference between encoding and decoding.&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&amp;gt; Int -&amp;gt; Bool -&amp;gt; Char
+shiftLetter &#39; &#39; _ _ = &#39; &#39;
+shiftLetter letter 0 _ = letter
+shiftLetter letter offset True = shiftLetter (succ letter) (offset - 1) True
+shiftLetter letter offset False = shiftLetter (pred letter) (offset - 1) False&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Update 2&lt;/h2&gt;
+
+
+
+&lt;p&gt;I extracted the code into a module and published it on my GitHub! &lt;a href=&quot;https://github.com/KevinGimbel/caesar-cipher/tree/main&quot;&gt;https://github.com/KevinGimbel/caesar-cipher&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;I&amp;#8217;ve also slightly updated it to avoid going out of bounds of the English alphabet. Instead of using &lt;code&gt;succ&lt;/code&gt; and &lt;code&gt;pred&lt;/code&gt; directly, they&amp;#8217;re now wrapped in functions to handle the beginning and end of the alphabet.&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;-- get next letter, if we reach Z the next is A
+succLetter :: Char -&gt; Char
+succLetter &#39;z&#39; = &#39;a&#39;
+succLetter &#39;Z&#39; = &#39;A&#39;
+succLetter x = succ x
+
+-- get prev letter, if we reach A the previous is Z again
+predLetter :: Char -&gt; Char
+predLetter &#39;a&#39; = &#39;z&#39;
+predLetter &#39;A&#39; = &#39;Z&#39;
+predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;Where other languages would require some &lt;code&gt;ifs&lt;/code&gt; and &lt;code&gt;elses&lt;/code&gt;, Haskell can &amp;#8220;just&amp;#8221; work with parameter matching of the functions.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;code&gt;succLetter z&lt;/code&gt; will return &amp;#8220;a&amp;#8221;, &lt;code&gt;succLetter f&lt;/code&gt; will return &amp;#8220;g&amp;#8221;, and so on. The same applies to &lt;code&gt;predLetter&lt;/code&gt; which will return &amp;#8220;z&amp;#8221; when &amp;#8220;a&amp;#8221; is given.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Caesar_cipher&quot;&gt;https://en.wikipedia.org/wiki/Caesar_cipher&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/starting-out/baby.hs#L111-L125&quot;&gt;https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/starting-out/baby.hs#L111-L125&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/01_fun/caesar-cipher.hs&quot;&gt;https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/01_fun/caesar-cipher.hs&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://learnyouahaskell.com/starting-out#im-a-list-comprehension&quot;&gt;https://learnyouahaskell.com/starting-out#im-a-list-comprehension&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title type="html">AI now means Apple Intelligence</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/ai-now-means-apple-intelligence/" />
+    <id>https://kevingimbel.de/blog/2024/06/ai-now-means-apple-intelligence/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;Yesterday (10. June 2024) Apple revealed its new features for the next releases of iOS, MacOS, et all. and with no big surprise the reveal included the addition of AI tools into the operating system and Siri. While I&amp;#8217;m very sceptical of AI build into the OS, I must say Apple seems to be on [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;Yesterday (&lt;em&gt;10. June 2024&lt;/em&gt;) Apple revealed its new features for the next releases of iOS, MacOS, et all. and with no big surprise the reveal included&lt;a href=&quot;https://www.apple.com/apple-intelligence/&quot;&gt; the addition of AI tools into the operating system and Siri&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;While I&amp;#8217;m very sceptical of AI build into the OS, I must say Apple seems to be on the right track again, focusing on privacy. &lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Apple&amp;nbsp;Intelligence is designed to protect your privacy at every step. It’s integrated into the core of your iPhone, iPad, and Mac through on-device processing. So it’s aware of your personal information without collecting your personal information.&amp;nbsp;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;on-device processing&lt;/em&gt; is powered by the A17 chips in iPhone 15  and iPads &amp;amp; MacBooks with M1 or later chips. &lt;/p&gt;
+
+
+
+&lt;p&gt;But not everything can be processed on device, and for these requests information &amp;#8211; &amp;#8220;&lt;em&gt;only relevant information&lt;/em&gt;&amp;#8221; is sent to a Private Compute Cloud running on Apple Sillicon.&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;When you make a request, Apple Intelligence analyses whether it can be processed on device. If it needs greater computational capacity, it can draw on Private Cloud Compute, and send only the data that&amp;#8217;s relevant to your task to be processed on Apple Silicon servers.&lt;/p&gt;
+
+
+
+&lt;p&gt;Your data is never stored or made accessible to Apple. It&amp;#8217;s used exclusively to fulfil your request.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Given that Apple has shown interest in securing user data in the past I have a lot more confidence in this solution that the &lt;s&gt;Total&lt;/s&gt; Recall feature of Microsoft 11.&lt;/p&gt;
+
+
+
+&lt;p&gt;Speaking of Microsoft, Apple is including ChatGPT into its writing AI tools.&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;With ChatGPT from OpenAI integrated into Siri and Writing Tools, you get even more expertise when it might be helpful for you — no need to jump between tools. Siri can tap into ChatGPT for certain requests, including questions about photos or documents.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;But again, with a focus on privacy they give the user control of when information is sent to ChatGPT.&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;You control when ChatGPT is used and will be asked before any of your information is shared.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Integration with ChatGPT will be free &amp;#8211; including the newest 4o model, and so far there has been no mention of pricing for the other AI features &amp;#8211; they&amp;#8217;ll most likely be part of the package you get when buying Apple hardware.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://simonwillison.net/2024/Jun/10/apple-intelligence/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Simon Willison has longer article covering more details from the presentation&lt;/a&gt;, and raises an important question:&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Siri will be able to both access data on your device and trigger actions based on your instructions.&lt;/p&gt;
+
+
+
+&lt;p&gt;This is the exact feature combination that’s&amp;nbsp;&lt;a href=&quot;https://simonwillison.net/2023/Apr/14/worst-that-can-happen/#rogue-assistant&quot;&gt;most at risk from prompt injection attacks&lt;/a&gt;: what happens if someone sends you a text message that tricks Siri into forwarding a password reset email to them, and you ask for a summary of that message?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;It&amp;#8217;s a valid concern, and it might open up a whole new attack vector, when you get specifically crafted messages sent via email or iMessage in the hopes people will run them through AI processing. How and if Apple can prevent this we will see.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Conclusion&lt;/h2&gt;
+
+
+
+&lt;p&gt;All in all I feel like Apple AI could be a very nice integration and addition to the suite of Apple products, and it seems to have a great focus on privacy as well &amp;#8211; which is tremendously important when doing anything with AI these days (or data processing in general). &lt;/p&gt;
+
+
+
+&lt;p&gt;Apple AI is launching this fall.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.apple.com/apple-intelligence/&quot;&gt;https://www.apple.com/apple-intelligence/&lt;/a&gt; &lt;/li&gt;
+
+
+
+&lt;li&gt;WWDC 2024 recording &lt;a href=&quot;https://www.youtube.com/watch?v=RXeOiIDNNek&quot;&gt;https://www.youtube.com/watch?v=RXeOiIDNNek&lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title type="html">RE: BundID: Eine digitale Identität schafft (falsches) Vertrauen</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/" />
+    <id>https://kevingimbel.de/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;Ohje… was ist da wieder los? Lilith Wittmann dokumentiert, wie sie innerhalb von kürzester Zeit eine Fake Seite mit dem BundID Login ausstatten konnte und somit legitim wirken lies. Wild! Weil ich weiß, wie oft SAML falsch implementiert wird, habe ich also in den Verwaltungsportalen von Städten gezielt nach solchen Sicherheitslücken gesucht und bin auch [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;Ohje… was ist da wieder los? Lilith Wittmann dokumentiert, wie sie innerhalb von kürzester Zeit eine Fake Seite mit dem BundID Login ausstatten konnte und somit legitim wirken lies. Wild!&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Weil ich weiß, wie oft SAML falsch implementiert wird, habe ich also in den Verwaltungsportalen von Städten gezielt nach solchen Sicherheitslücken gesucht und bin auch innerhalb von etwa einer Stunde beim Durchsehen von Anmeldeprozessen fündig geworden.&lt;/p&gt;
+&lt;cite&gt;Lilith Wittmann, via &lt;a href=&quot;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&quot;&gt;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Lilith stellt in ihrem Artikel wichtige Fragen: Warum wird SAML statt oAuth genutzt? Wieso muss jeder Betreiber SAML selbst implementieren? Und wieso gibt es nicht eine zentrale Stelle?&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Grundsätzlich ist die Frage, ob viele einzelne Verwaltungsportale überhaupt eine gute Idee sind. Oder ob es nicht eigentlich eher ein Portal/App geben sollte, mit dem Bürger interagieren und welches dann die Daten direkt in die Systeme der zuständigen Verwaltung übermittelt. Dadurch könnten weniger Fehler in der Umsetzung passieren, es müssen keine 300 Hundesteueranträge gebaut und gewartet werden und die Qualität der User Experience könnte einfacher verbessert werden.&lt;/p&gt;
+&lt;cite&gt;Lilith Wittmann&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Die Betreiber von BundID haben den Fehler zum Glück schnell behoben, und präventiv alle betroffenen Systeme abgeschaltet während der fix implementiert wurde &amp;#8211; sehr vorbildlich! &lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&quot;&gt;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title type="html">RE: What if we worked together</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/re-what-if-we-worked-together/" />
+    <id>https://kevingimbel.de/blog/2024/06/re-what-if-we-worked-together/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;The folks at Ghost are building federation into &amp;#8230; Ghost! Ghost is the latest of a growing number of networks joining the Fediverse by implementing ActivityPub (among them are Flipboard and Threads, the new thingy from Meta)! I really love to see the Fediverse grow and evolve. It feels good to be part of it! [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;The folks at &lt;a href=&quot;https://ghost.org/&quot;&gt;Ghost&lt;/a&gt; are building &lt;a href=&quot;https://activitypub.ghost.org/day4/&quot;&gt;federation into &amp;#8230; Ghost&lt;/a&gt;! &lt;/p&gt;
+
+
+
+&lt;p&gt;Ghost is the latest of a growing number of networks joining the Fediverse by implementing ActivityPub (among them are &lt;a href=&quot;https://flipboard.com/&quot;&gt;Flipboard&lt;/a&gt; and &lt;a href=&quot;https://www.threads.net/&quot;&gt;Threads&lt;/a&gt;, the new thingy from Meta)! &lt;/p&gt;
+
+
+
+&lt;p&gt;I really love to see the Fediverse grow and evolve. It feels good to be part of it! &lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;(Hint: You can follow this blog as &lt;code&gt;@kevin@kevingimbel.de&lt;/code&gt; from anywhere in the Fediverse! Just search for it in your app of choice!)&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Ironically, the Ghost Dev blog is not activity pub enabled, and doesn&amp;#8217;t have RSS &amp;#8211; the only way to subscribe right now is &amp;#8230; &lt;em&gt;email&lt;/em&gt;. 💀&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Activity Pub implementation Dev Blog &lt;a href=&quot;https://activitypub.ghost.org&quot;&gt;https://activitypub.ghost.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title type="html">RE: The Justice Department Took Down the 911 S5 Botnet</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/re-the-justice-department-took-down-the-911-s5-botnet/" />
+    <id>https://kevingimbel.de/blog/2024/06/re-the-justice-department-took-down-the-911-s5-botnet/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;A big-ass botnet has been dismantled by an international cooperation of agencies led by law enforcement in the United States, Singapore, Thailand, and Germany. [&amp;#8230;] devices were associated with more than 19 million unique IP addresses, including 613,841 IP addresses located in the United States. Wang then generated millions of dollars by offering cybercriminals access [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;A big-ass botnet&lt;sup data-fn=&quot;ca841f68-06ca-432e-8856-093003c87556&quot; class=&quot;fn&quot;&gt;&lt;a href=&quot;#ca841f68-06ca-432e-8856-093003c87556&quot; id=&quot;ca841f68-06ca-432e-8856-093003c87556-link&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; has been dismantled by an international cooperation of agencies led by law enforcement in the United States, Singapore, Thailand, and Germany. &lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;[&amp;#8230;] devices were associated with more than 19 million unique IP addresses, including 613,841 IP addresses located in the United States. Wang then generated millions of dollars by offering cybercriminals access to these infected IP addresses for a fee.&lt;/p&gt;
+&lt;cite&gt;via USA Department of Justice press release  &lt;a href=&quot;https://www.justice.gov/opa/pr/911-s5-botnet-dismantled-and-its-administrator-arrested-coordinated-international-operation&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;https://www.justice.gov/opa/pr/911-s5-botnet-dismantled-and-its-administrator-arrested-coordinated-international-operation&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;That&amp;#8217;s one hell of a lot of compromised computers. At this size the chances of knowing somebody who&amp;#8217;s infected aren&amp;#8217;t so slim. &lt;/p&gt;
+
+
+
+&lt;p&gt;Stay vigilant, friends. 🛡️&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;Article &lt;a href=&quot;https://www.schneier.com/blog/archives/2024/06/the-justice-department-took-down-the-911-s5-botnet.html&quot;&gt;https://www.schneier.com/blog/archives/2024/06/the-justice-department-took-down-the-911-s5-botnet.html&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;USA Department of Justice press release &lt;a href=&quot;https://www.justice.gov/opa/pr/911-s5-botnet-dismantled-and-its-administrator-arrested-coordinated-international-operation&quot;&gt;https://www.justice.gov/opa/pr/911-s5-botnet-dismantled-and-its-administrator-arrested-coordinated-international-operation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;ca841f68-06ca-432e-8856-093003c87556&quot;&gt;Pardon my French. Sorry not sorry. 🍑 &lt;a href=&quot;#ca841f68-06ca-432e-8856-093003c87556-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content>
+  </entry>
+  <entry>
     <title type="html">10 years of Kubernetes</title>
     <link href="https://kevin.gimbel.dev/blog/2024/06/10-years-of-kubernetes/" />
     <id>https://kevingimbel.de/blog/2024/06/10-years-of-kubernetes/</id>
@@ -477,7 +908,7 @@
 
 
 
-&lt;figure class=&quot;wp-block-image size-full&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;644&quot; height=&quot;438&quot; data-attachment-id=&quot;2424&quot; data-permalink=&quot;https://kevingimbel.de/blog/2024/04/oh-no-my-gpg-key-expired-like-every-year/screenshot-2024-04-17-at-09-12-30/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=644%2C438&amp;amp;ssl=1&quot; data-orig-size=&quot;644,438&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=300%2C204&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=644%2C438&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?resize=644%2C438&amp;#038;ssl=1&quot; alt=&quot;Screenshot of GitHub&#39;s Verification pop-up.
+&lt;figure class=&quot;wp-block-image size-full&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;644&quot; height=&quot;438&quot; data-attachment-id=&quot;2424&quot; data-permalink=&quot;https://kevingimbel.de/blog/2024/04/oh-no-my-gpg-key-expired-like-every-year/screenshot-2024-04-17-at-09-12-30/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=644%2C438&amp;amp;ssl=1&quot; data-orig-size=&quot;644,438&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=300%2C204&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=644%2C438&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?resize=644%2C438&amp;#038;ssl=1&quot; alt=&quot;Screenshot of GitHub&#39;s Verification pop-up.
 
 Text: &amp;quot;This commit was signed with the committer&#39;s verified signature.&amp;quot;
 
@@ -879,7 +1310,7 @@ def update():
 
 &lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;632&quot; data-attachment-id=&quot;492&quot; data-permalink=&quot;https://kevingimbel.de/blog/2024/01/til-k9s-plugins/screenshot-2024-01-03-at-10-26-17/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?fit=2134%2C1318&amp;amp;ssl=1&quot; data-orig-size=&quot;2134,1318&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;Screenshot of k9s&quot; data-image-description=&quot;&amp;lt;p&amp;gt;A screenshot showing k9s, there&amp;#8217;s a red highlight box around the &amp;#8220;ctrl-l&amp;#8221; shortcut which opens Grafana&amp;lt;/p&amp;gt;
 &quot; data-image-caption=&quot;&amp;lt;p&amp;gt;A screenshot showing the ctrl-l shortcut of the Grafana plugin&amp;lt;/p&amp;gt;
-&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?fit=300%2C185&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?fit=1024%2C632&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=1024%2C632&amp;#038;ssl=1&quot; alt=&quot;&quot; class=&quot;wp-image-492&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=1024%2C632&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=300%2C185&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=768%2C474&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=1536%2C949&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=2048%2C1265&amp;amp;ssl=1 2048w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;A screenshot showing the ctrl-l shortcut of the Grafana plugin&lt;/figcaption&gt;&lt;/figure&gt;
+&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?fit=300%2C185&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?fit=1024%2C632&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=1024%2C632&amp;#038;ssl=1&quot; alt=&quot;&quot; class=&quot;wp-image-492&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=1024%2C632&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=300%2C185&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=768%2C474&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=1536%2C949&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=2048%2C1265&amp;amp;ssl=1 2048w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;A screenshot showing the ctrl-l shortcut of the Grafana plugin&lt;/figcaption&gt;&lt;/figure&gt;
 
 
 
@@ -1054,7 +1485,7 @@ def update():
 
 
 
-&lt;figure class=&quot;wp-block-image alignwide size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;499&quot; data-attachment-id=&quot;401&quot; data-permalink=&quot;https://kevingimbel.de/blog/2023/11/integrating-wordpress-posts-with-11ty/2023-10-31-11-08-44-kevin-gimbel-dev-3422f747f145/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?fit=1882%2C918&amp;amp;ssl=1&quot; data-orig-size=&quot;1882,918&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?fit=300%2C146&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?fit=1024%2C499&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?resize=1024%2C499&amp;#038;ssl=1&quot; alt=&quot;Screenshot showing the blog page on kevin.gimbel.dev
+&lt;figure class=&quot;wp-block-image alignwide size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;499&quot; data-attachment-id=&quot;401&quot; data-permalink=&quot;https://kevingimbel.de/blog/2023/11/integrating-wordpress-posts-with-11ty/2023-10-31-11-08-44-kevin-gimbel-dev-3422f747f145/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?fit=1882%2C918&amp;amp;ssl=1&quot; data-orig-size=&quot;1882,918&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?fit=300%2C146&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?fit=1024%2C499&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?resize=1024%2C499&amp;#038;ssl=1&quot; alt=&quot;Screenshot showing the blog page on kevin.gimbel.dev
 It&#39;s white boxes with text on a blue background.&quot; class=&quot;wp-image-401&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?resize=1024%2C499&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?resize=300%2C146&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?resize=768%2C375&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?resize=1536%2C749&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?w=1882&amp;amp;ssl=1 1882w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/figure&gt;
 
 
@@ -2101,7 +2532,7 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;551&quot; data-attachment-id=&quot;274&quot; data-permalink=&quot;https://kevingimbel.de/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/screenshot-2023-04-12-at-07-54-49/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?fit=1204%2C648&amp;amp;ssl=1&quot; data-orig-size=&quot;1204,648&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;Screenshot-2023-04-12-at-07.54.49&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?fit=300%2C161&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?fit=1024%2C551&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=1024%2C551&amp;#038;ssl=1&quot; alt=&quot;Screenshot of iTerm2 showing the prompt and colors for errors and success. With success an arrow in pink is shown as prompt symbol, with failure a blue X is displayed.&quot; class=&quot;wp-image-274&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=1024%2C551&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=300%2C161&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=768%2C413&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?w=1204&amp;amp;ssl=1 1204w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/figure&gt;
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;551&quot; data-attachment-id=&quot;274&quot; data-permalink=&quot;https://kevingimbel.de/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/screenshot-2023-04-12-at-07-54-49/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?fit=1204%2C648&amp;amp;ssl=1&quot; data-orig-size=&quot;1204,648&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;Screenshot-2023-04-12-at-07.54.49&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?fit=300%2C161&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?fit=1024%2C551&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=1024%2C551&amp;#038;ssl=1&quot; alt=&quot;Screenshot of iTerm2 showing the prompt and colors for errors and success. With success an arrow in pink is shown as prompt symbol, with failure a blue X is displayed.&quot; class=&quot;wp-image-274&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=1024%2C551&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=300%2C161&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=768%2C413&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?w=1204&amp;amp;ssl=1 1204w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/figure&gt;
 
 
 
@@ -2113,7 +2544,7 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;figure class=&quot;wp-block-image alignleft size-full&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;632&quot; height=&quot;240&quot; data-attachment-id=&quot;261&quot; data-permalink=&quot;https://kevingimbel.de/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/screenshot-2023-04-06-at-10-35-21/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?fit=632%2C240&amp;amp;ssl=1&quot; data-orig-size=&quot;632,240&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;Screenshot-2023-04-06-at-10.35.21&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?fit=300%2C114&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?fit=632%2C240&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?resize=632%2C240&amp;#038;ssl=1&quot; alt=&quot;Screenshot showing the English keyboard layout&quot; class=&quot;wp-image-261&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?w=632&amp;amp;ssl=1 632w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?resize=300%2C114&amp;amp;ssl=1 300w&quot; sizes=&quot;(max-width: 632px) 100vw, 632px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;The US International PC keyboard layout&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class=&quot;wp-block-image alignleft size-full&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;632&quot; height=&quot;240&quot; data-attachment-id=&quot;261&quot; data-permalink=&quot;https://kevingimbel.de/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/screenshot-2023-04-06-at-10-35-21/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?fit=632%2C240&amp;amp;ssl=1&quot; data-orig-size=&quot;632,240&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;Screenshot-2023-04-06-at-10.35.21&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?fit=300%2C114&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?fit=632%2C240&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?resize=632%2C240&amp;#038;ssl=1&quot; alt=&quot;Screenshot showing the English keyboard layout&quot; class=&quot;wp-image-261&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?w=632&amp;amp;ssl=1 632w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?resize=300%2C114&amp;amp;ssl=1 300w&quot; sizes=&quot;(max-width: 632px) 100vw, 632px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;The US International PC keyboard layout&lt;/figcaption&gt;&lt;/figure&gt;
 
 
 
@@ -2264,7 +2695,7 @@ new_list == &amp;#91;2, 4, 6, 8]
 
 
 &lt;figure class=&quot;wp-block-image alignwide size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;666&quot; data-attachment-id=&quot;94&quot; data-permalink=&quot;https://kevingimbel.de/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/screenshot-2022-12-02-at-13-46-05/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=3248%2C2112&amp;amp;ssl=1&quot; data-orig-size=&quot;3248,2112&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;kevin.gimbel.dev/ops/ Screenshot&quot; data-image-description=&quot;&amp;lt;p&amp;gt;Screenshot of a browser showing the website kevin.gimbel.dev/ops, with a black and white photo of a male with a camera before his face and text reading &amp;#8220;Hi, I&amp;#8217;m Kevin! A Senior DevOps Engineer with a background in Front-End Development.&amp;#8221;&amp;lt;/p&amp;gt;
-&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=300%2C195&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=1024%2C666&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1024%2C666&amp;#038;ssl=1&quot; alt=&quot;&quot; class=&quot;wp-image-94&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1024%2C666&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=300%2C195&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=768%2C499&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1536%2C999&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=2048%2C1332&amp;amp;ssl=1 2048w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?w=3000&amp;amp;ssl=1 3000w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/figure&gt;
+&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=300%2C195&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=1024%2C666&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1024%2C666&amp;#038;ssl=1&quot; alt=&quot;&quot; class=&quot;wp-image-94&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1024%2C666&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=300%2C195&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=768%2C499&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1536%2C999&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=2048%2C1332&amp;amp;ssl=1 2048w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?w=3000&amp;amp;ssl=1 3000w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/figure&gt;
 
 
 
@@ -2295,7 +2726,7 @@ new_list == &amp;#91;2, 4, 6, 8]
 
 
 &lt;figure class=&quot;wp-block-image alignwide size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;532&quot; data-attachment-id=&quot;93&quot; data-permalink=&quot;https://kevingimbel.de/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/screenshot-2022-12-02-at-13-38-00/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=3024%2C1572&amp;amp;ssl=1&quot; data-orig-size=&quot;3024,1572&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;GitHub Pages settings&quot; data-image-description=&quot;&amp;lt;p&amp;gt;Screenshot of the GitHub Pages settings of a repository&amp;lt;/p&amp;gt;
-&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=300%2C156&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=1024%2C532&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1024%2C532&amp;#038;ssl=1&quot; alt=&quot;&quot; class=&quot;wp-image-93&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1024%2C532&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=300%2C156&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=768%2C399&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1536%2C798&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=2048%2C1065&amp;amp;ssl=1 2048w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?w=3000&amp;amp;ssl=1 3000w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;GitHub Pages settings screen&lt;/figcaption&gt;&lt;/figure&gt;
+&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=300%2C156&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=1024%2C532&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1024%2C532&amp;#038;ssl=1&quot; alt=&quot;&quot; class=&quot;wp-image-93&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1024%2C532&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=300%2C156&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=768%2C399&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1536%2C798&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=2048%2C1065&amp;amp;ssl=1 2048w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?w=3000&amp;amp;ssl=1 3000w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;GitHub Pages settings screen&lt;/figcaption&gt;&lt;/figure&gt;
 
 
 
@@ -3017,14 +3448,14 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;pre class=&quot;wp-block-preformatted&quot;&gt;:root {
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;css&quot; class=&quot;language-css&quot;&gt;:root {
   --color: 0, 100%; 
   --l:50%;
     
   --color-primary: hsl(var(--color),var(--l));
   --color-primary-darker: hsl(var(--color),calc(var(--l) - 10%));
   --color-primary-darkest: hsl(var(--color),calc(var(--l) - 30%)); 
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 
 
 
@@ -3059,7 +3490,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 &lt;figure class=&quot;wp-block-embed is-type-wp-embed is-provider-codepen wp-block-embed-codepen&quot;&gt;&lt;div class=&quot;wp-block-embed__wrapper&quot;&gt;
-&lt;iframe class=&quot;wp-embedded-content&quot; sandbox=&quot;allow-scripts&quot; security=&quot;restricted&quot; title=&quot;dynamic darken() function with css&quot; src=&quot;https://codepen.io/kevingimbel/embed/preview/zYZaVPp?default-tabs=html%2Cresult&amp;#038;height=300&amp;#038;host=https%3A%2F%2Fcodepen.io&amp;#038;slug-hash=zYZaVPp#?secret=VBF8hzCvpe&quot; data-secret=&quot;VBF8hzCvpe&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;
+&lt;iframe class=&quot;wp-embedded-content&quot; sandbox=&quot;allow-scripts&quot; security=&quot;restricted&quot; title=&quot;dynamic darken() function with css&quot; src=&quot;https://codepen.io/kevingimbel/embed/preview/zYZaVPp?default-tabs=html%2Cresult&amp;#038;height=300&amp;#038;host=https%3A%2F%2Fcodepen.io&amp;#038;slug-hash=zYZaVPp#?secret=sBu6YRG4sX&quot; data-secret=&quot;sBu6YRG4sX&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;
 &lt;/div&gt;&lt;/figure&gt;
 
 
@@ -3080,7 +3511,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;pre class=&quot;wp-block-preformatted&quot;&gt;:root {
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;css&quot; class=&quot;language-css&quot;&gt;:root {
   --color: 0, 100%;
   --l:50%; /*the initial lightness*/
 }
@@ -3101,7 +3532,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 .blue {
   --color:245, 60%;
   --l: 80%;
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 
 
 
@@ -3113,14 +3544,14 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;pre class=&quot;wp-block-preformatted&quot;&gt;.lighten {
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;css&quot; class=&quot;language-css&quot;&gt;.lighten {
   --color: 0, 100%; 
   --l:50%;
     
   --color-primary: hsl(var(--color),var(--l));
   --color-primary-lighter: hsl(var(--color),calc(var(--l) + 10%));
   --color-primary-lightest: hsl(var(--color),calc(var(--l) + 30%)); 
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 
 
 
@@ -3128,11 +3559,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;p&gt;Just for completeness, here&amp;#8217;s the Browser support. It&amp;#8217;s looking&amp;nbsp;&lt;em&gt;pretty good&lt;/em&gt;&amp;nbsp;with over 90% for both features used (as of June 2021).&lt;/p&gt;
-
-
-
-&lt;p&gt;{% caniuse &amp;#8220;calc&amp;#8221; %} {% caniuse &amp;#8220;css-variables&amp;#8221; %}&lt;/p&gt;
+&lt;p&gt;Just for completeness, here&amp;#8217;s the Browser support. It&amp;#8217;s looking &lt;em&gt;pretty good&lt;/em&gt; with over 90% for both features used (as of June 2021): &lt;a href=&quot;https://caniuse.com/css-variables&quot;&gt;https://caniuse.com/css-variables&lt;/a&gt;&lt;/p&gt;
 
 
 

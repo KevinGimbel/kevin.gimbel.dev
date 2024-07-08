@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>
-RE: Why blog anonymous - Kevin.Gimbel.Dev/Blog
+Learning Haskell: Caesar cipher - Kevin.Gimbel.Dev/Blog
 </title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -477,7 +477,7 @@ blockquote cite {
   
   
   
-<link rel="canonical" href="https://kevingimbel.de/blog/2024/05/re-why-blog-anonymous/" />
+<link rel="canonical" href="https://kevingimbel.de/blog/2024/06/learning-haskell-caesar-cipher/" />
 
 </head>
 <body>
@@ -496,36 +496,208 @@ blockquote cite {
 
 <section class="[ single-page article-page ]">
     <header>
-        <h1>RE: Why blog anonymous</h1>
+        <h1>Learning Haskell: Caesar cipher</h1>
     </header>
     <div class="content">
         
-<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
-<p>I feel weird about using my full, legal name on the internet. I don&#8217;t like the idea of being Google-able. If I Google myself, the first thing that comes up is my work profile, as that is pretty much the only place on the internet that has my full name.</p>
-<cite>Frills via <a href="https://frills.dev/blog/240411-anon/">https://frills.dev/blog/240411-anon/</a></cite></blockquote>
+<p>In my quest to learn Haskell I&#8217;ve been reading through <a href="https://learnyouahaskell.com/types-and-typeclasses#believe-the-type">Learn You A Haskell,</a> a great book on understanding Haskell.</p>
 
 
 
-<p>I&#8217;m long beyond the point of being anonymous on the internet. I tend to link all the things I do together and use the same or similar names on all networks (mostly my full name or <em>atarijunge</em> a nick-name I got on Twitter back in the day).</p>
+<p class="has-contrast-color has-base-2-background-color has-text-color has-background has-link-color wp-elements-c1316fffbf93842266c2e529b0e7613d"><strong>BEFORE WE START:</strong> I do not know much about Haskell, I&#8217;ve started learning it literally last week. So please do correct me if I make mistakes in this post 🙂 </p>
 
 
 
-<p>For most parts I do not mind linking things together and being non-anonymous on the web. It also keeps me in check about what I publish, if I don&#8217;t want something online to be associated with my name I wouldn&#8217;t wanna publish it under a pseudonym as well, given that some clever h4ckerz might one day find the pseudonym and link it back to me.</p>
+<p>While reading about function signatures and recursion yesterday it came to my mind that a <a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar cipher</a> should be quite easy to implement in Haskell &#8211; and surprise, it is!</p>
 
 
 
-<p>Before I started using my real name online I used a bunch of different usernames, all lost to the digital void now (sometimes for the better <code>#cringe</code>). I still publish one blog that&#8217;s somewhat private-focused and completely cut from work. It&#8217;s <a href="https://nerdcultu.re/blog/">https://nerdcultu.re/blog/</a> where I write about all things I like (games, movies, music, books, &#8230;) in German. It&#8217;s more for me than for others, really. Otherwise I publish everything under my full name and on kevingimbel.de &#8211; and I&#8217;m fine with that.</p>
+<pre class="wp-block-code"><code lang="haskell" class="language-haskell">shiftLetter :: Char -&gt; Int -&gt; Char
+shiftLetter ' ' _ = ' '
+shiftLetter letter 0 = letter
+shiftLetter letter offset = shiftLetter (succ letter) (offset - 1)
+
+encode :: [Char] -&gt; Int -&gt; [Char]
+encode input offset = [ shiftLetter x offset | x &lt;- input ]
+</code></pre>
 
 
 
-<p>So, if you Google my name you&#8217;ll probably find a bunch of social media profiles, my linked in, and this very website here (or <em>kevin.gimbel.dev</em>, depending where you read this post :D). For the future I&#8217;d like to mix-in even more personal things, after all this website is about me.</p>
+<p>The syntax looks super weird, especially if you&#8217;ve never seen Haskell, but it actually makes sense.</p>
+
+
+
+<p>First we have function called <code>shiftLetter</code> which takes a <code>Char</code> and <code>Int</code> as parameters, and returns a <code>Char</code>. In Haskell this is defined like so</p>
+
+
+
+<pre class="wp-block-code"><code lang="haskell" class="language-haskell">shiftLetter :: Char -&gt; Int -&gt; Char</code></pre>
+
+
+
+<p>Then right below is the actual function body &#8211; or bodies in our case! In Haskell, multiple function bodies can be defined depending on input variables. </p>
+
+
+
+<ul>
+<li>The first line matches the case we get a space as input in which case a space is returned. </li>
+
+
+
+<li>The second matches the case where we receive an offset of 0, in which case the letter is returned. </li>
+
+
+
+<li>The third is the recursive function which takes a letter and offset, and calls the shiftLetter function with the next letter (<code>succ letter</code>) and <code>offset - 1</code>.</li>
+
+
+
+<li><code>succ</code> is a Haskell build-in function which returns the successor of something. Since Haskell is aware of how the alphabet looks, we can do <code>succ 'A'</code> to get <code>'B'</code>!</li>
+</ul>
+
+
+
+<p>This function runs recursively until we reach the case where <code>offset = 0</code> and then we just return the letter.</p>
+
+
+
+<p>To illustrate this more, take the following example which shows each execution step</p>
+
+
+
+<pre class="wp-block-code"><code class="">shiftLetter 'A' 2
+
+# how the function is called
+shiftLetter (succ 'A') (2 - 1) -&gt; shiftLetter B 1
+shiftLetter (succ 'B') (1 - 1) -&gt; shiftLetter C 0
+
+-&gt; return C</code></pre>
+
+
+
+<p>With a function to shift single letter all we need is to wrap it in some form of recursion. In Haskell Strings are just lists of Chars, so we can use list comprehension function on strings!</p>
+
+
+
+<pre class="wp-block-code"><code lang="haskell" class="language-haskell">encode :: [Char] -&gt; Int -&gt; [Char]
+encode input offset = [ shiftLetter x offset | x &lt;- input ]</code></pre>
+
+
+
+<p>The weird looking function body is a <a href="https://learnyouahaskell.com/starting-out#im-a-list-comprehension">list comprehension</a> with a syntax of <code>[ function | list-input ]</code> &#8211; we basically do the following:</p>
+
+
+
+<ul>
+<li>take every single char out of <code>[Char]</code> and assign it to <code>x</code> (<code>x &lt;- input</code>)</li>
+
+
+
+<li>calculate the cipher (<code>shiftLetter x offset</code>) for each letter</li>
+
+
+
+<li>return the ciphered text as a [Char], which is just a String in Haskell.</li>
+</ul>
+
+
+
+<p>I was surprised that the code worked exactly like I wanted on first try. I thought about how it could be implemented, wrote it down, executed it and it just worked. I&#8217;ve rarely had this in any other language!</p>
+
+
+
+<p>Sadly, I do not have any use case to try Haskell somewhere yet, but I&#8217;m enjoying learning it a <strong>LOT</strong>. I&#8217;ll now think about how to implement a decode function.</p>
+
+
+
+<h2 class="wp-block-heading">Update</h2>
+
+
+
+<p>I implemented the decode function with some slight changes to the signatures.</p>
+
+
+
+<pre class="wp-block-code"><code lang="haskell" class="language-haskell">shiftLetter :: Char -&gt; Int -&gt; Bool -&gt; Char</code></pre>
+
+
+
+<p>The <code>Bool</code> is used to determine if we want to encode (True) or decode (False).</p>
+
+
+
+<p>The body can than match the two possible values and decide if we want to shift the letter using <code>succ</code> or <code>pred</code> &#8211; the only difference between encoding and decoding.</p>
+
+
+
+<pre class="wp-block-code"><code lang="haskell" class="language-haskell">shiftLetter :: Char -&gt; Int -&gt; Bool -&gt; Char
+shiftLetter ' ' _ _ = ' '
+shiftLetter letter 0 _ = letter
+shiftLetter letter offset True = shiftLetter (succ letter) (offset - 1) True
+shiftLetter letter offset False = shiftLetter (pred letter) (offset - 1) False</code></pre>
+
+
+
+<h2 class="wp-block-heading">Update 2</h2>
+
+
+
+<p>I extracted the code into a module and published it on my GitHub! <a href="https://github.com/KevinGimbel/caesar-cipher/tree/main">https://github.com/KevinGimbel/caesar-cipher</a></p>
+
+
+
+<p>I&#8217;ve also slightly updated it to avoid going out of bounds of the English alphabet. Instead of using <code>succ</code> and <code>pred</code> directly, they&#8217;re now wrapped in functions to handle the beginning and end of the alphabet.</p>
+
+
+
+<pre class="wp-block-code"><code lang="haskell" class="language-haskell">-- get next letter, if we reach Z the next is A
+succLetter :: Char -> Char
+succLetter 'z' = 'a'
+succLetter 'Z' = 'A'
+succLetter x = succ x
+
+-- get prev letter, if we reach A the previous is Z again
+predLetter :: Char -> Char
+predLetter 'a' = 'z'
+predLetter 'A' = 'Z'
+predLetter x = pred x</code></pre>
+
+
+
+<p>Where other languages would require some <code>ifs</code> and <code>elses</code>, Haskell can &#8220;just&#8221; work with parameter matching of the functions.</p>
+
+
+
+<p><code>succLetter z</code> will return &#8220;a&#8221;, <code>succLetter f</code> will return &#8220;g&#8221;, and so on. The same applies to <code>predLetter</code> which will return &#8220;z&#8221; when &#8220;a&#8221; is given.</p>
+
+
+
+<h2 class="wp-block-heading">Links</h2>
+
+
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Caesar_cipher">https://en.wikipedia.org/wiki/Caesar_cipher</a></li>
+
+
+
+<li><a href="https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/starting-out/baby.hs#L111-L125">https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/starting-out/baby.hs#L111-L125</a></li>
+
+
+
+<li><a href="https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/01_fun/caesar-cipher.hs">https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/01_fun/caesar-cipher.hs</a></li>
+
+
+
+<li><a href="https://learnyouahaskell.com/starting-out#im-a-list-comprehension">https://learnyouahaskell.com/starting-out#im-a-list-comprehension</a></li>
+</ul>
 
     </div>
     <footer class="article__footer">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" style="top: 4px;position: relative;">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5706 1.07915L12.9519 0.460419L12.3332 1.07914L8.6363 4.77601L9.87373 6.01345L12.0754 3.8118C12.0758 4.19678 12.0764 4.58119 12.077 4.96525V4.9653V4.96533C12.0799 6.74156 12.0828 8.51005 12.063 10.291C11.9514 12.51 10.2821 14.5766 8.13549 15.0249L8.12156 15.0278L8.10773 15.0311C6.21947 15.49 4.06987 14.5395 3.24835 12.8164L3.24176 12.8025L3.23468 12.7889C2.46106 11.3026 2.86462 9.29521 4.17623 8.31823L4.18926 8.30852L4.20193 8.29834C5.33152 7.3898 7.12207 7.44889 8.09598 8.45611L8.10921 8.46979L8.12302 8.48289C8.65152 8.9839 8.85928 9.70255 8.85928 10.7436V10.8568H10.6093V10.7436C10.6093 9.51128 10.3691 8.21034 9.34085 7.22607C7.68339 5.5272 4.88287 5.51577 3.11789 6.92446C1.07968 8.45342 0.548175 11.4013 1.67527 13.5832C2.88159 16.0953 5.88263 17.3657 8.50709 16.735C11.4878 16.1053 13.6724 13.3174 13.8118 10.3583L13.8126 10.3426L13.8127 10.3269C13.8328 8.53249 13.8299 6.73532 13.827 4.94338V4.9431V4.94298C13.8264 4.56468 13.8258 4.18661 13.8254 3.80885L16.03 6.01344L17.2674 4.77602L13.5706 1.07915Z" fill="currentColor"/>
         </svg>
-        <a href="https://shareopenly.org/share/?url=https://kevin.gimbel.dev/blog/2024/05/re-why-blog-anonymous/&text=RE: Why blog anonymous" title="Share this post via ShareOpenly!">Share this article on social media</a>
+        <a href="https://shareopenly.org/share/?url=https://kevin.gimbel.dev/blog/2024/06/learning-haskell-caesar-cipher/&text=Learning Haskell: Caesar cipher" title="Share this post via ShareOpenly!">Share this article on social media</a>
         <p>Did you like this article? Subscribe to the <a href="/feed.xml" class="f-small" title="Subscribe via RSS">RSS Feed</a> to get notified about new posts! 🗞️</p>
         <p>You can also follow me on <a href="https://fosstodon.org/@KevinGimbel" title="Follow Kevin Gimbel on Mastodon">🐘 Mastodon @KevinGimbel@fosstodon.org</a></p>
     </footer>

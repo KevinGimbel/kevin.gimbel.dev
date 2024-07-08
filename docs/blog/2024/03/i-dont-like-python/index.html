@@ -24,7 +24,7 @@ I don&#8217;t like Python - Kevin.Gimbel.Dev/Blog
 
     --color-accent-1: hsl(150, 90%, 70%);
     --color-accent-1-contrast: hsl(150, 30%, 40%);
-    --color-accent-2: hsl(250, 100%, 80%);
+    --color-accent-2: hsl(250, 100%, 77%);
     --color-accent-2-contrast: hsl(250, 30%, 40%);
     --color-accent-3: hsl(300, 88%, 94%);
     --color-accent-3-contrast: hsl(300, 33%, 39%);
@@ -100,12 +100,12 @@ main {
 }
 
 a, a:visited {
-    color: var(--color-accent-2);
-    text-decoration: wavy;
+    color: var(--color-accent-2-contrast);
+    text-decoration: dashed;
 }
 
 a:hover, a:focus {
-    color: var(--color-accent-2-contrast);
+    color: var(--color-accent-2);
     text-decoration: underline;
 }
 
@@ -243,7 +243,8 @@ background: var(--color-bg, #f1f1f1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing)
+    padding: var(--spacing);
+    border-bottom: 1px dashed var(--color-black);
 }
 
 .site-nav {
@@ -360,6 +361,18 @@ pre > code {
     .article-page .content {
         max-width: 60vw;
     }
+}
+
+[class~="has-background"] {
+    background: var(--color-accent-2);
+    color: var(--color-black);
+    padding: var(--space-s-m);
+}
+
+.article-page h1, 
+.article-page h2, 
+.article-page h3 {
+    text-shadow: -3px 3px 0 #ccc;
 }
 </style>
   

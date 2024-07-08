@@ -22,7 +22,7 @@
 
     --color-accent-1: hsl(150, 90%, 70%);
     --color-accent-1-contrast: hsl(150, 30%, 40%);
-    --color-accent-2: hsl(250, 100%, 80%);
+    --color-accent-2: hsl(250, 100%, 77%);
     --color-accent-2-contrast: hsl(250, 30%, 40%);
     --color-accent-3: hsl(300, 88%, 94%);
     --color-accent-3-contrast: hsl(300, 33%, 39%);
@@ -98,12 +98,12 @@ main {
 }
 
 a, a:visited {
-    color: var(--color-accent-2);
-    text-decoration: wavy;
+    color: var(--color-accent-2-contrast);
+    text-decoration: dashed;
 }
 
 a:hover, a:focus {
-    color: var(--color-accent-2-contrast);
+    color: var(--color-accent-2);
     text-decoration: underline;
 }
 
@@ -241,7 +241,8 @@ background: var(--color-bg, #f1f1f1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing)
+    padding: var(--spacing);
+    border-bottom: 1px dashed var(--color-black);
 }
 
 .site-nav {
@@ -359,6 +360,18 @@ pre > code {
         max-width: 60vw;
     }
 }
+
+[class~="has-background"] {
+    background: var(--color-accent-2);
+    color: var(--color-black);
+    padding: var(--space-s-m);
+}
+
+.article-page h1, 
+.article-page h2, 
+.article-page h3 {
+    text-shadow: -3px 3px 0 #ccc;
+}
 </style>
   
   
@@ -382,6 +395,36 @@ pre > code {
     <div class="content">
         <ul class="article-list">
         
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
+            <h2><a href="/blog/2024/06/learning-haskell-caesar-cipher/">Learning Haskell: Caesar cipher</a></h2>
+            <p><p>In my quest to learn Haskell I&#8217;ve been reading through Learn You A Haskell, a great book on understanding Haskell. BEFORE WE START: I do not know much about Haskell, I&#8217;ve started learning it literally last week. So please do correct me if I make mistakes in this post 🙂 While reading about function signatures [&hellip;]</p>
+</p>
+            <a href="/blog/2024/06/learning-haskell-caesar-cipher/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
+            <h2><a href="/blog/2024/06/ai-now-means-apple-intelligence/">AI now means Apple Intelligence</a></h2>
+            <p><p>Yesterday (10. June 2024) Apple revealed its new features for the next releases of iOS, MacOS, et all. and with no big surprise the reveal included the addition of AI tools into the operating system and Siri. While I&#8217;m very sceptical of AI build into the OS, I must say Apple seems to be on [&hellip;]</p>
+</p>
+            <a href="/blog/2024/06/ai-now-means-apple-intelligence/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
+            <h2><a href="/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/">RE: BundID: Eine digitale Identität schafft (falsches) Vertrauen</a></h2>
+            <p><p>Ohje… was ist da wieder los? Lilith Wittmann dokumentiert, wie sie innerhalb von kürzester Zeit eine Fake Seite mit dem BundID Login ausstatten konnte und somit legitim wirken lies. Wild! Weil ich weiß, wie oft SAML falsch implementiert wird, habe ich also in den Verwaltungsportalen von Städten gezielt nach solchen Sicherheitslücken gesucht und bin auch [&hellip;]</p>
+</p>
+            <a href="/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
+            <h2><a href="/blog/2024/06/re-what-if-we-worked-together/">RE: What if we worked together</a></h2>
+            <p><p>The folks at Ghost are building federation into &#8230; Ghost! Ghost is the latest of a growing number of networks joining the Fediverse by implementing ActivityPub (among them are Flipboard and Threads, the new thingy from Meta)! I really love to see the Fediverse grow and evolve. It feels good to be part of it! [&hellip;]</p>
+</p>
+            <a href="/blog/2024/06/re-what-if-we-worked-together/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
+            <h2><a href="/blog/2024/06/re-the-justice-department-took-down-the-911-s5-botnet/">RE: The Justice Department Took Down the 911 S5 Botnet</a></h2>
+            <p><p>A big-ass botnet has been dismantled by an international cooperation of agencies led by law enforcement in the United States, Singapore, Thailand, and Germany. [&#8230;] devices were associated with more than 19 million unique IP addresses, including 613,841 IP addresses located in the United States. Wang then generated millions of dollars by offering cybercriminals access [&hellip;]</p>
+</p>
+            <a href="/blog/2024/06/re-the-justice-department-took-down-the-911-s5-botnet/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/06/10-years-of-kubernetes/">10 years of Kubernetes</a></h2>
             <p><p>10 years ago, on June 6th 2014, the first commit was made to kubernetes. Quoting the original README file Kubernetes is an open source reference implementation of container cluster management. What a wild ride it has been from a reference implementation to the de-facto standard for running containerised workloads! I think the first time I [&hellip;]</p>
