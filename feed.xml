@@ -12,6 +12,53 @@
   </author>
   
   <entry>
+    <title type="html">RE: Second Factor SMS: Worse than It&amp;#8217;s Reputation</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/07/re-second-factor-sms-worse-than-its-reputation/" />
+    <id>https://kevingimbel.de/blog/2024/07/re-second-factor-sms-worse-than-its-reputation/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;Another day, another (big) leak: CCC, Chaos Computer Club, obtained millions of SMS containing Two-Factor Auth (2FA) tokens which where publicly available on the internet. One-time passwords are often sent via SMS. Security researchers from the CCC recently had live access to over 200 million such SMS messages from more than 200 affected companies. via [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+&lt;p&gt;Another day, another (big) leak: CCC, &lt;em&gt;Chaos Computer Club&lt;/em&gt;, obtained millions of SMS containing Two-Factor Auth (&lt;em&gt;2FA&lt;/em&gt;) tokens which where publicly available on the internet.&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;One-time passwords are often sent via SMS. Security researchers from the CCC recently had live access to over 200 million such SMS messages from more than 200 affected companies.&lt;/p&gt;
+&lt;cite&gt;via &lt;a href=&quot;https://www.ccc.de/en/updates/2024/2fa-sms&quot;&gt;https://www.ccc.de/en/updates/2024/2fa-sms&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;2FA via SMS has long been known to be weak, and the CCC advised against it as early as 2013 (!) &amp;#8211; 11 years ago &amp;#8211; in a statement available here  &lt;a href=&quot;https://www.ccc.de/en/updates/2013/de-mail-unqualifizierte-makulatur&quot;&gt;https://www.ccc.de/en/updates/2013/de-mail-unqualifizierte-makulatur&lt;/a&gt; &lt;/p&gt;
+
+
+
+&lt;p&gt;CCC generally recommends using 2FA if available. &lt;/p&gt;
+
+
+
+&lt;p&gt;The most-secure are hardware tokens like &lt;a href=&quot;https://www.yubico.com/products/&quot;&gt;Yubikey&lt;/a&gt;, followed by dedicated apps like Google Authenticator, Microsoft Authenticator, followed by One-Time Passwords in-password-manager Apps like &lt;a href=&quot;https://keepassxc.org/docs/KeePassXC_UserGuide#_adding_totp_to_an_entry&quot;&gt;KeePassXC&lt;/a&gt; or 1Password, followed by &amp;#8230; SMS, which is still a little bit better than no 2FA, even if it is flawed. &lt;/p&gt;
+
+
+
+&lt;p&gt;I highly recommend KeePassXC. &lt;a href=&quot;https://kevingimbel.de/blog/2020/01/two-factor-auth-password-managers-and-cloud-sync/&quot; data-type=&quot;post&quot; data-id=&quot;2997&quot;&gt;In 2020 I blogged about my setup, which is still similar today.&lt;/a&gt; &lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.ccc.de/en/updates/2024/2fa-sms&quot;&gt;&amp;#8220;Second Factor SMS: Worse Than Its Reputation&amp;#8221;&lt;/a&gt; by CCC.de&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://www.theverge.com/2021/3/15/22332315/sms-redirect-flaw-exploit-text-message-hijacking-hacking&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;&amp;#8220;Companies can silently reroute your texts to hackers, sometimes for just $16&amp;#8221; by The Verge&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
     <title type="html">Learning Haskell: Caesar cipher</title>
     <link href="https://kevin.gimbel.dev/blog/2024/06/learning-haskell-caesar-cipher/" />
     <id>https://kevingimbel.de/blog/2024/06/learning-haskell-caesar-cipher/</id>
