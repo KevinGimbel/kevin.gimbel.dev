@@ -49,7 +49,7 @@
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.ccc.de/en/updates/2024/2fa-sms&quot;&gt;&amp;#8220;Second Factor SMS: Worse Than Its Reputation&amp;#8221;&lt;/a&gt; by CCC.de&lt;/li&gt;
 
 
@@ -105,7 +105,7 @@ encode input offset = [ shiftLetter x offset | x &amp;lt;- input ]
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;The first line matches the case we get a space as input in which case a space is returned. &lt;/li&gt;
 
 
@@ -154,7 +154,7 @@ encode input offset = [ shiftLetter x offset | x &amp;lt;- input ]&lt;/code&gt;&
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;take every single char out of &lt;code&gt;[Char]&lt;/code&gt; and assign it to &lt;code&gt;x&lt;/code&gt; (&lt;code&gt;x &amp;lt;- input&lt;/code&gt;)&lt;/li&gt;
 
 
@@ -242,7 +242,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Caesar_cipher&quot;&gt;https://en.wikipedia.org/wiki/Caesar_cipher&lt;/a&gt;&lt;/li&gt;
 
 
@@ -361,7 +361,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.apple.com/apple-intelligence/&quot;&gt;https://www.apple.com/apple-intelligence/&lt;/a&gt; &lt;/li&gt;
 
 
@@ -406,7 +406,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&quot;&gt;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -443,7 +443,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Activity Pub implementation Dev Blog &lt;a href=&quot;https://activitypub.ghost.org&quot;&gt;https://activitypub.ghost.org&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -478,7 +478,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Article &lt;a href=&quot;https://www.schneier.com/blog/archives/2024/06/the-justice-department-took-down-the-911-s5-botnet.html&quot;&gt;https://www.schneier.com/blog/archives/2024/06/the-justice-department-took-down-the-911-s5-botnet.html&lt;/a&gt;&lt;/li&gt;
 
 
@@ -535,7 +535,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/blog/2024/06/06/10-years-of-kubernetes/&quot;&gt;Kubernetes Announcement Post&lt;/a&gt;&lt;/li&gt;
 
 
@@ -582,7 +582,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Full report (90 pages) as PDF here &lt;a href=&quot;https://checkfirst.network/wp-content/uploads/2024/06/Operation_Overload_WEB.pdf&quot;&gt;https://checkfirst.network/wp-content/uploads/2024/06/Operation_Overload_WEB.pdf&lt;/a&gt;&lt;/li&gt;
 
 
@@ -786,7 +786,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;blockquote class=&quot;wp-block-quote is-style-plain has-medium-font-size is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;blockquote class=&quot;wp-block-quote is-style-plain has-medium-font-size is-layout-flow wp-block-quote-is-layout-flow is-style-plain--3b44cf2ed1e94ca9f4a9aec94719d971&quot;&gt;
 &lt;p&gt;&lt;em&gt;The first page of Google results are links to pages that have scraped other pages for information from other pages that have been scraped for information. All the sources seem to link back to one another. There is no origin. The photos on the page look weird. The hands are disfigured. There is no image credit.&lt;/em&gt;&lt;/p&gt;
 &lt;cite&gt;via &lt;a href=&quot;https://www.takahe.org.nz/heat-death-of-the-internet/&quot;&gt;https://www.takahe.org.nz/heat-death-of-the-internet/&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
 
@@ -855,7 +855,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://opentofu.org/blog/opentofu-1-7-0-beta1/#provider-defined-functions&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;Provider-defined functions &lt;/a&gt;&lt;/li&gt;
 
 
@@ -921,7 +921,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Run &lt;code&gt;gpg --list-secret-keys&lt;/code&gt;&lt;/li&gt;
 
 
@@ -987,7 +987,7 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://riseup.net/en/security/message-security/openpgp/best-practices&quot;&gt;https://riseup.net/en/security/message-security/openpgp/best-practices&lt;/a&gt;&lt;/li&gt;
 
 
@@ -1016,7 +1016,7 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;The xz backdoor was very sophisticated and carried out by a professional, this is no work of an amateur&lt;/li&gt;
 
 
@@ -1112,7 +1112,7 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Russ Cox xz Timeline &lt;a href=&quot;https://research.swtch.com/xz-timeline&quot;&gt;https://research.swtch.com/xz-timeline&lt;/a&gt;&lt;/li&gt;
 
 
@@ -1325,7 +1325,7 @@ def update():
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;code&gt;shortCut&lt;/code&gt; defines the key combination which invokes the plugin&lt;/li&gt;
 
 
@@ -1365,7 +1365,7 @@ def update():
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;code&gt;$CLUSTER&lt;/code&gt; is the name of the current cluster&lt;/li&gt;
 
 
@@ -1395,7 +1395,7 @@ def update():
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/derailed/k9s/tree/master/plugins&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Community plugins&lt;/a&gt; &lt;/li&gt;
 
 
@@ -1444,7 +1444,7 @@ def update():
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.zachleat.com/web/eleventy-v3-alpha/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://www.zachleat.com/web/eleventy-v3-alpha/&lt;/a&gt; &lt;/li&gt;
 
 
@@ -1503,7 +1503,7 @@ def update():
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;http://lists.busybox.net/pipermail/busybox/2010-December/074114.html&quot;&gt;http://lists.busybox.net/pipermail/busybox/2010-December/074114.html&lt;/a&gt; &lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -1633,7 +1633,7 @@ module.exports = data;&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;code&gt;blog-page.njk&lt;/code&gt; which is the single page of a blog entry&lt;/li&gt;
 
 
@@ -1761,7 +1761,7 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Only 100 posts are loaded at the moment, I&amp;#8217;d like to load more and possibly cache the results somehow &amp;#8211; content rarely changes so it would be fine to only load the last posts published&lt;/li&gt;
 
 
@@ -1779,7 +1779,7 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.11ty.dev/docs/pages-from-data/&quot;&gt;Creating pages from data (11ty docs)&lt;/a&gt;&lt;/li&gt;
 
 
@@ -1808,7 +1808,7 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://doc.rust-lang.org/stable/std/os/unix/fs/fn.chown.html&quot;&gt;&lt;code&gt;std::os::unix::fs::chown&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 
 
@@ -2002,7 +2002,7 @@ spec:
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/&quot;&gt;Kubernetes Docs for DaemonSet&lt;/a&gt;&lt;/li&gt;
 
 
@@ -2072,7 +2072,7 @@ spec:
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://go.dev/doc/effective_go#named-results&quot;&gt;https://go.dev/doc/effective_go#named-results&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -2101,7 +2101,7 @@ spec:
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;The Rust code gets compiled for the target &lt;br&gt;&lt;strong&gt;wasm32-unknown-unknown&lt;/strong&gt;&lt;/li&gt;
 
 
@@ -2139,7 +2139,7 @@ spec:
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;code&gt;[lib]&lt;/code&gt; must be set to &lt;code&gt;crate-type = [&quot;cdylib&quot;]&lt;/code&gt;&lt;/li&gt;
 
 
@@ -2284,7 +2284,7 @@ function readFile() {
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;strong&gt;Line 1: &lt;/strong&gt;&lt;code&gt;markdown_file&lt;/code&gt; identifier is the Input element.&lt;/li&gt;
 
 
@@ -2324,7 +2324,7 @@ function readFile() {
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;strong&gt;&lt;em&gt;Compiling Rust to WASM is surprisingly easy&lt;/em&gt;&lt;/strong&gt;! &lt;br&gt;Without adjustments I was able to bring my Rust library to the web (and NPM!)&lt;/li&gt;
 
 
@@ -2346,7 +2346,7 @@ function readFile() {
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/KevinGimbel/mktoc/tree/main&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;mktoc&lt;/a&gt;&lt;/li&gt;
 
 
@@ -2364,7 +2364,7 @@ function readFile() {
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://rustwasm.github.io/docs/wasm-pack/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://rustwasm.github.io/docs/wasm-pack/&lt;/a&gt;&lt;/li&gt;
 
 
@@ -2474,7 +2474,7 @@ function readFile() {
 
 
 
-&lt;ol&gt;
+&lt;ol class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Go to &lt;strong&gt;Preferences&amp;#8230;&lt;/strong&gt; &amp;gt; &lt;strong&gt;Profiles&lt;/strong&gt; &amp;gt; &lt;strong&gt;Keys&lt;/strong&gt; (not Preferences&amp;#8230; &amp;gt; Keys)&lt;/li&gt;
 
 
@@ -2611,7 +2611,7 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Go to &lt;strong&gt;System Preferences &lt;/strong&gt;&lt;/li&gt;
 
 
@@ -2649,7 +2649,7 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://spacevim.org&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;spacevim&lt;/a&gt;&lt;/li&gt;
 
 
@@ -2758,7 +2758,7 @@ new_list == &amp;#91;2, 4, 6, 8]
 
 
 
-&lt;ol&gt;
+&lt;ol class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Build the code using 11ty&lt;/li&gt;
 
 
@@ -2821,7 +2821,7 @@ jobs:
 
 
 
-&lt;ol&gt;
+&lt;ol class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Checkout the code using the standard actions/checkout@v3 action from GitHub&lt;/li&gt;
 
 
@@ -2996,7 +2996,7 @@ my-other-block:
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://docs.gitlab.com/ee/ci/yaml/yaml_optimization.html#reference-tags&quot;&gt;Official Gitlab Documentation&lt;/a&gt;&lt;/li&gt;
 
 
@@ -3076,7 +3076,7 @@ deploy-ansible:
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://docs.gitlab.com/ee/user/project/deploy_tokens/#group-deploy-token&quot;&gt;Gitlab Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -3156,7 +3156,7 @@ $ sudo a2enmod proxy_wstunnel&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&amp;#8220;&lt;a href=&quot;https://noqqe.de/blog/2018/04/21/apache2-websockets/&quot;&gt;Apache2 Websockets&lt;/a&gt;&amp;#8221; on noqqe.de (in German)&lt;/li&gt;
 
 
@@ -3383,7 +3383,7 @@ terraform apply -target=null_resource.validate_env -var &quot;env=prod&quot;&lt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;The variable starts with&amp;nbsp;&lt;code&gt;cx&lt;/code&gt;,&amp;nbsp;&lt;code&gt;cpx&lt;/code&gt;, or&amp;nbsp;&lt;code&gt;ccx&lt;/code&gt;&lt;/li&gt;
 
 
@@ -3458,7 +3458,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.terraform.io/docs/language/values/variables.html&quot;&gt;Terraform variable documentation&lt;/a&gt;&lt;/li&gt;
 
 
@@ -3514,7 +3514,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;strong&gt;H&lt;/strong&gt;&amp;nbsp;is the&amp;nbsp;&lt;code&gt;hue&lt;/code&gt;, a number from 0 to 360&lt;/li&gt;
 
 
@@ -3614,7 +3614,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl()&quot;&gt;hsl on MDN&lt;/a&gt;&lt;/li&gt;
 
 
@@ -3667,7 +3667,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Handle all traffic on port&amp;nbsp;&lt;code&gt;80&lt;/code&gt;&amp;nbsp;and&amp;nbsp;&lt;code&gt;443&lt;/code&gt;&lt;/li&gt;
 
 
@@ -3753,7 +3753,7 @@ usersFile=&quot;/etc/traefik/.htpasswd&quot;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Middleware cannot be configured in the main config file&lt;/li&gt;
 
 
@@ -3822,7 +3822,7 @@ usersFile=&quot;/etc/traefik/.htpasswd&quot;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Providers are enabled by adding a config like&amp;nbsp;&lt;code&gt;[providers.file]&lt;/code&gt;&amp;nbsp;or&amp;nbsp;&lt;code&gt;[providers.docker]&lt;/code&gt;&amp;nbsp;into&amp;nbsp;&lt;code&gt;traefik.toml&lt;/code&gt;&lt;/li&gt;
 
 
@@ -4038,7 +4038,7 @@ http_status{job=&quot;customer-prd&quot;,instance=&quot;https://some-api.link/se
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://prometheus.io/docs/prometheus/latest/querying/basics/&quot;&gt;Prometheus Query documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -4123,7 +4123,7 @@ This repo is part of a Blog Post on how to get and apply patch files from GitHub
 
 
 
-&lt;ol&gt;
+&lt;ol class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Open a terminal and navigate to the repo you cloned earlier (&lt;code&gt;github.com/KevinGimbel/blog-patch-example&lt;/code&gt;)&lt;/li&gt;
 
 
@@ -4207,7 +4207,7 @@ This repo is part of a Blog Post on how to get and apply patch files from GitHub
 
 
 
-&lt;ol&gt;
+&lt;ol class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Get the patch from the pull request by appending &lt;code&gt;.patch&lt;/code&gt; to the URL&lt;/li&gt;
 
 
@@ -4236,7 +4236,7 @@ $ patch -p 1 --dry-run &amp;lt; filename.patch&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://linux.die.net/man/1/patch&quot;&gt;patch man page&lt;/a&gt;&lt;/li&gt;
 
 
