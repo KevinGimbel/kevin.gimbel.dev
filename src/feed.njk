@@ -21,7 +21,11 @@ eleventyExcludeFromCollections: true
     <id>{{ post.link }}</id>
     <updated>{{ post.date }}Z</updated>
     <summary type="html">{{ post.excerpt }}</summary>
-    <content type="html">{{ post.content }}</content>
+    <content type="html">
+    {{ post.content }}
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   {%- endfor %}
 </feed>

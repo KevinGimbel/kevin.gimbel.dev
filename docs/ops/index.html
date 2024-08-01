@@ -30,13 +30,15 @@
     --color-accent-4-contrast: hsl(350, 50%, 30%);
     --color-accent-5: hsl(47, 100%, 70%);
     --color-accent-5-contrast: hsl(47, 50%, 40%);
+    --color-accent-6: hsl(220, 100%, 70%);
+    --color-accent-6-contrast: hsl(220, 50%, 40%);
 
-    --color-black: #211000;
+    --color-black: #222;
     --color-white: #f2f2f2;
 
     --color-note--info: var(--color-accent-4, red);
     --color-note--info-contrast: var(--color-accent-4-contrast, white);
-    
+
     /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
     /* Utopia font */
     --font-size--2: clamp(0.6944rem, 0.6856rem + 0.0444vi, 0.72rem);
@@ -47,17 +49,21 @@
     --font-size-3: clamp(1.728rem, 1.5648rem + 0.8161vi, 2.1973rem);
     --font-size-4: clamp(2.0736rem, 1.8395rem + 1.1704vi, 2.7466rem);
     --font-size-5: clamp(2.4883rem, 2.1597rem + 1.6433vi, 3.4332rem);
-    
-    --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
-    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
+    --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
 
     /* @link https://utopia.fyi/grid/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
     /* Utopia Grid */
-    --grid-max-width: 92.50rem;
-    --grid-gutter: var(--space-m-l, clamp(1.6875rem, 1.4634rem + 1.1207vw, 2.5rem));
+    --grid-max-width: 92.5rem;
+    --grid-gutter: var(
+        --space-m-l,
+        clamp(1.6875rem, 1.4634rem + 1.1207vw, 2.5rem)
+    );
     --grid-columns: 12;
-    
+
     /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
     /* Utopia Spaces */
     --space-3xs: clamp(0.25rem, 0.2283rem + 0.1087vi, 0.3125rem);
@@ -79,14 +85,16 @@
     --space-l-xl: clamp(2rem, 1.5217rem + 2.3913vi, 3.375rem);
     --space-xl-2xl: clamp(3rem, 2.4783rem + 2.6087vi, 4.5rem);
     --space-2xl-3xl: clamp(4rem, 3.0435rem + 4.7826vi, 6.75rem);
-}  
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     background: var(--color-white);
     font-family: var(--font-sans);
     font-size: var(--font-size-0);
@@ -97,12 +105,14 @@ main {
     min-height: 100vh;
 }
 
-a, a:visited {
+a,
+a:visited {
     color: var(--color-accent-2-contrast);
     text-decoration: dashed;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
     color: var(--color-accent-2);
     text-decoration: underline;
 }
@@ -115,7 +125,7 @@ a:hover, a:focus {
 .u-grid {
     display: grid;
     gap: var(--grid-gutter);
-    grid-template-columns: repeat(var(--grid-columns,12), 1fr);
+    grid-template-columns: repeat(var(--grid-columns, 12), 1fr);
     grid-template-rows: auto;
 }
 
@@ -124,7 +134,7 @@ a:hover, a:focus {
     grid-column-start: 5;
     grid-column-end: 8;
     min-height: 90vh;
-    padding: var(--space-l)
+    padding: var(--space-l);
 }
 
 .footer {
@@ -140,6 +150,7 @@ a:hover, a:focus {
 .footer a {
     color: var(--color-accent-1);
 }
+
 .footer a:hover {
     color: var(--color-accent-2);
 }
@@ -154,18 +165,47 @@ a:hover, a:focus {
     grid-column-end: calc(var(--grid-columns, 12) / 2);
 }
 
-/* 
+/*
     Typography
 */
 
-h1, .font-size-5 { font-size: var(--font-size-5); }
-h2, .font-size-4 { font-size: var(--font-size-4); }
-h3, .font-size-3 { font-size: var(--font-size-3); }
-h4, .font-size-2 { font-size: var(--font-size-2); }
-h5, .font-size-1 { font-size: var(--font-size-1); }
-h6, .font-size-0 { font-size: var(--font-size-0); }
-.font-size--1 { font-size: var(--font-size--1); }
-.font-size--2 { font-size: var(--font-size--2); }
+h1,
+.font-size-5 {
+    font-size: var(--font-size-5);
+}
+
+h2,
+.font-size-4 {
+    font-size: var(--font-size-4);
+}
+
+h3,
+.font-size-3 {
+    font-size: var(--font-size-3);
+}
+
+h4,
+.font-size-2 {
+    font-size: var(--font-size-2);
+}
+
+h5,
+.font-size-1 {
+    font-size: var(--font-size-1);
+}
+
+h6,
+.font-size-0 {
+    font-size: var(--font-size-0);
+}
+
+.font-size--1 {
+    font-size: var(--font-size--1);
+}
+
+.font-size--2 {
+    font-size: var(--font-size--2);
+}
 
 h1,
 h2,
@@ -176,7 +216,14 @@ h6 {
     padding: var(--space-s-m) 0;
 }
 
-p, blockquote, pre, ul, ol, dl, figure, table {
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
+table {
     padding: var(--space-xs-s) 0;
 }
 
@@ -184,13 +231,15 @@ ul {
     list-style: none;
 }
 
-ul, li:before {
+ul,
+li:before {
     content: "✦";
     padding-right: var(--space-s);
 }
 
 img {
     max-width: 100%;
+    height: auto;
 }
 
 /* Accents */
@@ -200,30 +249,54 @@ img {
 }
 
 .bg-accent-2 {
---color-fg: var(--color-accent-2-contrast, #211000);
---color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+    --color-fg: var(--color-accent-2-contrast, #211000);
+    --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
 
---color-link: white;
+    --color-link: white;
 }
 
 .bg-accent-3 {
---color-fg: var(--color-accent-3-contrast, #211000);
---color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
+    --color-fg: var(--color-accent-3-contrast, #211000);
+    --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
 }
 
 .bg-accent-4 {
---color-fg: var(--color-accent-4-contrast, #211000);
---color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
+    --color-fg: var(--color-accent-4-contrast, #211000);
+    --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
 }
 
 .bg-accent-5 {
---color-fg: var(--color-accent-5-contrast, #f1f1f1);
---color-bg: var(--color-accent-5, #211000);
+    --color-fg: var(--color-accent-5-contrast, #f1f1f1);
+    --color-bg: var(--color-accent-5, #211000);
+}
+
+.bg-accent-6 {
+    --color-fg: var(--color-accent-6-contrast, #f1f1f1);
+    --color-bg: var(--color-accent-6, #211000);
 }
 
 [class*="bg-accent"] {
-color: var(--color-fg, #211000);
-background: var(--color-bg, #f1f1f1);
+    color: var(--color-fg, #211000);
+    background: var(--color-bg, #f1f1f1);
+}
+
+a[class*="bg-accent"]:hover {
+    color: var(--color-bg, #f1f1f1);
+    background: var(--color-fg, #211000);
+    text-decoration: none;
+}
+
+.is-highlighted {
+    padding: var(--space-3xs);
+}
+
+.skill-section {
+    box-shadow: -3px 3px 0 #ccc;
+    border-radius: 6px;
+}
+
+.buzzes a {
+    border-radius: 6px;
 }
 
 /* Avatar on front page */
@@ -232,6 +305,7 @@ background: var(--color-bg, #f1f1f1);
     width: 100%;
     max-width: 400px;
 }
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++
                                             HEADER
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -251,16 +325,18 @@ background: var(--color-bg, #f1f1f1);
 }
 
 .site-nav a {
-    background: var(--color-black);
+    background: #000;
     color: var(--color-white);
     text-decoration: none;
-    padding: .25rem var(--space-s);
+    padding: 0.25rem var(--space-s);
+    box-shadow: -3px 3px 0 #ccc;
+    border-radius: 6px;
 }
 
 .site-nav a:hover,
 .site-nav a:focus {
-    background: var(--color-accent-3-contrast);
-    color: var(--color-accent-3);
+    background: #000;
+    color: var(--color-accent-2);
 }
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -278,9 +354,13 @@ background: var(--color-bg, #f1f1f1);
 
 .is-intro {
     font-size: var(--font-size-5);
-    background: var(--color-accent-3);
-    border-top: .125rem solid var(--color-accent-3-contrast);
-    border-bottom: .125rem solid var(--color-accent-3-contrast);
+    background: var(--color-accent-1);
+    border-top: 0.125rem solid var(--color-accent-1-contrast);
+    border-bottom: 0.125rem solid var(--color-accent-1-contrast);
+}
+
+.intro-left {
+    max-width: 50%;
 }
 
 @media all and (max-width: 70rem) {
@@ -290,8 +370,10 @@ background: var(--color-bg, #f1f1f1);
 
     .intro-left {
         text-align: center;
+        max-width: 100%;
     }
 }
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++
                                         SKILL SECTION
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -301,7 +383,7 @@ background: var(--color-bg, #f1f1f1);
     padding: var(--space-l-xl);
     margin: var(--space-m-l);
     font-size: var(--font-size-2);
-    border: .125rem solid;
+    border: 0.125rem solid;
 }
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -310,7 +392,7 @@ background: var(--color-bg, #f1f1f1);
 */
 
 blockquote {
-    border-left: .25rem solid var(--color-accent-3-contrast);
+    border-left: 0.25rem solid var(--color-accent-3-contrast);
     margin-left: -1.5rem;
     padding: var(--space-s-m);
     font-family: var(--font-serif);
@@ -348,7 +430,22 @@ pre > code {
 }
 
 .article-list__item {
-    padding: var(--space-m);
+    padding: var(--space-m-l);
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: var(--space-xl);
+}
+
+.article-list__more-link {
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: var(--space-2xs-xs);
+    border-radius: 6px;
+}
+
+.article-list__more-link:hover {
+    background: var(--color-accent-2-contrast);
+    color: var(--color-accent-2);
+    text-decoration: none;
 }
 
 .wp-block-footnotes li:before {
@@ -367,10 +464,19 @@ pre > code {
     padding: var(--space-s-m);
 }
 
-.article-page h1, 
-.article-page h2, 
-.article-page h3 {
+.article-page h1,
+.article-page h2,
+.article-page h3,
+.single-page h1,
+.single-page h2,
+.single-page h3 {
     text-shadow: -3px 3px 0 #ccc;
+}
+
+.article__footer {
+    border: 1px solid var(--color-black);
+    padding: var(--space-s-m);
+    box-shadow: -3px 3px 0 #ccc;
 }
 </style>
   
@@ -405,11 +511,16 @@ pre > code {
 </style>
 
 <svg class="verified" role="img" aria-label="A blue verified badge as seen around the internetz" viewBox="0 0 22 22"><path d="M20.396 11a3.487 3.487 0 0 0-2.008-3.062 3.474 3.474 0 0 0-.742-3.584 3.474 3.474 0 0 0-3.584-.742A3.468 3.468 0 0 0 11 1.604a3.463 3.463 0 0 0-3.053 2.008 3.472 3.472 0 0 0-1.902-.14c-.635.13-1.22.436-1.69.882a3.461 3.461 0 0 0-.734 3.584A3.49 3.49 0 0 0 1.604 11a3.496 3.496 0 0 0 2.017 3.062 3.471 3.471 0 0 0 .733 3.584 3.49 3.49 0 0 0 3.584.742A3.487 3.487 0 0 0 11 20.396a3.476 3.476 0 0 0 3.062-2.007 3.335 3.335 0 0 0 4.326-4.327A3.487 3.487 0 0 0 20.396 11zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"/></svg></h1>
-    <h2>a Platform & DevOps Engineer working at <a href="https://aoe.com" title="Visit aoe.com">AOE GmbH</a>.</h2>
+    <h2 class="font-size-3">a Platform & DevOps Engineer working at <a href="https://aoe.com" title="Visit aoe.com">AOE GmbH</a>.</h2>
   </aside>
   <aside class="intro-right">
     <img src="/assets/img/avatar-aoe.jpg" class="avatar" alt="A photograph of me, Kevin Gimbel, in front of a grey background" />
   </aside>
+<div class="intro-cta">
+  <p class="font-size-2">I've spent the last <span class="is-highlighted bg-accent-3">15 years learning to build websites & run servers</span>; worked in e-Commerce from 2013 to 2023, and started focusing on Platform Engineering in early 2023. Right now I'm part of a DevOps/Platform Team running and building a Kubernetes based Platform for multiple developer teams.</p>
+
+  <p class="font-size--1 buzzes">🐝 Buzzwords: <a href="#cloud-computing" class="is-highlighted bg-accent-5">Cloud Computing</a> <a href="#kubernetes" class="is-highlighted bg-accent-6">Kubernetes</a> <a href="#automation" class="is-highlighted bg-accent-3">Automation</a> <a href="#monitoring" class="is-highlighted bg-accent-4">Monitoring</a></p>
+</div>
 </header>
 
   <section class="[ gc-half skill-section ]">
@@ -420,24 +531,24 @@ pre > code {
         
         
         <li class="article-list__item">
+            <h4 class="font-size-3"><a href="/blog/2024/08/adventures-in-linux/">Adventures in Linux</a></h4>
+            <p>For the longest time I&#8217;ve had a sort of craving to have a Linux Desktop again. It wasn&#8217;t enough to switch to Linux completely when I started at AOE GmbH in 2023, but it was always there. MacOS is an amazing operating system and I love it for its stability, features, available software, and &#8230; [&hellip;]</p>
+
+            <a href="/blog/2024/08/adventures-in-linux/" class="article-list__more-link" title="Continue reading Adventures in Linux">Continue reading →</a>
+        </li>
+        
+        <li class="article-list__item">
+            <h4 class="font-size-3"><a href="/blog/2024/07/re-second-factor-sms-worse-than-its-reputation/">RE: Second Factor SMS: Worse than It&#8217;s Reputation</a></h4>
+            <p>Another day, another (big) leak: CCC, Chaos Computer Club, obtained millions of SMS containing Two-Factor Auth (2FA) tokens which where publicly available on the internet. One-time passwords are often sent via SMS. Security researchers from the CCC recently had live access to over 200 million such SMS messages from more than 200 affected companies. via [&hellip;]</p>
+
+            <a href="/blog/2024/07/re-second-factor-sms-worse-than-its-reputation/" class="article-list__more-link" title="Continue reading RE: Second Factor SMS: Worse than It&amp;#8217;s Reputation">Continue reading →</a>
+        </li>
+        
+        <li class="article-list__item">
             <h4 class="font-size-3"><a href="/blog/2024/06/learning-haskell-caesar-cipher/">Learning Haskell: Caesar cipher</a></h4>
             <p>In my quest to learn Haskell I&#8217;ve been reading through Learn You A Haskell, a great book on understanding Haskell. BEFORE WE START: I do not know much about Haskell, I&#8217;ve started learning it literally last week. So please do correct me if I make mistakes in this post 🙂 While reading about function signatures [&hellip;]</p>
 
             <a href="/blog/2024/06/learning-haskell-caesar-cipher/" class="article-list__more-link" title="Continue reading Learning Haskell: Caesar cipher">Continue reading →</a>
-        </li>
-        
-        <li class="article-list__item">
-            <h4 class="font-size-3"><a href="/blog/2024/06/ai-now-means-apple-intelligence/">AI now means Apple Intelligence</a></h4>
-            <p>Yesterday (10. June 2024) Apple revealed its new features for the next releases of iOS, MacOS, et all. and with no big surprise the reveal included the addition of AI tools into the operating system and Siri. While I&#8217;m very sceptical of AI build into the OS, I must say Apple seems to be on [&hellip;]</p>
-
-            <a href="/blog/2024/06/ai-now-means-apple-intelligence/" class="article-list__more-link" title="Continue reading AI now means Apple Intelligence">Continue reading →</a>
-        </li>
-        
-        <li class="article-list__item">
-            <h4 class="font-size-3"><a href="/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/">RE: BundID: Eine digitale Identität schafft (falsches) Vertrauen</a></h4>
-            <p>Ohje… was ist da wieder los? Lilith Wittmann dokumentiert, wie sie innerhalb von kürzester Zeit eine Fake Seite mit dem BundID Login ausstatten konnte und somit legitim wirken lies. Wild! Weil ich weiß, wie oft SAML falsch implementiert wird, habe ich also in den Verwaltungsportalen von Städten gezielt nach solchen Sicherheitslücken gesucht und bin auch [&hellip;]</p>
-
-            <a href="/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/" class="article-list__more-link" title="Continue reading RE: BundID: Eine digitale Identität schafft (falsches) Vertrauen">Continue reading →</a>
         </li></ul>
   </section>
 
@@ -449,7 +560,7 @@ pre > code {
   </header>
 
   
-    <section id="cloud-computing" data-icon="🌩" class="[ bg-accent-1 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Cloud Computing 🌩</h3><h4 class="font-size-3">Computers! Computers! Computers! <a href="https://www.youtube.com/watch?v=Vhh_GeBPOhs">👏</a>
+    <section id="cloud-computing" data-icon="🌩" class="[ bg-accent-5 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Cloud Computing 🌩</h3><h4 class="font-size-3">Computers! Computers! Computers! <a href="https://www.youtube.com/watch?v=Vhh_GeBPOhs">👏</a>
 </h4></hgroup><div class="content">
         <p>I've worked with <em>Amazon Web Services</em> since 2018.</p>
 <p>Between <strong>2018 and 2021</strong> I was involved in planning and provisioning infrastructure for a microservice-based product called Konekti while working for Synoa GmbH.</p>
@@ -470,7 +581,7 @@ pre > code {
           
         </ul></div>
     </section>
-    <section id="containers" data-icon="🐳" class="[ bg-accent-2 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Containers 🐳</h3><h4 class="font-size-3">"It's no use Mr., it's virtualization all the way down" <a href="https://en.wikipedia.org/wiki/Turtles_all_the_way_down">🐢</a>
+    <section id="containers" data-icon="🐳" class="[ bg-accent-6 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Containers 🐳</h3><h4 class="font-size-3">"It's no use Mr., it's virtualization all the way down" <a href="https://en.wikipedia.org/wiki/Turtles_all_the_way_down">🐢</a>
 </h4></hgroup><div class="content">
         <p>In 2017 I drove the initial adoption of Docker for local development at Synoa GmbH.</p>
 <p>In the years following until I departet in 2023 we used Docker locally, in ECS, in TeamCity CI/CD pipelines, and as runtime on simple Ubuntu servers.</p>
@@ -489,7 +600,7 @@ pre > code {
           
         </ul></div>
     </section>
-    <section id="kubernetes" data-icon="⛵️" class="[ bg-accent-2 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Kubernetes ⛵️</h3></hgroup><div class="content">
+    <section id="kubernetes" data-icon="⛵️" class="[ bg-accent-6 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Kubernetes ⛵️</h3></hgroup><div class="content">
         <p>Since starting at AOE I deepend my knowledge of Kubernetes, working with multiple clusters, developing tools, and working with Developer Teams everyday. I've also started co-teaching the <a href="https://www.aoe.com/en/academy/cloud-devops/kubernetes-101.html">&quot;Kubernetes 101&quot;</a> Workshop where a co-host and me give a introduction to Kubernetes concepts.</p>
 <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
           
@@ -618,7 +729,7 @@ pre > code {
 
     <footer id="footer" class="[ footer ]">
       <div class="content">
-        <p class="font-size-2">Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.10, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
+        <p class="font-size-2">Made with <a href="https://www.11ty.dev/">11ty</a> 3.0.0-beta.1, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
         <a href="/feed.xml" class="font-size--1" title="Subscribe via RSS">RSS Feed</a> | <a href="/imprint" title="Imprint">Imprint</a>
         <p class="font-size--2">Views and opinions expressed on this websites do not represents views and opinions of my employer</p>
       </div>

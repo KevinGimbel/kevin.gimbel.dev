@@ -21,13 +21,15 @@
     --color-accent-4-contrast: hsl(350, 50%, 30%);
     --color-accent-5: hsl(47, 100%, 70%);
     --color-accent-5-contrast: hsl(47, 50%, 40%);
+    --color-accent-6: hsl(220, 100%, 70%);
+    --color-accent-6-contrast: hsl(220, 50%, 40%);
 
-    --color-black: #211000;
+    --color-black: #222;
     --color-white: #f2f2f2;
 
     --color-note--info: var(--color-accent-4, red);
     --color-note--info-contrast: var(--color-accent-4-contrast, white);
-    
+
     /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
     /* Utopia font */
     --font-size--2: clamp(0.6944rem, 0.6856rem + 0.0444vi, 0.72rem);
@@ -38,17 +40,21 @@
     --font-size-3: clamp(1.728rem, 1.5648rem + 0.8161vi, 2.1973rem);
     --font-size-4: clamp(2.0736rem, 1.8395rem + 1.1704vi, 2.7466rem);
     --font-size-5: clamp(2.4883rem, 2.1597rem + 1.6433vi, 3.4332rem);
-    
-    --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
-    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
+    --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
 
     /* @link https://utopia.fyi/grid/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
     /* Utopia Grid */
-    --grid-max-width: 92.50rem;
-    --grid-gutter: var(--space-m-l, clamp(1.6875rem, 1.4634rem + 1.1207vw, 2.5rem));
+    --grid-max-width: 92.5rem;
+    --grid-gutter: var(
+        --space-m-l,
+        clamp(1.6875rem, 1.4634rem + 1.1207vw, 2.5rem)
+    );
     --grid-columns: 12;
-    
+
     /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
     /* Utopia Spaces */
     --space-3xs: clamp(0.25rem, 0.2283rem + 0.1087vi, 0.3125rem);
@@ -70,14 +76,16 @@
     --space-l-xl: clamp(2rem, 1.5217rem + 2.3913vi, 3.375rem);
     --space-xl-2xl: clamp(3rem, 2.4783rem + 2.6087vi, 4.5rem);
     --space-2xl-3xl: clamp(4rem, 3.0435rem + 4.7826vi, 6.75rem);
-}  
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     background: var(--color-white);
     font-family: var(--font-sans);
     font-size: var(--font-size-0);
@@ -88,12 +96,14 @@ main {
     min-height: 100vh;
 }
 
-a, a:visited {
+a,
+a:visited {
     color: var(--color-accent-2-contrast);
     text-decoration: dashed;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
     color: var(--color-accent-2);
     text-decoration: underline;
 }
@@ -106,7 +116,7 @@ a:hover, a:focus {
 .u-grid {
     display: grid;
     gap: var(--grid-gutter);
-    grid-template-columns: repeat(var(--grid-columns,12), 1fr);
+    grid-template-columns: repeat(var(--grid-columns, 12), 1fr);
     grid-template-rows: auto;
 }
 
@@ -115,7 +125,7 @@ a:hover, a:focus {
     grid-column-start: 5;
     grid-column-end: 8;
     min-height: 90vh;
-    padding: var(--space-l)
+    padding: var(--space-l);
 }
 
 .footer {
@@ -131,6 +141,7 @@ a:hover, a:focus {
 .footer a {
     color: var(--color-accent-1);
 }
+
 .footer a:hover {
     color: var(--color-accent-2);
 }
@@ -145,18 +156,47 @@ a:hover, a:focus {
     grid-column-end: calc(var(--grid-columns, 12) / 2);
 }
 
-/* 
+/*
     Typography
 */
 
-h1, .font-size-5 { font-size: var(--font-size-5); }
-h2, .font-size-4 { font-size: var(--font-size-4); }
-h3, .font-size-3 { font-size: var(--font-size-3); }
-h4, .font-size-2 { font-size: var(--font-size-2); }
-h5, .font-size-1 { font-size: var(--font-size-1); }
-h6, .font-size-0 { font-size: var(--font-size-0); }
-.font-size--1 { font-size: var(--font-size--1); }
-.font-size--2 { font-size: var(--font-size--2); }
+h1,
+.font-size-5 {
+    font-size: var(--font-size-5);
+}
+
+h2,
+.font-size-4 {
+    font-size: var(--font-size-4);
+}
+
+h3,
+.font-size-3 {
+    font-size: var(--font-size-3);
+}
+
+h4,
+.font-size-2 {
+    font-size: var(--font-size-2);
+}
+
+h5,
+.font-size-1 {
+    font-size: var(--font-size-1);
+}
+
+h6,
+.font-size-0 {
+    font-size: var(--font-size-0);
+}
+
+.font-size--1 {
+    font-size: var(--font-size--1);
+}
+
+.font-size--2 {
+    font-size: var(--font-size--2);
+}
 
 h1,
 h2,
@@ -167,7 +207,14 @@ h6 {
     padding: var(--space-s-m) 0;
 }
 
-p, blockquote, pre, ul, ol, dl, figure, table {
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
+table {
     padding: var(--space-xs-s) 0;
 }
 
@@ -175,13 +222,15 @@ ul {
     list-style: none;
 }
 
-ul, li:before {
+ul,
+li:before {
     content: "✦";
     padding-right: var(--space-s);
 }
 
 img {
     max-width: 100%;
+    height: auto;
 }
 
 /* Accents */
@@ -191,30 +240,54 @@ img {
 }
 
 .bg-accent-2 {
---color-fg: var(--color-accent-2-contrast, #211000);
---color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+    --color-fg: var(--color-accent-2-contrast, #211000);
+    --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
 
---color-link: white;
+    --color-link: white;
 }
 
 .bg-accent-3 {
---color-fg: var(--color-accent-3-contrast, #211000);
---color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
+    --color-fg: var(--color-accent-3-contrast, #211000);
+    --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
 }
 
 .bg-accent-4 {
---color-fg: var(--color-accent-4-contrast, #211000);
---color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
+    --color-fg: var(--color-accent-4-contrast, #211000);
+    --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
 }
 
 .bg-accent-5 {
---color-fg: var(--color-accent-5-contrast, #f1f1f1);
---color-bg: var(--color-accent-5, #211000);
+    --color-fg: var(--color-accent-5-contrast, #f1f1f1);
+    --color-bg: var(--color-accent-5, #211000);
+}
+
+.bg-accent-6 {
+    --color-fg: var(--color-accent-6-contrast, #f1f1f1);
+    --color-bg: var(--color-accent-6, #211000);
 }
 
 [class*="bg-accent"] {
-color: var(--color-fg, #211000);
-background: var(--color-bg, #f1f1f1);
+    color: var(--color-fg, #211000);
+    background: var(--color-bg, #f1f1f1);
+}
+
+a[class*="bg-accent"]:hover {
+    color: var(--color-bg, #f1f1f1);
+    background: var(--color-fg, #211000);
+    text-decoration: none;
+}
+
+.is-highlighted {
+    padding: var(--space-3xs);
+}
+
+.skill-section {
+    box-shadow: -3px 3px 0 #ccc;
+    border-radius: 6px;
+}
+
+.buzzes a {
+    border-radius: 6px;
 }
 
 /* Avatar on front page */
@@ -223,6 +296,7 @@ background: var(--color-bg, #f1f1f1);
     width: 100%;
     max-width: 400px;
 }
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++
                                             HEADER
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -242,16 +316,18 @@ background: var(--color-bg, #f1f1f1);
 }
 
 .site-nav a {
-    background: var(--color-black);
+    background: #000;
     color: var(--color-white);
     text-decoration: none;
-    padding: .25rem var(--space-s);
+    padding: 0.25rem var(--space-s);
+    box-shadow: -3px 3px 0 #ccc;
+    border-radius: 6px;
 }
 
 .site-nav a:hover,
 .site-nav a:focus {
-    background: var(--color-accent-3-contrast);
-    color: var(--color-accent-3);
+    background: #000;
+    color: var(--color-accent-2);
 }
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -269,9 +345,13 @@ background: var(--color-bg, #f1f1f1);
 
 .is-intro {
     font-size: var(--font-size-5);
-    background: var(--color-accent-3);
-    border-top: .125rem solid var(--color-accent-3-contrast);
-    border-bottom: .125rem solid var(--color-accent-3-contrast);
+    background: var(--color-accent-1);
+    border-top: 0.125rem solid var(--color-accent-1-contrast);
+    border-bottom: 0.125rem solid var(--color-accent-1-contrast);
+}
+
+.intro-left {
+    max-width: 50%;
 }
 
 @media all and (max-width: 70rem) {
@@ -281,8 +361,10 @@ background: var(--color-bg, #f1f1f1);
 
     .intro-left {
         text-align: center;
+        max-width: 100%;
     }
 }
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++
                                         SKILL SECTION
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -292,7 +374,7 @@ background: var(--color-bg, #f1f1f1);
     padding: var(--space-l-xl);
     margin: var(--space-m-l);
     font-size: var(--font-size-2);
-    border: .125rem solid;
+    border: 0.125rem solid;
 }
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -301,7 +383,7 @@ background: var(--color-bg, #f1f1f1);
 */
 
 blockquote {
-    border-left: .25rem solid var(--color-accent-3-contrast);
+    border-left: 0.25rem solid var(--color-accent-3-contrast);
     margin-left: -1.5rem;
     padding: var(--space-s-m);
     font-family: var(--font-serif);
@@ -339,7 +421,22 @@ pre > code {
 }
 
 .article-list__item {
-    padding: var(--space-m);
+    padding: var(--space-m-l);
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: var(--space-xl);
+}
+
+.article-list__more-link {
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: var(--space-2xs-xs);
+    border-radius: 6px;
+}
+
+.article-list__more-link:hover {
+    background: var(--color-accent-2-contrast);
+    color: var(--color-accent-2);
+    text-decoration: none;
 }
 
 .wp-block-footnotes li:before {
@@ -358,8 +455,17 @@ pre > code {
     padding: var(--space-s-m);
 }
 
-.article-page h1, 
-.article-page h2, 
-.article-page h3 {
+.article-page h1,
+.article-page h2,
+.article-page h3,
+.single-page h1,
+.single-page h2,
+.single-page h3 {
     text-shadow: -3px 3px 0 #ccc;
+}
+
+.article__footer {
+    border: 1px solid var(--color-black);
+    padding: var(--space-s-m);
+    box-shadow: -3px 3px 0 #ccc;
 }

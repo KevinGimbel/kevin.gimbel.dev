@@ -1,10 +1,9 @@
 import { inspect } from "util";
 
-// Workaround for https://github.com/11ty/eleventy/issues/3128
-import { createRequire } from "node:module";
-const require = createRequire(import.meta.url);
-const eleventyPackage = require("@11ty/eleventy/package.json");
-const WPEleventy = require("kg-eleventy-plugin-wordpress");
+import { readFile } from "fs/promises";
+const eleventyPackage = JSON.parse(
+  await readFile("./node_modules/@11ty/eleventy/package.json", "utf8"),
+);
 
 export default async function (eleventyConfig) {
   // Copy `assets/css` to `_site/assets/css`
@@ -14,17 +13,6 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy("src/.ht*");
   eleventyConfig.addPassthroughCopy("src/CNAME");
-
-  eleventyConfig.addPlugin(WPEleventy, {
-    base_url: "https://kevingimbel.de",
-    include: {
-      posts: false,
-      pages: true,
-      media: false,
-      tags: false,
-    },
-    data_name: "kg_wp",
-  });
 
   eleventyConfig.addCollection("sections", function (collectionApi) {
     // get unsorted items

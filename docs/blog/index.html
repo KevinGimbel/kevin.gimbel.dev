@@ -30,13 +30,15 @@
     --color-accent-4-contrast: hsl(350, 50%, 30%);
     --color-accent-5: hsl(47, 100%, 70%);
     --color-accent-5-contrast: hsl(47, 50%, 40%);
+    --color-accent-6: hsl(220, 100%, 70%);
+    --color-accent-6-contrast: hsl(220, 50%, 40%);
 
-    --color-black: #211000;
+    --color-black: #222;
     --color-white: #f2f2f2;
 
     --color-note--info: var(--color-accent-4, red);
     --color-note--info-contrast: var(--color-accent-4-contrast, white);
-    
+
     /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
     /* Utopia font */
     --font-size--2: clamp(0.6944rem, 0.6856rem + 0.0444vi, 0.72rem);
@@ -47,17 +49,21 @@
     --font-size-3: clamp(1.728rem, 1.5648rem + 0.8161vi, 2.1973rem);
     --font-size-4: clamp(2.0736rem, 1.8395rem + 1.1704vi, 2.7466rem);
     --font-size-5: clamp(2.4883rem, 2.1597rem + 1.6433vi, 3.4332rem);
-    
-    --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
-    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
+    --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
 
     /* @link https://utopia.fyi/grid/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
     /* Utopia Grid */
-    --grid-max-width: 92.50rem;
-    --grid-gutter: var(--space-m-l, clamp(1.6875rem, 1.4634rem + 1.1207vw, 2.5rem));
+    --grid-max-width: 92.5rem;
+    --grid-gutter: var(
+        --space-m-l,
+        clamp(1.6875rem, 1.4634rem + 1.1207vw, 2.5rem)
+    );
     --grid-columns: 12;
-    
+
     /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
     /* Utopia Spaces */
     --space-3xs: clamp(0.25rem, 0.2283rem + 0.1087vi, 0.3125rem);
@@ -79,14 +85,16 @@
     --space-l-xl: clamp(2rem, 1.5217rem + 2.3913vi, 3.375rem);
     --space-xl-2xl: clamp(3rem, 2.4783rem + 2.6087vi, 4.5rem);
     --space-2xl-3xl: clamp(4rem, 3.0435rem + 4.7826vi, 6.75rem);
-}  
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     background: var(--color-white);
     font-family: var(--font-sans);
     font-size: var(--font-size-0);
@@ -97,12 +105,14 @@ main {
     min-height: 100vh;
 }
 
-a, a:visited {
+a,
+a:visited {
     color: var(--color-accent-2-contrast);
     text-decoration: dashed;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
     color: var(--color-accent-2);
     text-decoration: underline;
 }
@@ -115,7 +125,7 @@ a:hover, a:focus {
 .u-grid {
     display: grid;
     gap: var(--grid-gutter);
-    grid-template-columns: repeat(var(--grid-columns,12), 1fr);
+    grid-template-columns: repeat(var(--grid-columns, 12), 1fr);
     grid-template-rows: auto;
 }
 
@@ -124,7 +134,7 @@ a:hover, a:focus {
     grid-column-start: 5;
     grid-column-end: 8;
     min-height: 90vh;
-    padding: var(--space-l)
+    padding: var(--space-l);
 }
 
 .footer {
@@ -140,6 +150,7 @@ a:hover, a:focus {
 .footer a {
     color: var(--color-accent-1);
 }
+
 .footer a:hover {
     color: var(--color-accent-2);
 }
@@ -154,18 +165,47 @@ a:hover, a:focus {
     grid-column-end: calc(var(--grid-columns, 12) / 2);
 }
 
-/* 
+/*
     Typography
 */
 
-h1, .font-size-5 { font-size: var(--font-size-5); }
-h2, .font-size-4 { font-size: var(--font-size-4); }
-h3, .font-size-3 { font-size: var(--font-size-3); }
-h4, .font-size-2 { font-size: var(--font-size-2); }
-h5, .font-size-1 { font-size: var(--font-size-1); }
-h6, .font-size-0 { font-size: var(--font-size-0); }
-.font-size--1 { font-size: var(--font-size--1); }
-.font-size--2 { font-size: var(--font-size--2); }
+h1,
+.font-size-5 {
+    font-size: var(--font-size-5);
+}
+
+h2,
+.font-size-4 {
+    font-size: var(--font-size-4);
+}
+
+h3,
+.font-size-3 {
+    font-size: var(--font-size-3);
+}
+
+h4,
+.font-size-2 {
+    font-size: var(--font-size-2);
+}
+
+h5,
+.font-size-1 {
+    font-size: var(--font-size-1);
+}
+
+h6,
+.font-size-0 {
+    font-size: var(--font-size-0);
+}
+
+.font-size--1 {
+    font-size: var(--font-size--1);
+}
+
+.font-size--2 {
+    font-size: var(--font-size--2);
+}
 
 h1,
 h2,
@@ -176,7 +216,14 @@ h6 {
     padding: var(--space-s-m) 0;
 }
 
-p, blockquote, pre, ul, ol, dl, figure, table {
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
+table {
     padding: var(--space-xs-s) 0;
 }
 
@@ -184,13 +231,15 @@ ul {
     list-style: none;
 }
 
-ul, li:before {
+ul,
+li:before {
     content: "✦";
     padding-right: var(--space-s);
 }
 
 img {
     max-width: 100%;
+    height: auto;
 }
 
 /* Accents */
@@ -200,30 +249,54 @@ img {
 }
 
 .bg-accent-2 {
---color-fg: var(--color-accent-2-contrast, #211000);
---color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+    --color-fg: var(--color-accent-2-contrast, #211000);
+    --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
 
---color-link: white;
+    --color-link: white;
 }
 
 .bg-accent-3 {
---color-fg: var(--color-accent-3-contrast, #211000);
---color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
+    --color-fg: var(--color-accent-3-contrast, #211000);
+    --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
 }
 
 .bg-accent-4 {
---color-fg: var(--color-accent-4-contrast, #211000);
---color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
+    --color-fg: var(--color-accent-4-contrast, #211000);
+    --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
 }
 
 .bg-accent-5 {
---color-fg: var(--color-accent-5-contrast, #f1f1f1);
---color-bg: var(--color-accent-5, #211000);
+    --color-fg: var(--color-accent-5-contrast, #f1f1f1);
+    --color-bg: var(--color-accent-5, #211000);
+}
+
+.bg-accent-6 {
+    --color-fg: var(--color-accent-6-contrast, #f1f1f1);
+    --color-bg: var(--color-accent-6, #211000);
 }
 
 [class*="bg-accent"] {
-color: var(--color-fg, #211000);
-background: var(--color-bg, #f1f1f1);
+    color: var(--color-fg, #211000);
+    background: var(--color-bg, #f1f1f1);
+}
+
+a[class*="bg-accent"]:hover {
+    color: var(--color-bg, #f1f1f1);
+    background: var(--color-fg, #211000);
+    text-decoration: none;
+}
+
+.is-highlighted {
+    padding: var(--space-3xs);
+}
+
+.skill-section {
+    box-shadow: -3px 3px 0 #ccc;
+    border-radius: 6px;
+}
+
+.buzzes a {
+    border-radius: 6px;
 }
 
 /* Avatar on front page */
@@ -232,6 +305,7 @@ background: var(--color-bg, #f1f1f1);
     width: 100%;
     max-width: 400px;
 }
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++
                                             HEADER
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -251,16 +325,18 @@ background: var(--color-bg, #f1f1f1);
 }
 
 .site-nav a {
-    background: var(--color-black);
+    background: #000;
     color: var(--color-white);
     text-decoration: none;
-    padding: .25rem var(--space-s);
+    padding: 0.25rem var(--space-s);
+    box-shadow: -3px 3px 0 #ccc;
+    border-radius: 6px;
 }
 
 .site-nav a:hover,
 .site-nav a:focus {
-    background: var(--color-accent-3-contrast);
-    color: var(--color-accent-3);
+    background: #000;
+    color: var(--color-accent-2);
 }
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -278,9 +354,13 @@ background: var(--color-bg, #f1f1f1);
 
 .is-intro {
     font-size: var(--font-size-5);
-    background: var(--color-accent-3);
-    border-top: .125rem solid var(--color-accent-3-contrast);
-    border-bottom: .125rem solid var(--color-accent-3-contrast);
+    background: var(--color-accent-1);
+    border-top: 0.125rem solid var(--color-accent-1-contrast);
+    border-bottom: 0.125rem solid var(--color-accent-1-contrast);
+}
+
+.intro-left {
+    max-width: 50%;
 }
 
 @media all and (max-width: 70rem) {
@@ -290,8 +370,10 @@ background: var(--color-bg, #f1f1f1);
 
     .intro-left {
         text-align: center;
+        max-width: 100%;
     }
 }
+
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++
                                         SKILL SECTION
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -301,7 +383,7 @@ background: var(--color-bg, #f1f1f1);
     padding: var(--space-l-xl);
     margin: var(--space-m-l);
     font-size: var(--font-size-2);
-    border: .125rem solid;
+    border: 0.125rem solid;
 }
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -310,7 +392,7 @@ background: var(--color-bg, #f1f1f1);
 */
 
 blockquote {
-    border-left: .25rem solid var(--color-accent-3-contrast);
+    border-left: 0.25rem solid var(--color-accent-3-contrast);
     margin-left: -1.5rem;
     padding: var(--space-s-m);
     font-family: var(--font-serif);
@@ -348,7 +430,22 @@ pre > code {
 }
 
 .article-list__item {
-    padding: var(--space-m);
+    padding: var(--space-m-l);
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: var(--space-xl);
+}
+
+.article-list__more-link {
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: var(--space-2xs-xs);
+    border-radius: 6px;
+}
+
+.article-list__more-link:hover {
+    background: var(--color-accent-2-contrast);
+    color: var(--color-accent-2);
+    text-decoration: none;
 }
 
 .wp-block-footnotes li:before {
@@ -367,10 +464,19 @@ pre > code {
     padding: var(--space-s-m);
 }
 
-.article-page h1, 
-.article-page h2, 
-.article-page h3 {
+.article-page h1,
+.article-page h2,
+.article-page h3,
+.single-page h1,
+.single-page h2,
+.single-page h3 {
     text-shadow: -3px 3px 0 #ccc;
+}
+
+.article__footer {
+    border: 1px solid var(--color-black);
+    padding: var(--space-s-m);
+    box-shadow: -3px 3px 0 #ccc;
 }
 </style>
   
@@ -396,286 +502,298 @@ pre > code {
         <ul class="article-list">
         
         <li class="article-list__item [ section__styled box-shadow__styled ]">
+            <h2><a href="/blog/2024/08/adventures-in-linux/">Adventures in Linux</a></h2>
+            <p><p>For the longest time I&#8217;ve had a sort of craving to have a Linux Desktop again. It wasn&#8217;t enough to switch to Linux completely when I started at AOE GmbH in 2023, but it was always there. MacOS is an amazing operating system and I love it for its stability, features, available software, and &#8230; [&hellip;]</p>
+</p>
+            <a href="/blog/2024/08/adventures-in-linux/" class="article-list__more-link">Continue reading →</a>
+        </li>
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
+            <h2><a href="/blog/2024/07/re-second-factor-sms-worse-than-its-reputation/">RE: Second Factor SMS: Worse than It&#8217;s Reputation</a></h2>
+            <p><p>Another day, another (big) leak: CCC, Chaos Computer Club, obtained millions of SMS containing Two-Factor Auth (2FA) tokens which where publicly available on the internet. One-time passwords are often sent via SMS. Security researchers from the CCC recently had live access to over 200 million such SMS messages from more than 200 affected companies. via [&hellip;]</p>
+</p>
+            <a href="/blog/2024/07/re-second-factor-sms-worse-than-its-reputation/" class="article-list__more-link">Continue reading →</a>
+        </li>
+        <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/06/learning-haskell-caesar-cipher/">Learning Haskell: Caesar cipher</a></h2>
             <p><p>In my quest to learn Haskell I&#8217;ve been reading through Learn You A Haskell, a great book on understanding Haskell. BEFORE WE START: I do not know much about Haskell, I&#8217;ve started learning it literally last week. So please do correct me if I make mistakes in this post 🙂 While reading about function signatures [&hellip;]</p>
 </p>
-            <a href="/blog/2024/06/learning-haskell-caesar-cipher/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/06/learning-haskell-caesar-cipher/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/06/ai-now-means-apple-intelligence/">AI now means Apple Intelligence</a></h2>
             <p><p>Yesterday (10. June 2024) Apple revealed its new features for the next releases of iOS, MacOS, et all. and with no big surprise the reveal included the addition of AI tools into the operating system and Siri. While I&#8217;m very sceptical of AI build into the OS, I must say Apple seems to be on [&hellip;]</p>
 </p>
-            <a href="/blog/2024/06/ai-now-means-apple-intelligence/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/06/ai-now-means-apple-intelligence/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/">RE: BundID: Eine digitale Identität schafft (falsches) Vertrauen</a></h2>
             <p><p>Ohje… was ist da wieder los? Lilith Wittmann dokumentiert, wie sie innerhalb von kürzester Zeit eine Fake Seite mit dem BundID Login ausstatten konnte und somit legitim wirken lies. Wild! Weil ich weiß, wie oft SAML falsch implementiert wird, habe ich also in den Verwaltungsportalen von Städten gezielt nach solchen Sicherheitslücken gesucht und bin auch [&hellip;]</p>
 </p>
-            <a href="/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/06/re-what-if-we-worked-together/">RE: What if we worked together</a></h2>
             <p><p>The folks at Ghost are building federation into &#8230; Ghost! Ghost is the latest of a growing number of networks joining the Fediverse by implementing ActivityPub (among them are Flipboard and Threads, the new thingy from Meta)! I really love to see the Fediverse grow and evolve. It feels good to be part of it! [&hellip;]</p>
 </p>
-            <a href="/blog/2024/06/re-what-if-we-worked-together/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/06/re-what-if-we-worked-together/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/06/re-the-justice-department-took-down-the-911-s5-botnet/">RE: The Justice Department Took Down the 911 S5 Botnet</a></h2>
             <p><p>A big-ass botnet has been dismantled by an international cooperation of agencies led by law enforcement in the United States, Singapore, Thailand, and Germany. [&#8230;] devices were associated with more than 19 million unique IP addresses, including 613,841 IP addresses located in the United States. Wang then generated millions of dollars by offering cybercriminals access [&hellip;]</p>
 </p>
-            <a href="/blog/2024/06/re-the-justice-department-took-down-the-911-s5-botnet/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/06/re-the-justice-department-took-down-the-911-s5-botnet/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/06/10-years-of-kubernetes/">10 years of Kubernetes</a></h2>
             <p><p>10 years ago, on June 6th 2014, the first commit was made to kubernetes. Quoting the original README file Kubernetes is an open source reference implementation of container cluster management. What a wild ride it has been from a reference implementation to the de-facto standard for running containerised workloads! I think the first time I [&hellip;]</p>
 </p>
-            <a href="/blog/2024/06/10-years-of-kubernetes/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/06/10-years-of-kubernetes/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/06/re-operation-overload/">RE: Operation Overload</a></h2>
             <p><p>I do not envy the people who are working as fact checkers (or who volunteer!), because there sure is a ton of fakes and propaganda out there to be checked and debunked. The graffitis, videos or screenshots sent to newsrooms are fake and were fabricated for the purpose of diverting journalist’s ressources, or even try [&hellip;]</p>
 </p>
-            <a href="/blog/2024/06/re-operation-overload/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/06/re-operation-overload/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/05/re-trust/">RE: Trust</a></h2>
             <p><p>A very good take on putting AI into everything because that&#8217;s the big thing right now: Trust is a precious commodity. It takes a long time to build trust. It takes a short time to destroy it. I am honestly astonished that so many companies don’t seem to realise what they’re destroying. Jeremy Keith via [&hellip;]</p>
 </p>
-            <a href="/blog/2024/05/re-trust/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/05/re-trust/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/05/re-why-blog-anonymous/">RE: Why blog anonymous</a></h2>
             <p><p>A few notes on publishing anonymously on the web. </p>
 </p>
-            <a href="/blog/2024/05/re-why-blog-anonymous/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/05/re-why-blog-anonymous/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/05/re-cloudflare-took-down-our-website-after-trying-to-force-us-to-pay-120k-within-24h/">RE: Cloudflare took down our website after trying to force us to pay 120k$ within 24h</a></h2>
             <p><p>They would not offer us anything apart from a full deal for $10k per month, which would magically resolve the issue. They were not interested in any other resolution. via https://robindev.substack.com/p/cloudflare-took-down-our-website Now that&#8217;s just fucked up. The screenshots in the post are completely insane as well, the sales tactics hidden behind alleged problems with the account [&hellip;]</p>
 </p>
-            <a href="/blog/2024/05/re-cloudflare-took-down-our-website-after-trying-to-force-us-to-pay-120k-within-24h/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/05/re-cloudflare-took-down-our-website-after-trying-to-force-us-to-pay-120k-within-24h/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/05/regexle-9/">Regexle #9</a></h2>
             <p><p>Solution for Regexle #9</p>
 </p>
-            <a href="/blog/2024/05/regexle-9/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/05/regexle-9/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/05/regexle-8/">Regexle #8</a></h2>
             <p><p>Solution for todays Regexle puzzle</p>
 </p>
-            <a href="/blog/2024/05/regexle-8/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/05/regexle-8/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/05/slop-slop-slop/">Slop Slop Slop!</a></h2>
             <p><p>There&#8217;s a new word in town: slop! slop is rapidly taking the Fediverse, blogging scene (lol) and Twitter by storm as a term for AI-generated trash text: basically AI spam. The first mention I&#8217;ve seen is of a Twitter post by @deepfates https://twitter.com/deepfates/status/1787472784106639418, which I saw shared on Mastodon by Simon Willison https://fedi.simonwillison.net/@simon/112402587787781767. I like [&hellip;]</p>
 </p>
-            <a href="/blog/2024/05/slop-slop-slop/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/05/slop-slop-slop/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/05/re-heat-death-of-the-internet/">RE: Heat Death of the Internet</a></h2>
             <p><p>You want to watch the trailer for an upcoming movie on YouTube but you first have to sit through an ad. Then you sit through a preview for the trailer itself. Then you watch the trailer, which is literally another ad. When it ends, it cues up a new trailer, with a new ad at [&hellip;]</p>
 </p>
-            <a href="/blog/2024/05/re-heat-death-of-the-internet/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/05/re-heat-death-of-the-internet/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/05/ill-be-speaking-at-container-days-hamburg-in-september/">I&#8217;ll be speaking at Container Days Hamburg in September</a></h2>
             <p><p>My talk &#8220;Container Vulnerability Management in Kubernetes&#8221; was accepted by Container Days and I&#8217;ll be on-stage in September. I&#8217;m already super excited (and hella nervous ✨) and looking forward to being in Hamburg, meeting other DevOps people and enjoying the conference &#8211; it&#8217;s been too long since I attended one! (I think Front Trends in [&hellip;]</p>
 </p>
-            <a href="/blog/2024/05/ill-be-speaking-at-container-days-hamburg-in-september/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/05/ill-be-speaking-at-container-days-hamburg-in-september/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/04/re-get-ready-for-opentofu-1-7-0-beta1/">RE: Get ready for OpenTofu 1.7.0-beta1</a></h2>
             <p><p>OpenTofu, the terraform fork which remains truly Open Source, just announced the 1.7.0-beta1 release which brings the following new enhancements: Especially state encryption is a feature I&#8217;m excited about. At the moment I do not use any terraform for my private projects so it&#8217;s hard to try OpenTofu in the wild, but me and my [&hellip;]</p>
 </p>
-            <a href="/blog/2024/04/re-get-ready-for-opentofu-1-7-0-beta1/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/04/re-get-ready-for-opentofu-1-7-0-beta1/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/04/re-youre-a-blogger-not-an-essayist/">RE: You’re a Blogger, Not an Essayist</a></h2>
             <p><p>Blogging is a conversation. It’s a conversation with yourself and it’s a conversation with others. Barry Hess via https://bjhess.com/posts/you-re-a-blogger-not-an-essayist Some real talk right there. Blogging is all about conversations, thoughts, and FUN. This very website is not a magazine and it&#8217;s not a professional publication; It sometimes may include content which is related to the [&hellip;]</p>
 </p>
-            <a href="/blog/2024/04/re-youre-a-blogger-not-an-essayist/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/04/re-youre-a-blogger-not-an-essayist/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/04/oh-no-my-gpg-key-expired-like-every-year/">Oh no my gpg key expired (like every year)</a></h2>
             <p><p>Who doesn&#8217;t love encryption and security? I like to sign my git commits, and for this I need PGP keys. They are cool when they work and you don&#8217;t need to think about them, but every now and then they need to be renewed (unless you use never expiring keys which of course you shouldn&#8217;t!). [&hellip;]</p>
 </p>
-            <a href="/blog/2024/04/oh-no-my-gpg-key-expired-like-every-year/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/04/oh-no-my-gpg-key-expired-like-every-year/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/04/what-we-should-learn-from-the-xz-backdoor/">What we should learn from the xz backdoor</a></h2>
             <p><p>You may have heard that a vulnerability was found in the xz tool and liblzma library on Friday, 29th of March 2024 which specifically targeted sshd being managed by systemd on Debian and RedHat Linux systems. What happened The catastrophic scope of the attack At first the backdoor seems very odd. xz is a compression [&hellip;]</p>
 </p>
-            <a href="/blog/2024/04/what-we-should-learn-from-the-xz-backdoor/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/04/what-we-should-learn-from-the-xz-backdoor/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/03/i-dont-like-python/">I don&#8217;t like Python</a></h2>
             <p><p>&#8230; and there&#8217;s a reason: Dependency Management. Coming from languages like Node, Go, and Rust I am used to decent dependency management (although Go was really bad at it for the first years, and has become decent only recently with the addition of go mod.). Python, in my opinion, lacks a good and well-defined Package [&hellip;]</p>
 </p>
-            <a href="/blog/2024/03/i-dont-like-python/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/03/i-dont-like-python/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/03/a-little-hiccup/">A little hiccup</a></h2>
             <p><p>Well, looks like kevingimbel.de was (partly?) down &#8211; as far as I can tell the culprit was ipv6! In the past I&#8217;ve not really bothered with ipv6 much but it feels odd to leave it out these days. Sorry for the inconvenience to all my 2 readers, I&#8217;m sure you&#8217;ve missed my blog on this [&hellip;]</p>
 </p>
-            <a href="/blog/2024/03/a-little-hiccup/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/03/a-little-hiccup/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/03/re-hacking-terraform-state-for-privilege-escalation/">RE: Hacking Terraform State for Privilege Escalation</a></h2>
             <p><p>An interesting attack vector which uses empty terraform providers and a modified state file to execute code! There’s lots to be excited about as a red teamer and scared of as a blue teamer, but at the top of the list is that the attack does not require a “terraform apply”. Even if the human reviewing [&hellip;]</p>
 </p>
-            <a href="/blog/2024/03/re-hacking-terraform-state-for-privilege-escalation/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/03/re-hacking-terraform-state-for-privilege-escalation/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2024/01/til-k9s-plugins/">TIL: k9s plugins</a></h2>
             <p><p>k9s is a powerful Kubernetes terminal UI. Recently, I discovered how to add plugins, to make it even more powerful and integrate with other tools and systems!</p>
 </p>
-            <a href="/blog/2024/01/til-k9s-plugins/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2024/01/til-k9s-plugins/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/12/eleventy-3-0-0-alpha-2/">Eleventy 3.0.0-alpha.2</a></h2>
             <p><p>✨ A small update on moving my website to 11ty 3.0.0-alpha.2 </p>
 </p>
-            <a href="/blog/2023/12/eleventy-3-0-0-alpha-2/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/12/eleventy-3-0-0-alpha-2/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/11/til-why-there-is-bin-and-usr-bin-lib-and-usr-lib-on-unix-systems/">TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, etc on Unix systems</a></h2>
             <p><p>If you&#8217;ve ever navigated around a Unix system you may have wondered why there are /bin and usr/bin directories or /lib and /usr/lib or /sbin and /usr/sbin &#8211; or like me, you just took it for something that probably has any meaning but isn&#8217;t relevant enough to look into. Well, today it became relevant: When [&hellip;]</p>
 </p>
-            <a href="/blog/2023/11/til-why-there-is-bin-and-usr-bin-lib-and-usr-lib-on-unix-systems/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/11/til-why-there-is-bin-and-usr-bin-lib-and-usr-lib-on-unix-systems/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/11/integrating-wordpress-posts-with-11ty/">Integrating WordPress Posts with 11ty</a></h2>
             <p><p>In this blog post I document how I integrated articles from a WordPress site into my 11ty website &#8211; it was surprisingly straight forward to do!</p>
 </p>
-            <a href="/blog/2023/11/integrating-wordpress-posts-with-11ty/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/11/integrating-wordpress-posts-with-11ty/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/10/re-announcing-rust-1-73-0/">RE: Announcing Rust 1.73.0</a></h2>
             <p><p>Yay, Rust 1.73.0 has been released! Highlights include cleaner panic messages and the stabilisation of APIs, I&#8217;m especially happy about the stabilisation of unix APIs for  `chown`, `fchown` and `lchown`.  </p>
 </p>
-            <a href="/blog/2023/10/re-announcing-rust-1-73-0/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/10/re-announcing-rust-1-73-0/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/09/re-the-opentofu-fork-is-now-available/">RE: The OpenTofu fork is now available!</a></h2>
             <p><p>A few weeks ago HashiCorp decided to switch the terraform license model from an open source license to the Business Source License (BSL) model, so there&#8217;s now a community driven terraform fork called OpenTofu.</p>
 </p>
-            <a href="/blog/2023/09/re-the-opentofu-fork-is-now-available/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/09/re-the-opentofu-fork-is-now-available/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/09/til-scale-down-a-kubernetes-daemonset/">TIL: scale down a Kubernetes DaemonSet</a></h2>
             <p><p>A DaemonSet is supposed to run on all or some Kubernetes nodes, so scaling it down is surprisingly easy: Set a nodeSelector to some label which doesn&#8217;t exist, and the DaemonSet is scaled to 0. This will patch (-p) the DaemonSet and add a nodeSelector ( spec.template.spec.nodeSelector) which makes the DaemonSet run on all nodes [&hellip;]</p>
 </p>
-            <a href="/blog/2023/09/til-scale-down-a-kubernetes-daemonset/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/09/til-scale-down-a-kubernetes-daemonset/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/">TIL: Run a script on every k8s Node using  a DaemonSet</a></h2>
             <p><p>I&#8217;ve known that DaemonSets are used to run containers on all Nodes of a Kubernetes Cluster (or some), but I&#8217;ve never thought of using them to run a (shell) script on each node &#8211; a not-so-uncommon task when maintaining clusters! We need two resources: A ConfigMap and a DaemonSet.</p>
 </p>
-            <a href="/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/09/til-run-a-script-on-every-k8s-node-using-a-daemonset/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/08/til-named-return-parameters-in-go/">TIL: named return parameters in Go</a></h2>
             <p><p>Yet another piece of ✨ Go Magic ✨ I was reading through some Go code when I came upon a function that returned two things &#8211; []string and error &#8211; but the last line of the function just said return. I was confused how this worked, and since it was part of the standard library [&hellip;]</p>
 </p>
-            <a href="/blog/2023/08/til-named-return-parameters-in-go/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/08/til-named-return-parameters-in-go/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/07/building-for-the-web-with-rust-and-webassembly/">Building for the web, with Rust and WebAssembly</a></h2>
             <p><p>I&#8217;ve been wanting to build something in WebAssembly for a while and just recently it hit me that I have a thing: mktoc! mktoc is a table of contents generator written in Rust, it comes as a Binary and a Library and can be compiled into WebAssembly with zero effort!</p>
 </p>
-            <a href="/blog/2023/07/building-for-the-web-with-rust-and-webassembly/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/07/building-for-the-web-with-rust-and-webassembly/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/04/til-multiple-git-identities-on-one-machine/">TIL: multiple git-identities on one machine</a></h2>
             <p><p>Turns out you can have multiple Git identities alongside each other on one Machine without needing to set them locally for each repository! It still involves multiple .gitconfig files, but it&#8217;s a lot less work than configuring an endless amount of repos! First, set the global config like this: Now in ~/AOE/.gitconfig I configure the [&hellip;]</p>
 </p>
-            <a href="/blog/2023/04/til-multiple-git-identities-on-one-machine/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/04/til-multiple-git-identities-on-one-machine/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/">Setting up a MacBook from scratch for the first time in 8 years</a></h2>
             <p><p>Oh boy, did I not think about a lot of stuf&#8230; For the past 8 or so years I&#8217;ve always used my work MacBook for all things dev, including private development. I&#8217;ve spent a lot of time setting up and changing my zsh, and later fish, configs, configuring iTerm, trying out different themes, &#8230; you [&hellip;]</p>
 </p>
-            <a href="/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/02/unpinned-dependencies-just-broke-my-plugin/">Unpinned dependencies just broke my plugin</a></h2>
             <p><p>Hello and welcome to a little recap! My 11ty MermaidJS plugin was just broken by MermaidJS release 10.0 because they no longer provided a minified JavaScript bundle and instead only provide a ESM module. My plugin was referencing https://unpkg.com/mermaid/dist/mermaid.min.js by default for including the javascript code, but with version 10 this now leads to a [&hellip;]</p>
 </p>
-            <a href="/blog/2023/02/unpinned-dependencies-just-broke-my-plugin/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/02/unpinned-dependencies-just-broke-my-plugin/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2023/01/til-one-line-list-manipulation-in-python/">TIL: One-line list manipulation in Python</a></h2>
             <p><p>In Python there&#8217;s a one-line syntax for iterating over elements of a list. I&#8217;ve always found it looked kind-of odd, and as I need to look it up all the time I decided to write a little TIL on this blog about it. There are more powerful one-liners documented on the Python Wiki.</p>
 </p>
-            <a href="/blog/2023/01/til-one-line-list-manipulation-in-python/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2023/01/til-one-line-list-manipulation-in-python/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/">Publishing and building a static website on GitHub Pages</a></h2>
             <p><p>A week ago or so I finally launched a small website I&#8217;ve been working on for quite some time: kevin.gimbel.dev/ops &#8211; it&#8217;s a colourful static website showing some of the technologies I&#8217;ve worked with in the past years since I began doing DevOps full time. The website is built with 11ty and published with GitHub [&hellip;]</p>
 </p>
-            <a href="/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2022/11/how-to-extend-and-reuse-configs-in-gitlab-ci/">How to extend and reuse configs in Gitlab CI</a></h2>
             <p><p>When I began using Gitlab CI the first thing I wanted to know was how to reuse configs. I know that we&#8217;ll have changing requirements at work and that we&#8217;ll have hundreds of repositories using basically-the-same configurations so I wanted to make sure we&#8217;d have a central place to make changes to these. I found [&hellip;]</p>
 </p>
-            <a href="/blog/2022/11/how-to-extend-and-reuse-configs-in-gitlab-ci/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2022/11/how-to-extend-and-reuse-configs-in-gitlab-ci/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2021/12/replace-git-urls-in-gitlab-ci/">TIL: Replace git URLs in Gitlab CI</a></h2>
             <p><p>When working with Gitlab as a storage for Terraform or Ansible modules you probably access them using SSH, like&nbsp;git@gitlab.instance:group/project.git. This has the advantage that authentication is done using SSH keys and everybody on your team can access the repositories just like they&#8217;d do when cloning on the terminal &#8211; no need for entering passwords during [&hellip;]</p>
 </p>
-            <a href="/blog/2021/12/replace-git-urls-in-gitlab-ci/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2021/12/replace-git-urls-in-gitlab-ci/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2021/06/proxy-websocket-connections-with-apache2/">Proxy websocket connections with Apache2</a></h2>
             <p><p>How to configure Apache2 to pass through web socket connections Recently I had to adjust an Apache Virtual Host to allow proxying of Web Socket requests to a service running on localhost which would also accept HTTP requests on the same port. The problem The service in question was&nbsp;Loki, the&nbsp;&#8220;Prometheus, but for logs&#8221;&nbsp;from Grafana. At&nbsp;Synoa&nbsp;we&#8217;ve [&hellip;]</p>
 </p>
-            <a href="/blog/2021/06/proxy-websocket-connections-with-apache2/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2021/06/proxy-websocket-connections-with-apache2/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2021/06/validating-variables-in-terraform/">Validating variables in terraform</a></h2>
             <p><p>Finally, terraform can validate input variables! With the 0.13 release terraform introduces input validation, and with the 1.0.0 releases it was stabilized! Before there was no way of validating variables other than checking their length or doing basic checks inside the code, for example in the&nbsp;locals.tf&nbsp;file, and errors with variables mostly came to light during [&hellip;]</p>
 </p>
-            <a href="/blog/2021/06/validating-variables-in-terraform/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2021/06/validating-variables-in-terraform/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2021/06/darken-and-lighten-colors-with-css/">Darken and Lighten colors with CSS</a></h2>
             <p><p>Recreating SASS darken() &amp; lighten() function with CSS variables and calc The technique shown in this post uses the&nbsp;hsl&nbsp;color format in combination with the&nbsp;calc&nbsp;CSS function to calculate darker or lighter shades of a base color. Before we get into the code I want to make sure&nbsp;I did not come up with this, I found the [&hellip;]</p>
 </p>
-            <a href="/blog/2021/06/darken-and-lighten-colors-with-css/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2021/06/darken-and-lighten-colors-with-css/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2021/05/first-steps-with-traefik-2/">First steps with Traefik 2</a></h2>
             <p><p>A tale of Auto SSL, Basic Auth, and lots of debugging Recently I&#8217;ve spent some time at work trying out&nbsp;Traefik 2&nbsp;and learning about the new concepts like routers and middleware since we&#8217;ll use Traefik 2 as part of some new infrastructure. We&#8217;ve used Traefik 1 in production at Synoa for the past 3 years. Initially [&hellip;]</p>
 </p>
-            <a href="/blog/2021/05/first-steps-with-traefik-2/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2021/05/first-steps-with-traefik-2/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2021/05/gotcha-dots-in-etc-sudoers-d-filenames/">TIL: Dots in /etc/sudoers.d filenames</a></h2>
             <p><p>A tale of facepalms While reviewing some Ansible modules with a colleague we stumbled upon an issue with our user creation module, and for a briefe time couldn&#8217;t understand what was going on. The module in question creates multiple Linux users, adds them to groups, and enables some to use password less sudo via the&nbsp;/etc/sudoers.d&nbsp;config [&hellip;]</p>
 </p>
-            <a href="/blog/2021/05/gotcha-dots-in-etc-sudoers-d-filenames/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2021/05/gotcha-dots-in-etc-sudoers-d-filenames/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2021/02/wildcards-in-prometheus-queries/">Wildcards in Prometheus queries</a></h2>
             <p><p>Learn how to query data in Prometheus and how to use wildcards Hello and welcome to this &#8220;snippet-sized&#8221; post about&nbsp;Prometheus&nbsp;queries! Prometheus is a time-series database which means it is build to collect a lot of datasets that show values over time, for example the result of a HTTP request or the RAM usage of a [&hellip;]</p>
 </p>
-            <a href="/blog/2021/02/wildcards-in-prometheus-queries/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2021/02/wildcards-in-prometheus-queries/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2020/12/apply-a-patch-from-a-github-pr/">Apply a patch from a Github PR</a></h2>
             <p><p>Ever found yourself needing that one fix from a PR on GitHub that hasn&#8217;t been released yet? How can you get the code, for example a Magento fix, into your code base? Copy-paste it? That might work for small changes, but for large and complex changes copy-pasting is no solution. Luckily, we can use GitHub [&hellip;]</p>
 </p>
-            <a href="/blog/2020/12/apply-a-patch-from-a-github-pr/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2020/12/apply-a-patch-from-a-github-pr/" class="article-list__more-link">Continue reading →</a>
         </li>
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/blog/2018/04/til-bash-select/">TIL: Bash select</a></h2>
             <p><p>I was recently researching different bash prompts and stumbled upon an StackExchange answer which explains the different prompt types (PS1, PS2, PS3, and PS4). The answer explains how the PS3 prompt is used for commands like select. I did not know about select before, so that&#8217;s the real TIL here! [&#8230;] PS3 is shown when the select command is waiting for [&hellip;]</p>
 </p>
-            <a href="/blog/2018/04/til-bash-select/" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/blog/2018/04/til-bash-select/" class="article-list__more-link">Continue reading →</a>
         </li></ul>
     </div>
 </section>
@@ -683,7 +801,7 @@ pre > code {
 
     <footer id="footer" class="[ footer ]">
       <div class="content">
-        <p class="font-size-2">Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.10, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
+        <p class="font-size-2">Made with <a href="https://www.11ty.dev/">11ty</a> 3.0.0-beta.1, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
         <a href="/feed.xml" class="font-size--1" title="Subscribe via RSS">RSS Feed</a> | <a href="/imprint" title="Imprint">Imprint</a>
         <p class="font-size--2">Views and opinions expressed on this websites do not represents views and opinions of my employer</p>
       </div>

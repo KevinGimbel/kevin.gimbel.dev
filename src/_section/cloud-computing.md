@@ -6,7 +6,7 @@ icon: "🌩"
 sub_heading: |
   Computers! Computers! Computers! <a href="https://www.youtube.com/watch?v=Vhh_GeBPOhs">👏</a>
 position: 100
-accent_id: 1
+accent_id: 5
 skills:
   - Elastic Kubernetes Services (EKS)
   - Elastic Compute Cloud (EC2)
