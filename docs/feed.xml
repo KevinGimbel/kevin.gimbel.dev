@@ -12,6 +12,938 @@
   </author>
   
   <entry>
+    <title type="html">Adventures in Linux</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/08/adventures-in-linux/" />
+    <id>https://kevingimbel.de/blog/2024/08/adventures-in-linux/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;For the longest time I&amp;#8217;ve had a sort of craving to have a Linux Desktop again. It wasn&amp;#8217;t enough to switch to Linux completely when I started at AOE GmbH in 2023, but it was always there. MacOS is an amazing operating system and I love it for its stability, features, available software, and &amp;#8230; [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;p&gt;For the longest time I&amp;#8217;ve had a sort of craving to have a Linux Desktop again. It wasn&amp;#8217;t enough to switch to Linux completely when I started at AOE GmbH in 2023, but it was always there. MacOS is an amazing operating system and I love it for its stability, features, available software, and &amp;#8230; style. It just looks good, the devices feel good, and its overall a nice ecosystem (especially since I&amp;#8217;m using an iPhone and the connection between iOS and MacOS is nice!)&lt;/p&gt;
+
+
+
+&lt;p&gt;My history with Linux started around 2013&lt;em&gt;-ish&lt;/em&gt; when I used &lt;a href=&quot;https://en.wikipedia.org/wiki/Ubuntu&quot;&gt;Ubuntu&lt;/a&gt; &amp;#8211; I think 12.04 or 13.04 &amp;#8211; on an Acer laptop. After using Windows for all my life up to that point, because that&amp;#8217;s just what one does, I wanted to dive deeper into the &amp;#8220;server&amp;#8221;-like Operating System called Linux (at the time I knew little about Linux, different distributions, or open source). My friend and colleague &lt;a href=&quot;https://nerddis.co&quot;&gt;Tim Pietrusky&lt;/a&gt; introduced me to Ubuntu and helped me get it up and running, and for years I&amp;#8217;ve used a Ubuntu Desktop for all things dev before switching to MacOS.&lt;/p&gt;
+
+
+
+&lt;p&gt;Anyways, in 2023/2024 I wanted a Linux PC again. Luckily, I came upon a cheap old&lt;em&gt;-ish&lt;/em&gt; MacBook so I decided to give Linux a try. First I tried Ubuntu and Debian, both not working too well, then I tried Arch, also not working too well, and finally I gave up because they all wouldn&amp;#8217;t work reliably. A few months passed, I setup Fedora in a VM on my work MacBook to try using Linux more. I liked Fedora, and I liked Gnome as Desktop so I did some more research and it turns out my main problem was a T2 security ship in the Mac!&lt;/p&gt;
+
+
+
+&lt;p&gt;In the end the solution was to use &lt;a href=&quot;https://t2linux.org&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;t2linux&lt;/a&gt;, a special Linux Kernel with a bunch of patches to run Linux distributions on MacBooks with the T2 Security chip. The guides in the wiki are straight forward, a lot of stuff could be copy-pasted, and now most things are working and I&amp;#8217;ve a Linux Desktop running Fedora 40!&lt;em&gt; Yay! &lt;/em&gt;🐧&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;752&quot; data-attachment-id=&quot;2977&quot; data-permalink=&quot;https://kevingimbel.de/blog/2024/08/adventures-in-linux/image/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?fit=1648%2C1210&amp;amp;ssl=1&quot; data-orig-size=&quot;1648,1210&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;image&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?fit=300%2C220&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?fit=1024%2C752&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=1024%2C752&amp;#038;ssl=1&quot; alt=&quot;Screenshot of a terminal showing the output of neofetch which shows the fedora logo as ascii art and meta data about the system&quot; class=&quot;wp-image-2977&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=1024%2C752&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=300%2C220&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=768%2C564&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=1536%2C1128&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?w=1648&amp;amp;ssl=1 1648w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;Output of neofetch on my Fedora 40 machine. &lt;em&gt;Yes I use light themes because dark themes are bad for my eyes somehow.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Tools and Software&lt;/h2&gt;
+
+
+
+&lt;p&gt;A lot of the tools I use on Mac can also be used on Linux systems, like the following:&lt;/p&gt;
+
+
+
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;https://vivaldi.com&quot;&gt;Vivaldi Browser&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://joplinapp.org&quot;&gt;Joplin&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://nextcloud.com&quot;&gt;Nextcloud&lt;/a&gt; (natively integrated as &amp;#8220;Online Account&amp;#8221; even!)&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://wezfurlong.org/wezterm/index.html&quot;&gt;WezTerm&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://code.visualstudio.com&quot;&gt;VSCode&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://www.zsh.org&quot;&gt;zsh&lt;/a&gt; and &lt;a href=&quot;https://ohmyz.sh&quot;&gt;oh-my-zsh&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://starship.rs&quot;&gt;starship&lt;/a&gt; prompt&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://spacevim.org&quot;&gt;SpaceVim&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;&amp;#8230; I&amp;#8217;m probably missing something, but these were the first tools I setup, alongside Rust, Haskell, Node, and Go.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Problems&lt;/h2&gt;
+
+
+
+&lt;p&gt;A few problems I encountered.&lt;/p&gt;
+
+
+
+&lt;h3 class=&quot;wp-block-heading&quot;&gt;KeePassXC Browser extension&lt;/h3&gt;
+
+
+
+&lt;p&gt;First of all, I wasn&amp;#8217;t able to use KeePassXC with Vivaldi. I foolishly installed Vivaldi from the Software Center / App Store thingy, which uses Flatpak, which sandboxes Vivaldi and prevents it from interacting with the KeePassXC program. The more you know!&lt;/p&gt;
+
+
+
+&lt;p&gt;Luckily, I got &lt;a href=&quot;https://forum.vivaldi.net/topic/99310/keepassxc-extension-cannot-connect-to-db&quot;&gt;help on the Vivaldi Forums&lt;/a&gt; from a user who pointed out the sandboxing issue.&lt;/p&gt;
+
+
+
+&lt;h3 class=&quot;wp-block-heading&quot;&gt;Suspend&lt;/h3&gt;
+
+
+
+&lt;p&gt;The suspend feature is not working at all. When I enter suspended state and try to re-active the PC it shows the login screen and freezes, or does nothing at all.&lt;/p&gt;
+
+
+
+&lt;p&gt;I tried the fix &lt;a href=&quot;https://wiki.t2linux.org/guides/postinstall/#suspend-workaround&quot;&gt;from the t2linux wiki&lt;/a&gt;, but it didn&amp;#8217;t work. I&amp;#8217;ll need to investigate more. With the &lt;code&gt;suspend-fix-t2.service&lt;/code&gt; enabled I could log back in after a suspend but then wifi wasn&amp;#8217;t working&amp;#8230; but there&amp;#8217;s also &lt;a href=&quot;https://wiki.t2linux.org/distributions/fedora/faq/#my-wi-fi-stops-working-after-suspending&quot;&gt;a fix for that&lt;/a&gt;! So I just need to try a bit more. 💪&lt;/p&gt;
+
+
+
+&lt;h3 class=&quot;wp-block-heading&quot;&gt;CMD / CTRL swapping&lt;/h3&gt;
+
+
+
+&lt;p&gt;Coming from Mac I swapped the CMD and CTRL keys using &lt;a href=&quot;https://github.com/GNOME/gnome-tweaks&quot;&gt;GNOME Tweaks&lt;/a&gt;, but it feels&amp;#8230; wrong. The CMD key on Mac isn&amp;#8217;t a direct replacement for the CTRL key and there are some combinations where CTRL is used (e.g. CTRL + L in the terminal to clear the screen) so I&amp;#8217;d kind-of like to have all of them working. 😬 &lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Conclusion&lt;/h2&gt;
+
+
+
+&lt;p&gt;While it&amp;#8217;s nice to have a Linux computer again, a T2 MacBook isn&amp;#8217;t the best choice. If I was to buy a device again it would probably be a Lenovo ThinkPad. As for Fedora I feel as confident as with most of the other Linux distributions: It works fine, looks OK, and feels right. I&amp;#8217;ve used Ubuntu in the past, and tried Debian, and now settled on Fedora for the time being. &lt;/p&gt;
+
+
+
+&lt;p&gt;I&amp;#8217;ll see how often I use this computer at all, given that I am not doing a lot of development at home and out of work these days, but we&amp;#8217;ll see!&lt;/p&gt;
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
+    <title type="html">RE: Second Factor SMS: Worse than It&amp;#8217;s Reputation</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/07/re-second-factor-sms-worse-than-its-reputation/" />
+    <id>https://kevingimbel.de/blog/2024/07/re-second-factor-sms-worse-than-its-reputation/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;Another day, another (big) leak: CCC, Chaos Computer Club, obtained millions of SMS containing Two-Factor Auth (2FA) tokens which where publicly available on the internet. One-time passwords are often sent via SMS. Security researchers from the CCC recently had live access to over 200 million such SMS messages from more than 200 affected companies. via [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;p&gt;Another day, another (big) leak: CCC, &lt;em&gt;Chaos Computer Club&lt;/em&gt;, obtained millions of SMS containing Two-Factor Auth (&lt;em&gt;2FA&lt;/em&gt;) tokens which where publicly available on the internet.&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;One-time passwords are often sent via SMS. Security researchers from the CCC recently had live access to over 200 million such SMS messages from more than 200 affected companies.&lt;/p&gt;
+&lt;cite&gt;via &lt;a href=&quot;https://www.ccc.de/en/updates/2024/2fa-sms&quot;&gt;https://www.ccc.de/en/updates/2024/2fa-sms&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;2FA via SMS has long been known to be weak, and the CCC advised against it as early as 2013 (!) &amp;#8211; 11 years ago &amp;#8211; in a statement available here  &lt;a href=&quot;https://www.ccc.de/en/updates/2013/de-mail-unqualifizierte-makulatur&quot;&gt;https://www.ccc.de/en/updates/2013/de-mail-unqualifizierte-makulatur&lt;/a&gt; &lt;/p&gt;
+
+
+
+&lt;p&gt;CCC generally recommends using 2FA if available. &lt;/p&gt;
+
+
+
+&lt;p&gt;The most-secure are hardware tokens like &lt;a href=&quot;https://www.yubico.com/products/&quot;&gt;Yubikey&lt;/a&gt;, followed by dedicated apps like Google Authenticator, Microsoft Authenticator, followed by One-Time Passwords in-password-manager Apps like &lt;a href=&quot;https://keepassxc.org/docs/KeePassXC_UserGuide#_adding_totp_to_an_entry&quot;&gt;KeePassXC&lt;/a&gt; or 1Password, followed by &amp;#8230; SMS, which is still a little bit better than no 2FA, even if it is flawed. &lt;/p&gt;
+
+
+
+&lt;p&gt;I highly recommend KeePassXC. &lt;a href=&quot;https://kevingimbel.de/blog/2020/01/two-factor-auth-password-managers-and-cloud-sync/&quot; data-type=&quot;post&quot; data-id=&quot;2997&quot;&gt;In 2020 I blogged about my setup, which is still similar today.&lt;/a&gt; &lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.ccc.de/en/updates/2024/2fa-sms&quot;&gt;&amp;#8220;Second Factor SMS: Worse Than Its Reputation&amp;#8221;&lt;/a&gt; by CCC.de&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://www.theverge.com/2021/3/15/22332315/sms-redirect-flaw-exploit-text-message-hijacking-hacking&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;&amp;#8220;Companies can silently reroute your texts to hackers, sometimes for just $16&amp;#8221; by The Verge&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
+    <title type="html">Learning Haskell: Caesar cipher</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/learning-haskell-caesar-cipher/" />
+    <id>https://kevingimbel.de/blog/2024/06/learning-haskell-caesar-cipher/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;In my quest to learn Haskell I&amp;#8217;ve been reading through Learn You A Haskell, a great book on understanding Haskell. BEFORE WE START: I do not know much about Haskell, I&amp;#8217;ve started learning it literally last week. So please do correct me if I make mistakes in this post 🙂 While reading about function signatures [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;p&gt;In my quest to learn Haskell I&amp;#8217;ve been reading through &lt;a href=&quot;https://learnyouahaskell.com/types-and-typeclasses#believe-the-type&quot;&gt;Learn You A Haskell,&lt;/a&gt; a great book on understanding Haskell.&lt;/p&gt;
+
+
+
+&lt;p class=&quot;has-contrast-color has-base-2-background-color has-text-color has-background has-link-color wp-elements-c1316fffbf93842266c2e529b0e7613d&quot;&gt;&lt;strong&gt;BEFORE WE START:&lt;/strong&gt; I do not know much about Haskell, I&amp;#8217;ve started learning it literally last week. So please do correct me if I make mistakes in this post 🙂 &lt;/p&gt;
+
+
+
+&lt;p&gt;While reading about function signatures and recursion yesterday it came to my mind that a &lt;a href=&quot;https://en.wikipedia.org/wiki/Caesar_cipher&quot;&gt;Caesar cipher&lt;/a&gt; should be quite easy to implement in Haskell &amp;#8211; and surprise, it is!&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&amp;gt; Int -&amp;gt; Char
+shiftLetter &#39; &#39; _ = &#39; &#39;
+shiftLetter letter 0 = letter
+shiftLetter letter offset = shiftLetter (succ letter) (offset - 1)
+
+encode :: [Char] -&amp;gt; Int -&amp;gt; [Char]
+encode input offset = [ shiftLetter x offset | x &amp;lt;- input ]
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;The syntax looks super weird, especially if you&amp;#8217;ve never seen Haskell, but it actually makes sense.&lt;/p&gt;
+
+
+
+&lt;p&gt;First we have function called &lt;code&gt;shiftLetter&lt;/code&gt; which takes a &lt;code&gt;Char&lt;/code&gt; and &lt;code&gt;Int&lt;/code&gt; as parameters, and returns a &lt;code&gt;Char&lt;/code&gt;. In Haskell this is defined like so&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&amp;gt; Int -&amp;gt; Char&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;Then right below is the actual function body &amp;#8211; or bodies in our case! In Haskell, multiple function bodies can be defined depending on input variables. &lt;/p&gt;
+
+
+
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;li&gt;The first line matches the case we get a space as input in which case a space is returned. &lt;/li&gt;
+
+
+
+&lt;li&gt;The second matches the case where we receive an offset of 0, in which case the letter is returned. &lt;/li&gt;
+
+
+
+&lt;li&gt;The third is the recursive function which takes a letter and offset, and calls the shiftLetter function with the next letter (&lt;code&gt;succ letter&lt;/code&gt;) and &lt;code&gt;offset - 1&lt;/code&gt;.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;code&gt;succ&lt;/code&gt; is a Haskell build-in function which returns the successor of something. Since Haskell is aware of how the alphabet looks, we can do &lt;code&gt;succ &#39;A&#39;&lt;/code&gt; to get &lt;code&gt;&#39;B&#39;&lt;/code&gt;!&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;This function runs recursively until we reach the case where &lt;code&gt;offset = 0&lt;/code&gt; and then we just return the letter.&lt;/p&gt;
+
+
+
+&lt;p&gt;To illustrate this more, take the following example which shows each execution step&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;shiftLetter &#39;A&#39; 2
+
+# how the function is called
+shiftLetter (succ &#39;A&#39;) (2 - 1) -&amp;gt; shiftLetter B 1
+shiftLetter (succ &#39;B&#39;) (1 - 1) -&amp;gt; shiftLetter C 0
+
+-&amp;gt; return C&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;With a function to shift single letter all we need is to wrap it in some form of recursion. In Haskell Strings are just lists of Chars, so we can use list comprehension function on strings!&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;encode :: [Char] -&amp;gt; Int -&amp;gt; [Char]
+encode input offset = [ shiftLetter x offset | x &amp;lt;- input ]&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;The weird looking function body is a &lt;a href=&quot;https://learnyouahaskell.com/starting-out#im-a-list-comprehension&quot;&gt;list comprehension&lt;/a&gt; with a syntax of &lt;code&gt;[ function | list-input ]&lt;/code&gt; &amp;#8211; we basically do the following:&lt;/p&gt;
+
+
+
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;li&gt;take every single char out of &lt;code&gt;[Char]&lt;/code&gt; and assign it to &lt;code&gt;x&lt;/code&gt; (&lt;code&gt;x &amp;lt;- input&lt;/code&gt;)&lt;/li&gt;
+
+
+
+&lt;li&gt;calculate the cipher (&lt;code&gt;shiftLetter x offset&lt;/code&gt;) for each letter&lt;/li&gt;
+
+
+
+&lt;li&gt;return the ciphered text as a [Char], which is just a String in Haskell.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;I was surprised that the code worked exactly like I wanted on first try. I thought about how it could be implemented, wrote it down, executed it and it just worked. I&amp;#8217;ve rarely had this in any other language!&lt;/p&gt;
+
+
+
+&lt;p&gt;Sadly, I do not have any use case to try Haskell somewhere yet, but I&amp;#8217;m enjoying learning it a &lt;strong&gt;LOT&lt;/strong&gt;. I&amp;#8217;ll now think about how to implement a decode function.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Update&lt;/h2&gt;
+
+
+
+&lt;p&gt;I implemented the decode function with some slight changes to the signatures.&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&amp;gt; Int -&amp;gt; Bool -&amp;gt; Char&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;The &lt;code&gt;Bool&lt;/code&gt; is used to determine if we want to encode (True) or decode (False).&lt;/p&gt;
+
+
+
+&lt;p&gt;The body can than match the two possible values and decide if we want to shift the letter using &lt;code&gt;succ&lt;/code&gt; or &lt;code&gt;pred&lt;/code&gt; &amp;#8211; the only difference between encoding and decoding.&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;shiftLetter :: Char -&amp;gt; Int -&amp;gt; Bool -&amp;gt; Char
+shiftLetter &#39; &#39; _ _ = &#39; &#39;
+shiftLetter letter 0 _ = letter
+shiftLetter letter offset True = shiftLetter (succ letter) (offset - 1) True
+shiftLetter letter offset False = shiftLetter (pred letter) (offset - 1) False&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Update 2&lt;/h2&gt;
+
+
+
+&lt;p&gt;I extracted the code into a module and published it on my GitHub! &lt;a href=&quot;https://github.com/KevinGimbel/caesar-cipher/tree/main&quot;&gt;https://github.com/KevinGimbel/caesar-cipher&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;I&amp;#8217;ve also slightly updated it to avoid going out of bounds of the English alphabet. Instead of using &lt;code&gt;succ&lt;/code&gt; and &lt;code&gt;pred&lt;/code&gt; directly, they&amp;#8217;re now wrapped in functions to handle the beginning and end of the alphabet.&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;haskell&quot; class=&quot;language-haskell&quot;&gt;-- get next letter, if we reach Z the next is A
+succLetter :: Char -&gt; Char
+succLetter &#39;z&#39; = &#39;a&#39;
+succLetter &#39;Z&#39; = &#39;A&#39;
+succLetter x = succ x
+
+-- get prev letter, if we reach A the previous is Z again
+predLetter :: Char -&gt; Char
+predLetter &#39;a&#39; = &#39;z&#39;
+predLetter &#39;A&#39; = &#39;Z&#39;
+predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;Where other languages would require some &lt;code&gt;ifs&lt;/code&gt; and &lt;code&gt;elses&lt;/code&gt;, Haskell can &amp;#8220;just&amp;#8221; work with parameter matching of the functions.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;code&gt;succLetter z&lt;/code&gt; will return &amp;#8220;a&amp;#8221;, &lt;code&gt;succLetter f&lt;/code&gt; will return &amp;#8220;g&amp;#8221;, and so on. The same applies to &lt;code&gt;predLetter&lt;/code&gt; which will return &amp;#8220;z&amp;#8221; when &amp;#8220;a&amp;#8221; is given.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Caesar_cipher&quot;&gt;https://en.wikipedia.org/wiki/Caesar_cipher&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/starting-out/baby.hs#L111-L125&quot;&gt;https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/starting-out/baby.hs#L111-L125&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/01_fun/caesar-cipher.hs&quot;&gt;https://github.com/KevinGimbel/learn-you-a-haskell/blob/main/01_fun/caesar-cipher.hs&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://learnyouahaskell.com/starting-out#im-a-list-comprehension&quot;&gt;https://learnyouahaskell.com/starting-out#im-a-list-comprehension&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
+    <title type="html">AI now means Apple Intelligence</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/ai-now-means-apple-intelligence/" />
+    <id>https://kevingimbel.de/blog/2024/06/ai-now-means-apple-intelligence/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;Yesterday (10. June 2024) Apple revealed its new features for the next releases of iOS, MacOS, et all. and with no big surprise the reveal included the addition of AI tools into the operating system and Siri. While I&amp;#8217;m very sceptical of AI build into the OS, I must say Apple seems to be on [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;p&gt;Yesterday (&lt;em&gt;10. June 2024&lt;/em&gt;) Apple revealed its new features for the next releases of iOS, MacOS, et all. and with no big surprise the reveal included&lt;a href=&quot;https://www.apple.com/apple-intelligence/&quot;&gt; the addition of AI tools into the operating system and Siri&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;While I&amp;#8217;m very sceptical of AI build into the OS, I must say Apple seems to be on the right track again, focusing on privacy. &lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Apple&amp;nbsp;Intelligence is designed to protect your privacy at every step. It’s integrated into the core of your iPhone, iPad, and Mac through on-device processing. So it’s aware of your personal information without collecting your personal information.&amp;nbsp;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;on-device processing&lt;/em&gt; is powered by the A17 chips in iPhone 15  and iPads &amp;amp; MacBooks with M1 or later chips. &lt;/p&gt;
+
+
+
+&lt;p&gt;But not everything can be processed on device, and for these requests information &amp;#8211; &amp;#8220;&lt;em&gt;only relevant information&lt;/em&gt;&amp;#8221; is sent to a Private Compute Cloud running on Apple Sillicon.&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;When you make a request, Apple Intelligence analyses whether it can be processed on device. If it needs greater computational capacity, it can draw on Private Cloud Compute, and send only the data that&amp;#8217;s relevant to your task to be processed on Apple Silicon servers.&lt;/p&gt;
+
+
+
+&lt;p&gt;Your data is never stored or made accessible to Apple. It&amp;#8217;s used exclusively to fulfil your request.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Given that Apple has shown interest in securing user data in the past I have a lot more confidence in this solution that the &lt;s&gt;Total&lt;/s&gt; Recall feature of Microsoft 11.&lt;/p&gt;
+
+
+
+&lt;p&gt;Speaking of Microsoft, Apple is including ChatGPT into its writing AI tools.&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;With ChatGPT from OpenAI integrated into Siri and Writing Tools, you get even more expertise when it might be helpful for you — no need to jump between tools. Siri can tap into ChatGPT for certain requests, including questions about photos or documents.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;But again, with a focus on privacy they give the user control of when information is sent to ChatGPT.&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;You control when ChatGPT is used and will be asked before any of your information is shared.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Integration with ChatGPT will be free &amp;#8211; including the newest 4o model, and so far there has been no mention of pricing for the other AI features &amp;#8211; they&amp;#8217;ll most likely be part of the package you get when buying Apple hardware.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://simonwillison.net/2024/Jun/10/apple-intelligence/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Simon Willison has longer article covering more details from the presentation&lt;/a&gt;, and raises an important question:&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Siri will be able to both access data on your device and trigger actions based on your instructions.&lt;/p&gt;
+
+
+
+&lt;p&gt;This is the exact feature combination that’s&amp;nbsp;&lt;a href=&quot;https://simonwillison.net/2023/Apr/14/worst-that-can-happen/#rogue-assistant&quot;&gt;most at risk from prompt injection attacks&lt;/a&gt;: what happens if someone sends you a text message that tricks Siri into forwarding a password reset email to them, and you ask for a summary of that message?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;It&amp;#8217;s a valid concern, and it might open up a whole new attack vector, when you get specifically crafted messages sent via email or iMessage in the hopes people will run them through AI processing. How and if Apple can prevent this we will see.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Conclusion&lt;/h2&gt;
+
+
+
+&lt;p&gt;All in all I feel like Apple AI could be a very nice integration and addition to the suite of Apple products, and it seems to have a great focus on privacy as well &amp;#8211; which is tremendously important when doing anything with AI these days (or data processing in general). &lt;/p&gt;
+
+
+
+&lt;p&gt;Apple AI is launching this fall.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.apple.com/apple-intelligence/&quot;&gt;https://www.apple.com/apple-intelligence/&lt;/a&gt; &lt;/li&gt;
+
+
+
+&lt;li&gt;WWDC 2024 recording &lt;a href=&quot;https://www.youtube.com/watch?v=RXeOiIDNNek&quot;&gt;https://www.youtube.com/watch?v=RXeOiIDNNek&lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
+    <title type="html">RE: BundID: Eine digitale Identität schafft (falsches) Vertrauen</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/" />
+    <id>https://kevingimbel.de/blog/2024/06/re-bundid-eine-digitale-identitat-schafft-falsches-vertrauen/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;Ohje… was ist da wieder los? Lilith Wittmann dokumentiert, wie sie innerhalb von kürzester Zeit eine Fake Seite mit dem BundID Login ausstatten konnte und somit legitim wirken lies. Wild! Weil ich weiß, wie oft SAML falsch implementiert wird, habe ich also in den Verwaltungsportalen von Städten gezielt nach solchen Sicherheitslücken gesucht und bin auch [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;p&gt;Ohje… was ist da wieder los? Lilith Wittmann dokumentiert, wie sie innerhalb von kürzester Zeit eine Fake Seite mit dem BundID Login ausstatten konnte und somit legitim wirken lies. Wild!&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Weil ich weiß, wie oft SAML falsch implementiert wird, habe ich also in den Verwaltungsportalen von Städten gezielt nach solchen Sicherheitslücken gesucht und bin auch innerhalb von etwa einer Stunde beim Durchsehen von Anmeldeprozessen fündig geworden.&lt;/p&gt;
+&lt;cite&gt;Lilith Wittmann, via &lt;a href=&quot;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&quot;&gt;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Lilith stellt in ihrem Artikel wichtige Fragen: Warum wird SAML statt oAuth genutzt? Wieso muss jeder Betreiber SAML selbst implementieren? Und wieso gibt es nicht eine zentrale Stelle?&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Grundsätzlich ist die Frage, ob viele einzelne Verwaltungsportale überhaupt eine gute Idee sind. Oder ob es nicht eigentlich eher ein Portal/App geben sollte, mit dem Bürger interagieren und welches dann die Daten direkt in die Systeme der zuständigen Verwaltung übermittelt. Dadurch könnten weniger Fehler in der Umsetzung passieren, es müssen keine 300 Hundesteueranträge gebaut und gewartet werden und die Qualität der User Experience könnte einfacher verbessert werden.&lt;/p&gt;
+&lt;cite&gt;Lilith Wittmann&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Die Betreiber von BundID haben den Fehler zum Glück schnell behoben, und präventiv alle betroffenen Systeme abgeschaltet während der fix implementiert wurde &amp;#8211; sehr vorbildlich! &lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&quot;&gt;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
+    <title type="html">RE: What if we worked together</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/re-what-if-we-worked-together/" />
+    <id>https://kevingimbel.de/blog/2024/06/re-what-if-we-worked-together/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;The folks at Ghost are building federation into &amp;#8230; Ghost! Ghost is the latest of a growing number of networks joining the Fediverse by implementing ActivityPub (among them are Flipboard and Threads, the new thingy from Meta)! I really love to see the Fediverse grow and evolve. It feels good to be part of it! [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;p&gt;The folks at &lt;a href=&quot;https://ghost.org/&quot;&gt;Ghost&lt;/a&gt; are building &lt;a href=&quot;https://activitypub.ghost.org/day4/&quot;&gt;federation into &amp;#8230; Ghost&lt;/a&gt;! &lt;/p&gt;
+
+
+
+&lt;p&gt;Ghost is the latest of a growing number of networks joining the Fediverse by implementing ActivityPub (among them are &lt;a href=&quot;https://flipboard.com/&quot;&gt;Flipboard&lt;/a&gt; and &lt;a href=&quot;https://www.threads.net/&quot;&gt;Threads&lt;/a&gt;, the new thingy from Meta)! &lt;/p&gt;
+
+
+
+&lt;p&gt;I really love to see the Fediverse grow and evolve. It feels good to be part of it! &lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;(Hint: You can follow this blog as &lt;code&gt;@kevin@kevingimbel.de&lt;/code&gt; from anywhere in the Fediverse! Just search for it in your app of choice!)&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Ironically, the Ghost Dev blog is not activity pub enabled, and doesn&amp;#8217;t have RSS &amp;#8211; the only way to subscribe right now is &amp;#8230; &lt;em&gt;email&lt;/em&gt;. 💀&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;li&gt;Activity Pub implementation Dev Blog &lt;a href=&quot;https://activitypub.ghost.org&quot;&gt;https://activitypub.ghost.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
+    <title type="html">RE: The Justice Department Took Down the 911 S5 Botnet</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/re-the-justice-department-took-down-the-911-s5-botnet/" />
+    <id>https://kevingimbel.de/blog/2024/06/re-the-justice-department-took-down-the-911-s5-botnet/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;A big-ass botnet has been dismantled by an international cooperation of agencies led by law enforcement in the United States, Singapore, Thailand, and Germany. [&amp;#8230;] devices were associated with more than 19 million unique IP addresses, including 613,841 IP addresses located in the United States. Wang then generated millions of dollars by offering cybercriminals access [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;p&gt;A big-ass botnet&lt;sup data-fn=&quot;ca841f68-06ca-432e-8856-093003c87556&quot; class=&quot;fn&quot;&gt;&lt;a href=&quot;#ca841f68-06ca-432e-8856-093003c87556&quot; id=&quot;ca841f68-06ca-432e-8856-093003c87556-link&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; has been dismantled by an international cooperation of agencies led by law enforcement in the United States, Singapore, Thailand, and Germany. &lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;[&amp;#8230;] devices were associated with more than 19 million unique IP addresses, including 613,841 IP addresses located in the United States. Wang then generated millions of dollars by offering cybercriminals access to these infected IP addresses for a fee.&lt;/p&gt;
+&lt;cite&gt;via USA Department of Justice press release  &lt;a href=&quot;https://www.justice.gov/opa/pr/911-s5-botnet-dismantled-and-its-administrator-arrested-coordinated-international-operation&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;https://www.justice.gov/opa/pr/911-s5-botnet-dismantled-and-its-administrator-arrested-coordinated-international-operation&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;That&amp;#8217;s one hell of a lot of compromised computers. At this size the chances of knowing somebody who&amp;#8217;s infected aren&amp;#8217;t so slim. &lt;/p&gt;
+
+
+
+&lt;p&gt;Stay vigilant, friends. 🛡️&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;li&gt;Article &lt;a href=&quot;https://www.schneier.com/blog/archives/2024/06/the-justice-department-took-down-the-911-s5-botnet.html&quot;&gt;https://www.schneier.com/blog/archives/2024/06/the-justice-department-took-down-the-911-s5-botnet.html&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;USA Department of Justice press release &lt;a href=&quot;https://www.justice.gov/opa/pr/911-s5-botnet-dismantled-and-its-administrator-arrested-coordinated-international-operation&quot;&gt;https://www.justice.gov/opa/pr/911-s5-botnet-dismantled-and-its-administrator-arrested-coordinated-international-operation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;ca841f68-06ca-432e-8856-093003c87556&quot;&gt;Pardon my French. Sorry not sorry. 🍑 &lt;a href=&quot;#ca841f68-06ca-432e-8856-093003c87556-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
+    <title type="html">10 years of Kubernetes</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/10-years-of-kubernetes/" />
+    <id>https://kevingimbel.de/blog/2024/06/10-years-of-kubernetes/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;10 years ago, on June 6th 2014, the first commit was made to kubernetes. Quoting the original README file Kubernetes is an open source reference implementation of container cluster management. What a wild ride it has been from a reference implementation to the de-facto standard for running containerised workloads! I think the first time I [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;p&gt;&lt;a href=&quot;https://github.com/kubernetes/kubernetes/commit/2c4b3a562ce34cddc3f8218a2c4d11c7310e6d56&quot;&gt;10 years ago, on June 6th 2014, the first commit was made to kubernetes.&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Quoting the original README file&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Kubernetes is an open source reference implementation of container cluster management.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;What a wild ride it has been from a &lt;em&gt;reference implementation&lt;/em&gt; to the de-facto standard for running containerised workloads!&lt;/p&gt;
+
+
+
+&lt;p&gt;I think the first time I came into contact with Kubernetes was around 2016 or 2017, when we evaluated different container orchestration frameworks with a customer at Synoa. In the end a partner company decided to use &lt;a href=&quot;https://mesosphere.github.io/marathon/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;Apache Marathon&lt;/a&gt; to run workloads, and we at Synoa chose &lt;a href=&quot;https://aws.amazon.com/ecs/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;Amazon ECS&lt;/a&gt; (Elastic Container Services) over Kubernetes since no managed Kubernetes was available at the time, and self hosting wasn&amp;#8217;t viable.&lt;/p&gt;
+
+
+
+&lt;p&gt;Since joining AOE in 2023 I started working with Kubernetes every day and also run &lt;a href=&quot;https://www.aoe.com/en/academy/cloud-devops/kubernetes-101.html&quot;&gt;Kubernetes Workshops&lt;/a&gt; (as part of &lt;a href=&quot;https://www.aoe.com/en/academy.html&quot;&gt;AOE Academy&lt;/a&gt;).&lt;/p&gt;
+
+
+
+&lt;p&gt;I&amp;#8217;m glad to be working with Kubernetes now, and I would recommend it for all medium and larger sized teams. It&amp;#8217;s an amazing product to build platforms on, and keeps evolving!&lt;/p&gt;
+
+
+
+&lt;p&gt;Onto the next 10 years! 🎉&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;https://kubernetes.io/blog/2024/06/06/10-years-of-kubernetes/&quot;&gt;Kubernetes Announcement Post&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://github.com/kubernetes/kubernetes/tree/2c4b3a562ce34cddc3f8218a2c4d11c7310e6d56&quot;&gt;Original Kubernetes source code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
+    <title type="html">RE: Operation Overload</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/06/re-operation-overload/" />
+    <id>https://kevingimbel.de/blog/2024/06/re-operation-overload/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;I do not envy the people who are working as fact checkers (or who volunteer!), because there sure is a ton of fakes and propaganda out there to be checked and debunked. The graffitis, videos or screenshots sent to newsrooms are fake and were fabricated for the purpose of diverting journalist’s ressources, or even try [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;p&gt;I do not envy the people who are working as fact checkers (&lt;em&gt;or who volunteer!&lt;/em&gt;), because there sure is a ton of fakes and propaganda out there to be checked and debunked. &lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;The graffitis, videos or screenshots sent to newsrooms are fake and were fabricated for the purpose of diverting journalist’s ressources, or even try to have their narratives amplified by getting fact-checkers to publish debunks. Operation Overload, as we dubbed the action,&amp;nbsp;is detailed in our latest report, led with the support of&amp;nbsp;Reset.Tech&amp;nbsp;and 20+ fact-checking entities, which shared content they had received.&lt;/p&gt;
+&lt;cite&gt;Check First via &lt;a href=&quot;https://checkfirst.network/operation-overload-how-pro-russian-actors-flood-newsrooms-with-fake-content-and-seek-to-divert-their-efforts/&quot;&gt;https://checkfirst.network/operation-overload-how-pro-russian-actors-flood-newsrooms-with-fake-content-and-seek-to-divert-their-efforts/&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;A recently uncovered campaign named &amp;#8220;&lt;em&gt;Operation Overload&lt;/em&gt;&amp;#8221; targets fake checkers by sending them a lot of fake, fabricated resources with the goal to have well-known fake checking websites such as &lt;a href=&quot;https://correctiv.org/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;corrective.org&lt;/a&gt; re-publish the fakes and &amp;#8220;debunking&amp;#8221; them (thus spreading the content more, and talking about it), and at the same time overloading the employees with useless stories.&lt;/p&gt;
+
+
+
+&lt;p&gt;It is a really weird time to be on the internet. How did we come from funny videos and sharing what we like to a globe-spanning real time propaganda machine owned by a billionaire (&lt;em&gt;X&lt;/em&gt;). &lt;/p&gt;
+
+
+
+&lt;p&gt;I&amp;#8217;m grateful for the work done by organisations like &lt;a href=&quot;https://correctiv.org/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Correctiv&lt;/a&gt;, &lt;a href=&quot;https://www.volksverpetzer.de/&quot;&gt;Volksverpetzer&lt;/a&gt;, and &lt;a href=&quot;https://www.disinfo.eu/&quot;&gt;Disinfo.eu&lt;/a&gt;. If you can, consider supporting them via donations. 🫰&lt;/p&gt;
+
+
+
+&lt;p&gt;The full report, linked below, is long but well worth the time.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Links&lt;/h2&gt;
+
+
+
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;li&gt;Full report (90 pages) as PDF here &lt;a href=&quot;https://checkfirst.network/wp-content/uploads/2024/06/Operation_Overload_WEB.pdf&quot;&gt;https://checkfirst.network/wp-content/uploads/2024/06/Operation_Overload_WEB.pdf&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;German article by &lt;em&gt;CORRECTIV&lt;/em&gt;: &lt;a href=&quot;https://correctiv.org/faktencheck/hintergrund/2024/06/04/post-aus-russland-desinfo-kampagne-nimmt-correctiv-und-andere-faktencheck-redaktionen-ins-visier/&quot;&gt;https://correctiv.org/faktencheck/hintergrund/2024/06/04/post-aus-russland-desinfo-kampagne-nimmt-correctiv-und-andere-faktencheck-redaktionen-ins-visier/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
+    <title type="html">RE: Trust</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/05/re-trust/" />
+    <id>https://kevingimbel.de/blog/2024/05/re-trust/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;A very good take on putting AI into everything because that&amp;#8217;s the big thing right now: Trust is a precious commodity. It takes a long time to build trust. It takes a short time to destroy it. I am honestly astonished that so many companies don’t seem to realise what they’re destroying. Jeremy Keith via [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;p&gt;A very good take on putting AI into everything because that&amp;#8217;s the big thing right now:&lt;/p&gt;
+
+
+
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;Trust is a precious commodity. It takes a long time to build trust. It takes a short time to destroy it.&lt;/p&gt;
+
+
+
+&lt;p&gt;I am honestly astonished that so many companies don’t seem to realise what they’re destroying.&lt;/p&gt;
+&lt;cite&gt;Jeremy Keith via &lt;a href=&quot;https://adactio.com/journal/21160&quot;&gt;https://adactio.com/journal/21160&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Google putting AI on top of all search results, &lt;s&gt;&lt;em&gt;then having it recommend jumping of the Golden Gate Bridge if you&amp;#8217;re depressed&lt;sup data-fn=&quot;071d9189-5ddb-41e1-a3ff-566683ae6300&quot; class=&quot;fn&quot;&gt;&lt;a href=&quot;#071d9189-5ddb-41e1-a3ff-566683ae6300&quot; id=&quot;071d9189-5ddb-41e1-a3ff-566683ae6300-link&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/em&gt;&lt;/s&gt; is peak &amp;#8220;we need AI, ship now&amp;#8221;-bullshit. I don&amp;#8217;t care if they&amp;#8217;ll have better AI soon, they&amp;#8217;ll be the ones who recommended &lt;a href=&quot;https://toot.cat/@ionizedgirl/112493337252943357&quot;&gt;people to eat stones&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Large Corporations&lt;/strong&gt; &lt;strong&gt;are destroying trust&lt;/strong&gt;, trust they build over decades.&lt;/p&gt;
+
+
+
+&lt;p&gt;I use Google to get good, accurate results. To find what I want to find fast and efficiently, and they already destroyed that with a lot of SEO bullshit over the years where one finds the content with the best SEO tags, not the best content. &lt;/p&gt;
+
+
+
+&lt;p&gt;I use StackOverflow for the community, and because it has good resources and sometimes good discussion. I don&amp;#8217;t need any AI to do that, I need good search.&lt;/p&gt;
+
+
+
+&lt;p&gt;The amount of apps which are &lt;em&gt;really improved&lt;/em&gt; with AI is limited, and the fact everybody puts AI into everything these days reminds me A LOT of the big blockchain hype from a few years ago.&lt;/p&gt;
+
+
+
+&lt;p&gt;WordPress, or better Jetpack, added AI to in some places, for example there&amp;#8217;s a function to generate Excerpts based on the content of a blogpost. This is an OK feature, and actually a real world use case. The generated excerpt for this post is:&lt;/p&gt;
+
+
+
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code class=&quot;&quot;&gt;The post criticizes the overuse of AI in various platforms, particularly Google, for deteriorating trust and replacing quality content with AI-driven results. It compares the current AI hype to past blockchain trends.&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;hr class=&quot;wp-block-separator has-alpha-channel-opacity&quot;/&gt;
+
+
+
+&lt;p&gt;This post is a response to &lt;a href=&quot;https://adactio.com/journal/21160&quot;&gt;https://adactio.com/journal/21160&lt;/a&gt; by Jeremy Keith.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Edits&lt;/h2&gt;
+
+
+
+&lt;p&gt;The first version of this post contained a link to a Mastodon post which suggested Google AI recommends jumping off a bridge when the query &amp;#8220;&lt;em&gt;I&amp;#8217;m feeling depressed&lt;/em&gt;&amp;#8221; was entered. That one was fake. &lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Footnotes&lt;/h2&gt;
+
+
+&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;071d9189-5ddb-41e1-a3ff-566683ae6300&quot;&gt;That one was fake, according to &lt;a href=&quot;https://www.fastcompany.com/91132217/google-ai-overview-errors&quot;&gt;https://www.fastcompany.com/91132217/google-ai-overview-errors&lt;/a&gt;, still Google AI recommends some questionable things!&lt;br&gt;Here&amp;#8217;s the OG screenshot &lt;a href=&quot;https://kevingimbel.de/wp-content/uploads/2024/05/google-ai-depressed-screenshot.jpeg&quot;&gt;https://kevingimbel.de/wp-content/uploads/2024/05/google-ai-depressed-screenshot.jpeg&lt;/a&gt; &lt;a href=&quot;#071d9189-5ddb-41e1-a3ff-566683ae6300-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
+    <title type="html">RE: Why blog anonymous</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/05/re-why-blog-anonymous/" />
+    <id>https://kevingimbel.de/blog/2024/05/re-why-blog-anonymous/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;A few notes on publishing anonymously on the web. &lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;I feel weird about using my full, legal name on the internet. I don&amp;#8217;t like the idea of being Google-able. If I Google myself, the first thing that comes up is my work profile, as that is pretty much the only place on the internet that has my full name.&lt;/p&gt;
+&lt;cite&gt;Frills via &lt;a href=&quot;https://frills.dev/blog/240411-anon/&quot;&gt;https://frills.dev/blog/240411-anon/&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;I&amp;#8217;m long beyond the point of being anonymous on the internet. I tend to link all the things I do together and use the same or similar names on all networks (mostly my full name or &lt;em&gt;atarijunge&lt;/em&gt; a nick-name I got on Twitter back in the day).&lt;/p&gt;
+
+
+
+&lt;p&gt;For most parts I do not mind linking things together and being non-anonymous on the web. It also keeps me in check about what I publish, if I don&amp;#8217;t want something online to be associated with my name I wouldn&amp;#8217;t wanna publish it under a pseudonym as well, given that some clever h4ckerz might one day find the pseudonym and link it back to me.&lt;/p&gt;
+
+
+
+&lt;p&gt;Before I started using my real name online I used a bunch of different usernames, all lost to the digital void now (sometimes for the better &lt;code&gt;#cringe&lt;/code&gt;). I still publish one blog that&amp;#8217;s somewhat private-focused and completely cut from work. It&amp;#8217;s &lt;a href=&quot;https://nerdcultu.re/blog/&quot;&gt;https://nerdcultu.re/blog/&lt;/a&gt; where I write about all things I like (games, movies, music, books, &amp;#8230;) in German. It&amp;#8217;s more for me than for others, really. Otherwise I publish everything under my full name and on kevingimbel.de &amp;#8211; and I&amp;#8217;m fine with that.&lt;/p&gt;
+
+
+
+&lt;p&gt;So, if you Google my name you&amp;#8217;ll probably find a bunch of social media profiles, my linked in, and this very website here (or &lt;em&gt;kevin.gimbel.dev&lt;/em&gt;, depending where you read this post :D). For the future I&amp;#8217;d like to mix-in even more personal things, after all this website is about me.&lt;/p&gt;
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
+    <title type="html">RE: Cloudflare took down our website after trying to force us to pay 120k$ within 24h</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/05/re-cloudflare-took-down-our-website-after-trying-to-force-us-to-pay-120k-within-24h/" />
+    <id>https://kevingimbel.de/blog/2024/05/re-cloudflare-took-down-our-website-after-trying-to-force-us-to-pay-120k-within-24h/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;They would not offer us anything apart from a full deal for $10k per month, which would magically resolve the issue. They were not interested in any other resolution. via https://robindev.substack.com/p/cloudflare-took-down-our-website Now that&amp;#8217;s just fucked up. The screenshots in the post are completely insane as well, the sales tactics hidden behind alleged problems with the account [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;p&gt;They would not offer us anything apart from a full deal &lt;strong&gt;for $10k per month&lt;/strong&gt;, which would magically resolve the issue. They were not interested in any other resolution.&lt;/p&gt;
+&lt;cite&gt;&lt;em&gt;via &lt;/em&gt;&lt;a href=&quot;https://robindev.substack.com/p/cloudflare-took-down-our-website&quot;&gt;https://robindev.substack.com/p/cloudflare-took-down-our-website&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Now that&amp;#8217;s just fucked up. The screenshots in the post are completely insane as well, the sales tactics hidden behind alleged problems with the account are absolutely unethical, how they try and force them to pay up or be kicked off the platform without giving any real context of what the &amp;#8220;probelm&amp;#8221; is (other then Cloudflare wanting more money) is such a bad move over all.&lt;/p&gt;
+
+
+
+&lt;p&gt;I&amp;#8217;m glad neither I nor my (work-) projects are using Cloudflare services, and I just lost a big chunk of trust in them. &lt;/p&gt;
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
+    <title type="html">Regexle #9</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/05/regexle-9/" />
+    <id>https://kevingimbel.de/blog/2024/05/regexle-9/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;Solution for Regexle #9&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;p&gt;Todays regex had me confused! I kept thinking the solution was strings starting with &lt;code&gt;v[aeiou]&lt;/code&gt;, then strings ending &lt;code&gt;[ing]&lt;/code&gt; or &lt;code&gt;[m|n]e&lt;/code&gt;, but in the end the solution was a lot simpler.&lt;/p&gt;
+
+
+
+&lt;p&gt;The regex today was: &lt;code&gt;&lt;code&gt;[nm].$&lt;/code&gt;&lt;/code&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;This matches the end of strings (as indicated by the &lt;code&gt;$&lt;/code&gt; &lt;em&gt;(dollar sign)&lt;/em&gt;). The regex itself matches &lt;code&gt;n&lt;/code&gt; or &lt;code&gt;m&lt;/code&gt; (&lt;code&gt;[nm]&lt;/code&gt;) followed by exactly one character (&lt;code&gt;.&lt;/code&gt; &lt;em&gt;(dot)&lt;/em&gt;).&lt;/p&gt;
+
+
+
+&lt;p&gt;This matches strings ending in &lt;code&gt;ing &lt;/code&gt;as well as strings ending in &lt;code&gt;me&lt;/code&gt; and &lt;code&gt;ne&lt;/code&gt;. Once again I was thinking way too complicated and didn&amp;#8217;t see the pattern. I hope daily Regexle can sharpen my mind to recognise these sort of string patterns.&lt;/p&gt;
+
+
+
+&lt;p&gt;All in all it took me 24 tries and 4 regexes, my solution was &lt;code&gt;/ing$|[mn].$/&lt;/code&gt;, which matches the patterns but is unnecessarily complex.&lt;/p&gt;
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
+    <title type="html">Regexle #8</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/05/regexle-8/" />
+    <id>https://kevingimbel.de/blog/2024/05/regexle-8/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;Solution for todays Regexle puzzle&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;p&gt;I&amp;#8217;ve been doing &lt;a href=&quot;https://regexle.ithea.de/&quot;&gt;Regexle&lt;/a&gt; for the past days, and decided to write a short note about them here on the blog.&lt;/p&gt;
+
+
+
+&lt;p&gt;Todays Regex was &lt;a href=&quot;https://regex101.com/r/u1plvN/1&quot;&gt;&lt;code&gt;q$|^w&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;This matches all words ending with q (&lt;code&gt;q$&lt;/code&gt;) or (&lt;code&gt;|&lt;/code&gt;)  starting with w (&lt;code&gt;^w&lt;/code&gt;).&lt;/p&gt;
+
+
+
+&lt;p&gt;I didn&amp;#8217;t solve the puzzle today but already look forward to tomorrows!&lt;/p&gt;
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
     <title type="html">Slop Slop Slop!</title>
     <link href="https://kevin.gimbel.dev/blog/2024/05/slop-slop-slop/" />
     <id>https://kevingimbel.de/blog/2024/05/slop-slop-slop/</id>
@@ -19,6 +951,7 @@
     <summary type="html">&lt;p&gt;There&amp;#8217;s a new word in town: slop! slop is rapidly taking the Fediverse, blogging scene (lol) and Twitter by storm as a term for AI-generated trash text: basically AI spam. The first mention I&amp;#8217;ve seen is of a Twitter post by @deepfates https://twitter.com/deepfates/status/1787472784106639418, which I saw shared on Mastodon by Simon Willison https://fedi.simonwillison.net/@simon/112402587787781767. I like [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;There&amp;#8217;s a new word in town: &lt;em&gt;&lt;strong&gt;slop&lt;/strong&gt;&lt;/em&gt;! &lt;/p&gt;
 
 
@@ -35,14 +968,17 @@
 
 
 
-&lt;blockquote class=&quot;wp-block-quote is-style-plain has-medium-font-size is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
+&lt;blockquote class=&quot;wp-block-quote is-style-plain has-medium-font-size is-layout-flow wp-block-quote-is-layout-flow is-style-plain--3b44cf2ed1e94ca9f4a9aec94719d971&quot;&gt;
 &lt;p&gt;&lt;em&gt;The first page of Google results are links to pages that have scraped other pages for information from other pages that have been scraped for information. All the sources seem to link back to one another. There is no origin. The photos on the page look weird. The hands are disfigured. There is no image credit.&lt;/em&gt;&lt;/p&gt;
 &lt;cite&gt;via &lt;a href=&quot;https://www.takahe.org.nz/heat-death-of-the-internet/&quot;&gt;https://www.takahe.org.nz/heat-death-of-the-internet/&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
 
 
 
 &lt;p&gt;While AI is the next cool hype and all is well now (&lt;em&gt;all it is not well&lt;/em&gt;), AI companies really need to be careful from where they steal their training data. The point of AI generated content everywhere is approaching, and I can&amp;#8217;t wait to see the next big LLM trained on slop spitting out bullshit.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: Heat Death of the Internet</title>
@@ -52,6 +988,7 @@
     <summary type="html">&lt;p&gt;You want to watch the trailer for an upcoming movie on YouTube but you first have to sit through an ad. Then you sit through a preview for the trailer itself. Then you watch the trailer, which is literally another ad. When it ends, it cues up a new trailer, with a new ad at [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
 &lt;p&gt;You want to watch the trailer for an upcoming movie on YouTube but you first have to sit through an ad. &lt;br&gt;Then you sit through a preview for the trailer itself. Then you watch the trailer, which is literally another ad. When it ends, it cues up a new trailer, with a new ad at the start of it.&lt;/p&gt;
 &lt;cite&gt;via &lt;a href=&quot;https://www.takahe.org.nz/heat-death-of-the-internet/&quot;&gt;https://www.takahe.org.nz/heat-death-of-the-internet/&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
@@ -75,7 +1012,10 @@
 &lt;p&gt;The rest of the text is good as well, and worth the few minutes it takes to read. &lt;/p&gt;
 
 
-&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;5edd7162-1fc9-471e-83bd-48f259b38d93&quot;&gt;I mean &amp;#8220;&lt;em&gt;absurd&lt;/em&gt;&amp;#8221; in the most beautiful, encouraging way possible. It&amp;#8217;s a great piece of fiction which resonated a lot with how I perceive the internet lately.  &lt;a href=&quot;#5edd7162-1fc9-471e-83bd-48f259b38d93-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content>
+&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;5edd7162-1fc9-471e-83bd-48f259b38d93&quot;&gt;I mean &amp;#8220;&lt;em&gt;absurd&lt;/em&gt;&amp;#8221; in the most beautiful, encouraging way possible. It&amp;#8217;s a great piece of fiction which resonated a lot with how I perceive the internet lately.  &lt;a href=&quot;#5edd7162-1fc9-471e-83bd-48f259b38d93-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">I&amp;#8217;ll be speaking at Container Days Hamburg in September</title>
@@ -85,12 +1025,16 @@
     <summary type="html">&lt;p&gt;My talk &amp;#8220;Container Vulnerability Management in Kubernetes&amp;#8221; was accepted by Container Days and I&amp;#8217;ll be on-stage in September. I&amp;#8217;m already super excited (and hella nervous ✨) and looking forward to being in Hamburg, meeting other DevOps people and enjoying the conference &amp;#8211; it&amp;#8217;s been too long since I attended one! (I think Front Trends in [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;My talk &amp;#8220;&lt;em&gt;Container Vulnerability Management in Kubernetes&lt;/em&gt;&amp;#8221; was accepted by &lt;a href=&quot;https://www.containerdays.io/&quot;&gt;Container Days&lt;/a&gt; and I&amp;#8217;ll be on-stage in September. I&amp;#8217;m already super excited &lt;sup&gt;(&lt;em&gt;and hella nervous&lt;/em&gt; ✨) &lt;/sup&gt;and looking forward to being in Hamburg, meeting other DevOps people and enjoying the conference &amp;#8211; it&amp;#8217;s been too long since I attended one! &lt;em&gt;(I think Front Trends in 2016 was the last??)&lt;/em&gt;&lt;/p&gt;
 
 
 
 &lt;p&gt;The Talk is all about scanning container images for vulnerability and ensuring containers running in Kubernetes contain as little CVEs as possible (and the once they contain are known as accepted risks). If this sounds interesting to you, &lt;a href=&quot;https://www.containerdays.io/containerdays-conference-2024/tickets/&quot;&gt;feel free to join me in Hamburg&lt;/a&gt;.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: Get ready for OpenTofu 1.7.0-beta1</title>
@@ -100,11 +1044,12 @@
     <summary type="html">&lt;p&gt;OpenTofu, the terraform fork which remains truly Open Source, just announced the 1.7.0-beta1 release which brings the following new enhancements: Especially state encryption is a feature I&amp;#8217;m excited about. At the moment I do not use any terraform for my private projects so it&amp;#8217;s hard to try OpenTofu in the wild, but me and my [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;OpenTofu, the terraform fork which remains truly Open Source, just announced the 1.7.0-beta1 release which brings the following new enhancements:&lt;/p&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://opentofu.org/blog/opentofu-1-7-0-beta1/#provider-defined-functions&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;Provider-defined functions &lt;/a&gt;&lt;/li&gt;
 
 
@@ -123,7 +1068,10 @@
 
 
 &lt;p&gt;At the moment I do not use any terraform for my private projects so it&amp;#8217;s hard to try OpenTofu in the wild, but me and my &lt;a href=&quot;https://jobs.aoe.com/en/home.html&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;team at AOE&lt;/a&gt; follow the development closely to evaluate a switch to OpenTofu.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: You’re a Blogger, Not an Essayist</title>
@@ -133,6 +1081,7 @@
     <summary type="html">&lt;p&gt;Blogging is a conversation. It’s a conversation with yourself and it’s a conversation with others. Barry Hess via https://bjhess.com/posts/you-re-a-blogger-not-an-essayist Some real talk right there. Blogging is all about conversations, thoughts, and FUN. This very website is not a magazine and it&amp;#8217;s not a professional publication; It sometimes may include content which is related to the [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
 &lt;p&gt;Blogging is a conversation. It’s a conversation with yourself and it’s a conversation with others.&lt;/p&gt;
 &lt;cite&gt;&lt;a href=&quot;https://bjhess.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Barry Hess&lt;/a&gt; via &lt;a href=&quot;https://bjhess.com/posts/you-re-a-blogger-not-an-essayist&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://bjhess.com/posts/you-re-a-blogger-not-an-essayist&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
@@ -148,7 +1097,10 @@
 
 
 &lt;p&gt;That&amp;#8217;s it. That&amp;#8217;s the post.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Oh no my gpg key expired (like every year)</title>
@@ -158,6 +1110,7 @@
     <summary type="html">&lt;p&gt;Who doesn&amp;#8217;t love encryption and security? I like to sign my git commits, and for this I need PGP keys. They are cool when they work and you don&amp;#8217;t need to think about them, but every now and then they need to be renewed (unless you use never expiring keys which of course you shouldn&amp;#8217;t!). [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;&lt;em&gt;Who doesn&amp;#8217;t love encryption and security?&lt;/em&gt; I like to&lt;a href=&quot;https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits&quot;&gt; sign my git commits&lt;/a&gt;, and for this I need &lt;a href=&quot;https://en.wikipedia.org/wiki/Pretty_Good_Privacy&quot;&gt;PGP keys&lt;/a&gt;. They are cool when they work and you don&amp;#8217;t need to think about them, but every now and then they need to be renewed (&lt;em&gt;unless you use never expiring keys which of course you shouldn&amp;#8217;t!&lt;/em&gt;).&lt;/p&gt;
 
 
@@ -170,7 +1123,7 @@
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Run &lt;code&gt;gpg --list-secret-keys&lt;/code&gt;&lt;/li&gt;
 
 
@@ -204,7 +1157,7 @@
 
 
 
-&lt;figure class=&quot;wp-block-image size-full&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;644&quot; height=&quot;438&quot; data-attachment-id=&quot;2424&quot; data-permalink=&quot;https://kevingimbel.de/blog/2024/04/oh-no-my-gpg-key-expired-like-every-year/screenshot-2024-04-17-at-09-12-30/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=644%2C438&amp;amp;ssl=1&quot; data-orig-size=&quot;644,438&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=300%2C204&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=644%2C438&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?resize=644%2C438&amp;#038;ssl=1&quot; alt=&quot;Screenshot of GitHub&#39;s Verification pop-up.
+&lt;figure class=&quot;wp-block-image size-full&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;644&quot; height=&quot;438&quot; data-attachment-id=&quot;2424&quot; data-permalink=&quot;https://kevingimbel.de/blog/2024/04/oh-no-my-gpg-key-expired-like-every-year/screenshot-2024-04-17-at-09-12-30/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=644%2C438&amp;amp;ssl=1&quot; data-orig-size=&quot;644,438&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=300%2C204&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?fit=644%2C438&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/04/Screenshot-2024-04-17-at-09.12.30.png?resize=644%2C438&amp;#038;ssl=1&quot; alt=&quot;Screenshot of GitHub&#39;s Verification pop-up.
 
 Text: &amp;quot;This commit was signed with the committer&#39;s verified signature.&amp;quot;
 
@@ -236,7 +1189,7 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://riseup.net/en/security/message-security/openpgp/best-practices&quot;&gt;https://riseup.net/en/security/message-security/openpgp/best-practices&lt;/a&gt;&lt;/li&gt;
 
 
@@ -247,7 +1200,10 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
 
 &lt;li&gt;&lt;a href=&quot;https://superuser.com/a/1141251&quot;&gt;https://superuser.com/a/1141251&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">What we should learn from the xz backdoor</title>
@@ -257,6 +1213,7 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
     <summary type="html">&lt;p&gt;You may have heard that a vulnerability was found in the xz tool and liblzma library on Friday, 29th of March 2024 which specifically targeted sshd being managed by systemd on Debian and RedHat Linux systems. What happened The catastrophic scope of the attack At first the backdoor seems very odd. xz is a compression [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;You may have heard that &lt;a href=&quot;https://www.cert.europa.eu/publications/security-advisories/2024-032/&quot;&gt;a vulnerability was found in the xz tool and liblzma library on Friday, 29th of March 2024&lt;/a&gt; which specifically targeted &lt;code&gt;sshd&lt;/code&gt; being managed by &lt;code&gt;systemd&lt;/code&gt; on Debian and RedHat Linux systems.&lt;/p&gt;
 
 
@@ -265,7 +1222,7 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;The xz backdoor was very sophisticated and carried out by a professional, this is no work of an amateur&lt;/li&gt;
 
 
@@ -361,7 +1318,7 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Russ Cox xz Timeline &lt;a href=&quot;https://research.swtch.com/xz-timeline&quot;&gt;https://research.swtch.com/xz-timeline&lt;/a&gt;&lt;/li&gt;
 
 
@@ -386,7 +1343,10 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;Footnotes&lt;/h2&gt;
 
 
-&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;c7269876-e32a-4568-85b7-3aea8fe8b880&quot;&gt;Filippo Valsorda explains the exploit &lt;a href=&quot;https://bsky.app/profile/filippo.abyssdomain.expert/post/3kowjkx2njy2b&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;in this bluesky thread&lt;/a&gt; &lt;a href=&quot;#c7269876-e32a-4568-85b7-3aea8fe8b880-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;li id=&quot;4aa8b4c0-c8ca-4495-8c32-000c22f4c938&quot;&gt;&lt;code&gt;RCE&lt;/code&gt; = Remote Code Execution &lt;a href=&quot;#4aa8b4c0-c8ca-4495-8c32-000c22f4c938-link&quot; aria-label=&quot;Jump to footnote reference 2&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content>
+&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;c7269876-e32a-4568-85b7-3aea8fe8b880&quot;&gt;Filippo Valsorda explains the exploit &lt;a href=&quot;https://bsky.app/profile/filippo.abyssdomain.expert/post/3kowjkx2njy2b&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;in this bluesky thread&lt;/a&gt; &lt;a href=&quot;#c7269876-e32a-4568-85b7-3aea8fe8b880-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;li id=&quot;4aa8b4c0-c8ca-4495-8c32-000c22f4c938&quot;&gt;&lt;code&gt;RCE&lt;/code&gt; = Remote Code Execution &lt;a href=&quot;#4aa8b4c0-c8ca-4495-8c32-000c22f4c938-link&quot; aria-label=&quot;Jump to footnote reference 2&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">I don&amp;#8217;t like Python</title>
@@ -396,6 +1356,7 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
     <summary type="html">&lt;p&gt;&amp;#8230; and there&amp;#8217;s a reason: Dependency Management. Coming from languages like Node, Go, and Rust I am used to decent dependency management (although Go was really bad at it for the first years, and has become decent only recently with the addition of go mod.). Python, in my opinion, lacks a good and well-defined Package [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;&amp;#8230; and there&amp;#8217;s a reason: &lt;em&gt;Dependency Management&lt;/em&gt;.&lt;/p&gt;
 
 
@@ -498,7 +1459,10 @@ def update():
 
 
 &lt;p&gt;If you want to discuss this post, feel free to comment or join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/112081606795855915&quot;&gt;Mastodon&lt;/a&gt;, &lt;a href=&quot;https://bsky.app/profile/kevin.gimbel.dev/post/3knibkmkmgs2b&quot;&gt;Bluesky&lt;/a&gt;, or &lt;a href=&quot;https://www.linkedin.com/posts/kevingimbel_i-dont-likepython-activity-7173222831135117312-Jgh7?utm_source=share&amp;amp;utm_medium=member_desktop&quot;&gt;LinkedIn&lt;/a&gt;!&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">A little hiccup</title>
@@ -508,12 +1472,16 @@ def update():
     <summary type="html">&lt;p&gt;Well, looks like kevingimbel.de was (partly?) down &amp;#8211; as far as I can tell the culprit was ipv6! In the past I&amp;#8217;ve not really bothered with ipv6 much but it feels odd to leave it out these days. Sorry for the inconvenience to all my 2 readers, I&amp;#8217;m sure you&amp;#8217;ve missed my blog on this [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;Well, looks like kevingimbel.de was (partly?) down &amp;#8211; as far as I can tell the culprit was ipv6! In the past I&amp;#8217;ve not really bothered with ipv6 much but it feels odd to leave it out these days.&lt;/p&gt;
 
 
 
 &lt;p&gt;Sorry for the inconvenience to all my 2 readers, I&amp;#8217;m sure you&amp;#8217;ve missed my blog on this Friday night. Once I know more I’ll write a follow-up. &lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: Hacking Terraform State for Privilege Escalation</title>
@@ -523,6 +1491,7 @@ def update():
     <summary type="html">&lt;p&gt;An interesting attack vector which uses empty terraform providers and a modified state file to execute code! There’s lots to be excited about as a red teamer and scared of as a blue teamer, but at the top of the list is that the attack does not require a “terraform apply”. Even if the human reviewing [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;An interesting attack vector which uses empty terraform providers and a modified state file to execute code! &lt;/p&gt;
 
 
@@ -534,7 +1503,10 @@ def update():
 
 
 &lt;p&gt;Read the full article on &lt;a href=&quot;https://blog.plerion.com/hacking-terraform-state-privilege-escalation/&quot;&gt;https://blog.plerion.com/hacking-terraform-state-privilege-escalation/&lt;/a&gt;&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: k9s plugins</title>
@@ -544,6 +1516,7 @@ def update():
     <summary type="html">&lt;p&gt;k9s is a powerful Kubernetes terminal UI. Recently, I discovered how to add plugins, to make it even more powerful and integrate with other tools and systems!&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;&lt;a href=&quot;https://k9scli.io&quot;&gt;k9s&lt;/a&gt; is an awesome terminal UI and tool to work with Kubernetes clusters. I&amp;#8217;m using it daily for basically all my Kubernetes related work tasks.&lt;/p&gt;
 
 
@@ -574,7 +1547,7 @@ def update():
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;code&gt;shortCut&lt;/code&gt; defines the key combination which invokes the plugin&lt;/li&gt;
 
 
@@ -606,7 +1579,7 @@ def update():
 
 &lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;632&quot; data-attachment-id=&quot;492&quot; data-permalink=&quot;https://kevingimbel.de/blog/2024/01/til-k9s-plugins/screenshot-2024-01-03-at-10-26-17/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?fit=2134%2C1318&amp;amp;ssl=1&quot; data-orig-size=&quot;2134,1318&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;Screenshot of k9s&quot; data-image-description=&quot;&amp;lt;p&amp;gt;A screenshot showing k9s, there&amp;#8217;s a red highlight box around the &amp;#8220;ctrl-l&amp;#8221; shortcut which opens Grafana&amp;lt;/p&amp;gt;
 &quot; data-image-caption=&quot;&amp;lt;p&amp;gt;A screenshot showing the ctrl-l shortcut of the Grafana plugin&amp;lt;/p&amp;gt;
-&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?fit=300%2C185&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?fit=1024%2C632&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=1024%2C632&amp;#038;ssl=1&quot; alt=&quot;&quot; class=&quot;wp-image-492&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=1024%2C632&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=300%2C185&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=768%2C474&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=1536%2C949&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=2048%2C1265&amp;amp;ssl=1 2048w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;A screenshot showing the ctrl-l shortcut of the Grafana plugin&lt;/figcaption&gt;&lt;/figure&gt;
+&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?fit=300%2C185&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?fit=1024%2C632&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=1024%2C632&amp;#038;ssl=1&quot; alt=&quot;&quot; class=&quot;wp-image-492&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=1024%2C632&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=300%2C185&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=768%2C474&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=1536%2C949&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/01/Screenshot-2024-01-03-at-10.26.17.png?resize=2048%2C1265&amp;amp;ssl=1 2048w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;A screenshot showing the ctrl-l shortcut of the Grafana plugin&lt;/figcaption&gt;&lt;/figure&gt;
 
 
 
@@ -614,7 +1587,7 @@ def update():
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;code&gt;$CLUSTER&lt;/code&gt; is the name of the current cluster&lt;/li&gt;
 
 
@@ -644,14 +1617,17 @@ def update():
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/derailed/k9s/tree/master/plugins&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Community plugins&lt;/a&gt; &lt;/li&gt;
 
 
 
 &lt;li&gt;&lt;a href=&quot;https://k9scli.io&quot;&gt;k9s website&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Eleventy 3.0.0-alpha.2</title>
@@ -661,6 +1637,7 @@ def update():
     <summary type="html">&lt;p&gt;✨ A small update on moving my website to 11ty 3.0.0-alpha.2 &lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-large-font-size&quot;&gt;I just updated &lt;a href=&quot;https://kevin.gimbel.dev/ops&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://kevin.gimbel.dev/ops&lt;/a&gt; to Eleventy 3.0.0-alpha.2 &lt;/p&gt;
 
 
@@ -693,14 +1670,17 @@ def update():
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.zachleat.com/web/eleventy-v3-alpha/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://www.zachleat.com/web/eleventy-v3-alpha/&lt;/a&gt; &lt;/li&gt;
 
 
 
 &lt;li&gt;&lt;a href=&quot;https://www.11ty.dev/blog/canary-eleventy-v3/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://www.11ty.dev/blog/canary-eleventy-v3/ &lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, etc on Unix systems</title>
@@ -710,6 +1690,7 @@ def update():
     <summary type="html">&lt;p&gt;If you&amp;#8217;ve ever navigated around a Unix system you may have wondered why there are /bin and usr/bin directories or /lib and /usr/lib or /sbin and /usr/sbin &amp;#8211; or like me, you just took it for something that probably has any meaning but isn&amp;#8217;t relevant enough to look into. Well, today it became relevant: When [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;If you&amp;#8217;ve ever navigated around a Unix system you may have wondered why there are /bin and usr/bin directories or /lib and /usr/lib or /sbin and /usr/sbin &amp;#8211; or like me, you just took it for something that probably has any meaning but isn&amp;#8217;t relevant enough to look into.&lt;/p&gt;
 
 
@@ -752,10 +1733,13 @@ def update():
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;http://lists.busybox.net/pipermail/busybox/2010-December/074114.html&quot;&gt;http://lists.busybox.net/pipermail/busybox/2010-December/074114.html&lt;/a&gt; &lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Integrating WordPress Posts with 11ty</title>
@@ -765,6 +1749,7 @@ def update():
     <summary type="html">&lt;p&gt;In this blog post I document how I integrated articles from a WordPress site into my 11ty website &amp;#8211; it was surprisingly straight forward to do!&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;If you&amp;#8217;ve followed me around the &lt;em&gt;internetz&lt;/em&gt; it comes as no surprise that I&amp;#8217;m a huge fan of &lt;a href=&quot;https://www.11ty.dev&quot;&gt;11ty&lt;/a&gt; &amp;#8211; a JavaScript based static-site generator that&amp;#8217;s super flexible, can be extended, and is really fun to work with.&lt;/p&gt;
 
 
@@ -781,7 +1766,7 @@ def update():
 
 
 
-&lt;figure class=&quot;wp-block-image alignwide size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;499&quot; data-attachment-id=&quot;401&quot; data-permalink=&quot;https://kevingimbel.de/blog/2023/11/integrating-wordpress-posts-with-11ty/2023-10-31-11-08-44-kevin-gimbel-dev-3422f747f145/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?fit=1882%2C918&amp;amp;ssl=1&quot; data-orig-size=&quot;1882,918&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?fit=300%2C146&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?fit=1024%2C499&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?resize=1024%2C499&amp;#038;ssl=1&quot; alt=&quot;Screenshot showing the blog page on kevin.gimbel.dev
+&lt;figure class=&quot;wp-block-image alignwide size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;499&quot; data-attachment-id=&quot;401&quot; data-permalink=&quot;https://kevingimbel.de/blog/2023/11/integrating-wordpress-posts-with-11ty/2023-10-31-11-08-44-kevin-gimbel-dev-3422f747f145/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?fit=1882%2C918&amp;amp;ssl=1&quot; data-orig-size=&quot;1882,918&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?fit=300%2C146&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?fit=1024%2C499&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?resize=1024%2C499&amp;#038;ssl=1&quot; alt=&quot;Screenshot showing the blog page on kevin.gimbel.dev
 It&#39;s white boxes with text on a blue background.&quot; class=&quot;wp-image-401&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?resize=1024%2C499&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?resize=300%2C146&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?resize=768%2C375&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?resize=1536%2C749&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/10/2023-10-31-11.08.44-kevin.gimbel.dev-3422f747f145.png?w=1882&amp;amp;ssl=1 1882w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/figure&gt;
 
 
@@ -882,7 +1867,7 @@ module.exports = data;&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;code&gt;blog-page.njk&lt;/code&gt; which is the single page of a blog entry&lt;/li&gt;
 
 
@@ -1010,7 +1995,7 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Only 100 posts are loaded at the moment, I&amp;#8217;d like to load more and possibly cache the results somehow &amp;#8211; content rarely changes so it would be fine to only load the last posts published&lt;/li&gt;
 
 
@@ -1028,7 +2013,7 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.11ty.dev/docs/pages-from-data/&quot;&gt;Creating pages from data (11ty docs)&lt;/a&gt;&lt;/li&gt;
 
 
@@ -1039,7 +2024,10 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 &lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-e381ca18b7414fdbecaeb2554e08a8ca&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@kevin@kevingimbel.de/111341960932334264&quot;&gt;Mastodon&lt;/a&gt; or comment below 👇&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: Announcing Rust 1.73.0</title>
@@ -1049,6 +2037,7 @@ permalink: &quot;{{ article.slug }}&quot;
     <summary type="html">&lt;p&gt;Yay, Rust 1.73.0 has been released! Highlights include cleaner panic messages and the stabilisation of APIs, I&amp;#8217;m especially happy about the stabilisation of unix APIs for  `chown`, `fchown` and `lchown`.  &lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;&lt;i&gt;In reply to &lt;a class=&quot;in-reply-to&quot; href=&quot;https://blog.rust-lang.org/2023/10/05/Rust-1.73.0.html&quot;&gt;https://blog.rust-lang.org/2023/10/05/Rust-1.73.0.html&lt;/a&gt;.&lt;/i&gt;&lt;/p&gt;
 
 
@@ -1057,7 +2046,7 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://doc.rust-lang.org/stable/std/os/unix/fs/fn.chown.html&quot;&gt;&lt;code&gt;std::os::unix::fs::chown&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 
 
@@ -1084,7 +2073,10 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 &lt;p&gt;Happy rusting! 🦀&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: The OpenTofu fork is now available!</title>
@@ -1094,6 +2086,7 @@ permalink: &quot;{{ article.slug }}&quot;
     <summary type="html">&lt;p&gt;A few weeks ago HashiCorp decided to switch the terraform license model from an open source license to the Business Source License (BSL) model, so there&amp;#8217;s now a community driven terraform fork called OpenTofu.&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;&lt;em&gt;In reply to &lt;a class=&quot;in-reply-to&quot; href=&quot;https://opentofu.org/blog/the-opentofu-fork-is-now-available&quot;&gt;https://opentofu.org/blog/the-opentofu-fork-is-now-available&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
 
@@ -1111,7 +2104,10 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 &lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-c8ed469a80b15a67fb9124797853e50a&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/111102411848066204&quot;&gt;Mastodon&lt;/a&gt; or &lt;a href=&quot;https://www.linkedin.com/feed/update/urn:li:activity:7110554353777655809/&quot;&gt;LinkedIn&lt;/a&gt;, or comment below 👇&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: scale down a Kubernetes DaemonSet</title>
@@ -1121,6 +2117,7 @@ permalink: &quot;{{ article.slug }}&quot;
     <summary type="html">&lt;p&gt;A DaemonSet is supposed to run on all or some Kubernetes nodes, so scaling it down is surprisingly easy: Set a nodeSelector to some label which doesn&amp;#8217;t exist, and the DaemonSet is scaled to 0. This will patch (-p) the DaemonSet and add a nodeSelector ( spec.template.spec.nodeSelector) which makes the DaemonSet run on all nodes [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;A DaemonSet is supposed to run on all or some Kubernetes nodes, so scaling it down is surprisingly easy: Set a nodeSelector to some label which doesn&amp;#8217;t exist, and the DaemonSet is scaled to 0.&lt;/p&gt;
 
 
@@ -1138,7 +2135,10 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 &lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-f8cb5aaeb760680055176b4072c1bc5c&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/111090687977575559&quot;&gt;Mastodon&lt;/a&gt; 🐘, &lt;a href=&quot;https://www.linkedin.com/feed/update/urn:li:activity:7109804023955759104/&quot;&gt;LinkedIn&lt;/a&gt; 🧑‍💻 or comment below 👇&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: Run a script on every k8s Node using  a DaemonSet</title>
@@ -1148,6 +2148,7 @@ permalink: &quot;{{ article.slug }}&quot;
     <summary type="html">&lt;p&gt;I&amp;#8217;ve known that DaemonSets are used to run containers on all Nodes of a Kubernetes Cluster (or some), but I&amp;#8217;ve never thought of using them to run a (shell) script on each node &amp;#8211; a not-so-uncommon task when maintaining clusters! We need two resources: A ConfigMap and a DaemonSet.&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;I&amp;#8217;ve known that DaemonSets are used to run containers on all Nodes of a Kubernetes Cluster (or some), but I&amp;#8217;ve never thought of using them to run a (shell) script on each node &amp;#8211; a not-so-uncommon task when maintaining clusters!&lt;/p&gt;
 
 
@@ -1251,7 +2252,7 @@ spec:
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/&quot;&gt;Kubernetes Docs for DaemonSet&lt;/a&gt;&lt;/li&gt;
 
 
@@ -1266,7 +2267,10 @@ spec:
 
 
 &lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-294014fc3e40a4073b5b0c36b3840d35&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/111024007254844161&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Mastodon&lt;/a&gt; 🐘 or comment below 👇&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: named return parameters in Go</title>
@@ -1276,6 +2280,7 @@ spec:
     <summary type="html">&lt;p&gt;Yet another piece of ✨ Go Magic ✨ I was reading through some Go code when I came upon a function that returned two things &amp;#8211; []string and error &amp;#8211; but the last line of the function just said return. I was confused how this worked, and since it was part of the standard library [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;Yet another piece of ✨ Go Magic ✨&lt;/p&gt;
 
 
@@ -1321,14 +2326,17 @@ spec:
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://go.dev/doc/effective_go#named-results&quot;&gt;https://go.dev/doc/effective_go#named-results&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
 
 &lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-e94811fefbbc09de37e9b6f3f9e485f9&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/110932587822939667&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Mastodon&lt;/a&gt; 🐘 or comment below 👇&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Building for the web, with Rust and WebAssembly</title>
@@ -1338,6 +2346,7 @@ spec:
     <summary type="html">&lt;p&gt;I&amp;#8217;ve been wanting to build something in WebAssembly for a while and just recently it hit me that I have a thing: mktoc! mktoc is a table of contents generator written in Rust, it comes as a Binary and a Library and can be compiled into WebAssembly with zero effort!&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;&lt;a rel=&quot;noreferrer noopener&quot; href=&quot;https://webassembly.org&quot; target=&quot;_blank&quot;&gt;WebAssembly&lt;/a&gt; (&lt;em&gt;WASM&lt;/em&gt;) has been around for a few years now. It&amp;#8217;s a binary format that runs in the browser, allowing programmers to write code in Rust (&lt;em&gt;or Java, Go, C/C++&lt;/em&gt;), compile it into WebAssembly and then execute the code in the browser.&lt;/p&gt;
 
 
@@ -1350,7 +2359,7 @@ spec:
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;The Rust code gets compiled for the target &lt;br&gt;&lt;strong&gt;wasm32-unknown-unknown&lt;/strong&gt;&lt;/li&gt;
 
 
@@ -1388,7 +2397,7 @@ spec:
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;code&gt;[lib]&lt;/code&gt; must be set to &lt;code&gt;crate-type = [&quot;cdylib&quot;]&lt;/code&gt;&lt;/li&gt;
 
 
@@ -1533,7 +2542,7 @@ function readFile() {
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;strong&gt;Line 1: &lt;/strong&gt;&lt;code&gt;markdown_file&lt;/code&gt; identifier is the Input element.&lt;/li&gt;
 
 
@@ -1573,7 +2582,7 @@ function readFile() {
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;strong&gt;&lt;em&gt;Compiling Rust to WASM is surprisingly easy&lt;/em&gt;&lt;/strong&gt;! &lt;br&gt;Without adjustments I was able to bring my Rust library to the web (and NPM!)&lt;/li&gt;
 
 
@@ -1595,7 +2604,7 @@ function readFile() {
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/KevinGimbel/mktoc/tree/main&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;mktoc&lt;/a&gt;&lt;/li&gt;
 
 
@@ -1613,7 +2622,7 @@ function readFile() {
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://rustwasm.github.io/docs/wasm-pack/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://rustwasm.github.io/docs/wasm-pack/&lt;/a&gt;&lt;/li&gt;
 
 
@@ -1632,7 +2641,10 @@ function readFile() {
 
 
 &lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-9c42702dc0604635bad2da123662bada&quot;&gt;Join the discussion on &lt;a rel=&quot;noreferrer noopener&quot; href=&quot;https://fosstodon.org/@KevinGimbel/110784659700280987&quot; target=&quot;_blank&quot;&gt;Mastodon&lt;/a&gt; 🐘 or comment below 👇&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: multiple git-identities on one machine</title>
@@ -1642,6 +2654,7 @@ function readFile() {
     <summary type="html">&lt;p&gt;Turns out you can have multiple Git identities alongside each other on one Machine without needing to set them locally for each repository! It still involves multiple .gitconfig files, but it&amp;#8217;s a lot less work than configuring an endless amount of repos! First, set the global config like this: Now in ~/AOE/.gitconfig I configure the [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;Turns out you can have multiple Git identities alongside each other on one Machine without needing to set them locally for each repository!&lt;/p&gt;
 
 
@@ -1681,7 +2694,10 @@ function readFile() {
 
 
 &lt;p&gt;Source: &lt;a href=&quot;https://stackoverflow.com/a/3860139&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://stackoverflow.com/a/3860139&lt;/a&gt; &lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Setting up a MacBook from scratch for the first time in 8 years</title>
@@ -1691,6 +2707,7 @@ function readFile() {
     <summary type="html">&lt;p&gt;Oh boy, did I not think about a lot of stuf&amp;#8230; For the past 8 or so years I&amp;#8217;ve always used my work MacBook for all things dev, including private development. I&amp;#8217;ve spent a lot of time setting up and changing my zsh, and later fish, configs, configuring iTerm, trying out different themes, &amp;#8230; you [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;Oh boy, did I not think about a lot of stuf&amp;#8230;&lt;/p&gt;
 
 
@@ -1723,7 +2740,7 @@ function readFile() {
 
 
 
-&lt;ol&gt;
+&lt;ol class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Go to &lt;strong&gt;Preferences&amp;#8230;&lt;/strong&gt; &amp;gt; &lt;strong&gt;Profiles&lt;/strong&gt; &amp;gt; &lt;strong&gt;Keys&lt;/strong&gt; (not Preferences&amp;#8230; &amp;gt; Keys)&lt;/li&gt;
 
 
@@ -1828,7 +2845,7 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;551&quot; data-attachment-id=&quot;274&quot; data-permalink=&quot;https://kevingimbel.de/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/screenshot-2023-04-12-at-07-54-49/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?fit=1204%2C648&amp;amp;ssl=1&quot; data-orig-size=&quot;1204,648&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;Screenshot-2023-04-12-at-07.54.49&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?fit=300%2C161&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?fit=1024%2C551&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=1024%2C551&amp;#038;ssl=1&quot; alt=&quot;Screenshot of iTerm2 showing the prompt and colors for errors and success. With success an arrow in pink is shown as prompt symbol, with failure a blue X is displayed.&quot; class=&quot;wp-image-274&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=1024%2C551&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=300%2C161&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=768%2C413&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?w=1204&amp;amp;ssl=1 1204w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/figure&gt;
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;551&quot; data-attachment-id=&quot;274&quot; data-permalink=&quot;https://kevingimbel.de/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/screenshot-2023-04-12-at-07-54-49/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?fit=1204%2C648&amp;amp;ssl=1&quot; data-orig-size=&quot;1204,648&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;Screenshot-2023-04-12-at-07.54.49&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?fit=300%2C161&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?fit=1024%2C551&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=1024%2C551&amp;#038;ssl=1&quot; alt=&quot;Screenshot of iTerm2 showing the prompt and colors for errors and success. With success an arrow in pink is shown as prompt symbol, with failure a blue X is displayed.&quot; class=&quot;wp-image-274&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=1024%2C551&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=300%2C161&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?resize=768%2C413&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-12-at-07.54.49.png?w=1204&amp;amp;ssl=1 1204w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/figure&gt;
 
 
 
@@ -1840,7 +2857,7 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;figure class=&quot;wp-block-image alignleft size-full&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;632&quot; height=&quot;240&quot; data-attachment-id=&quot;261&quot; data-permalink=&quot;https://kevingimbel.de/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/screenshot-2023-04-06-at-10-35-21/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?fit=632%2C240&amp;amp;ssl=1&quot; data-orig-size=&quot;632,240&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;Screenshot-2023-04-06-at-10.35.21&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?fit=300%2C114&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?fit=632%2C240&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?resize=632%2C240&amp;#038;ssl=1&quot; alt=&quot;Screenshot showing the English keyboard layout&quot; class=&quot;wp-image-261&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?w=632&amp;amp;ssl=1 632w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?resize=300%2C114&amp;amp;ssl=1 300w&quot; sizes=&quot;(max-width: 632px) 100vw, 632px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;The US International PC keyboard layout&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class=&quot;wp-block-image alignleft size-full&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;632&quot; height=&quot;240&quot; data-attachment-id=&quot;261&quot; data-permalink=&quot;https://kevingimbel.de/blog/2023/04/setting-up-a-macbook-from-scratch-for-the-first-time-in-8-years/screenshot-2023-04-06-at-10-35-21/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?fit=632%2C240&amp;amp;ssl=1&quot; data-orig-size=&quot;632,240&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;Screenshot-2023-04-06-at-10.35.21&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?fit=300%2C114&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?fit=632%2C240&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?resize=632%2C240&amp;#038;ssl=1&quot; alt=&quot;Screenshot showing the English keyboard layout&quot; class=&quot;wp-image-261&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?w=632&amp;amp;ssl=1 632w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2023/04/Screenshot-2023-04-06-at-10.35.21.png?resize=300%2C114&amp;amp;ssl=1 300w&quot; sizes=&quot;(max-width: 632px) 100vw, 632px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;The US International PC keyboard layout&lt;/figcaption&gt;&lt;/figure&gt;
 
 
 
@@ -1860,7 +2877,7 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Go to &lt;strong&gt;System Preferences &lt;/strong&gt;&lt;/li&gt;
 
 
@@ -1898,7 +2915,7 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://spacevim.org&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;spacevim&lt;/a&gt;&lt;/li&gt;
 
 
@@ -1921,7 +2938,10 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;I&amp;#8217;m sure I am still missing something, but it&amp;#8217;ll be installed when it&amp;#8217;s needed. For now I have a device I can work with comfortably. &lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Unpinned dependencies just broke my plugin</title>
@@ -1931,6 +2951,7 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;Hello and welcome to a little recap! My 11ty MermaidJS plugin was just broken by MermaidJS release 10.0 because they no longer provided a minified JavaScript bundle and instead only provide a ESM module. My plugin was referencing https://unpkg.com/mermaid/dist/mermaid.min.js by default for including the javascript code, but with version 10 this now leads to a [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;Hello and welcome to a little recap! My &lt;a href=&quot;https://github.com/KevinGimbel/eleventy-plugin-mermaid&quot;&gt;11ty MermaidJS plugin&lt;/a&gt;  was just broken by MermaidJS release 10.0 because they no longer provided a minified JavaScript bundle and instead only provide a ESM module. &lt;/p&gt;
 
 
@@ -1948,7 +2969,10 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Sorry if I broke your website. 🖤 &lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: One-line list manipulation in Python</title>
@@ -1958,6 +2982,7 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;In Python there&amp;#8217;s a one-line syntax for iterating over elements of a list. I&amp;#8217;ve always found it looked kind-of odd, and as I need to look it up all the time I decided to write a little TIL on this blog about it. There are more powerful one-liners documented on the Python Wiki.&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-large-font-size&quot;&gt;In Python there&amp;#8217;s a one-line syntax for iterating over elements of a list. I&amp;#8217;ve always found it looked kind-of odd, and as I need to look it up all the time I decided to write a little TIL on this blog about it.&lt;/p&gt;
 
 
@@ -1976,7 +3001,10 @@ new_list == &amp;#91;2, 4, 6, 8]
 
 
 &lt;p&gt;There are more powerful one-liners documented on the &lt;a href=&quot;https://wiki.python.org/moin/Powerful%20Python%20One-Liners&quot;&gt;Python Wiki&lt;/a&gt;. &lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Publishing and building a static website on GitHub Pages</title>
@@ -1986,12 +3014,13 @@ new_list == &amp;#91;2, 4, 6, 8]
     <summary type="html">&lt;p&gt;A week ago or so I finally launched a small website I&amp;#8217;ve been working on for quite some time: kevin.gimbel.dev/ops &amp;#8211; it&amp;#8217;s a colourful static website showing some of the technologies I&amp;#8217;ve worked with in the past years since I began doing DevOps full time. The website is built with 11ty and published with GitHub [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;A week ago or so I finally launched a small website I&amp;#8217;ve been working on for quite some time: &lt;a href=&quot;https://kevin.gimbel.dev/ops/&quot;&gt;kevin.gimbel.dev/ops&lt;/a&gt; &amp;#8211; it&amp;#8217;s a colourful static website showing some of the technologies I&amp;#8217;ve worked with in the past years since I began doing DevOps full time.&lt;/p&gt;
 
 
 
 &lt;figure class=&quot;wp-block-image alignwide size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;666&quot; data-attachment-id=&quot;94&quot; data-permalink=&quot;https://kevingimbel.de/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/screenshot-2022-12-02-at-13-46-05/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=3248%2C2112&amp;amp;ssl=1&quot; data-orig-size=&quot;3248,2112&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;kevin.gimbel.dev/ops/ Screenshot&quot; data-image-description=&quot;&amp;lt;p&amp;gt;Screenshot of a browser showing the website kevin.gimbel.dev/ops, with a black and white photo of a male with a camera before his face and text reading &amp;#8220;Hi, I&amp;#8217;m Kevin! A Senior DevOps Engineer with a background in Front-End Development.&amp;#8221;&amp;lt;/p&amp;gt;
-&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=300%2C195&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=1024%2C666&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1024%2C666&amp;#038;ssl=1&quot; alt=&quot;&quot; class=&quot;wp-image-94&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1024%2C666&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=300%2C195&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=768%2C499&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1536%2C999&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=2048%2C1332&amp;amp;ssl=1 2048w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?w=3000&amp;amp;ssl=1 3000w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/figure&gt;
+&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=300%2C195&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=1024%2C666&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1024%2C666&amp;#038;ssl=1&quot; alt=&quot;&quot; class=&quot;wp-image-94&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1024%2C666&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=300%2C195&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=768%2C499&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1536%2C999&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=2048%2C1332&amp;amp;ssl=1 2048w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?w=3000&amp;amp;ssl=1 3000w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;/figure&gt;
 
 
 
@@ -2007,7 +3036,7 @@ new_list == &amp;#91;2, 4, 6, 8]
 
 
 
-&lt;ol&gt;
+&lt;ol class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Build the code using 11ty&lt;/li&gt;
 
 
@@ -2022,7 +3051,7 @@ new_list == &amp;#91;2, 4, 6, 8]
 
 
 &lt;figure class=&quot;wp-block-image alignwide size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;532&quot; data-attachment-id=&quot;93&quot; data-permalink=&quot;https://kevingimbel.de/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/screenshot-2022-12-02-at-13-38-00/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=3024%2C1572&amp;amp;ssl=1&quot; data-orig-size=&quot;3024,1572&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;GitHub Pages settings&quot; data-image-description=&quot;&amp;lt;p&amp;gt;Screenshot of the GitHub Pages settings of a repository&amp;lt;/p&amp;gt;
-&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=300%2C156&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=1024%2C532&amp;amp;ssl=1&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1024%2C532&amp;#038;ssl=1&quot; alt=&quot;&quot; class=&quot;wp-image-93&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1024%2C532&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=300%2C156&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=768%2C399&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1536%2C798&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=2048%2C1065&amp;amp;ssl=1 2048w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?w=3000&amp;amp;ssl=1 3000w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;GitHub Pages settings screen&lt;/figcaption&gt;&lt;/figure&gt;
+&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=300%2C156&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=1024%2C532&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1024%2C532&amp;#038;ssl=1&quot; alt=&quot;&quot; class=&quot;wp-image-93&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1024%2C532&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=300%2C156&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=768%2C399&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1536%2C798&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=2048%2C1065&amp;amp;ssl=1 2048w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?w=3000&amp;amp;ssl=1 3000w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;GitHub Pages settings screen&lt;/figcaption&gt;&lt;/figure&gt;
 
 
 
@@ -2070,7 +3099,7 @@ jobs:
 
 
 
-&lt;ol&gt;
+&lt;ol class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Checkout the code using the standard actions/checkout@v3 action from GitHub&lt;/li&gt;
 
 
@@ -2101,7 +3130,10 @@ jobs:
 
 
 &lt;p&gt;&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">How to extend and reuse configs in Gitlab CI</title>
@@ -2111,6 +3143,7 @@ jobs:
     <summary type="html">&lt;p&gt;When I began using Gitlab CI the first thing I wanted to know was how to reuse configs. I know that we&amp;#8217;ll have changing requirements at work and that we&amp;#8217;ll have hundreds of repositories using basically-the-same configurations so I wanted to make sure we&amp;#8217;d have a central place to make changes to these. I found [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;When I began using Gitlab CI the first thing I wanted to know was how to reuse configs. I know that we&amp;#8217;ll have changing requirements at work and that we&amp;#8217;ll have hundreds of repositories using basically-the-same configurations so I wanted to make sure we&amp;#8217;d have a central place to make changes to these.&lt;/p&gt;
 
 
@@ -2245,14 +3278,17 @@ my-other-block:
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://docs.gitlab.com/ee/ci/yaml/yaml_optimization.html#reference-tags&quot;&gt;Official Gitlab Documentation&lt;/a&gt;&lt;/li&gt;
 
 
 
 &lt;li&gt;&lt;a href=&quot;https://docs.gitlab.com/ee/ci/yaml/&quot;&gt;Full .gitlab-ci YAML reference&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: Replace git URLs in Gitlab CI</title>
@@ -2262,6 +3298,7 @@ my-other-block:
     <summary type="html">&lt;p&gt;When working with Gitlab as a storage for Terraform or Ansible modules you probably access them using SSH, like&amp;nbsp;git@gitlab.instance:group/project.git. This has the advantage that authentication is done using SSH keys and everybody on your team can access the repositories just like they&amp;#8217;d do when cloning on the terminal &amp;#8211; no need for entering passwords during [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;When working with Gitlab as a storage for Terraform or Ansible modules you probably access them using SSH, like&amp;nbsp;&lt;code&gt;git@gitlab.instance:group/project.git&lt;/code&gt;. This has the advantage that authentication is done using SSH keys and everybody on your team can access the repositories just like they&amp;#8217;d do when cloning on the terminal &amp;#8211; no need for entering passwords during clone or install.&lt;/p&gt;
 
 
@@ -2325,10 +3362,13 @@ deploy-ansible:
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://docs.gitlab.com/ee/user/project/deploy_tokens/#group-deploy-token&quot;&gt;Gitlab Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Proxy websocket connections with Apache2</title>
@@ -2338,6 +3378,7 @@ deploy-ansible:
     <summary type="html">&lt;p&gt;How to configure Apache2 to pass through web socket connections Recently I had to adjust an Apache Virtual Host to allow proxying of Web Socket requests to a service running on localhost which would also accept HTTP requests on the same port. The problem The service in question was&amp;nbsp;Loki, the&amp;nbsp;&amp;#8220;Prometheus, but for logs&amp;#8221;&amp;nbsp;from Grafana. At&amp;nbsp;Synoa&amp;nbsp;we&amp;#8217;ve [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;How to configure Apache2 to pass through web socket connections&lt;/h2&gt;
 
 
@@ -2405,14 +3446,17 @@ $ sudo a2enmod proxy_wstunnel&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&amp;#8220;&lt;a href=&quot;https://noqqe.de/blog/2018/04/21/apache2-websockets/&quot;&gt;Apache2 Websockets&lt;/a&gt;&amp;#8221; on noqqe.de (in German)&lt;/li&gt;
 
 
 
 &lt;li&gt;&lt;a href=&quot;https://httpd.apache.org/docs/2.4/mod/mod_proxy_wstunnel.html&quot;&gt;mod_proxy_wstunnel module documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Validating variables in terraform</title>
@@ -2422,6 +3466,7 @@ $ sudo a2enmod proxy_wstunnel&lt;/pre&gt;
     <summary type="html">&lt;p&gt;Finally, terraform can validate input variables! With the 0.13 release terraform introduces input validation, and with the 1.0.0 releases it was stabilized! Before there was no way of validating variables other than checking their length or doing basic checks inside the code, for example in the&amp;nbsp;locals.tf&amp;nbsp;file, and errors with variables mostly came to light during [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;Finally, terraform can validate input variables!&lt;/h2&gt;
 
 
@@ -2632,7 +3677,7 @@ terraform apply -target=null_resource.validate_env -var &quot;env=prod&quot;&lt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;The variable starts with&amp;nbsp;&lt;code&gt;cx&lt;/code&gt;,&amp;nbsp;&lt;code&gt;cpx&lt;/code&gt;, or&amp;nbsp;&lt;code&gt;ccx&lt;/code&gt;&lt;/li&gt;
 
 
@@ -2707,7 +3752,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.terraform.io/docs/language/values/variables.html&quot;&gt;Terraform variable documentation&lt;/a&gt;&lt;/li&gt;
 
 
@@ -2718,7 +3763,10 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 &lt;li&gt;&lt;a href=&quot;https://www.terraform.io/docs/language/functions/regex.html&quot;&gt;Terraform&amp;nbsp;&lt;code&gt;regex&lt;/code&gt;&amp;nbsp;function&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Darken and Lighten colors with CSS</title>
@@ -2728,6 +3776,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
     <summary type="html">&lt;p&gt;Recreating SASS darken() &amp;amp; lighten() function with CSS variables and calc The technique shown in this post uses the&amp;nbsp;hsl&amp;nbsp;color format in combination with the&amp;nbsp;calc&amp;nbsp;CSS function to calculate darker or lighter shades of a base color. Before we get into the code I want to make sure&amp;nbsp;I did not come up with this, I found the [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;Recreating SASS darken() &amp;amp; lighten() function with CSS variables and calc&lt;/h2&gt;
 
 
@@ -2744,14 +3793,14 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;pre class=&quot;wp-block-preformatted&quot;&gt;:root {
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;css&quot; class=&quot;language-css&quot;&gt;:root {
   --color: 0, 100%; 
   --l:50%;
     
   --color-primary: hsl(var(--color),var(--l));
   --color-primary-darker: hsl(var(--color),calc(var(--l) - 10%));
   --color-primary-darkest: hsl(var(--color),calc(var(--l) - 30%)); 
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 
 
 
@@ -2763,7 +3812,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;strong&gt;H&lt;/strong&gt;&amp;nbsp;is the&amp;nbsp;&lt;code&gt;hue&lt;/code&gt;, a number from 0 to 360&lt;/li&gt;
 
 
@@ -2786,7 +3835,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 &lt;figure class=&quot;wp-block-embed is-type-wp-embed is-provider-codepen wp-block-embed-codepen&quot;&gt;&lt;div class=&quot;wp-block-embed__wrapper&quot;&gt;
-&lt;iframe class=&quot;wp-embedded-content&quot; sandbox=&quot;allow-scripts&quot; security=&quot;restricted&quot; title=&quot;dynamic darken() function with css&quot; src=&quot;https://codepen.io/kevingimbel/embed/preview/zYZaVPp?default-tabs=html%2Cresult&amp;#038;height=300&amp;#038;host=https%3A%2F%2Fcodepen.io&amp;#038;slug-hash=zYZaVPp#?secret=VBF8hzCvpe&quot; data-secret=&quot;VBF8hzCvpe&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;
+&lt;iframe class=&quot;wp-embedded-content&quot; sandbox=&quot;allow-scripts&quot; security=&quot;restricted&quot; title=&quot;dynamic darken() function with css&quot; src=&quot;https://codepen.io/kevingimbel/embed/preview/zYZaVPp?default-tabs=html%2Cresult&amp;#038;height=300&amp;#038;host=https%3A%2F%2Fcodepen.io&amp;#038;slug-hash=zYZaVPp#?secret=sBu6YRG4sX&quot; data-secret=&quot;sBu6YRG4sX&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;
 &lt;/div&gt;&lt;/figure&gt;
 
 
@@ -2807,7 +3856,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;pre class=&quot;wp-block-preformatted&quot;&gt;:root {
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;css&quot; class=&quot;language-css&quot;&gt;:root {
   --color: 0, 100%;
   --l:50%; /*the initial lightness*/
 }
@@ -2828,7 +3877,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 .blue {
   --color:245, 60%;
   --l: 80%;
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 
 
 
@@ -2840,14 +3889,14 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;pre class=&quot;wp-block-preformatted&quot;&gt;.lighten {
+&lt;pre class=&quot;wp-block-code&quot;&gt;&lt;code lang=&quot;css&quot; class=&quot;language-css&quot;&gt;.lighten {
   --color: 0, 100%; 
   --l:50%;
     
   --color-primary: hsl(var(--color),var(--l));
   --color-primary-lighter: hsl(var(--color),calc(var(--l) + 10%));
   --color-primary-lightest: hsl(var(--color),calc(var(--l) + 30%)); 
-}&lt;/pre&gt;
+}&lt;/code&gt;&lt;/pre&gt;
 
 
 
@@ -2855,11 +3904,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;p&gt;Just for completeness, here&amp;#8217;s the Browser support. It&amp;#8217;s looking&amp;nbsp;&lt;em&gt;pretty good&lt;/em&gt;&amp;nbsp;with over 90% for both features used (as of June 2021).&lt;/p&gt;
-
-
-
-&lt;p&gt;{% caniuse &amp;#8220;calc&amp;#8221; %} {% caniuse &amp;#8220;css-variables&amp;#8221; %}&lt;/p&gt;
+&lt;p&gt;Just for completeness, here&amp;#8217;s the Browser support. It&amp;#8217;s looking &lt;em&gt;pretty good&lt;/em&gt; with over 90% for both features used (as of June 2021): &lt;a href=&quot;https://caniuse.com/css-variables&quot;&gt;https://caniuse.com/css-variables&lt;/a&gt;&lt;/p&gt;
 
 
 
@@ -2867,7 +3912,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl()&quot;&gt;hsl on MDN&lt;/a&gt;&lt;/li&gt;
 
 
@@ -2878,7 +3923,10 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 &lt;li&gt;Example Pen 2&amp;nbsp;&lt;a href=&quot;https://codepen.io/kevingimbel/pen/zYZaVPp&quot;&gt;codepen.io/kevingimbel/pen/zYZaVPp&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">First steps with Traefik 2</title>
@@ -2888,6 +3936,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
     <summary type="html">&lt;p&gt;A tale of Auto SSL, Basic Auth, and lots of debugging Recently I&amp;#8217;ve spent some time at work trying out&amp;nbsp;Traefik 2&amp;nbsp;and learning about the new concepts like routers and middleware since we&amp;#8217;ll use Traefik 2 as part of some new infrastructure. We&amp;#8217;ve used Traefik 1 in production at Synoa for the past 3 years. Initially [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;A tale of Auto SSL, Basic Auth, and lots of debugging&lt;/h2&gt;
 
 
@@ -2920,7 +3969,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Handle all traffic on port&amp;nbsp;&lt;code&gt;80&lt;/code&gt;&amp;nbsp;and&amp;nbsp;&lt;code&gt;443&lt;/code&gt;&lt;/li&gt;
 
 
@@ -3006,7 +4055,7 @@ usersFile=&quot;/etc/traefik/.htpasswd&quot;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Middleware cannot be configured in the main config file&lt;/li&gt;
 
 
@@ -3075,7 +4124,7 @@ usersFile=&quot;/etc/traefik/.htpasswd&quot;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Providers are enabled by adding a config like&amp;nbsp;&lt;code&gt;[providers.file]&lt;/code&gt;&amp;nbsp;or&amp;nbsp;&lt;code&gt;[providers.docker]&lt;/code&gt;&amp;nbsp;into&amp;nbsp;&lt;code&gt;traefik.toml&lt;/code&gt;&lt;/li&gt;
 
 
@@ -3153,7 +4202,10 @@ entryPoint = &quot;web&quot;&lt;/pre&gt;
 
 
 &lt;p&gt;I&amp;#8217;m looking forward to dig deeper into Traefik, especially getting more familiar with&amp;nbsp;&lt;a href=&quot;https://doc.traefik.io/traefik/plugins/&quot;&gt;Plugins&lt;/a&gt;!&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: Dots in /etc/sudoers.d filenames</title>
@@ -3163,6 +4215,7 @@ entryPoint = &quot;web&quot;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;A tale of facepalms While reviewing some Ansible modules with a colleague we stumbled upon an issue with our user creation module, and for a briefe time couldn&amp;#8217;t understand what was going on. The module in question creates multiple Linux users, adds them to groups, and enables some to use password less sudo via the&amp;nbsp;/etc/sudoers.d&amp;nbsp;config [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;A tale of facepalms&lt;/h2&gt;
 
 
@@ -3194,7 +4247,10 @@ entryPoint = &quot;web&quot;&lt;/pre&gt;
 
 
 &lt;p&gt;Our solution was to strip out any dots using regex, since the Ansible role can potentially support any amount of users and we cannot control what names will be used.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Wildcards in Prometheus queries</title>
@@ -3204,6 +4260,7 @@ entryPoint = &quot;web&quot;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;Learn how to query data in Prometheus and how to use wildcards Hello and welcome to this &amp;#8220;snippet-sized&amp;#8221; post about&amp;nbsp;Prometheus&amp;nbsp;queries! Prometheus is a time-series database which means it is build to collect a lot of datasets that show values over time, for example the result of a HTTP request or the RAM usage of a [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;Learn how to query data in Prometheus and how to use wildcards&lt;/h2&gt;
 
 
@@ -3291,10 +4348,13 @@ http_status{job=&quot;customer-prd&quot;,instance=&quot;https://some-api.link/se
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://prometheus.io/docs/prometheus/latest/querying/basics/&quot;&gt;Prometheus Query documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Apply a patch from a Github PR</title>
@@ -3304,6 +4364,7 @@ http_status{job=&quot;customer-prd&quot;,instance=&quot;https://some-api.link/se
     <summary type="html">&lt;p&gt;Ever found yourself needing that one fix from a PR on GitHub that hasn&amp;#8217;t been released yet? How can you get the code, for example a Magento fix, into your code base? Copy-paste it? That might work for small changes, but for large and complex changes copy-pasting is no solution. Luckily, we can use GitHub [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;Ever found yourself needing that one fix from a PR on GitHub that hasn&amp;#8217;t been released yet? How can you get the code, for example a Magento fix, into your code base? Copy-paste it? That might work for small changes, but for large and complex changes copy-pasting is no solution. Luckily, we can use GitHub to generate a patch file, which can then be applied with either the&amp;nbsp;&lt;code&gt;git&lt;/code&gt;&amp;nbsp;or&amp;nbsp;&lt;code&gt;patch&lt;/code&gt;&amp;nbsp;command.&lt;/p&gt;
 
 
@@ -3376,7 +4437,7 @@ This repo is part of a Blog Post on how to get and apply patch files from GitHub
 
 
 
-&lt;ol&gt;
+&lt;ol class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Open a terminal and navigate to the repo you cloned earlier (&lt;code&gt;github.com/KevinGimbel/blog-patch-example&lt;/code&gt;)&lt;/li&gt;
 
 
@@ -3460,7 +4521,7 @@ This repo is part of a Blog Post on how to get and apply patch files from GitHub
 
 
 
-&lt;ol&gt;
+&lt;ol class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Get the patch from the pull request by appending &lt;code&gt;.patch&lt;/code&gt; to the URL&lt;/li&gt;
 
 
@@ -3489,14 +4550,17 @@ $ patch -p 1 --dry-run &amp;lt; filename.patch&lt;/code&gt;&lt;/pre&gt;
 
 
 
-&lt;ul&gt;
+&lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://linux.die.net/man/1/patch&quot;&gt;patch man page&lt;/a&gt;&lt;/li&gt;
 
 
 
 &lt;li&gt;&lt;a href=&quot;https://git-scm.com/docs/git-apply&quot;&gt;git apply documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: Bash select</title>
@@ -3506,6 +4570,7 @@ $ patch -p 1 --dry-run &amp;lt; filename.patch&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;I was recently researching different bash prompts and stumbled upon an StackExchange answer which explains the different prompt types (PS1, PS2, PS3, and PS4). The answer explains how the PS3 prompt is used for commands like select. I did not know about select before, so that&amp;#8217;s the real TIL here! [&amp;#8230;] PS3 is shown when the select command is waiting for [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;I was recently researching different bash prompts and stumbled upon an &lt;a href=&quot;https://unix.stackexchange.com/a/193660/136550&quot;&gt;StackExchange answer&lt;/a&gt; which explains the different prompt types (&lt;code&gt;PS1&lt;/code&gt;, &lt;code&gt;PS2&lt;/code&gt;, &lt;code&gt;PS3&lt;/code&gt;, and &lt;code&gt;PS4&lt;/code&gt;). The answer explains how the PS3 prompt is used for commands like &lt;code&gt;select&lt;/code&gt;. I did not know about select before, so that&amp;#8217;s the real  TIL here!&lt;/p&gt;
 
 
@@ -3593,6 +4658,9 @@ Your answer: _
 
 
 &lt;p&gt;&lt;code&gt;select&lt;/code&gt;&amp;nbsp;is a clean and simple way to create a interactive UI! I tried the code with the&amp;nbsp;&lt;code&gt;zsh&lt;/code&gt;&amp;nbsp;and&amp;nbsp;&lt;code&gt;fish&lt;/code&gt;&amp;nbsp;shell and it looks the same.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
 </feed>

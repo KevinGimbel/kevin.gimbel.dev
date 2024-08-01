@@ -9,503 +9,481 @@ Publishing and building a static website on GitHub Pages - Kevin.Gimbel.Dev/Blog
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Eleventy">
   <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✪</text></svg>">
-  <style>:root {
-  --color-bg: hsl(279, 19%, 93%);
-  --color-fg: #211000;
-  --color-contrast-fg: #211000;
-  --color-contrast-bg: #211000;
+  <style>/* ++++++++++++++++++++++++++++++++++++++++++++++++++
+                                            BASE
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+:root {
+    --color-bg: hsl(279, 19%, 93%);
+    --color-fg: #211000;
+    --color-contrast-fg: #211000;
+    --color-contrast-bg: #211000;
 
-  --stack-spacing: 2rem;
-  --spacing: 2rem;
+    --stack-spacing: 2rem;
+    --spacing: 2rem;
 
-  --color-accent-1: hsl(150, 90%, 70%);
-  --color-accent-1-contrast: hsl(150, 30%, 40%);
-  --color-accent-2: hsl(250, 100%, 80%);
-  --color-accent-2-contrast: hsl(250, 30%, 40%);
-  --color-accent-3: hsl(300, 100%, 90%);
-  --color-accent-3-contrast: hsl(300, 20%, 50%);
-  --color-accent-4: hsl(350, 100%, 70%);
-  --color-accent-4-contrast: hsl(350, 50%, 30%);
-  --color-accent-5: hsl(47, 100%, 70%);
-  --color-accent-5-contrast: hsl(47, 50%, 40%);
+    --color-accent-1: hsl(150, 90%, 70%);
+    --color-accent-1-contrast: hsl(150, 30%, 40%);
+    --color-accent-2: hsl(250, 100%, 77%);
+    --color-accent-2-contrast: hsl(250, 30%, 40%);
+    --color-accent-3: hsl(300, 88%, 94%);
+    --color-accent-3-contrast: hsl(300, 33%, 39%);
+    --color-accent-4: hsl(350, 100%, 70%);
+    --color-accent-4-contrast: hsl(350, 50%, 30%);
+    --color-accent-5: hsl(47, 100%, 70%);
+    --color-accent-5-contrast: hsl(47, 50%, 40%);
+    --color-accent-6: hsl(220, 100%, 70%);
+    --color-accent-6-contrast: hsl(220, 50%, 40%);
 
-  --color-black: #211000;
+    --color-black: #222;
+    --color-white: #f2f2f2;
 
-  --color-note--info: var(--color-accent-4, red);
-  --color-note--info-contrast: var(--color-accent-4-contrast, white);
+    --color-note--info: var(--color-accent-4, red);
+    --color-note--info-contrast: var(--color-accent-4-contrast, white);
+
+    /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
+    /* Utopia font */
+    --font-size--2: clamp(0.6944rem, 0.6856rem + 0.0444vi, 0.72rem);
+    --font-size--1: clamp(0.8333rem, 0.8101rem + 0.1159vi, 0.9rem);
+    --font-size-0: clamp(1rem, 0.9565rem + 0.2174vi, 1.125rem);
+    --font-size-1: clamp(1.2rem, 1.1283rem + 0.3587vi, 1.4063rem);
+    --font-size-2: clamp(1.44rem, 1.3295rem + 0.5527vi, 1.7578rem);
+    --font-size-3: clamp(1.728rem, 1.5648rem + 0.8161vi, 2.1973rem);
+    --font-size-4: clamp(2.0736rem, 1.8395rem + 1.1704vi, 2.7466rem);
+    --font-size-5: clamp(2.4883rem, 2.1597rem + 1.6433vi, 3.4332rem);
+
+    --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+
+    /* @link https://utopia.fyi/grid/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
+    /* Utopia Grid */
+    --grid-max-width: 92.5rem;
+    --grid-gutter: var(
+        --space-m-l,
+        clamp(1.6875rem, 1.4634rem + 1.1207vw, 2.5rem)
+    );
+    --grid-columns: 12;
+
+    /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
+    /* Utopia Spaces */
+    --space-3xs: clamp(0.25rem, 0.2283rem + 0.1087vi, 0.3125rem);
+    --space-2xs: clamp(0.5rem, 0.4783rem + 0.1087vi, 0.5625rem);
+    --space-xs: clamp(0.75rem, 0.7065rem + 0.2174vi, 0.875rem);
+    --space-s: clamp(1rem, 0.9565rem + 0.2174vi, 1.125rem);
+    --space-m: clamp(1.5rem, 1.4348rem + 0.3261vi, 1.6875rem);
+    --space-l: clamp(2rem, 1.913rem + 0.4348vi, 2.25rem);
+    --space-xl: clamp(3rem, 2.8696rem + 0.6522vi, 3.375rem);
+    --space-2xl: clamp(4rem, 3.8261rem + 0.8696vi, 4.5rem);
+    --space-3xl: clamp(6rem, 5.7391rem + 1.3043vi, 6.75rem);
+
+    /* One-up pairs */
+    --space-3xs-2xs: clamp(0.25rem, 0.1413rem + 0.5435vi, 0.5625rem);
+    --space-2xs-xs: clamp(0.5rem, 0.3696rem + 0.6522vi, 0.875rem);
+    --space-xs-s: clamp(0.75rem, 0.6196rem + 0.6522vi, 1.125rem);
+    --space-s-m: clamp(1rem, 0.7609rem + 1.1957vi, 1.6875rem);
+    --space-m-l: clamp(1.5rem, 1.2391rem + 1.3043vi, 2.25rem);
+    --space-l-xl: clamp(2rem, 1.5217rem + 2.3913vi, 3.375rem);
+    --space-xl-2xl: clamp(3rem, 2.4783rem + 2.6087vi, 4.5rem);
+    --space-2xl-3xl: clamp(4rem, 3.0435rem + 4.7826vi, 6.75rem);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
+html,
 body {
-  font: 14px/1.4 ui-monospace,
-    "Cascadia Mono", "Segoe UI Mono",
-    "Ubuntu Mono",
-    "Roboto Mono",
-    Menlo, Monaco, Consolas,
-    monospace;
-  background: var(--color-bg, #f1f1f1);
-  color: #211000;
+    background: var(--color-white);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-0);
+    line-height: 1.65;
+}
+
+main {
+    min-height: 100vh;
+}
+
+a,
+a:visited {
+    color: var(--color-accent-2-contrast);
+    text-decoration: dashed;
+}
+
+a:hover,
+a:focus {
+    color: var(--color-accent-2);
+    text-decoration: underline;
+}
+
+.u-container {
+    padding-inline: var(--grid-gutter);
+    margin-inline: auto;
+}
+
+.u-grid {
+    display: grid;
+    gap: var(--grid-gutter);
+    grid-template-columns: repeat(var(--grid-columns, 12), 1fr);
+    grid-template-rows: auto;
+}
+
+.single-page {
+    grid-row: 1;
+    grid-column-start: 5;
+    grid-column-end: 8;
+    min-height: 90vh;
+    padding: var(--space-l);
+}
+
+.footer {
+    grid-row: -1;
+    grid-column-start: 1;
+    grid-column-end: 12;
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: var(--space-m);
+    font-size: var(--font-size--1);
+}
+
+.footer a {
+    color: var(--color-accent-1);
+}
+
+.footer a:hover {
+    color: var(--color-accent-2);
+}
+
+.gc-full {
+    grid-column-start: 1;
+    grid-column-end: calc(var(--grid-columns, 12) + 1);
+}
+
+.gc-half {
+    grid-column-start: 1;
+    grid-column-end: calc(var(--grid-columns, 12) / 2);
+}
+
+/*
+    Typography
+*/
+
+h1,
+.font-size-5 {
+    font-size: var(--font-size-5);
+}
+
+h2,
+.font-size-4 {
+    font-size: var(--font-size-4);
+}
+
+h3,
+.font-size-3 {
+    font-size: var(--font-size-3);
+}
+
+h4,
+.font-size-2 {
+    font-size: var(--font-size-2);
+}
+
+h5,
+.font-size-1 {
+    font-size: var(--font-size-1);
+}
+
+h6,
+.font-size-0 {
+    font-size: var(--font-size-0);
+}
+
+.font-size--1 {
+    font-size: var(--font-size--1);
+}
+
+.font-size--2 {
+    font-size: var(--font-size--2);
 }
 
 h1,
 h2,
-h3 {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+h3,
+h4,
+h5,
+h6 {
+    padding: var(--space-s-m) 0;
 }
 
-h1 {
-  font-size: 2em;
-}
-
-h2,
-h3 {
-  --color-fg: var(--color-fg);
-  text-shadow: .02em .02em 0 var(--color-bg), .03em .03em 0 var(--color-contrast-fg);
-}
-
-hr {
-  max-width: 80%;
-  margin: 0 auto;
-  border: none;
-  background: var(--color-fg);
-  height: 0.05em;
-}
-
-.stack *+* {
-  margin-top: var(--stack-spacing, 2rem);
-}
-
-a {
-  color: var(--color-link, hotpink);
-  word-break: break-word;
-}
-
-a:hover {
-  border-bottom: none;
-  text-decoration: none;
-}
-
-.a-blank,
-.a-blank:visited {
-  text-decoration: none;
-}
-
-.a-blank:hover,
-.a-blank:focus {
-  border-bottom: .15em solid currentColor;
-  font-size: 100%;
-  letter-spacing: 0em;
-}
-
-.a-splash {
-  color: var(--color-fg);
-  background: var(--color-bg);
-  border-radius: 65% 72% 53% 41%;
-  padding: .25em;
-  animation: wobble linear 4s infinite;
-}
-
-/* Disable animation if reduced motion is set */
-@media (prefers-reduced-motion) {
-  .a-splash {
-    animation: none;
-  }
-}
-
-@keyframes wobble {
-  1% {
-    border-radius: 65% 72% 53% 41%;
-  }
-
-  25% {
-    border-radius: 92% 10% 62% 15%;
-  }
-
-  50% {
-    border-radius: 18% 92% 21% 39%;
-  }
-
-  75% {
-    border-radius: 95% 42% 13% 81%;
-  }
-
-  100% {
-    border-radius: 65% 72% 53% 41%;
-  }
-}
-
-.anim-typing:after {
-  content: "|";
-  animation: typing linear 0.3s;
-}
-
-@keyframes typing {
-  from {
-    color: var(--color-fg);
-  }
-
-  50% {
-    color: var(--color-bg);
-  }
-
-  to {
-    color: var(--color-fg);
-  }
-}
-
-
-
-/* Accent colors and styles */
-.fg-accent-1 {
-  --color-fg: var(--color-accent-1, hsl(100, 75%, 90%));
-}
-
-.fg-accent-2 {
-  --color-fg: var(--color-accent-2, hsl(200, 75%, 90%));
-}
-
-.fg-accent-3 {
-  --color-fg: var(--color-accent-3, hsl(300, 75%, 90%));
-}
-
-.fg-accent-4 {
-  --color-fg: var(--color-accent-4, hsl(400, 75%, 90%));
-}
-
-[class*="fg-accent"] {
-  color: var(--color-fg);
-  font-weight: bold;
-}
-
-.bg-accent-1 {
-  --color-fg: var(--color-accent-1-contrast, #211000);
-  --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
-}
-
-.bg-accent-2 {
-  --color-fg: var(--color-accent-2-contrast, #211000);
-  --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
-
-  --color-link: white;
-}
-
-.bg-accent-3 {
-  --color-fg: var(--color-accent-3-contrast, #211000);
-  --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
-}
-
-.bg-accent-4 {
-  --color-fg: var(--color-accent-4-contrast, #211000);
-  --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
-}
-
-.bg-accent-5 {
-  --color-fg: var(--color-accent-5-contrast, #fff);
-  --color-bg: var(--color-accent-5, #211000);
-}
-
-[class*="bg-accent"] {
-  color: var(--color-fg, #211000);
-  background: var(--color-bg, #fff);
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
+table {
+    padding: var(--space-xs-s) 0;
 }
 
 ul {
-  list-style: none;
-  margin-left: var(--stack-spacing);
+    list-style: none;
 }
 
-ul li::before {
-  content: "✦";
-  color: var(--color-fg, #211000);
-  display: inline;
-  width: 1em;
-  margin-left: -1.25em;
-  padding-right: .5em;
+ul,
+li:before {
+    content: "✦";
+    padding-right: var(--space-s);
 }
 
-.grid {
-  display: grid;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-.main-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 1em;
-  overflow-x: hidden;
-  min-height: 100vh;
+/* Accents */
+.bg-accent-1 {
+    --color-fg: var(--color-accent-1-contrast, #211000);
+    --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
 }
 
-.gr-1 {
-  grid-row: 1;
+.bg-accent-2 {
+    --color-fg: var(--color-accent-2-contrast, #211000);
+    --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+
+    --color-link: white;
 }
 
-.gr-2 {
-  grid-row: 2;
+.bg-accent-3 {
+    --color-fg: var(--color-accent-3-contrast, #211000);
+    --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
 }
 
-.gr-auto {
-  grid-row: auto;
+.bg-accent-4 {
+    --color-fg: var(--color-accent-4-contrast, #211000);
+    --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
 }
 
-.gc-full {
-  grid-column-start: 1;
-  grid-column-end: 12;
+.bg-accent-5 {
+    --color-fg: var(--color-accent-5-contrast, #f1f1f1);
+    --color-bg: var(--color-accent-5, #211000);
 }
 
-.gc-8-12 {
-  grid-column-start: 8;
-  grid-column-end: 12;
+.bg-accent-6 {
+    --color-fg: var(--color-accent-6-contrast, #f1f1f1);
+    --color-bg: var(--color-accent-6, #211000);
 }
 
-.gc-1-7 {
-  grid-column-start: 1;
-  grid-column-end: 7;
+[class*="bg-accent"] {
+    color: var(--color-fg, #211000);
+    background: var(--color-bg, #f1f1f1);
 }
 
-.d-grid {
-  display: grid;
-  grid-template-columns: repeat(var(--grid-columns, 3), 1fr);
-  grid-gap: var(--stack-spacing, 2rem);
+a[class*="bg-accent"]:hover {
+    color: var(--color-bg, #f1f1f1);
+    background: var(--color-fg, #211000);
+    text-decoration: none;
 }
 
-ul li {
-  margin-top: var(--stack-spacing, 1rem);
+.is-highlighted {
+    padding: var(--space-3xs);
 }
 
-.c-skill-list__item {
-  padding: 1rem;
-  font-size: .75em;
+.skill-section {
+    box-shadow: -3px 3px 0 #ccc;
+    border-radius: 6px;
 }
 
-.about {
-  grid-column-start: 5;
-  grid-column-end: 12;
-  grid-row: 2;
+.buzzes a {
+    border-radius: 6px;
 }
 
-.c-full-width {
-  width: 100vw;
+/* Avatar on front page */
+.avatar {
+    clip-path: circle();
+    width: 100%;
+    max-width: 400px;
 }
 
-.c-full-height {
-  min-height: 100vh;
-}
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++
+                                            HEADER
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
 
-hgroup {
-  margin-bottom: calc(var(--stack-spacing, 2rem) * 2);
-}
-
-.f-ultra>* {
-  font-size: 2.75em;
-}
-
-.f-heading-big {
-  font-size: 3em;
-  color: var(--color-fg, #211000);
-}
-
-.f-small {
-  font-size: 1rem;
-}
-
-section {
-  padding: var(--spacing, 2rem);
-}
-
-.section__styled {
-  margin-bottom: var(--spacing, 2rem);
-}
-
-.box-shadow__styled {
-  --c1: var(--color-fg, --box-shadow-color);
-
-  box-shadow: -1rem -1rem 0 var(--c1);
-  border: .25rem solid var(--c1);
-}
-
-.single-page {
-  font-size: .75em;
-  background: #fff;
-  padding: 4rem;
-  margin: 4rem auto;
-  max-width: 75rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.single-page img {
-  max-width: 100%;
-}
-
-.article-list {
-  font-size: .75em;
-  max-width: 75rem;
-  margin: 0 auto;
-}
-
-.article-list--inline {
-  --box-shadow-color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 100%;
-  font-size: 80%;
-}
-
-.article-list--inline>.article-list__item {
-  margin: var(--spacing, 2rem);
-  width: 95%;
-}
-
-.article-list__item>h2 {
-  text-shadow: none;
-}
-
-.article-list__more-link {
-  display: inline-block;
-  margin-top: var(--spacing);
-}
-
-.article-list__item {
-  margin: 2rem 0;
-  background: #fff;
-  padding: calc(var(--spacing) * 2)
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing);
+    border-bottom: 1px dashed var(--color-black);
 }
 
 .site-nav {
-  width: 100%;
-  padding: 2rem;
-  font-size: 2rem;
-  background: black;
+    display: flex;
+    gap: calc(var(--spacing) / 2);
 }
 
-.site-nav__wrapper {
-  padding: 0;
+.site-nav a {
+    background: #000;
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 0.25rem var(--space-s);
+    box-shadow: -3px 3px 0 #ccc;
+    border-radius: 6px;
 }
 
-.animation-spin {
-  transition: all linear .7s;
-  display: inline-block;
+.site-nav a:hover,
+.site-nav a:focus {
+    background: #000;
+    color: var(--color-accent-2);
 }
 
-.animation-spin:hover {
-  transform: rotate(360deg);
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++
+                                                HERO
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-xl-2xl, 2rem);
 }
 
-
-@media all and (max-width: 2000px) {
-  .about {
-    grid-column-start: 3;
-    grid-column-end: 13;
-    max-width: 60vw;
-    min-width: 60rem;
-  }
+.is-intro {
+    font-size: var(--font-size-5);
+    background: var(--color-accent-1);
+    border-top: 0.125rem solid var(--color-accent-1-contrast);
+    border-bottom: 0.125rem solid var(--color-accent-1-contrast);
 }
 
-.footer {
-  background: var(--color-fg);
-  color: var(--color-bg);
-  padding: var(--spacing, 2rem);
+.intro-left {
+    max-width: 50%;
 }
 
-/* Only on BIG screens we want this */
-@media all and (min-width: 1800px) {
-  .article-list--inline {
-    flex-direction: row;
-  }
+@media all and (max-width: 70rem) {
+    .is-intro {
+        flex-direction: column-reverse;
+    }
 
-  .article-list--inline>.article-list__item {
-    width: 33%;
-  }
+    .intro-left {
+        text-align: center;
+        max-width: 100%;
+    }
 }
 
-@media all and (min-width: 1000px) {
-  .section__styled {
-    margin: calc(var(--spacing, 2rem) * 2) 0;
-    padding-right: calc(var(--spacing, 2rem) * 2);
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++
+                                        SKILL SECTION
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
 
-    max-width: calc(100% - calc(var(--spacing, 2rem) * 3));
-  }
-
-
-  section[id].section__styled {
-    max-width: calc(100vw - 8rem);
-    margin: var(--spacing, 2rem);
-  }
+.skill-section {
+    padding: var(--space-l-xl);
+    margin: var(--space-m-l);
+    font-size: var(--font-size-2);
+    border: 0.125rem solid;
 }
 
-@media all and (max-width: 1200px) {
-  body {
-    font-size: 10px;
-  }
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++
+                                                    QUOTE
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
 
-  .f-heading-big {
-    font-size: 2.5rem;
-  }
+blockquote {
+    border-left: 0.25rem solid var(--color-accent-3-contrast);
+    margin-left: -1.5rem;
+    padding: var(--space-s-m);
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2);
+}
 
-  .f-ultra>* {
-    font-size: 1.5rem;
-  }
+blockquote cite {
+    font-size: var(--font-size-0);
+}
 
-  .c-skill-list__item {
-    padding: 0;
-    margin-top: 0;
-  }
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++
+                                                    CODE
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
 
-  section, .single-page {
-    padding: 2rem;
-  }
+pre {
+    background: #f1f1f1;
+    color: var(--color-black);
+    padding: var(--space-s);
+    overflow: auto;
+    border: 2px inset var(--color-accent-2);
+}
 
-  .start>* {
-    max-width: 90vw;
-  }
+pre > code {
+    display: block;
+}
 
-  .start h2 {
-    font-size: 2rem;
-  }
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++
+                                                ARTICLE
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
 
-  .start img {
-    max-width: 100%;
-  }
+.article-page {
+    background: #fafafa;
+}
 
-  .about,
-  .avatar {
-    width: 100%;
-    min-width: 100%;
-  }
+.article-list__item {
+    padding: var(--space-m-l);
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: var(--space-xl);
+}
 
-  .bg-accent-3 {
-    text-shadow: none;
-  }
+.article-list__more-link {
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: var(--space-2xs-xs);
+    border-radius: 6px;
+}
 
-  .about {
-    grid-column-start: 1;
-    grid-column-end: 13;
-    background: var(--color-contrast-bg);
-  }
+.article-list__more-link:hover {
+    background: var(--color-accent-2-contrast);
+    color: var(--color-accent-2);
+    text-decoration: none;
+}
 
-  .c-skill-list {
-    grid-template-columns: 1fr;
-  }
+.wp-block-footnotes li:before {
+    content: none;
+}
 
-  .grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-  }
+@media all and (min-width: 75rem) {
+    .article-page .content {
+        max-width: 60vw;
+    }
+}
 
-  .grid>* {
-    grid-column: auto;
-    grid-row: auto;
-  }
-}</style>
+[class~="has-background"] {
+    background: var(--color-accent-2);
+    color: var(--color-black);
+    padding: var(--space-s-m);
+}
+
+.article-page h1,
+.article-page h2,
+.article-page h3,
+.single-page h1,
+.single-page h2,
+.single-page h3 {
+    text-shadow: -3px 3px 0 #ccc;
+}
+
+.article__footer {
+    border: 1px solid var(--color-black);
+    padding: var(--space-s-m);
+    box-shadow: -3px 3px 0 #ccc;
+}
+</style>
   
   
-  <style>.article-page {
+  <style>/* .article-page {
     --color-code-bg: #f1f1f1;
     --color-code-fg: #333;
 }
@@ -601,7 +579,7 @@ blockquote cite {
     font-size: 1rem;
     margin-top: 2rem;
     padding-top: 2rem;
-}</style>
+} */</style>
   
   
   
@@ -609,32 +587,31 @@ blockquote cite {
 
 </head>
 <body>
-  <main class="main-grid">
-    
-
-<section class="[ f-ultra ] [ gr-auto gc-full ] [ c-full-width ] [ site-nav__wrapper ]">
+  <header class="site-header">
+    <aside class="logo">
+      <a href="/ops/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="height:3rem;widht:3rem;"><text y=".9em" font-size="90">✪</text></svg></a>
+    </aside>
     <nav class="site-nav">
-        <a href="/ops/">Home</a> 
-        <a href="/blog/">Blog</a> 
-        <a href="/about/">About</a>
+      <a href="/" class="a-blank">Home</a>
+      <a href="/about" class="a-blank">About</a>
+      <a href="/blog" class="a-blank">Blog</a>
     </nav>
-</section>
-
-<section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]  [ box-shadow__styled ] single-page article-page">
+  </header>
+  <main>
     
-    <div class="article__og-box">
-        <p><i>"Publishing and building a static website on GitHub Pages"</i> was originally published on <a href="https://kevingimbel.de/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/" target="_blank" rel="nofollow" title="Read 'Publishing and building a static website on GitHub Pages' on kevingimbel.de">kevingimbel.de</a>.</p>
-    </div>
-    <hr />
-    <div class="content">
+
+<section class="[ single-page article-page ]">
+    <header>
         <h1>Publishing and building a static website on GitHub Pages</h1>
+    </header>
+    <div class="content">
         
 <p>A week ago or so I finally launched a small website I&#8217;ve been working on for quite some time: <a href="https://kevin.gimbel.dev/ops/">kevin.gimbel.dev/ops</a> &#8211; it&#8217;s a colourful static website showing some of the technologies I&#8217;ve worked with in the past years since I began doing DevOps full time.</p>
 
 
 
 <figure class="wp-block-image alignwide size-large"><img loading="lazy" decoding="async" width="1024" height="666" data-attachment-id="94" data-permalink="https://kevingimbel.de/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/screenshot-2022-12-02-at-13-46-05/" data-orig-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=3248%2C2112&amp;ssl=1" data-orig-size="3248,2112" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="kevin.gimbel.dev/ops/ Screenshot" data-image-description="&lt;p&gt;Screenshot of a browser showing the website kevin.gimbel.dev/ops, with a black and white photo of a male with a camera before his face and text reading &#8220;Hi, I&#8217;m Kevin! A Senior DevOps Engineer with a background in Front-End Development.&#8221;&lt;/p&gt;
-" data-image-caption="" data-medium-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=300%2C195&amp;ssl=1" data-large-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=1024%2C666&amp;ssl=1" src="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1024%2C666&#038;ssl=1" alt="" class="wp-image-94" srcset="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1024%2C666&amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=300%2C195&amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=768%2C499&amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1536%2C999&amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=2048%2C1332&amp;ssl=1 2048w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?w=3000&amp;ssl=1 3000w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" /></figure>
+" data-image-caption="" data-medium-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=300%2C195&amp;ssl=1" data-large-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?fit=1024%2C666&amp;ssl=1" tabindex="0" role="button" src="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1024%2C666&#038;ssl=1" alt="" class="wp-image-94" srcset="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1024%2C666&amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=300%2C195&amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=768%2C499&amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=1536%2C999&amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?resize=2048%2C1332&amp;ssl=1 2048w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.46.05.png?w=3000&amp;ssl=1 3000w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" /></figure>
 
 
 
@@ -650,7 +627,7 @@ blockquote cite {
 
 
 
-<ol>
+<ol class="wp-block-list">
 <li>Build the code using 11ty</li>
 
 
@@ -665,7 +642,7 @@ blockquote cite {
 
 
 <figure class="wp-block-image alignwide size-large"><img loading="lazy" decoding="async" width="1024" height="532" data-attachment-id="93" data-permalink="https://kevingimbel.de/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/screenshot-2022-12-02-at-13-38-00/" data-orig-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=3024%2C1572&amp;ssl=1" data-orig-size="3024,1572" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="GitHub Pages settings" data-image-description="&lt;p&gt;Screenshot of the GitHub Pages settings of a repository&lt;/p&gt;
-" data-image-caption="" data-medium-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=300%2C156&amp;ssl=1" data-large-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=1024%2C532&amp;ssl=1" src="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1024%2C532&#038;ssl=1" alt="" class="wp-image-93" srcset="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1024%2C532&amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=300%2C156&amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=768%2C399&amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1536%2C798&amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=2048%2C1065&amp;ssl=1 2048w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?w=3000&amp;ssl=1 3000w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" /><figcaption class="wp-element-caption">GitHub Pages settings screen</figcaption></figure>
+" data-image-caption="" data-medium-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=300%2C156&amp;ssl=1" data-large-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?fit=1024%2C532&amp;ssl=1" tabindex="0" role="button" src="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1024%2C532&#038;ssl=1" alt="" class="wp-image-93" srcset="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1024%2C532&amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=300%2C156&amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=768%2C399&amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=1536%2C798&amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?resize=2048%2C1065&amp;ssl=1 2048w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2022/12/Screenshot-2022-12-02-at-13.38.00.png?w=3000&amp;ssl=1 3000w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" /><figcaption class="wp-element-caption">GitHub Pages settings screen</figcaption></figure>
 
 
 
@@ -713,7 +690,7 @@ jobs:
 
 
 
-<ol>
+<ol class="wp-block-list">
 <li>Checkout the code using the standard actions/checkout@v3 action from GitHub</li>
 
 
@@ -750,19 +727,18 @@ jobs:
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" style="top: 4px;position: relative;">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5706 1.07915L12.9519 0.460419L12.3332 1.07914L8.6363 4.77601L9.87373 6.01345L12.0754 3.8118C12.0758 4.19678 12.0764 4.58119 12.077 4.96525V4.9653V4.96533C12.0799 6.74156 12.0828 8.51005 12.063 10.291C11.9514 12.51 10.2821 14.5766 8.13549 15.0249L8.12156 15.0278L8.10773 15.0311C6.21947 15.49 4.06987 14.5395 3.24835 12.8164L3.24176 12.8025L3.23468 12.7889C2.46106 11.3026 2.86462 9.29521 4.17623 8.31823L4.18926 8.30852L4.20193 8.29834C5.33152 7.3898 7.12207 7.44889 8.09598 8.45611L8.10921 8.46979L8.12302 8.48289C8.65152 8.9839 8.85928 9.70255 8.85928 10.7436V10.8568H10.6093V10.7436C10.6093 9.51128 10.3691 8.21034 9.34085 7.22607C7.68339 5.5272 4.88287 5.51577 3.11789 6.92446C1.07968 8.45342 0.548175 11.4013 1.67527 13.5832C2.88159 16.0953 5.88263 17.3657 8.50709 16.735C11.4878 16.1053 13.6724 13.3174 13.8118 10.3583L13.8126 10.3426L13.8127 10.3269C13.8328 8.53249 13.8299 6.73532 13.827 4.94338V4.9431V4.94298C13.8264 4.56468 13.8258 4.18661 13.8254 3.80885L16.03 6.01344L17.2674 4.77602L13.5706 1.07915Z" fill="currentColor"/>
         </svg>
-        <a href="https://shareopenly.org/share/?url=https://kevin.gimbel.dev/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/&text=Publishing and building a static website on GitHub Pages">Share this article on social media</a>
-        <hr>
+        <a href="https://shareopenly.org/share/?url=https://kevin.gimbel.dev/blog/2022/12/publishing-and-building-a-static-website-on-github-pages/&text=Publishing and building a static website on GitHub Pages" title="Share this post via ShareOpenly!">Share this article on social media</a>
         <p>Did you like this article? Subscribe to the <a href="/feed.xml" class="f-small" title="Subscribe via RSS">RSS Feed</a> to get notified about new posts! 🗞️</p>
-        <p>You can also follow me on <a href="https://bsky.app/profile/kevin.gimbel.dev" title="@kevin.gimbel.dev on Bluesky">🦋 Bluesky @kevin.gimbel.dev</a> or <a href="https://fosstodon.org/@KevinGimbel" title="Follow Kevin Gimbel on Mastodon">🐘 Mastodon @KevinGimbel@fosstodon.org</a>
+        <p>You can also follow me on <a href="https://fosstodon.org/@KevinGimbel" title="Follow Kevin Gimbel on Mastodon">🐘 Mastodon @KevinGimbel@fosstodon.org</a></p>
     </footer>
 </section>
 
 
-    <footer id="footer" class="[ f-ultra stack ] [ gr-auto gc-full bg-accent ] [ c-full-width ] [ footer ]">
+    <footer id="footer" class="[ footer ]">
       <div class="content">
-        <p>Made with <a class="a-splash" href=" https://www.11ty.dev/">11ty</a> 3.0.0-alpha.4, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
-        <a href="/feed.xml" class="f-small" title="Subscribe via RSS">RSS Feed</a>
-        <p class="f-small"><a href="/imprint" title="Imprint">Imprint</a> | Views and opinions expressed on this websites do not represents views and opinions of my employer | <b>↙↙↙</b></p>
+        <p class="font-size-2">Made with <a href="https://www.11ty.dev/">11ty</a> 3.0.0-beta.1, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
+        <a href="/feed.xml" class="font-size--1" title="Subscribe via RSS">RSS Feed</a> | <a href="/imprint" title="Imprint">Imprint</a>
+        <p class="font-size--2">Views and opinions expressed on this websites do not represents views and opinions of my employer</p>
       </div>
     </footer>
   </main>

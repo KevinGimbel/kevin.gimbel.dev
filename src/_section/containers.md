@@ -6,7 +6,7 @@ icon: "🐳"
 sub_heading: |
   "It's no use Mr., it's virtualization all the way down" <a href="https://en.wikipedia.org/wiki/Turtles_all_the_way_down">🐢</a>
 position: 140
-accent_id: 2
+accent_id: 6
 skills:
   - Running CI/CD pipelines in Docker containers
   - Multi-stage docker builds

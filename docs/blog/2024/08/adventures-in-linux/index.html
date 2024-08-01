@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>
+Adventures in Linux - Kevin.Gimbel.Dev/Blog
+</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Eleventy">
+  <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✪</text></svg>">
+  <style>/* ++++++++++++++++++++++++++++++++++++++++++++++++++
+                                            BASE
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+:root {
+    --color-bg: hsl(279, 19%, 93%);
+    --color-fg: #211000;
+    --color-contrast-fg: #211000;
+    --color-contrast-bg: #211000;
+
+    --stack-spacing: 2rem;
+    --spacing: 2rem;
+
+    --color-accent-1: hsl(150, 90%, 70%);
+    --color-accent-1-contrast: hsl(150, 30%, 40%);
+    --color-accent-2: hsl(250, 100%, 77%);
+    --color-accent-2-contrast: hsl(250, 30%, 40%);
+    --color-accent-3: hsl(300, 88%, 94%);
+    --color-accent-3-contrast: hsl(300, 33%, 39%);
+    --color-accent-4: hsl(350, 100%, 70%);
+    --color-accent-4-contrast: hsl(350, 50%, 30%);
+    --color-accent-5: hsl(47, 100%, 70%);
+    --color-accent-5-contrast: hsl(47, 50%, 40%);
+    --color-accent-6: hsl(220, 100%, 70%);
+    --color-accent-6-contrast: hsl(220, 50%, 40%);
+
+    --color-black: #222;
+    --color-white: #f2f2f2;
+
+    --color-note--info: var(--color-accent-4, red);
+    --color-note--info-contrast: var(--color-accent-4-contrast, white);
+
+    /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
+    /* Utopia font */
+    --font-size--2: clamp(0.6944rem, 0.6856rem + 0.0444vi, 0.72rem);
+    --font-size--1: clamp(0.8333rem, 0.8101rem + 0.1159vi, 0.9rem);
+    --font-size-0: clamp(1rem, 0.9565rem + 0.2174vi, 1.125rem);
+    --font-size-1: clamp(1.2rem, 1.1283rem + 0.3587vi, 1.4063rem);
+    --font-size-2: clamp(1.44rem, 1.3295rem + 0.5527vi, 1.7578rem);
+    --font-size-3: clamp(1.728rem, 1.5648rem + 0.8161vi, 2.1973rem);
+    --font-size-4: clamp(2.0736rem, 1.8395rem + 1.1704vi, 2.7466rem);
+    --font-size-5: clamp(2.4883rem, 2.1597rem + 1.6433vi, 3.4332rem);
+
+    --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+
+    /* @link https://utopia.fyi/grid/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
+    /* Utopia Grid */
+    --grid-max-width: 92.5rem;
+    --grid-gutter: var(
+        --space-m-l,
+        clamp(1.6875rem, 1.4634rem + 1.1207vw, 2.5rem)
+    );
+    --grid-columns: 12;
+
+    /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=m,l,2xl,12 */
+    /* Utopia Spaces */
+    --space-3xs: clamp(0.25rem, 0.2283rem + 0.1087vi, 0.3125rem);
+    --space-2xs: clamp(0.5rem, 0.4783rem + 0.1087vi, 0.5625rem);
+    --space-xs: clamp(0.75rem, 0.7065rem + 0.2174vi, 0.875rem);
+    --space-s: clamp(1rem, 0.9565rem + 0.2174vi, 1.125rem);
+    --space-m: clamp(1.5rem, 1.4348rem + 0.3261vi, 1.6875rem);
+    --space-l: clamp(2rem, 1.913rem + 0.4348vi, 2.25rem);
+    --space-xl: clamp(3rem, 2.8696rem + 0.6522vi, 3.375rem);
+    --space-2xl: clamp(4rem, 3.8261rem + 0.8696vi, 4.5rem);
+    --space-3xl: clamp(6rem, 5.7391rem + 1.3043vi, 6.75rem);
+
+    /* One-up pairs */
+    --space-3xs-2xs: clamp(0.25rem, 0.1413rem + 0.5435vi, 0.5625rem);
+    --space-2xs-xs: clamp(0.5rem, 0.3696rem + 0.6522vi, 0.875rem);
+    --space-xs-s: clamp(0.75rem, 0.6196rem + 0.6522vi, 1.125rem);
+    --space-s-m: clamp(1rem, 0.7609rem + 1.1957vi, 1.6875rem);
+    --space-m-l: clamp(1.5rem, 1.2391rem + 1.3043vi, 2.25rem);
+    --space-l-xl: clamp(2rem, 1.5217rem + 2.3913vi, 3.375rem);
+    --space-xl-2xl: clamp(3rem, 2.4783rem + 2.6087vi, 4.5rem);
+    --space-2xl-3xl: clamp(4rem, 3.0435rem + 4.7826vi, 6.75rem);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background: var(--color-white);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-0);
+    line-height: 1.65;
+}
+
+main {
+    min-height: 100vh;
+}
+
+a,
+a:visited {
+    color: var(--color-accent-2-contrast);
+    text-decoration: dashed;
+}
+
+a:hover,
+a:focus {
+    color: var(--color-accent-2);
+    text-decoration: underline;
+}
+
+.u-container {
+    padding-inline: var(--grid-gutter);
+    margin-inline: auto;
+}
+
+.u-grid {
+    display: grid;
+    gap: var(--grid-gutter);
+    grid-template-columns: repeat(var(--grid-columns, 12), 1fr);
+    grid-template-rows: auto;
+}
+
+.single-page {
+    grid-row: 1;
+    grid-column-start: 5;
+    grid-column-end: 8;
+    min-height: 90vh;
+    padding: var(--space-l);
+}
+
+.footer {
+    grid-row: -1;
+    grid-column-start: 1;
+    grid-column-end: 12;
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: var(--space-m);
+    font-size: var(--font-size--1);
+}
+
+.footer a {
+    color: var(--color-accent-1);
+}
+
+.footer a:hover {
+    color: var(--color-accent-2);
+}
+
+.gc-full {
+    grid-column-start: 1;
+    grid-column-end: calc(var(--grid-columns, 12) + 1);
+}
+
+.gc-half {
+    grid-column-start: 1;
+    grid-column-end: calc(var(--grid-columns, 12) / 2);
+}
+
+/*
+    Typography
+*/
+
+h1,
+.font-size-5 {
+    font-size: var(--font-size-5);
+}
+
+h2,
+.font-size-4 {
+    font-size: var(--font-size-4);
+}
+
+h3,
+.font-size-3 {
+    font-size: var(--font-size-3);
+}
+
+h4,
+.font-size-2 {
+    font-size: var(--font-size-2);
+}
+
+h5,
+.font-size-1 {
+    font-size: var(--font-size-1);
+}
+
+h6,
+.font-size-0 {
+    font-size: var(--font-size-0);
+}
+
+.font-size--1 {
+    font-size: var(--font-size--1);
+}
+
+.font-size--2 {
+    font-size: var(--font-size--2);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: var(--space-s-m) 0;
+}
+
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
+table {
+    padding: var(--space-xs-s) 0;
+}
+
+ul {
+    list-style: none;
+}
+
+ul,
+li:before {
+    content: "✦";
+    padding-right: var(--space-s);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Accents */
+.bg-accent-1 {
+    --color-fg: var(--color-accent-1-contrast, #211000);
+    --color-bg: var(--color-accent-1, hsl(100, 75%, 90%));
+}
+
+.bg-accent-2 {
+    --color-fg: var(--color-accent-2-contrast, #211000);
+    --color-bg: var(--color-accent-2, hsl(200, 75%, 90%));
+
+    --color-link: white;
+}
+
+.bg-accent-3 {
+    --color-fg: var(--color-accent-3-contrast, #211000);
+    --color-bg: var(--color-accent-3, hsl(300, 75%, 90%));
+}
+
+.bg-accent-4 {
+    --color-fg: var(--color-accent-4-contrast, #211000);
+    --color-bg: var(--color-accent-4, hsl(400, 75%, 90%));
+}
+
+.bg-accent-5 {
+    --color-fg: var(--color-accent-5-contrast, #f1f1f1);
+    --color-bg: var(--color-accent-5, #211000);
+}
+
+.bg-accent-6 {
+    --color-fg: var(--color-accent-6-contrast, #f1f1f1);
+    --color-bg: var(--color-accent-6, #211000);
+}
+
+[class*="bg-accent"] {
+    color: var(--color-fg, #211000);
+    background: var(--color-bg, #f1f1f1);
+}
+
+a[class*="bg-accent"]:hover {
+    color: var(--color-bg, #f1f1f1);
+    background: var(--color-fg, #211000);
+    text-decoration: none;
+}
+
+.is-highlighted {
+    padding: var(--space-3xs);
+}
+
+.skill-section {
+    box-shadow: -3px 3px 0 #ccc;
+    border-radius: 6px;
+}
+
+.buzzes a {
+    border-radius: 6px;
+}
+
+/* Avatar on front page */
+.avatar {
+    clip-path: circle();
+    width: 100%;
+    max-width: 400px;
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++
+                                            HEADER
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing);
+    border-bottom: 1px dashed var(--color-black);
+}
+
+.site-nav {
+    display: flex;
+    gap: calc(var(--spacing) / 2);
+}
+
+.site-nav a {
+    background: #000;
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 0.25rem var(--space-s);
+    box-shadow: -3px 3px 0 #ccc;
+    border-radius: 6px;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+    background: #000;
+    color: var(--color-accent-2);
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++
+                                                HERO
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-xl-2xl, 2rem);
+}
+
+.is-intro {
+    font-size: var(--font-size-5);
+    background: var(--color-accent-1);
+    border-top: 0.125rem solid var(--color-accent-1-contrast);
+    border-bottom: 0.125rem solid var(--color-accent-1-contrast);
+}
+
+.intro-left {
+    max-width: 50%;
+}
+
+@media all and (max-width: 70rem) {
+    .is-intro {
+        flex-direction: column-reverse;
+    }
+
+    .intro-left {
+        text-align: center;
+        max-width: 100%;
+    }
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++
+                                        SKILL SECTION
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+.skill-section {
+    padding: var(--space-l-xl);
+    margin: var(--space-m-l);
+    font-size: var(--font-size-2);
+    border: 0.125rem solid;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++
+                                                    QUOTE
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+blockquote {
+    border-left: 0.25rem solid var(--color-accent-3-contrast);
+    margin-left: -1.5rem;
+    padding: var(--space-s-m);
+    font-family: var(--font-serif);
+    font-size: var(--font-size-2);
+}
+
+blockquote cite {
+    font-size: var(--font-size-0);
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++
+                                                    CODE
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+pre {
+    background: #f1f1f1;
+    color: var(--color-black);
+    padding: var(--space-s);
+    overflow: auto;
+    border: 2px inset var(--color-accent-2);
+}
+
+pre > code {
+    display: block;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++
+                                                ARTICLE
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+.article-page {
+    background: #fafafa;
+}
+
+.article-list__item {
+    padding: var(--space-m-l);
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: var(--space-xl);
+}
+
+.article-list__more-link {
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-contrast);
+    padding: var(--space-2xs-xs);
+    border-radius: 6px;
+}
+
+.article-list__more-link:hover {
+    background: var(--color-accent-2-contrast);
+    color: var(--color-accent-2);
+    text-decoration: none;
+}
+
+.wp-block-footnotes li:before {
+    content: none;
+}
+
+@media all and (min-width: 75rem) {
+    .article-page .content {
+        max-width: 60vw;
+    }
+}
+
+[class~="has-background"] {
+    background: var(--color-accent-2);
+    color: var(--color-black);
+    padding: var(--space-s-m);
+}
+
+.article-page h1,
+.article-page h2,
+.article-page h3,
+.single-page h1,
+.single-page h2,
+.single-page h3 {
+    text-shadow: -3px 3px 0 #ccc;
+}
+
+.article__footer {
+    border: 1px solid var(--color-black);
+    padding: var(--space-s-m);
+    box-shadow: -3px 3px 0 #ccc;
+}
+</style>
+  
+  
+  <style>/* .article-page {
+    --color-code-bg: #f1f1f1;
+    --color-code-fg: #333;
+}
+
+.article-list {
+    background: #fff;
+    padding: 4rem;
+    margin: 0 auto;
+    max-width: 75rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.article-page h2,
+.article-page h3 {
+    text-shadow: none;
+}
+
+.article-page p code {
+    background: var(--color-code-bg);
+    color: var(--color-code-fg);
+    padding: .15em .25em;
+    box-shadow: -4px -4px 0 #aaa;
+    border: 1px solid #aaa;
+}
+
+.wp-smiley {
+    height: 0.75em !important;
+    width: 0.75em !important;
+    display: inline;
+}
+
+figure img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+figcaption {
+    font-size: .65em;
+    padding: .25em .5em;
+    background: #211000;
+    color: #fff;
+}
+
+pre,
+.wp-block-code,
+.wp-block-preformatted {
+    background: #f1f1f1;
+    color: #211000;
+    padding: var(--spacing);
+    margin-left: calc(var(--spacing) * -2);
+    width: calc(100% + calc(4 * var(--spacing)));
+    overflow: auto;
+    font-size: 90%;
+    border-left: .25em solid #ddd;
+    border-top: .25em solid #ddd;
+}
+
+.article__og-box {
+    font-size: 1rem;
+    font-weight: bold;
+    border: .25em solid var(--color-note--info-contrast);
+    background: var(--color-note--info);
+    color: var(--color-note--info-contrast);
+    padding: calc(var(--spacing) / 2);
+}
+
+.article__og-box a {
+    color: var(--color-note--info-contrast);
+}
+
+blockquote {
+    font-family: math, serif, ui-serif;
+    font-weight: bold;
+    max-width: 90%;
+    padding: var(--spacing);
+    background: var(--color-bg);
+    border-left: 0.5em solid var(--color-accent-2);
+}
+
+blockquote cite {
+    font-size: .6em;
+    font-family: monospace;
+}
+.article__footer {
+    font-size: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+} */</style>
+  
+  
+  
+<link rel="canonical" href="https://kevingimbel.de/blog/2024/08/adventures-in-linux/" />
+
+</head>
+<body>
+  <header class="site-header">
+    <aside class="logo">
+      <a href="/ops/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="height:3rem;widht:3rem;"><text y=".9em" font-size="90">✪</text></svg></a>
+    </aside>
+    <nav class="site-nav">
+      <a href="/" class="a-blank">Home</a>
+      <a href="/about" class="a-blank">About</a>
+      <a href="/blog" class="a-blank">Blog</a>
+    </nav>
+  </header>
+  <main>
+    
+
+<section class="[ single-page article-page ]">
+    <header>
+        <h1>Adventures in Linux</h1>
+    </header>
+    <div class="content">
+        
+<p>For the longest time I&#8217;ve had a sort of craving to have a Linux Desktop again. It wasn&#8217;t enough to switch to Linux completely when I started at AOE GmbH in 2023, but it was always there. MacOS is an amazing operating system and I love it for its stability, features, available software, and &#8230; style. It just looks good, the devices feel good, and its overall a nice ecosystem (especially since I&#8217;m using an iPhone and the connection between iOS and MacOS is nice!)</p>
+
+
+
+<p>My history with Linux started around 2013<em>-ish</em> when I used <a href="https://en.wikipedia.org/wiki/Ubuntu">Ubuntu</a> &#8211; I think 12.04 or 13.04 &#8211; on an Acer laptop. After using Windows for all my life up to that point, because that&#8217;s just what one does, I wanted to dive deeper into the &#8220;server&#8221;-like Operating System called Linux (at the time I knew little about Linux, different distributions, or open source). My friend and colleague <a href="https://nerddis.co">Tim Pietrusky</a> introduced me to Ubuntu and helped me get it up and running, and for years I&#8217;ve used a Ubuntu Desktop for all things dev before switching to MacOS.</p>
+
+
+
+<p>Anyways, in 2023/2024 I wanted a Linux PC again. Luckily, I came upon a cheap old<em>-ish</em> MacBook so I decided to give Linux a try. First I tried Ubuntu and Debian, both not working too well, then I tried Arch, also not working too well, and finally I gave up because they all wouldn&#8217;t work reliably. A few months passed, I setup Fedora in a VM on my work MacBook to try using Linux more. I liked Fedora, and I liked Gnome as Desktop so I did some more research and it turns out my main problem was a T2 security ship in the Mac!</p>
+
+
+
+<p>In the end the solution was to use <a href="https://t2linux.org" target="_blank" rel="noreferrer noopener">t2linux</a>, a special Linux Kernel with a bunch of patches to run Linux distributions on MacBooks with the T2 Security chip. The guides in the wiki are straight forward, a lot of stuff could be copy-pasted, and now most things are working and I&#8217;ve a Linux Desktop running Fedora 40!<em> Yay! </em>🐧</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="752" data-attachment-id="2977" data-permalink="https://kevingimbel.de/blog/2024/08/adventures-in-linux/image/" data-orig-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?fit=1648%2C1210&amp;ssl=1" data-orig-size="1648,1210" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image" data-image-description="" data-image-caption="" data-medium-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?fit=300%2C220&amp;ssl=1" data-large-file="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?fit=1024%2C752&amp;ssl=1" tabindex="0" role="button" src="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=1024%2C752&#038;ssl=1" alt="Screenshot of a terminal showing the output of neofetch which shows the fedora logo as ascii art and meta data about the system" class="wp-image-2977" srcset="https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=1024%2C752&amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=300%2C220&amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=768%2C564&amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=1536%2C1128&amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?w=1648&amp;ssl=1 1648w" sizes="(max-width: 1000px) 100vw, 1000px" data-recalc-dims="1" /><figcaption class="wp-element-caption">Output of neofetch on my Fedora 40 machine. <em>Yes I use light themes because dark themes are bad for my eyes somehow.</em></figcaption></figure>
+
+
+
+<h2 class="wp-block-heading">Tools and Software</h2>
+
+
+
+<p>A lot of the tools I use on Mac can also be used on Linux systems, like the following:</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://vivaldi.com">Vivaldi Browser</a></li>
+
+
+
+<li><a href="https://joplinapp.org">Joplin</a></li>
+
+
+
+<li><a href="https://nextcloud.com">Nextcloud</a> (natively integrated as &#8220;Online Account&#8221; even!)</li>
+
+
+
+<li><a href="https://wezfurlong.org/wezterm/index.html">WezTerm</a></li>
+
+
+
+<li><a href="https://code.visualstudio.com">VSCode</a></li>
+
+
+
+<li><a href="https://www.zsh.org">zsh</a> and <a href="https://ohmyz.sh">oh-my-zsh</a></li>
+
+
+
+<li><a href="https://starship.rs">starship</a> prompt</li>
+
+
+
+<li><a href="https://spacevim.org">SpaceVim</a></li>
+</ul>
+
+
+
+<p>&#8230; I&#8217;m probably missing something, but these were the first tools I setup, alongside Rust, Haskell, Node, and Go.</p>
+
+
+
+<h2 class="wp-block-heading">Problems</h2>
+
+
+
+<p>A few problems I encountered.</p>
+
+
+
+<h3 class="wp-block-heading">KeePassXC Browser extension</h3>
+
+
+
+<p>First of all, I wasn&#8217;t able to use KeePassXC with Vivaldi. I foolishly installed Vivaldi from the Software Center / App Store thingy, which uses Flatpak, which sandboxes Vivaldi and prevents it from interacting with the KeePassXC program. The more you know!</p>
+
+
+
+<p>Luckily, I got <a href="https://forum.vivaldi.net/topic/99310/keepassxc-extension-cannot-connect-to-db">help on the Vivaldi Forums</a> from a user who pointed out the sandboxing issue.</p>
+
+
+
+<h3 class="wp-block-heading">Suspend</h3>
+
+
+
+<p>The suspend feature is not working at all. When I enter suspended state and try to re-active the PC it shows the login screen and freezes, or does nothing at all.</p>
+
+
+
+<p>I tried the fix <a href="https://wiki.t2linux.org/guides/postinstall/#suspend-workaround">from the t2linux wiki</a>, but it didn&#8217;t work. I&#8217;ll need to investigate more. With the <code>suspend-fix-t2.service</code> enabled I could log back in after a suspend but then wifi wasn&#8217;t working&#8230; but there&#8217;s also <a href="https://wiki.t2linux.org/distributions/fedora/faq/#my-wi-fi-stops-working-after-suspending">a fix for that</a>! So I just need to try a bit more. 💪</p>
+
+
+
+<h3 class="wp-block-heading">CMD / CTRL swapping</h3>
+
+
+
+<p>Coming from Mac I swapped the CMD and CTRL keys using <a href="https://github.com/GNOME/gnome-tweaks">GNOME Tweaks</a>, but it feels&#8230; wrong. The CMD key on Mac isn&#8217;t a direct replacement for the CTRL key and there are some combinations where CTRL is used (e.g. CTRL + L in the terminal to clear the screen) so I&#8217;d kind-of like to have all of them working. 😬 </p>
+
+
+
+<h2 class="wp-block-heading">Conclusion</h2>
+
+
+
+<p>While it&#8217;s nice to have a Linux computer again, a T2 MacBook isn&#8217;t the best choice. If I was to buy a device again it would probably be a Lenovo ThinkPad. As for Fedora I feel as confident as with most of the other Linux distributions: It works fine, looks OK, and feels right. I&#8217;ve used Ubuntu in the past, and tried Debian, and now settled on Fedora for the time being. </p>
+
+
+
+<p>I&#8217;ll see how often I use this computer at all, given that I am not doing a lot of development at home and out of work these days, but we&#8217;ll see!</p>
+
+    </div>
+    <footer class="article__footer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" style="top: 4px;position: relative;">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5706 1.07915L12.9519 0.460419L12.3332 1.07914L8.6363 4.77601L9.87373 6.01345L12.0754 3.8118C12.0758 4.19678 12.0764 4.58119 12.077 4.96525V4.9653V4.96533C12.0799 6.74156 12.0828 8.51005 12.063 10.291C11.9514 12.51 10.2821 14.5766 8.13549 15.0249L8.12156 15.0278L8.10773 15.0311C6.21947 15.49 4.06987 14.5395 3.24835 12.8164L3.24176 12.8025L3.23468 12.7889C2.46106 11.3026 2.86462 9.29521 4.17623 8.31823L4.18926 8.30852L4.20193 8.29834C5.33152 7.3898 7.12207 7.44889 8.09598 8.45611L8.10921 8.46979L8.12302 8.48289C8.65152 8.9839 8.85928 9.70255 8.85928 10.7436V10.8568H10.6093V10.7436C10.6093 9.51128 10.3691 8.21034 9.34085 7.22607C7.68339 5.5272 4.88287 5.51577 3.11789 6.92446C1.07968 8.45342 0.548175 11.4013 1.67527 13.5832C2.88159 16.0953 5.88263 17.3657 8.50709 16.735C11.4878 16.1053 13.6724 13.3174 13.8118 10.3583L13.8126 10.3426L13.8127 10.3269C13.8328 8.53249 13.8299 6.73532 13.827 4.94338V4.9431V4.94298C13.8264 4.56468 13.8258 4.18661 13.8254 3.80885L16.03 6.01344L17.2674 4.77602L13.5706 1.07915Z" fill="currentColor"/>
+        </svg>
+        <a href="https://shareopenly.org/share/?url=https://kevin.gimbel.dev/blog/2024/08/adventures-in-linux/&text=Adventures in Linux" title="Share this post via ShareOpenly!">Share this article on social media</a>
+        <p>Did you like this article? Subscribe to the <a href="/feed.xml" class="f-small" title="Subscribe via RSS">RSS Feed</a> to get notified about new posts! 🗞️</p>
+        <p>You can also follow me on <a href="https://fosstodon.org/@KevinGimbel" title="Follow Kevin Gimbel on Mastodon">🐘 Mastodon @KevinGimbel@fosstodon.org</a></p>
+    </footer>
+</section>
+
+
+    <footer id="footer" class="[ footer ]">
+      <div class="content">
+        <p class="font-size-2">Made with <a href="https://www.11ty.dev/">11ty</a> 3.0.0-beta.1, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
+        <a href="/feed.xml" class="font-size--1" title="Subscribe via RSS">RSS Feed</a> | <a href="/imprint" title="Imprint">Imprint</a>
+        <p class="font-size--2">Views and opinions expressed on this websites do not represents views and opinions of my employer</p>
+      </div>
+    </footer>
+  </main>
+</body>
+<script>document.addEventListener('DOMContentLoaded', function () {
+  let favicon_txt = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%EMOJI%</text></svg>`
+  let favicon_el = document.head.querySelector('#favicon');
+  let sections = Array.from(document.querySelectorAll('section[data-icon]'));
+  let last_active_section = null;
+  let YEAR_NOW = new Date().getFullYear().toFixed(0);
+  let years_working = document.querySelector(".js-years-working");
+  let all_time_since = document.querySelectorAll(".js-time-since");
+
+  const set_favicon = (emoji) => {
+    let txt = favicon_txt.replace('%EMOJI%', emoji);
+    favicon_el.setAttribute('href', txt);
+  }
+
+  window.addEventListener('scroll', (event) => {
+    let sections_in_view = sections.filter((section) => section.offsetTop <= window.scrollY);
+    let active_section = sections_in_view[sections_in_view.length - 1];
+    if (last_active_section != active_section) {
+      last_active_section = active_section;
+      set_favicon(active_section.dataset.icon);
+    }
+  });
+
+  all_time_since.forEach((element, _key) => {
+    let year = element.dataset.year;
+
+    if (year) {
+      try {
+        let year_num = parseInt(year);
+        element.textContent = YEAR_NOW - year_num;
+      } catch (err) {
+        console.log("Error calculating year: ", err);
+      }
+    }
+  })
+
+  if (years_working) {
+    years_working.textContent = YEAR_NOW - 2009;
+  }
+});</script>
+<script>class KGType extends HTMLElement {
+
+    static register(tagName) {
+        if ("customElements" in window) {
+            customElements.define(tagName || "kg-type", KGType);
+        }
+    }
+
+    static css = `:host {
+        display: var(--kg-type-display, inline-block);
+        color: var(--kg-type-color, #000);
+        font-size: var(--kg-type-fontsize, 1rem);
+    }`;
+
+    constructor() {
+        // Web Component setup
+        super();
+
+        // Get settings from element
+        this._seperator = this.getAttribute("seperator") || ",";
+        this._cursor = this.getAttribute("cursor") || "_";
+        this._words = (this.getAttribute("words") || "").split(this._seperator);
+        this._currentWord = this._words[0] || "";
+        this._timeout = parseInt(this.getAttribute("clear-interval")) || 2000;
+        this._typeInterval = parseInt(this.getAttribute("type-interval")) || 150;
+        this._shuffle = this.getAttribute("shuffle") || false;
+        this._deleteReverse = this.getAttribute("delete-reverse") || false;
+        this._interval = null;
+
+        // if shuffle, the array is shuffled
+        if (this._shuffle) {
+            // much random, very shuffle. 
+            this._words.sort(() => Math.random() - 0.5);
+        }
+
+        this.connectedCallback();
+        this.render();
+    }
+
+    connectedCallback() {
+        // https://caniuse.com/mdn-api_cssstylesheet_replacesync
+        if (this.shadowRoot || !("replaceSync" in CSSStyleSheet.prototype)) {
+            return;
+        }
+
+        let root = this.attachShadow({ mode: "open" });
+        let sheet = new CSSStyleSheet();
+        sheet.replaceSync(KGType.css);
+        root.adoptedStyleSheets = [sheet];
+    }
+
+    render() {
+        this.typeTextByLetter();
+    }
+
+    setNextWord() {
+        let nextIdx = this._words.indexOf(this._currentWord) + 1;
+        if (this._words[nextIdx]) {
+            this._currentWord = this._words[nextIdx];
+        } else {
+            this._currentWord = this._words[0];
+        }
+    }
+
+    removeTextByLetter() {
+        let word = this.shadowRoot.textContent.slice(0, -1);
+        let cursor = this._cursor;
+        let idx = word.length;
+        let typeInterval = this._typeInterval;
+
+        this._interval = setInterval(() => {
+            word = word.slice(0, idx);
+            this.shadowRoot.textContent = `${word}${cursor}`;
+            idx--;
+
+            if (idx == 0 || word == "") {
+                clearInterval(this._interval);
+                this.setNextWord();
+                this.typeTextByLetter();
+            }
+        }, typeInterval);
+    }
+
+    typeTextByLetter() {
+        let timeout = this._timeout;
+        let cursor = this._cursor;
+        let typeInterval = this._typeInterval;
+        let letter = -1;
+
+        if (this._currentWord.length == 0) { return; }
+
+        this._interval = setInterval(() => {
+            let word = this._currentWord;
+            this.shadowRoot.textContent = `${word.substring(0, letter)}${cursor}`;
+            letter++;
+
+            if (letter == word.length + 1) {
+                // setTimeout blocks execution until the timer is done, 
+                // which will clear the word after two seconds.
+                setTimeout(() => {
+                    clearInterval(this._interval);
+                    if (this._deleteReverse) {
+                        this.removeTextByLetter();
+                    } else {
+                        this.setNextWord()
+                        this.typeTextByLetter();
+                    }
+                }, timeout);
+            }
+        }, typeInterval);
+    }
+}
+
+KGType.register();</script>
+</html>

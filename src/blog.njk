@@ -1,15 +1,15 @@
 {% extends "base.njk" %}
 
 {% block content %}
-{% include 'nav.njk' %}
-<section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]">
+
+<section class="[ u-container ]">
     <div class="content">
         <ul class="article-list">
         {% for article in blog %}
         <li class="article-list__item [ section__styled box-shadow__styled ]">
             <h2><a href="/{{ article.slug }}">{{ article.title | safe }}</a></h2>
             <p>{{ article.excerpt | safe }}</p>
-            <a href="/{{ article.slug }}" class="article-list__more-link">Continue reading &gt;&gt;</a>
+            <a href="/{{ article.slug }}" class="article-list__more-link">Continue reading →</a>
         </li>
         {%- endfor -%}
         </ul>

@@ -1,71 +1,69 @@
 {% extends "base.njk" %}
 
 {% block content %}
-  <section id="{{ page.data.id }}" class="[ f-ultra  stack ] [ bg-accent ] [ grid gr-auto ] [ c-full-width c-full-height start ]" style="--spacing: 4rem; --color-bg: #222; --color-fg: #c1c1c1;" data-icon="~">
-      <div class="gc-1-7">
-        <h1>Hi, I'm Kevin {% include "verified.njk" %}</h1>
-        <h2>a Platform&nbsp;/&nbsp;DevOps Engineer <br>working at <a href="https://aoe.com" title="AOE">AOE GmbH</a>.</h2>
-      </div>
-      <div class="gc-8-12">
-        <img src="/assets/img/avatar-aoe.jpg" class="box-shadow__styled" style="max-height: 25rem;" alt="A photograph of me, Kevin Gimbel, in front of a grey background" />
-      </div>
-      <div class="gc-full">
-        <p>I've spent the last <span class="js-years-working">14</span> years learning to build websites & run servers; worked in e-Commerce from 2013 to 2023, and started focusing on Platform Engineering in early 2023. Right now I'm part of a DevOps/Platform Team running and building a Kubernetes based Platform for multiple developer teams.</p>
-        <p><small>🐝 Buzzwords: <a href="#cloud-computing" class="fg-accent-1 a-blank">Cloud Computing</a> <a href="#kubernetes" class="fg-accent-2 a-blank">Kubernetes</a> <a href="#automation" class="fg-accent-3 a-blank">Automation</a> <a href="#monitoring" class="fg-accent-4 a-blank">Monitoring</a></small></p>
-        <p class="f-small" style="height: 1rem;">Random facts: <kg-type style="--kg-type-color: #fff;" delete-reverse="true" interval="100" shuffle="true" words='big Rust fan,(used to) love Go,Punk at heart,kinda soft <3,digital native... I guess??,Loved Tumblr - and MySpace -- and MSN!,Always loved publishing on the web,Love to blog and used to tweet a lot,<3 photography,I develop B&W film using coffee'>Big Rust fan.</kg-type></p>
-        <p><center>⬇</center></p>
-      </div>
-  </section>
-  {% include 'nav.njk' %}
 
-  <section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]">
-    <div class="content">
+<header class="[ hero is-intro ] [ u-grid ]">
+  <aside class="intro-left">
+    <h1>Hi, I'm Kevin {% include "verified.njk" %}</h1>
+    <h2 class="font-size-3">a Platform & DevOps Engineer working at <a href="https://aoe.com" title="Visit aoe.com">AOE GmbH</a>.</h2>
+  </aside>
+  <aside class="intro-right">
+    <img src="/assets/img/avatar-aoe.jpg" class="avatar" alt="A photograph of me, Kevin Gimbel, in front of a grey background" />
+  </aside>
+<div class="intro-cta">
+  <p class="font-size-2">I've spent the last <span class="is-highlighted bg-accent-3">15 years learning to build websites & run servers</span>; worked in e-Commerce from 2013 to 2023, and started focusing on Platform Engineering in early 2023. Right now I'm part of a DevOps/Platform Team running and building a Kubernetes based Platform for multiple developer teams.</p>
+
+  <p class="font-size--1 buzzes">🐝 Buzzwords: <a href="#cloud-computing" class="is-highlighted bg-accent-5">Cloud Computing</a> <a href="#kubernetes" class="is-highlighted bg-accent-6">Kubernetes</a> <a href="#automation" class="is-highlighted bg-accent-3">Automation</a> <a href="#monitoring" class="is-highlighted bg-accent-4">Monitoring</a></p>
+</div>
+</header>
+
+  <section class="[ gc-half skill-section ]">
       <hgroup>
-        <h3 class="f-heading-big">News from the <del style="position: relative; transform: rotate(-4deg); display: inline-block;">block</del> blog</h3>
+        <h3 class="font-size-5">News from the <del style="position: relative; transform: rotate(-4deg); display: inline-block;">block</del> blog</h3>
       </hgroup>
-      <ul class="article-list article-list--inline">
+      <ul class="article-list">
         {% for idx in [0, 1, 2] %}
         {% set article = blog[idx] %}
-        <li class="article-list__item [ section__styled box-shadow__styled ]">
-            <h2><a href="/{{ article.slug }}">{{ article.title | safe }}</a></h2>
-            <p>{{ article.excerpt | safe }}</p>
-            <a href="/{{ article.slug }}" class="article-list__more-link">Continue reading &gt;&gt;</a>
+        <li class="article-list__item">
+            <h4 class="font-size-3"><a href="/{{ article.slug }}">{{ article.title | safe }}</a></h4>
+            {{ article.excerpt | safe }}
+            <a href="/{{ article.slug }}" class="article-list__more-link" title="Continue reading {{ article.title }}">Continue reading →</a>
         </li>
         {%- endfor -%}
         </ul>
-    </div>
+  </section>
+
+
+  <header class="[ u-grid ]">
+      <hgroup class="[ skill-section gc-full ]">
+        <h3 class="font-size-5">Skills, tools, and other work stuff</h3>
+      </hgroup>
+  </header>
+
+  {% for page in collections.sections %}
+    <section id="{{ page.data.id }}" data-icon="{{ page.data.icon or "~" }}" class="[ bg-accent-{{ page.data.accent_id }} ] [ skill-section ]">
+      {%- if page.data.sub_heading or page.data.title -%}
+      <hgroup>
+        {%- if page.data.title -%}
+        <h3 class="font-size-5">{{ page.data.title }} {{ page.data.icon }}</h3>
+        {%- endif -%}
+        {%- if page.data.sub_heading -%}
+        <h4 class="font-size-3">{{ page.data.sub_heading | safe }}</h4>
+        {%- endif -%}
+      </hgroup>
+      {%- endif -%}
+      <div class="content">
+        {{ page.templateContent | safe }}
+        {%- if page.data.skills.length -%}
+        <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
+          {% for skill in page.data.skills %}
+          <li class="[ c-skill-list__item ]">{{ skill | safe }}</li>
+          {% endfor %}
+        </ul>
+        {%- endif -%}
+      </div>
+    </section>
+  {%- endfor -%}
 </section>
 
-<section class="[ f-ultra stack ] [ gr-auto gc-full ] [ c-full-width ]">
-  <div class="content">
-    <hgroup>
-      <h3 class="f-heading-big">Skills, tools, and other work stuff</h3>
-    </hgroup>
-  </div>
-</section>
-
-{% for page in collections.sections %}
-  <section id="{{ page.data.id }}" class="[ f-ultra bg-accent-{{ page.data.accent_id }} stack ] [ section__styled box-shadow__styled ] [ gr-auto gc-full ] [ c-full-width c-full-height ]" style="--spacing: 4rem;{% for style in page.data.styles %} {{ style }}{% endfor %}" data-icon="{{ page.data.icon or "~" }}">
-    {%- if page.data.sub_heading or page.data.title -%}
-    <hgroup>
-      {%- if page.data.title -%}
-      <h3 class="f-heading-big">{{ page.data.title }} {{ page.data.icon }}</h3>
-      {%- endif -%}
-      {%- if page.data.sub_heading -%}
-      <h4>{{ page.data.sub_heading | safe }}</h4>
-      {%- endif -%}
-    </hgroup>
-    {%- endif -%}
-    <div class="content">
-      {{ page.templateContent | safe }}
-      {%- if page.data.skills.length -%}
-      <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
-        {% for skill in page.data.skills %}
-        <li class="[ c-skill-list__item ]">{{ skill | safe }}</li>
-        {% endfor %}
-      </ul>
-      {%- endif -%}
-    </div>
-</section>
-{%- endfor -%}
 {% endblock %}
