@@ -12,6 +12,135 @@
   </author>
   
   <entry>
+    <title type="html">Adventures in Linux</title>
+    <link href="https://kevin.gimbel.dev/blog/2024/08/adventures-in-linux/" />
+    <id>https://kevingimbel.de/blog/2024/08/adventures-in-linux/</id>
+    <updated>Z</updated>
+    <summary type="html">&lt;p&gt;For the longest time I&amp;#8217;ve had a sort of craving to have a Linux Desktop again. It wasn&amp;#8217;t enough to switch to Linux completely when I started at AOE GmbH in 2023, but it was always there. MacOS is an amazing operating system and I love it for its stability, features, available software, and &amp;#8230; [&amp;hellip;]&lt;/p&gt;
+</summary>
+    <content type="html">
+    
+&lt;p&gt;For the longest time I&amp;#8217;ve had a sort of craving to have a Linux Desktop again. It wasn&amp;#8217;t enough to switch to Linux completely when I started at AOE GmbH in 2023, but it was always there. MacOS is an amazing operating system and I love it for its stability, features, available software, and &amp;#8230; style. It just looks good, the devices feel good, and its overall a nice ecosystem (especially since I&amp;#8217;m using an iPhone and the connection between iOS and MacOS is nice!)&lt;/p&gt;
+
+
+
+&lt;p&gt;My history with Linux started around 2013&lt;em&gt;-ish&lt;/em&gt; when I used &lt;a href=&quot;https://en.wikipedia.org/wiki/Ubuntu&quot;&gt;Ubuntu&lt;/a&gt; &amp;#8211; I think 12.04 or 13.04 &amp;#8211; on an Acer laptop. After using Windows for all my life up to that point, because that&amp;#8217;s just what one does, I wanted to dive deeper into the &amp;#8220;server&amp;#8221;-like Operating System called Linux (at the time I knew little about Linux, different distributions, or open source). My friend and colleague &lt;a href=&quot;https://nerddis.co&quot;&gt;Tim Pietrusky&lt;/a&gt; introduced me to Ubuntu and helped me get it up and running, and for years I&amp;#8217;ve used a Ubuntu Desktop for all things dev before switching to MacOS.&lt;/p&gt;
+
+
+
+&lt;p&gt;Anyways, in 2023/2024 I wanted a Linux PC again. Luckily, I came upon a cheap old&lt;em&gt;-ish&lt;/em&gt; MacBook so I decided to give Linux a try. First I tried Ubuntu and Debian, both not working too well, then I tried Arch, also not working too well, and finally I gave up because they all wouldn&amp;#8217;t work reliably. A few months passed, I setup Fedora in a VM on my work MacBook to try using Linux more. I liked Fedora, and I liked Gnome as Desktop so I did some more research and it turns out my main problem was a T2 security ship in the Mac!&lt;/p&gt;
+
+
+
+&lt;p&gt;In the end the solution was to use &lt;a href=&quot;https://t2linux.org&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;t2linux&lt;/a&gt;, a special Linux Kernel with a bunch of patches to run Linux distributions on MacBooks with the T2 Security chip. The guides in the wiki are straight forward, a lot of stuff could be copy-pasted, and now most things are working and I&amp;#8217;ve a Linux Desktop running Fedora 40!&lt;em&gt; Yay! &lt;/em&gt;🐧&lt;/p&gt;
+
+
+
+&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;img loading=&quot;lazy&quot; decoding=&quot;async&quot; width=&quot;1024&quot; height=&quot;752&quot; data-attachment-id=&quot;2977&quot; data-permalink=&quot;https://kevingimbel.de/blog/2024/08/adventures-in-linux/image/&quot; data-orig-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?fit=1648%2C1210&amp;amp;ssl=1&quot; data-orig-size=&quot;1648,1210&quot; data-comments-opened=&quot;1&quot; data-image-meta=&quot;{&amp;quot;aperture&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;credit&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;camera&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;caption&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;created_timestamp&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;copyright&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;focal_length&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;iso&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;shutter_speed&amp;quot;:&amp;quot;0&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;orientation&amp;quot;:&amp;quot;0&amp;quot;}&quot; data-image-title=&quot;image&quot; data-image-description=&quot;&quot; data-image-caption=&quot;&quot; data-medium-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?fit=300%2C220&amp;amp;ssl=1&quot; data-large-file=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?fit=1024%2C752&amp;amp;ssl=1&quot; tabindex=&quot;0&quot; role=&quot;button&quot; src=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=1024%2C752&amp;#038;ssl=1&quot; alt=&quot;Screenshot of a terminal showing the output of neofetch which shows the fedora logo as ascii art and meta data about the system&quot; class=&quot;wp-image-2977&quot; srcset=&quot;https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=1024%2C752&amp;amp;ssl=1 1024w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=300%2C220&amp;amp;ssl=1 300w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=768%2C564&amp;amp;ssl=1 768w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?resize=1536%2C1128&amp;amp;ssl=1 1536w, https://i0.wp.com/kevingimbel.de/wp-content/uploads/2024/07/image.png?w=1648&amp;amp;ssl=1 1648w&quot; sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot; data-recalc-dims=&quot;1&quot; /&gt;&lt;figcaption class=&quot;wp-element-caption&quot;&gt;Output of neofetch on my Fedora 40 machine. &lt;em&gt;Yes I use light themes because dark themes are bad for my eyes somehow.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Tools and Software&lt;/h2&gt;
+
+
+
+&lt;p&gt;A lot of the tools I use on Mac can also be used on Linux systems, like the following:&lt;/p&gt;
+
+
+
+&lt;ul class=&quot;wp-block-list&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;https://vivaldi.com&quot;&gt;Vivaldi Browser&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://joplinapp.org&quot;&gt;Joplin&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://nextcloud.com&quot;&gt;Nextcloud&lt;/a&gt; (natively integrated as &amp;#8220;Online Account&amp;#8221; even!)&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://wezfurlong.org/wezterm/index.html&quot;&gt;WezTerm&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://code.visualstudio.com&quot;&gt;VSCode&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://www.zsh.org&quot;&gt;zsh&lt;/a&gt; and &lt;a href=&quot;https://ohmyz.sh&quot;&gt;oh-my-zsh&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://starship.rs&quot;&gt;starship&lt;/a&gt; prompt&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href=&quot;https://spacevim.org&quot;&gt;SpaceVim&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;&amp;#8230; I&amp;#8217;m probably missing something, but these were the first tools I setup, alongside Rust, Haskell, Node, and Go.&lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Problems&lt;/h2&gt;
+
+
+
+&lt;p&gt;A few problems I encountered.&lt;/p&gt;
+
+
+
+&lt;h3 class=&quot;wp-block-heading&quot;&gt;KeePassXC Browser extension&lt;/h3&gt;
+
+
+
+&lt;p&gt;First of all, I wasn&amp;#8217;t able to use KeePassXC with Vivaldi. I foolishly installed Vivaldi from the Software Center / App Store thingy, which uses Flatpak, which sandboxes Vivaldi and prevents it from interacting with the KeePassXC program. The more you know!&lt;/p&gt;
+
+
+
+&lt;p&gt;Luckily, I got &lt;a href=&quot;https://forum.vivaldi.net/topic/99310/keepassxc-extension-cannot-connect-to-db&quot;&gt;help on the Vivaldi Forums&lt;/a&gt; from a user who pointed out the sandboxing issue.&lt;/p&gt;
+
+
+
+&lt;h3 class=&quot;wp-block-heading&quot;&gt;Suspend&lt;/h3&gt;
+
+
+
+&lt;p&gt;The suspend feature is not working at all. When I enter suspended state and try to re-active the PC it shows the login screen and freezes, or does nothing at all.&lt;/p&gt;
+
+
+
+&lt;p&gt;I tried the fix &lt;a href=&quot;https://wiki.t2linux.org/guides/postinstall/#suspend-workaround&quot;&gt;from the t2linux wiki&lt;/a&gt;, but it didn&amp;#8217;t work. I&amp;#8217;ll need to investigate more. With the &lt;code&gt;suspend-fix-t2.service&lt;/code&gt; enabled I could log back in after a suspend but then wifi wasn&amp;#8217;t working&amp;#8230; but there&amp;#8217;s also &lt;a href=&quot;https://wiki.t2linux.org/distributions/fedora/faq/#my-wi-fi-stops-working-after-suspending&quot;&gt;a fix for that&lt;/a&gt;! So I just need to try a bit more. 💪&lt;/p&gt;
+
+
+
+&lt;h3 class=&quot;wp-block-heading&quot;&gt;CMD / CTRL swapping&lt;/h3&gt;
+
+
+
+&lt;p&gt;Coming from Mac I swapped the CMD and CTRL keys using &lt;a href=&quot;https://github.com/GNOME/gnome-tweaks&quot;&gt;GNOME Tweaks&lt;/a&gt;, but it feels&amp;#8230; wrong. The CMD key on Mac isn&amp;#8217;t a direct replacement for the CTRL key and there are some combinations where CTRL is used (e.g. CTRL + L in the terminal to clear the screen) so I&amp;#8217;d kind-of like to have all of them working. 😬 &lt;/p&gt;
+
+
+
+&lt;h2 class=&quot;wp-block-heading&quot;&gt;Conclusion&lt;/h2&gt;
+
+
+
+&lt;p&gt;While it&amp;#8217;s nice to have a Linux computer again, a T2 MacBook isn&amp;#8217;t the best choice. If I was to buy a device again it would probably be a Lenovo ThinkPad. As for Fedora I feel as confident as with most of the other Linux distributions: It works fine, looks OK, and feels right. I&amp;#8217;ve used Ubuntu in the past, and tried Debian, and now settled on Fedora for the time being. &lt;/p&gt;
+
+
+
+&lt;p&gt;I&amp;#8217;ll see how often I use this computer at all, given that I am not doing a lot of development at home and out of work these days, but we&amp;#8217;ll see!&lt;/p&gt;
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
+  </entry>
+  <entry>
     <title type="html">RE: Second Factor SMS: Worse than It&amp;#8217;s Reputation</title>
     <link href="https://kevin.gimbel.dev/blog/2024/07/re-second-factor-sms-worse-than-its-reputation/" />
     <id>https://kevingimbel.de/blog/2024/07/re-second-factor-sms-worse-than-its-reputation/</id>
@@ -19,6 +148,7 @@
     <summary type="html">&lt;p&gt;Another day, another (big) leak: CCC, Chaos Computer Club, obtained millions of SMS containing Two-Factor Auth (2FA) tokens which where publicly available on the internet. One-time passwords are often sent via SMS. Security researchers from the CCC recently had live access to over 200 million such SMS messages from more than 200 affected companies. via [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;Another day, another (big) leak: CCC, &lt;em&gt;Chaos Computer Club&lt;/em&gt;, obtained millions of SMS containing Two-Factor Auth (&lt;em&gt;2FA&lt;/em&gt;) tokens which where publicly available on the internet.&lt;/p&gt;
 
 
@@ -56,7 +186,10 @@
 
 &lt;li&gt;&lt;a href=&quot;https://www.theverge.com/2021/3/15/22332315/sms-redirect-flaw-exploit-text-message-hijacking-hacking&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;&amp;#8220;Companies can silently reroute your texts to hackers, sometimes for just $16&amp;#8221; by The Verge&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Learning Haskell: Caesar cipher</title>
@@ -66,6 +199,7 @@
     <summary type="html">&lt;p&gt;In my quest to learn Haskell I&amp;#8217;ve been reading through Learn You A Haskell, a great book on understanding Haskell. BEFORE WE START: I do not know much about Haskell, I&amp;#8217;ve started learning it literally last week. So please do correct me if I make mistakes in this post 🙂 While reading about function signatures [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;In my quest to learn Haskell I&amp;#8217;ve been reading through &lt;a href=&quot;https://learnyouahaskell.com/types-and-typeclasses#believe-the-type&quot;&gt;Learn You A Haskell,&lt;/a&gt; a great book on understanding Haskell.&lt;/p&gt;
 
 
@@ -257,7 +391,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 &lt;li&gt;&lt;a href=&quot;https://learnyouahaskell.com/starting-out#im-a-list-comprehension&quot;&gt;https://learnyouahaskell.com/starting-out#im-a-list-comprehension&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">AI now means Apple Intelligence</title>
@@ -267,6 +404,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;Yesterday (10. June 2024) Apple revealed its new features for the next releases of iOS, MacOS, et all. and with no big surprise the reveal included the addition of AI tools into the operating system and Siri. While I&amp;#8217;m very sceptical of AI build into the OS, I must say Apple seems to be on [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;Yesterday (&lt;em&gt;10. June 2024&lt;/em&gt;) Apple revealed its new features for the next releases of iOS, MacOS, et all. and with no big surprise the reveal included&lt;a href=&quot;https://www.apple.com/apple-intelligence/&quot;&gt; the addition of AI tools into the operating system and Siri&lt;/a&gt;.&lt;/p&gt;
 
 
@@ -368,7 +506,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 &lt;li&gt;WWDC 2024 recording &lt;a href=&quot;https://www.youtube.com/watch?v=RXeOiIDNNek&quot;&gt;https://www.youtube.com/watch?v=RXeOiIDNNek&lt;/a&gt; &lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: BundID: Eine digitale Identität schafft (falsches) Vertrauen</title>
@@ -378,6 +519,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;Ohje… was ist da wieder los? Lilith Wittmann dokumentiert, wie sie innerhalb von kürzester Zeit eine Fake Seite mit dem BundID Login ausstatten konnte und somit legitim wirken lies. Wild! Weil ich weiß, wie oft SAML falsch implementiert wird, habe ich also in den Verwaltungsportalen von Städten gezielt nach solchen Sicherheitslücken gesucht und bin auch [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;Ohje… was ist da wieder los? Lilith Wittmann dokumentiert, wie sie innerhalb von kürzester Zeit eine Fake Seite mit dem BundID Login ausstatten konnte und somit legitim wirken lies. Wild!&lt;/p&gt;
 
 
@@ -409,7 +551,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 &lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&quot;&gt;https://lilithwittmann.medium.com/bundid-eine-digitale-identität-schafft-falsches-vertrauen-4a1d0a3faa03&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: What if we worked together</title>
@@ -419,6 +564,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;The folks at Ghost are building federation into &amp;#8230; Ghost! Ghost is the latest of a growing number of networks joining the Fediverse by implementing ActivityPub (among them are Flipboard and Threads, the new thingy from Meta)! I really love to see the Fediverse grow and evolve. It feels good to be part of it! [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;The folks at &lt;a href=&quot;https://ghost.org/&quot;&gt;Ghost&lt;/a&gt; are building &lt;a href=&quot;https://activitypub.ghost.org/day4/&quot;&gt;federation into &amp;#8230; Ghost&lt;/a&gt;! &lt;/p&gt;
 
 
@@ -446,7 +592,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 &lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;Activity Pub implementation Dev Blog &lt;a href=&quot;https://activitypub.ghost.org&quot;&gt;https://activitypub.ghost.org&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: The Justice Department Took Down the 911 S5 Botnet</title>
@@ -456,6 +605,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;A big-ass botnet has been dismantled by an international cooperation of agencies led by law enforcement in the United States, Singapore, Thailand, and Germany. [&amp;#8230;] devices were associated with more than 19 million unique IP addresses, including 613,841 IP addresses located in the United States. Wang then generated millions of dollars by offering cybercriminals access [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;A big-ass botnet&lt;sup data-fn=&quot;ca841f68-06ca-432e-8856-093003c87556&quot; class=&quot;fn&quot;&gt;&lt;a href=&quot;#ca841f68-06ca-432e-8856-093003c87556&quot; id=&quot;ca841f68-06ca-432e-8856-093003c87556-link&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; has been dismantled by an international cooperation of agencies led by law enforcement in the United States, Singapore, Thailand, and Germany. &lt;/p&gt;
 
 
@@ -487,7 +637,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 
 
-&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;ca841f68-06ca-432e-8856-093003c87556&quot;&gt;Pardon my French. Sorry not sorry. 🍑 &lt;a href=&quot;#ca841f68-06ca-432e-8856-093003c87556-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content>
+&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;ca841f68-06ca-432e-8856-093003c87556&quot;&gt;Pardon my French. Sorry not sorry. 🍑 &lt;a href=&quot;#ca841f68-06ca-432e-8856-093003c87556-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">10 years of Kubernetes</title>
@@ -497,6 +650,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;10 years ago, on June 6th 2014, the first commit was made to kubernetes. Quoting the original README file Kubernetes is an open source reference implementation of container cluster management. What a wild ride it has been from a reference implementation to the de-facto standard for running containerised workloads! I think the first time I [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;&lt;a href=&quot;https://github.com/kubernetes/kubernetes/commit/2c4b3a562ce34cddc3f8218a2c4d11c7310e6d56&quot;&gt;10 years ago, on June 6th 2014, the first commit was made to kubernetes.&lt;/a&gt;&lt;/p&gt;
 
 
@@ -542,7 +696,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 &lt;li&gt;&lt;a href=&quot;https://github.com/kubernetes/kubernetes/tree/2c4b3a562ce34cddc3f8218a2c4d11c7310e6d56&quot;&gt;Original Kubernetes source code&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: Operation Overload</title>
@@ -552,6 +709,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;I do not envy the people who are working as fact checkers (or who volunteer!), because there sure is a ton of fakes and propaganda out there to be checked and debunked. The graffitis, videos or screenshots sent to newsrooms are fake and were fabricated for the purpose of diverting journalist’s ressources, or even try [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;I do not envy the people who are working as fact checkers (&lt;em&gt;or who volunteer!&lt;/em&gt;), because there sure is a ton of fakes and propaganda out there to be checked and debunked. &lt;/p&gt;
 
 
@@ -589,7 +747,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 &lt;li&gt;German article by &lt;em&gt;CORRECTIV&lt;/em&gt;: &lt;a href=&quot;https://correctiv.org/faktencheck/hintergrund/2024/06/04/post-aus-russland-desinfo-kampagne-nimmt-correctiv-und-andere-faktencheck-redaktionen-ins-visier/&quot;&gt;https://correctiv.org/faktencheck/hintergrund/2024/06/04/post-aus-russland-desinfo-kampagne-nimmt-correctiv-und-andere-faktencheck-redaktionen-ins-visier/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: Trust</title>
@@ -599,6 +760,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;A very good take on putting AI into everything because that&amp;#8217;s the big thing right now: Trust is a precious commodity. It takes a long time to build trust. It takes a short time to destroy it. I am honestly astonished that so many companies don’t seem to realise what they’re destroying. Jeremy Keith via [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;A very good take on putting AI into everything because that&amp;#8217;s the big thing right now:&lt;/p&gt;
 
 
@@ -660,7 +822,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;Footnotes&lt;/h2&gt;
 
 
-&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;071d9189-5ddb-41e1-a3ff-566683ae6300&quot;&gt;That one was fake, according to &lt;a href=&quot;https://www.fastcompany.com/91132217/google-ai-overview-errors&quot;&gt;https://www.fastcompany.com/91132217/google-ai-overview-errors&lt;/a&gt;, still Google AI recommends some questionable things!&lt;br&gt;Here&amp;#8217;s the OG screenshot &lt;a href=&quot;https://kevingimbel.de/wp-content/uploads/2024/05/google-ai-depressed-screenshot.jpeg&quot;&gt;https://kevingimbel.de/wp-content/uploads/2024/05/google-ai-depressed-screenshot.jpeg&lt;/a&gt; &lt;a href=&quot;#071d9189-5ddb-41e1-a3ff-566683ae6300-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content>
+&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;071d9189-5ddb-41e1-a3ff-566683ae6300&quot;&gt;That one was fake, according to &lt;a href=&quot;https://www.fastcompany.com/91132217/google-ai-overview-errors&quot;&gt;https://www.fastcompany.com/91132217/google-ai-overview-errors&lt;/a&gt;, still Google AI recommends some questionable things!&lt;br&gt;Here&amp;#8217;s the OG screenshot &lt;a href=&quot;https://kevingimbel.de/wp-content/uploads/2024/05/google-ai-depressed-screenshot.jpeg&quot;&gt;https://kevingimbel.de/wp-content/uploads/2024/05/google-ai-depressed-screenshot.jpeg&lt;/a&gt; &lt;a href=&quot;#071d9189-5ddb-41e1-a3ff-566683ae6300-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: Why blog anonymous</title>
@@ -670,6 +835,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;A few notes on publishing anonymously on the web. &lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
 &lt;p&gt;I feel weird about using my full, legal name on the internet. I don&amp;#8217;t like the idea of being Google-able. If I Google myself, the first thing that comes up is my work profile, as that is pretty much the only place on the internet that has my full name.&lt;/p&gt;
 &lt;cite&gt;Frills via &lt;a href=&quot;https://frills.dev/blog/240411-anon/&quot;&gt;https://frills.dev/blog/240411-anon/&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
@@ -689,7 +855,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;So, if you Google my name you&amp;#8217;ll probably find a bunch of social media profiles, my linked in, and this very website here (or &lt;em&gt;kevin.gimbel.dev&lt;/em&gt;, depending where you read this post :D). For the future I&amp;#8217;d like to mix-in even more personal things, after all this website is about me.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: Cloudflare took down our website after trying to force us to pay 120k$ within 24h</title>
@@ -699,6 +868,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;They would not offer us anything apart from a full deal for $10k per month, which would magically resolve the issue. They were not interested in any other resolution. via https://robindev.substack.com/p/cloudflare-took-down-our-website Now that&amp;#8217;s just fucked up. The screenshots in the post are completely insane as well, the sales tactics hidden behind alleged problems with the account [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
 &lt;p&gt;They would not offer us anything apart from a full deal &lt;strong&gt;for $10k per month&lt;/strong&gt;, which would magically resolve the issue. They were not interested in any other resolution.&lt;/p&gt;
 &lt;cite&gt;&lt;em&gt;via &lt;/em&gt;&lt;a href=&quot;https://robindev.substack.com/p/cloudflare-took-down-our-website&quot;&gt;https://robindev.substack.com/p/cloudflare-took-down-our-website&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
@@ -710,7 +880,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;I&amp;#8217;m glad neither I nor my (work-) projects are using Cloudflare services, and I just lost a big chunk of trust in them. &lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Regexle #9</title>
@@ -720,6 +893,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;Solution for Regexle #9&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;Todays regex had me confused! I kept thinking the solution was strings starting with &lt;code&gt;v[aeiou]&lt;/code&gt;, then strings ending &lt;code&gt;[ing]&lt;/code&gt; or &lt;code&gt;[m|n]e&lt;/code&gt;, but in the end the solution was a lot simpler.&lt;/p&gt;
 
 
@@ -737,7 +911,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;All in all it took me 24 tries and 4 regexes, my solution was &lt;code&gt;/ing$|[mn].$/&lt;/code&gt;, which matches the patterns but is unnecessarily complex.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Regexle #8</title>
@@ -747,6 +924,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;Solution for todays Regexle puzzle&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;I&amp;#8217;ve been doing &lt;a href=&quot;https://regexle.ithea.de/&quot;&gt;Regexle&lt;/a&gt; for the past days, and decided to write a short note about them here on the blog.&lt;/p&gt;
 
 
@@ -760,7 +938,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;I didn&amp;#8217;t solve the puzzle today but already look forward to tomorrows!&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Slop Slop Slop!</title>
@@ -770,6 +951,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;There&amp;#8217;s a new word in town: slop! slop is rapidly taking the Fediverse, blogging scene (lol) and Twitter by storm as a term for AI-generated trash text: basically AI spam. The first mention I&amp;#8217;ve seen is of a Twitter post by @deepfates https://twitter.com/deepfates/status/1787472784106639418, which I saw shared on Mastodon by Simon Willison https://fedi.simonwillison.net/@simon/112402587787781767. I like [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;There&amp;#8217;s a new word in town: &lt;em&gt;&lt;strong&gt;slop&lt;/strong&gt;&lt;/em&gt;! &lt;/p&gt;
 
 
@@ -793,7 +975,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;While AI is the next cool hype and all is well now (&lt;em&gt;all it is not well&lt;/em&gt;), AI companies really need to be careful from where they steal their training data. The point of AI generated content everywhere is approaching, and I can&amp;#8217;t wait to see the next big LLM trained on slop spitting out bullshit.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: Heat Death of the Internet</title>
@@ -803,6 +988,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;You want to watch the trailer for an upcoming movie on YouTube but you first have to sit through an ad. Then you sit through a preview for the trailer itself. Then you watch the trailer, which is literally another ad. When it ends, it cues up a new trailer, with a new ad at [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
 &lt;p&gt;You want to watch the trailer for an upcoming movie on YouTube but you first have to sit through an ad. &lt;br&gt;Then you sit through a preview for the trailer itself. Then you watch the trailer, which is literally another ad. When it ends, it cues up a new trailer, with a new ad at the start of it.&lt;/p&gt;
 &lt;cite&gt;via &lt;a href=&quot;https://www.takahe.org.nz/heat-death-of-the-internet/&quot;&gt;https://www.takahe.org.nz/heat-death-of-the-internet/&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
@@ -826,7 +1012,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The rest of the text is good as well, and worth the few minutes it takes to read. &lt;/p&gt;
 
 
-&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;5edd7162-1fc9-471e-83bd-48f259b38d93&quot;&gt;I mean &amp;#8220;&lt;em&gt;absurd&lt;/em&gt;&amp;#8221; in the most beautiful, encouraging way possible. It&amp;#8217;s a great piece of fiction which resonated a lot with how I perceive the internet lately.  &lt;a href=&quot;#5edd7162-1fc9-471e-83bd-48f259b38d93-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content>
+&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;5edd7162-1fc9-471e-83bd-48f259b38d93&quot;&gt;I mean &amp;#8220;&lt;em&gt;absurd&lt;/em&gt;&amp;#8221; in the most beautiful, encouraging way possible. It&amp;#8217;s a great piece of fiction which resonated a lot with how I perceive the internet lately.  &lt;a href=&quot;#5edd7162-1fc9-471e-83bd-48f259b38d93-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">I&amp;#8217;ll be speaking at Container Days Hamburg in September</title>
@@ -836,12 +1025,16 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;My talk &amp;#8220;Container Vulnerability Management in Kubernetes&amp;#8221; was accepted by Container Days and I&amp;#8217;ll be on-stage in September. I&amp;#8217;m already super excited (and hella nervous ✨) and looking forward to being in Hamburg, meeting other DevOps people and enjoying the conference &amp;#8211; it&amp;#8217;s been too long since I attended one! (I think Front Trends in [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;My talk &amp;#8220;&lt;em&gt;Container Vulnerability Management in Kubernetes&lt;/em&gt;&amp;#8221; was accepted by &lt;a href=&quot;https://www.containerdays.io/&quot;&gt;Container Days&lt;/a&gt; and I&amp;#8217;ll be on-stage in September. I&amp;#8217;m already super excited &lt;sup&gt;(&lt;em&gt;and hella nervous&lt;/em&gt; ✨) &lt;/sup&gt;and looking forward to being in Hamburg, meeting other DevOps people and enjoying the conference &amp;#8211; it&amp;#8217;s been too long since I attended one! &lt;em&gt;(I think Front Trends in 2016 was the last??)&lt;/em&gt;&lt;/p&gt;
 
 
 
 &lt;p&gt;The Talk is all about scanning container images for vulnerability and ensuring containers running in Kubernetes contain as little CVEs as possible (and the once they contain are known as accepted risks). If this sounds interesting to you, &lt;a href=&quot;https://www.containerdays.io/containerdays-conference-2024/tickets/&quot;&gt;feel free to join me in Hamburg&lt;/a&gt;.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: Get ready for OpenTofu 1.7.0-beta1</title>
@@ -851,6 +1044,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;OpenTofu, the terraform fork which remains truly Open Source, just announced the 1.7.0-beta1 release which brings the following new enhancements: Especially state encryption is a feature I&amp;#8217;m excited about. At the moment I do not use any terraform for my private projects so it&amp;#8217;s hard to try OpenTofu in the wild, but me and my [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;OpenTofu, the terraform fork which remains truly Open Source, just announced the 1.7.0-beta1 release which brings the following new enhancements:&lt;/p&gt;
 
 
@@ -874,7 +1068,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;At the moment I do not use any terraform for my private projects so it&amp;#8217;s hard to try OpenTofu in the wild, but me and my &lt;a href=&quot;https://jobs.aoe.com/en/home.html&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;team at AOE&lt;/a&gt; follow the development closely to evaluate a switch to OpenTofu.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: You’re a Blogger, Not an Essayist</title>
@@ -884,6 +1081,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;Blogging is a conversation. It’s a conversation with yourself and it’s a conversation with others. Barry Hess via https://bjhess.com/posts/you-re-a-blogger-not-an-essayist Some real talk right there. Blogging is all about conversations, thoughts, and FUN. This very website is not a magazine and it&amp;#8217;s not a professional publication; It sometimes may include content which is related to the [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;blockquote class=&quot;wp-block-quote is-layout-flow wp-block-quote-is-layout-flow&quot;&gt;
 &lt;p&gt;Blogging is a conversation. It’s a conversation with yourself and it’s a conversation with others.&lt;/p&gt;
 &lt;cite&gt;&lt;a href=&quot;https://bjhess.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Barry Hess&lt;/a&gt; via &lt;a href=&quot;https://bjhess.com/posts/you-re-a-blogger-not-an-essayist&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://bjhess.com/posts/you-re-a-blogger-not-an-essayist&lt;/a&gt;&lt;/cite&gt;&lt;/blockquote&gt;
@@ -899,7 +1097,10 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;That&amp;#8217;s it. That&amp;#8217;s the post.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Oh no my gpg key expired (like every year)</title>
@@ -909,6 +1110,7 @@ predLetter x = pred x&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;Who doesn&amp;#8217;t love encryption and security? I like to sign my git commits, and for this I need PGP keys. They are cool when they work and you don&amp;#8217;t need to think about them, but every now and then they need to be renewed (unless you use never expiring keys which of course you shouldn&amp;#8217;t!). [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;&lt;em&gt;Who doesn&amp;#8217;t love encryption and security?&lt;/em&gt; I like to&lt;a href=&quot;https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits&quot;&gt; sign my git commits&lt;/a&gt;, and for this I need &lt;a href=&quot;https://en.wikipedia.org/wiki/Pretty_Good_Privacy&quot;&gt;PGP keys&lt;/a&gt;. They are cool when they work and you don&amp;#8217;t need to think about them, but every now and then they need to be renewed (&lt;em&gt;unless you use never expiring keys which of course you shouldn&amp;#8217;t!&lt;/em&gt;).&lt;/p&gt;
 
 
@@ -998,7 +1200,10 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
 
 &lt;li&gt;&lt;a href=&quot;https://superuser.com/a/1141251&quot;&gt;https://superuser.com/a/1141251&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">What we should learn from the xz backdoor</title>
@@ -1008,6 +1213,7 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
     <summary type="html">&lt;p&gt;You may have heard that a vulnerability was found in the xz tool and liblzma library on Friday, 29th of March 2024 which specifically targeted sshd being managed by systemd on Debian and RedHat Linux systems. What happened The catastrophic scope of the attack At first the backdoor seems very odd. xz is a compression [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;You may have heard that &lt;a href=&quot;https://www.cert.europa.eu/publications/security-advisories/2024-032/&quot;&gt;a vulnerability was found in the xz tool and liblzma library on Friday, 29th of March 2024&lt;/a&gt; which specifically targeted &lt;code&gt;sshd&lt;/code&gt; being managed by &lt;code&gt;systemd&lt;/code&gt; on Debian and RedHat Linux systems.&lt;/p&gt;
 
 
@@ -1137,7 +1343,10 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;Footnotes&lt;/h2&gt;
 
 
-&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;c7269876-e32a-4568-85b7-3aea8fe8b880&quot;&gt;Filippo Valsorda explains the exploit &lt;a href=&quot;https://bsky.app/profile/filippo.abyssdomain.expert/post/3kowjkx2njy2b&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;in this bluesky thread&lt;/a&gt; &lt;a href=&quot;#c7269876-e32a-4568-85b7-3aea8fe8b880-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;li id=&quot;4aa8b4c0-c8ca-4495-8c32-000c22f4c938&quot;&gt;&lt;code&gt;RCE&lt;/code&gt; = Remote Code Execution &lt;a href=&quot;#4aa8b4c0-c8ca-4495-8c32-000c22f4c938-link&quot; aria-label=&quot;Jump to footnote reference 2&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;</content>
+&lt;ol class=&quot;wp-block-footnotes&quot;&gt;&lt;li id=&quot;c7269876-e32a-4568-85b7-3aea8fe8b880&quot;&gt;Filippo Valsorda explains the exploit &lt;a href=&quot;https://bsky.app/profile/filippo.abyssdomain.expert/post/3kowjkx2njy2b&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener nofollow&quot;&gt;in this bluesky thread&lt;/a&gt; &lt;a href=&quot;#c7269876-e32a-4568-85b7-3aea8fe8b880-link&quot; aria-label=&quot;Jump to footnote reference 1&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;li id=&quot;4aa8b4c0-c8ca-4495-8c32-000c22f4c938&quot;&gt;&lt;code&gt;RCE&lt;/code&gt; = Remote Code Execution &lt;a href=&quot;#4aa8b4c0-c8ca-4495-8c32-000c22f4c938-link&quot; aria-label=&quot;Jump to footnote reference 2&quot;&gt;↩︎&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">I don&amp;#8217;t like Python</title>
@@ -1147,6 +1356,7 @@ Text: &amp;quot;This commit was signed with the committer&#39;s verified signatu
     <summary type="html">&lt;p&gt;&amp;#8230; and there&amp;#8217;s a reason: Dependency Management. Coming from languages like Node, Go, and Rust I am used to decent dependency management (although Go was really bad at it for the first years, and has become decent only recently with the addition of go mod.). Python, in my opinion, lacks a good and well-defined Package [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;&amp;#8230; and there&amp;#8217;s a reason: &lt;em&gt;Dependency Management&lt;/em&gt;.&lt;/p&gt;
 
 
@@ -1249,7 +1459,10 @@ def update():
 
 
 &lt;p&gt;If you want to discuss this post, feel free to comment or join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/112081606795855915&quot;&gt;Mastodon&lt;/a&gt;, &lt;a href=&quot;https://bsky.app/profile/kevin.gimbel.dev/post/3knibkmkmgs2b&quot;&gt;Bluesky&lt;/a&gt;, or &lt;a href=&quot;https://www.linkedin.com/posts/kevingimbel_i-dont-likepython-activity-7173222831135117312-Jgh7?utm_source=share&amp;amp;utm_medium=member_desktop&quot;&gt;LinkedIn&lt;/a&gt;!&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">A little hiccup</title>
@@ -1259,12 +1472,16 @@ def update():
     <summary type="html">&lt;p&gt;Well, looks like kevingimbel.de was (partly?) down &amp;#8211; as far as I can tell the culprit was ipv6! In the past I&amp;#8217;ve not really bothered with ipv6 much but it feels odd to leave it out these days. Sorry for the inconvenience to all my 2 readers, I&amp;#8217;m sure you&amp;#8217;ve missed my blog on this [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;Well, looks like kevingimbel.de was (partly?) down &amp;#8211; as far as I can tell the culprit was ipv6! In the past I&amp;#8217;ve not really bothered with ipv6 much but it feels odd to leave it out these days.&lt;/p&gt;
 
 
 
 &lt;p&gt;Sorry for the inconvenience to all my 2 readers, I&amp;#8217;m sure you&amp;#8217;ve missed my blog on this Friday night. Once I know more I’ll write a follow-up. &lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: Hacking Terraform State for Privilege Escalation</title>
@@ -1274,6 +1491,7 @@ def update():
     <summary type="html">&lt;p&gt;An interesting attack vector which uses empty terraform providers and a modified state file to execute code! There’s lots to be excited about as a red teamer and scared of as a blue teamer, but at the top of the list is that the attack does not require a “terraform apply”. Even if the human reviewing [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;An interesting attack vector which uses empty terraform providers and a modified state file to execute code! &lt;/p&gt;
 
 
@@ -1285,7 +1503,10 @@ def update():
 
 
 &lt;p&gt;Read the full article on &lt;a href=&quot;https://blog.plerion.com/hacking-terraform-state-privilege-escalation/&quot;&gt;https://blog.plerion.com/hacking-terraform-state-privilege-escalation/&lt;/a&gt;&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: k9s plugins</title>
@@ -1295,6 +1516,7 @@ def update():
     <summary type="html">&lt;p&gt;k9s is a powerful Kubernetes terminal UI. Recently, I discovered how to add plugins, to make it even more powerful and integrate with other tools and systems!&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;&lt;a href=&quot;https://k9scli.io&quot;&gt;k9s&lt;/a&gt; is an awesome terminal UI and tool to work with Kubernetes clusters. I&amp;#8217;m using it daily for basically all my Kubernetes related work tasks.&lt;/p&gt;
 
 
@@ -1402,7 +1624,10 @@ def update():
 
 &lt;li&gt;&lt;a href=&quot;https://k9scli.io&quot;&gt;k9s website&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Eleventy 3.0.0-alpha.2</title>
@@ -1412,6 +1637,7 @@ def update():
     <summary type="html">&lt;p&gt;✨ A small update on moving my website to 11ty 3.0.0-alpha.2 &lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-large-font-size&quot;&gt;I just updated &lt;a href=&quot;https://kevin.gimbel.dev/ops&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://kevin.gimbel.dev/ops&lt;/a&gt; to Eleventy 3.0.0-alpha.2 &lt;/p&gt;
 
 
@@ -1451,7 +1677,10 @@ def update():
 
 &lt;li&gt;&lt;a href=&quot;https://www.11ty.dev/blog/canary-eleventy-v3/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://www.11ty.dev/blog/canary-eleventy-v3/ &lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: Why there is /bin and /usr/bin, /lib and /usr/lib, etc on Unix systems</title>
@@ -1461,6 +1690,7 @@ def update():
     <summary type="html">&lt;p&gt;If you&amp;#8217;ve ever navigated around a Unix system you may have wondered why there are /bin and usr/bin directories or /lib and /usr/lib or /sbin and /usr/sbin &amp;#8211; or like me, you just took it for something that probably has any meaning but isn&amp;#8217;t relevant enough to look into. Well, today it became relevant: When [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;If you&amp;#8217;ve ever navigated around a Unix system you may have wondered why there are /bin and usr/bin directories or /lib and /usr/lib or /sbin and /usr/sbin &amp;#8211; or like me, you just took it for something that probably has any meaning but isn&amp;#8217;t relevant enough to look into.&lt;/p&gt;
 
 
@@ -1506,7 +1736,10 @@ def update():
 &lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;http://lists.busybox.net/pipermail/busybox/2010-December/074114.html&quot;&gt;http://lists.busybox.net/pipermail/busybox/2010-December/074114.html&lt;/a&gt; &lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Integrating WordPress Posts with 11ty</title>
@@ -1516,6 +1749,7 @@ def update():
     <summary type="html">&lt;p&gt;In this blog post I document how I integrated articles from a WordPress site into my 11ty website &amp;#8211; it was surprisingly straight forward to do!&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;If you&amp;#8217;ve followed me around the &lt;em&gt;internetz&lt;/em&gt; it comes as no surprise that I&amp;#8217;m a huge fan of &lt;a href=&quot;https://www.11ty.dev&quot;&gt;11ty&lt;/a&gt; &amp;#8211; a JavaScript based static-site generator that&amp;#8217;s super flexible, can be extended, and is really fun to work with.&lt;/p&gt;
 
 
@@ -1790,7 +2024,10 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 &lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-e381ca18b7414fdbecaeb2554e08a8ca&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@kevin@kevingimbel.de/111341960932334264&quot;&gt;Mastodon&lt;/a&gt; or comment below 👇&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: Announcing Rust 1.73.0</title>
@@ -1800,6 +2037,7 @@ permalink: &quot;{{ article.slug }}&quot;
     <summary type="html">&lt;p&gt;Yay, Rust 1.73.0 has been released! Highlights include cleaner panic messages and the stabilisation of APIs, I&amp;#8217;m especially happy about the stabilisation of unix APIs for  `chown`, `fchown` and `lchown`.  &lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;&lt;i&gt;In reply to &lt;a class=&quot;in-reply-to&quot; href=&quot;https://blog.rust-lang.org/2023/10/05/Rust-1.73.0.html&quot;&gt;https://blog.rust-lang.org/2023/10/05/Rust-1.73.0.html&lt;/a&gt;.&lt;/i&gt;&lt;/p&gt;
 
 
@@ -1835,7 +2073,10 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 &lt;p&gt;Happy rusting! 🦀&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">RE: The OpenTofu fork is now available!</title>
@@ -1845,6 +2086,7 @@ permalink: &quot;{{ article.slug }}&quot;
     <summary type="html">&lt;p&gt;A few weeks ago HashiCorp decided to switch the terraform license model from an open source license to the Business Source License (BSL) model, so there&amp;#8217;s now a community driven terraform fork called OpenTofu.&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;&lt;em&gt;In reply to &lt;a class=&quot;in-reply-to&quot; href=&quot;https://opentofu.org/blog/the-opentofu-fork-is-now-available&quot;&gt;https://opentofu.org/blog/the-opentofu-fork-is-now-available&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
 
@@ -1862,7 +2104,10 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 &lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-c8ed469a80b15a67fb9124797853e50a&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/111102411848066204&quot;&gt;Mastodon&lt;/a&gt; or &lt;a href=&quot;https://www.linkedin.com/feed/update/urn:li:activity:7110554353777655809/&quot;&gt;LinkedIn&lt;/a&gt;, or comment below 👇&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: scale down a Kubernetes DaemonSet</title>
@@ -1872,6 +2117,7 @@ permalink: &quot;{{ article.slug }}&quot;
     <summary type="html">&lt;p&gt;A DaemonSet is supposed to run on all or some Kubernetes nodes, so scaling it down is surprisingly easy: Set a nodeSelector to some label which doesn&amp;#8217;t exist, and the DaemonSet is scaled to 0. This will patch (-p) the DaemonSet and add a nodeSelector ( spec.template.spec.nodeSelector) which makes the DaemonSet run on all nodes [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;A DaemonSet is supposed to run on all or some Kubernetes nodes, so scaling it down is surprisingly easy: Set a nodeSelector to some label which doesn&amp;#8217;t exist, and the DaemonSet is scaled to 0.&lt;/p&gt;
 
 
@@ -1889,7 +2135,10 @@ permalink: &quot;{{ article.slug }}&quot;
 
 
 &lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-f8cb5aaeb760680055176b4072c1bc5c&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/111090687977575559&quot;&gt;Mastodon&lt;/a&gt; 🐘, &lt;a href=&quot;https://www.linkedin.com/feed/update/urn:li:activity:7109804023955759104/&quot;&gt;LinkedIn&lt;/a&gt; 🧑‍💻 or comment below 👇&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: Run a script on every k8s Node using  a DaemonSet</title>
@@ -1899,6 +2148,7 @@ permalink: &quot;{{ article.slug }}&quot;
     <summary type="html">&lt;p&gt;I&amp;#8217;ve known that DaemonSets are used to run containers on all Nodes of a Kubernetes Cluster (or some), but I&amp;#8217;ve never thought of using them to run a (shell) script on each node &amp;#8211; a not-so-uncommon task when maintaining clusters! We need two resources: A ConfigMap and a DaemonSet.&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;I&amp;#8217;ve known that DaemonSets are used to run containers on all Nodes of a Kubernetes Cluster (or some), but I&amp;#8217;ve never thought of using them to run a (shell) script on each node &amp;#8211; a not-so-uncommon task when maintaining clusters!&lt;/p&gt;
 
 
@@ -2017,7 +2267,10 @@ spec:
 
 
 &lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-294014fc3e40a4073b5b0c36b3840d35&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/111024007254844161&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Mastodon&lt;/a&gt; 🐘 or comment below 👇&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: named return parameters in Go</title>
@@ -2027,6 +2280,7 @@ spec:
     <summary type="html">&lt;p&gt;Yet another piece of ✨ Go Magic ✨ I was reading through some Go code when I came upon a function that returned two things &amp;#8211; []string and error &amp;#8211; but the last line of the function just said return. I was confused how this worked, and since it was part of the standard library [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;Yet another piece of ✨ Go Magic ✨&lt;/p&gt;
 
 
@@ -2079,7 +2333,10 @@ spec:
 
 
 &lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-e94811fefbbc09de37e9b6f3f9e485f9&quot;&gt;Join the discussion on &lt;a href=&quot;https://fosstodon.org/@KevinGimbel/110932587822939667&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;Mastodon&lt;/a&gt; 🐘 or comment below 👇&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Building for the web, with Rust and WebAssembly</title>
@@ -2089,6 +2346,7 @@ spec:
     <summary type="html">&lt;p&gt;I&amp;#8217;ve been wanting to build something in WebAssembly for a while and just recently it hit me that I have a thing: mktoc! mktoc is a table of contents generator written in Rust, it comes as a Binary and a Library and can be compiled into WebAssembly with zero effort!&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;&lt;a rel=&quot;noreferrer noopener&quot; href=&quot;https://webassembly.org&quot; target=&quot;_blank&quot;&gt;WebAssembly&lt;/a&gt; (&lt;em&gt;WASM&lt;/em&gt;) has been around for a few years now. It&amp;#8217;s a binary format that runs in the browser, allowing programmers to write code in Rust (&lt;em&gt;or Java, Go, C/C++&lt;/em&gt;), compile it into WebAssembly and then execute the code in the browser.&lt;/p&gt;
 
 
@@ -2383,7 +2641,10 @@ function readFile() {
 
 
 &lt;p class=&quot;has-secondary-color has-primary-background-color has-text-color has-background has-link-color wp-elements-9c42702dc0604635bad2da123662bada&quot;&gt;Join the discussion on &lt;a rel=&quot;noreferrer noopener&quot; href=&quot;https://fosstodon.org/@KevinGimbel/110784659700280987&quot; target=&quot;_blank&quot;&gt;Mastodon&lt;/a&gt; 🐘 or comment below 👇&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: multiple git-identities on one machine</title>
@@ -2393,6 +2654,7 @@ function readFile() {
     <summary type="html">&lt;p&gt;Turns out you can have multiple Git identities alongside each other on one Machine without needing to set them locally for each repository! It still involves multiple .gitconfig files, but it&amp;#8217;s a lot less work than configuring an endless amount of repos! First, set the global config like this: Now in ~/AOE/.gitconfig I configure the [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;Turns out you can have multiple Git identities alongside each other on one Machine without needing to set them locally for each repository!&lt;/p&gt;
 
 
@@ -2432,7 +2694,10 @@ function readFile() {
 
 
 &lt;p&gt;Source: &lt;a href=&quot;https://stackoverflow.com/a/3860139&quot; target=&quot;_blank&quot; rel=&quot;noreferrer noopener&quot;&gt;https://stackoverflow.com/a/3860139&lt;/a&gt; &lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Setting up a MacBook from scratch for the first time in 8 years</title>
@@ -2442,6 +2707,7 @@ function readFile() {
     <summary type="html">&lt;p&gt;Oh boy, did I not think about a lot of stuf&amp;#8230; For the past 8 or so years I&amp;#8217;ve always used my work MacBook for all things dev, including private development. I&amp;#8217;ve spent a lot of time setting up and changing my zsh, and later fish, configs, configuring iTerm, trying out different themes, &amp;#8230; you [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;Oh boy, did I not think about a lot of stuf&amp;#8230;&lt;/p&gt;
 
 
@@ -2672,7 +2938,10 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;I&amp;#8217;m sure I am still missing something, but it&amp;#8217;ll be installed when it&amp;#8217;s needed. For now I have a device I can work with comfortably. &lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Unpinned dependencies just broke my plugin</title>
@@ -2682,6 +2951,7 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;Hello and welcome to a little recap! My 11ty MermaidJS plugin was just broken by MermaidJS release 10.0 because they no longer provided a minified JavaScript bundle and instead only provide a ESM module. My plugin was referencing https://unpkg.com/mermaid/dist/mermaid.min.js by default for including the javascript code, but with version 10 this now leads to a [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-medium-font-size&quot;&gt;Hello and welcome to a little recap! My &lt;a href=&quot;https://github.com/KevinGimbel/eleventy-plugin-mermaid&quot;&gt;11ty MermaidJS plugin&lt;/a&gt;  was just broken by MermaidJS release 10.0 because they no longer provided a minified JavaScript bundle and instead only provide a ESM module. &lt;/p&gt;
 
 
@@ -2699,7 +2969,10 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;p&gt;Sorry if I broke your website. 🖤 &lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: One-line list manipulation in Python</title>
@@ -2709,6 +2982,7 @@ error_symbol = &#39;[✕](bold 45)&#39;&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;In Python there&amp;#8217;s a one-line syntax for iterating over elements of a list. I&amp;#8217;ve always found it looked kind-of odd, and as I need to look it up all the time I decided to write a little TIL on this blog about it. There are more powerful one-liners documented on the Python Wiki.&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p class=&quot;has-large-font-size&quot;&gt;In Python there&amp;#8217;s a one-line syntax for iterating over elements of a list. I&amp;#8217;ve always found it looked kind-of odd, and as I need to look it up all the time I decided to write a little TIL on this blog about it.&lt;/p&gt;
 
 
@@ -2727,7 +3001,10 @@ new_list == &amp;#91;2, 4, 6, 8]
 
 
 &lt;p&gt;There are more powerful one-liners documented on the &lt;a href=&quot;https://wiki.python.org/moin/Powerful%20Python%20One-Liners&quot;&gt;Python Wiki&lt;/a&gt;. &lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Publishing and building a static website on GitHub Pages</title>
@@ -2737,6 +3014,7 @@ new_list == &amp;#91;2, 4, 6, 8]
     <summary type="html">&lt;p&gt;A week ago or so I finally launched a small website I&amp;#8217;ve been working on for quite some time: kevin.gimbel.dev/ops &amp;#8211; it&amp;#8217;s a colourful static website showing some of the technologies I&amp;#8217;ve worked with in the past years since I began doing DevOps full time. The website is built with 11ty and published with GitHub [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;A week ago or so I finally launched a small website I&amp;#8217;ve been working on for quite some time: &lt;a href=&quot;https://kevin.gimbel.dev/ops/&quot;&gt;kevin.gimbel.dev/ops&lt;/a&gt; &amp;#8211; it&amp;#8217;s a colourful static website showing some of the technologies I&amp;#8217;ve worked with in the past years since I began doing DevOps full time.&lt;/p&gt;
 
 
@@ -2852,7 +3130,10 @@ jobs:
 
 
 &lt;p&gt;&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">How to extend and reuse configs in Gitlab CI</title>
@@ -2862,6 +3143,7 @@ jobs:
     <summary type="html">&lt;p&gt;When I began using Gitlab CI the first thing I wanted to know was how to reuse configs. I know that we&amp;#8217;ll have changing requirements at work and that we&amp;#8217;ll have hundreds of repositories using basically-the-same configurations so I wanted to make sure we&amp;#8217;d have a central place to make changes to these. I found [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;When I began using Gitlab CI the first thing I wanted to know was how to reuse configs. I know that we&amp;#8217;ll have changing requirements at work and that we&amp;#8217;ll have hundreds of repositories using basically-the-same configurations so I wanted to make sure we&amp;#8217;d have a central place to make changes to these.&lt;/p&gt;
 
 
@@ -3003,7 +3285,10 @@ my-other-block:
 
 &lt;li&gt;&lt;a href=&quot;https://docs.gitlab.com/ee/ci/yaml/&quot;&gt;Full .gitlab-ci YAML reference&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: Replace git URLs in Gitlab CI</title>
@@ -3013,6 +3298,7 @@ my-other-block:
     <summary type="html">&lt;p&gt;When working with Gitlab as a storage for Terraform or Ansible modules you probably access them using SSH, like&amp;nbsp;git@gitlab.instance:group/project.git. This has the advantage that authentication is done using SSH keys and everybody on your team can access the repositories just like they&amp;#8217;d do when cloning on the terminal &amp;#8211; no need for entering passwords during [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;When working with Gitlab as a storage for Terraform or Ansible modules you probably access them using SSH, like&amp;nbsp;&lt;code&gt;git@gitlab.instance:group/project.git&lt;/code&gt;. This has the advantage that authentication is done using SSH keys and everybody on your team can access the repositories just like they&amp;#8217;d do when cloning on the terminal &amp;#8211; no need for entering passwords during clone or install.&lt;/p&gt;
 
 
@@ -3079,7 +3365,10 @@ deploy-ansible:
 &lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://docs.gitlab.com/ee/user/project/deploy_tokens/#group-deploy-token&quot;&gt;Gitlab Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Proxy websocket connections with Apache2</title>
@@ -3089,6 +3378,7 @@ deploy-ansible:
     <summary type="html">&lt;p&gt;How to configure Apache2 to pass through web socket connections Recently I had to adjust an Apache Virtual Host to allow proxying of Web Socket requests to a service running on localhost which would also accept HTTP requests on the same port. The problem The service in question was&amp;nbsp;Loki, the&amp;nbsp;&amp;#8220;Prometheus, but for logs&amp;#8221;&amp;nbsp;from Grafana. At&amp;nbsp;Synoa&amp;nbsp;we&amp;#8217;ve [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;How to configure Apache2 to pass through web socket connections&lt;/h2&gt;
 
 
@@ -3163,7 +3453,10 @@ $ sudo a2enmod proxy_wstunnel&lt;/pre&gt;
 
 &lt;li&gt;&lt;a href=&quot;https://httpd.apache.org/docs/2.4/mod/mod_proxy_wstunnel.html&quot;&gt;mod_proxy_wstunnel module documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Validating variables in terraform</title>
@@ -3173,6 +3466,7 @@ $ sudo a2enmod proxy_wstunnel&lt;/pre&gt;
     <summary type="html">&lt;p&gt;Finally, terraform can validate input variables! With the 0.13 release terraform introduces input validation, and with the 1.0.0 releases it was stabilized! Before there was no way of validating variables other than checking their length or doing basic checks inside the code, for example in the&amp;nbsp;locals.tf&amp;nbsp;file, and errors with variables mostly came to light during [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;Finally, terraform can validate input variables!&lt;/h2&gt;
 
 
@@ -3469,7 +3763,10 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 &lt;li&gt;&lt;a href=&quot;https://www.terraform.io/docs/language/functions/regex.html&quot;&gt;Terraform&amp;nbsp;&lt;code&gt;regex&lt;/code&gt;&amp;nbsp;function&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Darken and Lighten colors with CSS</title>
@@ -3479,6 +3776,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
     <summary type="html">&lt;p&gt;Recreating SASS darken() &amp;amp; lighten() function with CSS variables and calc The technique shown in this post uses the&amp;nbsp;hsl&amp;nbsp;color format in combination with the&amp;nbsp;calc&amp;nbsp;CSS function to calculate darker or lighter shades of a base color. Before we get into the code I want to make sure&amp;nbsp;I did not come up with this, I found the [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;Recreating SASS darken() &amp;amp; lighten() function with CSS variables and calc&lt;/h2&gt;
 
 
@@ -3625,7 +3923,10 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
 
 &lt;li&gt;Example Pen 2&amp;nbsp;&lt;a href=&quot;https://codepen.io/kevingimbel/pen/zYZaVPp&quot;&gt;codepen.io/kevingimbel/pen/zYZaVPp&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">First steps with Traefik 2</title>
@@ -3635,6 +3936,7 @@ terraform apply -target=null_resource.validate_hetzner_datacenters -var &#39;het
     <summary type="html">&lt;p&gt;A tale of Auto SSL, Basic Auth, and lots of debugging Recently I&amp;#8217;ve spent some time at work trying out&amp;nbsp;Traefik 2&amp;nbsp;and learning about the new concepts like routers and middleware since we&amp;#8217;ll use Traefik 2 as part of some new infrastructure. We&amp;#8217;ve used Traefik 1 in production at Synoa for the past 3 years. Initially [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;A tale of Auto SSL, Basic Auth, and lots of debugging&lt;/h2&gt;
 
 
@@ -3900,7 +4202,10 @@ entryPoint = &quot;web&quot;&lt;/pre&gt;
 
 
 &lt;p&gt;I&amp;#8217;m looking forward to dig deeper into Traefik, especially getting more familiar with&amp;nbsp;&lt;a href=&quot;https://doc.traefik.io/traefik/plugins/&quot;&gt;Plugins&lt;/a&gt;!&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: Dots in /etc/sudoers.d filenames</title>
@@ -3910,6 +4215,7 @@ entryPoint = &quot;web&quot;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;A tale of facepalms While reviewing some Ansible modules with a colleague we stumbled upon an issue with our user creation module, and for a briefe time couldn&amp;#8217;t understand what was going on. The module in question creates multiple Linux users, adds them to groups, and enables some to use password less sudo via the&amp;nbsp;/etc/sudoers.d&amp;nbsp;config [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;A tale of facepalms&lt;/h2&gt;
 
 
@@ -3941,7 +4247,10 @@ entryPoint = &quot;web&quot;&lt;/pre&gt;
 
 
 &lt;p&gt;Our solution was to strip out any dots using regex, since the Ansible role can potentially support any amount of users and we cannot control what names will be used.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Wildcards in Prometheus queries</title>
@@ -3951,6 +4260,7 @@ entryPoint = &quot;web&quot;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;Learn how to query data in Prometheus and how to use wildcards Hello and welcome to this &amp;#8220;snippet-sized&amp;#8221; post about&amp;nbsp;Prometheus&amp;nbsp;queries! Prometheus is a time-series database which means it is build to collect a lot of datasets that show values over time, for example the result of a HTTP request or the RAM usage of a [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;h2 class=&quot;wp-block-heading&quot;&gt;Learn how to query data in Prometheus and how to use wildcards&lt;/h2&gt;
 
 
@@ -4041,7 +4351,10 @@ http_status{job=&quot;customer-prd&quot;,instance=&quot;https://some-api.link/se
 &lt;ul class=&quot;wp-block-list&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;https://prometheus.io/docs/prometheus/latest/querying/basics/&quot;&gt;Prometheus Query documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">Apply a patch from a Github PR</title>
@@ -4051,6 +4364,7 @@ http_status{job=&quot;customer-prd&quot;,instance=&quot;https://some-api.link/se
     <summary type="html">&lt;p&gt;Ever found yourself needing that one fix from a PR on GitHub that hasn&amp;#8217;t been released yet? How can you get the code, for example a Magento fix, into your code base? Copy-paste it? That might work for small changes, but for large and complex changes copy-pasting is no solution. Luckily, we can use GitHub [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;Ever found yourself needing that one fix from a PR on GitHub that hasn&amp;#8217;t been released yet? How can you get the code, for example a Magento fix, into your code base? Copy-paste it? That might work for small changes, but for large and complex changes copy-pasting is no solution. Luckily, we can use GitHub to generate a patch file, which can then be applied with either the&amp;nbsp;&lt;code&gt;git&lt;/code&gt;&amp;nbsp;or&amp;nbsp;&lt;code&gt;patch&lt;/code&gt;&amp;nbsp;command.&lt;/p&gt;
 
 
@@ -4243,7 +4557,10 @@ $ patch -p 1 --dry-run &amp;lt; filename.patch&lt;/code&gt;&lt;/pre&gt;
 
 &lt;li&gt;&lt;a href=&quot;https://git-scm.com/docs/git-apply&quot;&gt;git apply documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
   <entry>
     <title type="html">TIL: Bash select</title>
@@ -4253,6 +4570,7 @@ $ patch -p 1 --dry-run &amp;lt; filename.patch&lt;/code&gt;&lt;/pre&gt;
     <summary type="html">&lt;p&gt;I was recently researching different bash prompts and stumbled upon an StackExchange answer which explains the different prompt types (PS1, PS2, PS3, and PS4). The answer explains how the PS3 prompt is used for commands like select. I did not know about select before, so that&amp;#8217;s the real TIL here! [&amp;#8230;] PS3 is shown when the select command is waiting for [&amp;hellip;]&lt;/p&gt;
 </summary>
     <content type="html">
+    
 &lt;p&gt;I was recently researching different bash prompts and stumbled upon an &lt;a href=&quot;https://unix.stackexchange.com/a/193660/136550&quot;&gt;StackExchange answer&lt;/a&gt; which explains the different prompt types (&lt;code&gt;PS1&lt;/code&gt;, &lt;code&gt;PS2&lt;/code&gt;, &lt;code&gt;PS3&lt;/code&gt;, and &lt;code&gt;PS4&lt;/code&gt;). The answer explains how the PS3 prompt is used for commands like &lt;code&gt;select&lt;/code&gt;. I did not know about select before, so that&amp;#8217;s the real  TIL here!&lt;/p&gt;
 
 
@@ -4340,6 +4658,9 @@ Your answer: _
 
 
 &lt;p&gt;&lt;code&gt;select&lt;/code&gt;&amp;nbsp;is a clean and simple way to create a interactive UI! I tried the code with the&amp;nbsp;&lt;code&gt;zsh&lt;/code&gt;&amp;nbsp;and&amp;nbsp;&lt;code&gt;fish&lt;/code&gt;&amp;nbsp;shell and it looks the same.&lt;/p&gt;
-</content>
+
+    <hr />
+    <p>Thanks for using RSS! 💖</p>
+    </content>
   </entry>
 </feed>
