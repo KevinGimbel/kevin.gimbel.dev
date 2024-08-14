@@ -18,4 +18,4 @@ If you want to connect with me, hit me up on:
 
 If you write me on __LinkedIn__ or request to connect please be patient: I get a lot of messages and catch up only once a week!
 
-Still not read enough? Well, there's the [about](/about/) page left or you check my all-in-one wesite at [kevingimbel.de](https://kevingimbel.de) where I also post photography content and other stuff.
+Still not read enough? Well, there's the [about](/about/) page left or you check my all-in-one website at [kevingimbel.de](https://kevingimbel.de) where I also post photography content and other stuff.
