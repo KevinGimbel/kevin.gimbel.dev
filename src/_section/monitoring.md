@@ -9,13 +9,14 @@ position: 160
 accent_id: 4
 skills:
   - Prometheus
+  - Thanos
   - Alertmanager
   - Grafana
   - Loki
-  - collectd
   - node_exporter
   - blackbox_exporter
   - cadvisor
+  - AWS Incident Manager
   - AWS CloudWatch metrics
   - AWS CloudWatch alarms
 ---

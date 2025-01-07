@@ -8,11 +8,12 @@ sub_heading: |
 position: 140
 accent_id: 6
 skills:
-  - Running CI/CD pipelines in Docker containers
+  - Running CI/CD pipelines in containers
   - Multi-stage docker builds
   - Running Traefik in Production from 2018 to 2023
   - Distributing CLI tools as Docker containers
   - Deploying docker with Docker Remote API
+  - Running production workloads with docker-compose
 ---
 
 In 2017 I drove the initial adoption of Docker for local development at Synoa GmbH.

@@ -8,10 +8,11 @@ sub_heading: |
 position: 400
 accent_id: 4
 skills:
-  - HTTPS-only traffic
+  - Zero Trust principal
+  - Encrypt data at rest and in-transit
+  - Use password managers
   - Always use random, auto-generated passwords
-  - SSL certificate management with Let's Encrypt and AWS Certificate Manager
-  - Integration with Single-Sign On where possible
+  - Integration with Single-Sign On wherever possible
   - Never share passwords in plain-text
 ---
 

@@ -21,4 +21,4 @@ skills:
   - Hetzner Cloud
 ---
 
-I 🧡 Terraform! I've experience with the creation and maintenance of complex modules that integrate various different services, including the following technologies
+I 🧡 Terraform (... and OpenTofu!)! I've experience with the creation and maintenance of complex modules that integrate various different services, including the following technologies

@@ -17,23 +17,6 @@
 </div>
 </header>
 
-  <section class="[ gc-half skill-section ]">
-      <hgroup>
-        <h3 class="font-size-5">News from the <del style="position: relative; transform: rotate(-4deg); display: inline-block;">block</del> blog</h3>
-      </hgroup>
-      <ul class="article-list">
-        {% for idx in [0, 1, 2] %}
-        {% set article = blog[idx] %}
-        <li class="article-list__item">
-            <h4 class="font-size-3"><a href="/{{ article.slug }}">{{ article.title | safe }}</a></h4>
-            {{ article.excerpt | safe }}
-            <a href="/{{ article.slug }}" class="article-list__more-link" title="Continue reading {{ article.title }}">Continue reading →</a>
-        </li>
-        {%- endfor -%}
-        </ul>
-  </section>
-
-
   <header class="[ u-grid ]">
       <hgroup class="[ skill-section gc-full ]">
         <h3 class="font-size-5">Skills, tools, and other work stuff</h3>
