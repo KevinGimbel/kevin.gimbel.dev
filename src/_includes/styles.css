@@ -281,11 +281,6 @@ a[class*="bg-accent"]:hover {
     padding: var(--space-3xs);
 }
 
-.skill-section {
-    box-shadow: -3px 3px 0 #ccc;
-    border-radius: 6px;
-}
-
 .buzzes a {
     border-radius: 6px;
 }
@@ -341,13 +336,11 @@ a[class*="bg-accent"]:hover {
     justify-content: space-between;
     align-items: center;
     padding: var(--space-xl-2xl, 2rem);
-}
-
-.is-intro {
-    font-size: var(--font-size-5);
-    background: var(--color-accent-1);
-    border-top: 0.125rem solid var(--color-accent-1-contrast);
-    border-bottom: 0.125rem solid var(--color-accent-1-contrast);
+    max-width: 80rem;
+    margin: var(--space-xl-2xl) auto;
+    background: #fefefe;
+    color: #333;
+    border: .125em solid var(--color-accent-1);
 }
 
 .intro-left {
@@ -372,9 +365,13 @@ a[class*="bg-accent"]:hover {
 
 .skill-section {
     padding: var(--space-l-xl);
-    margin: var(--space-m-l);
+    margin: var(--space-2xl-3xl) auto;
+    max-width: 75rem;
     font-size: var(--font-size-2);
-    border: 0.125rem solid;
+    border: 0.25rem solid;
+
+    box-shadow: -16px 16px 0 #ccc;
+    border-radius: 18px 36px;
 }
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++

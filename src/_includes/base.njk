@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="Eleventy">
   <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{% if icon %}{{ icon }}{% else %}✪{% endif %}</text></svg>">
-  <style>{% include "new-styles.css" %}</style>
+  <style>{% include "styles.css" %}</style>
   {% if custom_styles %}
   {% for style in custom_styles %}
   <style>{% include "" + custom_styles %}</style>
@@ -17,23 +17,13 @@
   {% endblock %}
 </head>
 <body>
-  <header class="site-header">
-    <aside class="logo">
-      <a href="/ops/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="height:3rem;widht:3rem;"><text y=".9em" font-size="90">✪</text></svg></a>
-    </aside>
-    <nav class="site-nav">
-      <a href="/" class="a-blank">Home</a>
-      <a href="/about" class="a-blank">About</a>
-      <a href="/blog" class="a-blank">Blog</a>
-    </nav>
-  </header>
   <main>
     {% block content %}
     {% endblock %}
     <footer id="footer" class="[ footer ]">
       <div class="content">
         <p class="font-size-2">Made with <a href="{% 11ty_meta "homepage" %}">11ty</a> {% 11ty_meta "version" %}, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
-        <a href="{{ meta.permalinks.feed }}" class="font-size--1" title="Subscribe via RSS">RSS Feed</a> | <a href="/imprint" title="Imprint">Imprint</a>
+        <a href="/imprint" title="Imprint">Imprint</a>
         <p class="font-size--2">Views and opinions expressed on this websites do not represents views and opinions of my employer</p>
       </div>
     </footer>
