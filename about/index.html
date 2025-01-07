@@ -290,11 +290,6 @@ a[class*="bg-accent"]:hover {
     padding: var(--space-3xs);
 }
 
-.skill-section {
-    box-shadow: -3px 3px 0 #ccc;
-    border-radius: 6px;
-}
-
 .buzzes a {
     border-radius: 6px;
 }
@@ -350,13 +345,11 @@ a[class*="bg-accent"]:hover {
     justify-content: space-between;
     align-items: center;
     padding: var(--space-xl-2xl, 2rem);
-}
-
-.is-intro {
-    font-size: var(--font-size-5);
-    background: var(--color-accent-1);
-    border-top: 0.125rem solid var(--color-accent-1-contrast);
-    border-bottom: 0.125rem solid var(--color-accent-1-contrast);
+    max-width: 80rem;
+    margin: var(--space-xl-2xl) auto;
+    background: #fefefe;
+    color: #333;
+    border: .125em solid var(--color-accent-1);
 }
 
 .intro-left {
@@ -381,9 +374,13 @@ a[class*="bg-accent"]:hover {
 
 .skill-section {
     padding: var(--space-l-xl);
-    margin: var(--space-m-l);
+    margin: var(--space-2xl-3xl) auto;
+    max-width: 75rem;
     font-size: var(--font-size-2);
-    border: 0.125rem solid;
+    border: 0.25rem solid;
+
+    box-shadow: -16px 16px 0 #ccc;
+    border-radius: 18px 36px;
 }
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -584,16 +581,6 @@ blockquote cite {
   
 </head>
 <body>
-  <header class="site-header">
-    <aside class="logo">
-      <a href="/ops/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="height:3rem;widht:3rem;"><text y=".9em" font-size="90">✪</text></svg></a>
-    </aside>
-    <nav class="site-nav">
-      <a href="/" class="a-blank">Home</a>
-      <a href="/about" class="a-blank">About</a>
-      <a href="/blog" class="a-blank">Blog</a>
-    </nav>
-  </header>
   <main>
     
 
@@ -625,7 +612,7 @@ Since German has no real gender neutral pronouns, <em>er/ihm</em> is fine; and i
     <footer id="footer" class="[ footer ]">
       <div class="content">
         <p class="font-size-2">Made with <a href="https://www.11ty.dev/">11ty</a> 3.0.0, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
-        <a href="/feed.xml" class="font-size--1" title="Subscribe via RSS">RSS Feed</a> | <a href="/imprint" title="Imprint">Imprint</a>
+        <a href="/imprint" title="Imprint">Imprint</a>
         <p class="font-size--2">Views and opinions expressed on this websites do not represents views and opinions of my employer</p>
       </div>
     </footer>
