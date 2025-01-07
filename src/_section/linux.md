@@ -4,7 +4,7 @@ id: "Linux"
 styles: []
 icon: "🐧"
 sub_heading: |
-  Free as in Freedom
+  <code>$ cowsay "moo I'm a cow"</code>
 position: 110
 accent_id: 1
 skills:
