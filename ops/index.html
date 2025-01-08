@@ -107,13 +107,14 @@ main {
 
 a,
 a:visited {
-    color: var(--color-accent-2-contrast);
-    text-decoration: dashed;
+    color: var(--color-accent-6-contrast);
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
 }
 
 a:hover,
 a:focus {
-    color: var(--color-accent-2);
+    color: var(--color-accent-6);
     text-decoration: underline;
 }
 
@@ -296,7 +297,7 @@ a[class*="bg-accent"]:hover {
 
 /* Avatar on front page */
 .avatar {
-    clip-path: circle();
+    border-radius: 6px;
     width: 100%;
     max-width: 400px;
 }
@@ -357,10 +358,6 @@ a[class*="bg-accent"]:hover {
 }
 
 @media all and (max-width: 70rem) {
-    .is-intro {
-        flex-direction: column-reverse;
-    }
-
     .intro-left {
         text-align: center;
         max-width: 100%;
@@ -381,6 +378,13 @@ a[class*="bg-accent"]:hover {
 
     box-shadow: -16px 16px 0 #ccc;
     border-radius: 18px 36px;
+}
+
+@media all and (max-width: 70rem) {
+    .skill-section {
+        margin: 2rem;
+        font-size: var(--font-size-1);
+    }
 }
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -484,9 +488,12 @@ pre > code {
   <main>
     
 
-<header class="[ hero is-intro ] [ u-grid ]">
-  <aside class="intro-left">
-    <h1>Hi, I'm Kevin 
+
+<header class="[ hero is-intro ] [ u-grid ] [ h-card ]">
+
+  <img src="/assets/img/avatar-aoe.jpg" class="avatar [ u-photo ]" alt="A photograph of me, Kevin Gimbel, in front of a grey background" />
+  
+  <h1>Hiya! I'm <span class="p-name">Kevin Gimbel</span>
 <style>
   .verified {
     display: inline-block;
@@ -498,21 +505,16 @@ pre > code {
 </style>
 
 <svg class="verified" role="img" aria-label="A blue verified badge as seen around the internetz" viewBox="0 0 22 22"><path d="M20.396 11a3.487 3.487 0 0 0-2.008-3.062 3.474 3.474 0 0 0-.742-3.584 3.474 3.474 0 0 0-3.584-.742A3.468 3.468 0 0 0 11 1.604a3.463 3.463 0 0 0-3.053 2.008 3.472 3.472 0 0 0-1.902-.14c-.635.13-1.22.436-1.69.882a3.461 3.461 0 0 0-.734 3.584A3.49 3.49 0 0 0 1.604 11a3.496 3.496 0 0 0 2.017 3.062 3.471 3.471 0 0 0 .733 3.584 3.49 3.49 0 0 0 3.584.742A3.487 3.487 0 0 0 11 20.396a3.476 3.476 0 0 0 3.062-2.007 3.335 3.335 0 0 0 4.326-4.327A3.487 3.487 0 0 0 20.396 11zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"/></svg></h1>
-    <h2 class="font-size-3">a Platform & DevOps Engineer working at <a href="https://aoe.com" title="Visit aoe.com">AOE GmbH</a>.</h2>
-  </aside>
-  <aside class="intro-right">
-    <img src="/assets/img/avatar-aoe.jpg" class="avatar" alt="A photograph of me, Kevin Gimbel, in front of a grey background" />
-  </aside>
-<div class="intro-cta">
-  <p class="font-size-2">I've spent the last <span class="is-highlighted bg-accent-3">15 years learning to build websites & run servers</span>; worked in e-Commerce from 2013 to 2023, and started focusing on <span class="is-highlighted bg-accent-3">Platform Engineering</span> in early 2023. Right now I'm part of a DevOps/Platform Team running and building a Kubernetes based Platform for multiple developer teams.</p>
 
-  <p class="font-size--1 buzzes">🐝 Buzzwords: <a href="#cloud-computing" class="is-highlighted bg-accent-5">Cloud Computing</a> <a href="#kubernetes" class="is-highlighted bg-accent-6">Kubernetes</a> <a href="#automation" class="is-highlighted bg-accent-3">Automation</a> <a href="#monitoring" class="is-highlighted bg-accent-4">Monitoring</a></p>
-</div>
+  <p class="font-size-2">I'm a <span class="p-job-title is-highlighted bg-accent-3">Senior DevOps Engineer</span> working at <a href="https://aoe.com/" class="p-org">AOE GmbH</a> in <span class="p-locality">Wiesbaden</span>, <span class="p-country-name">Germany</span>.</p>
+  <p class="font-size-1 u-note">I've spent the last <span class="is-highlighted bg-accent-3">15 years learning to build websites & run servers</span>; worked in e-Commerce from 2013 to 2023, and started focusing on <span class="is-highlighted bg-accent-3">Platform Engineering</span> in early 2023. Right now I'm part of a DevOps/Platform Team running and building a Kubernetes based Platform for multiple developer teams.</p>
+  <p class="font-size-0">My main website is <a class="u-url" href="https://kevingimbel.de">kevingimbel.de</a>, and you can contact me via e-Mail at <a class="u-email" href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
 </header>
 
   <header class="[ u-grid ]">
       <hgroup class="[ skill-section gc-full ]">
-        <h3 class="font-size-5">Skills, tools, and other work stuff</h3>
+        <h3 class="font-size-5">Skills, tools, and work stuff</h3>
+        <p class="font-size-2 buzzes">🐝 Buzzwords: <a href="#cloud-computing" class="is-highlighted bg-accent-5">Cloud Computing</a> <a href="#kubernetes" class="is-highlighted bg-accent-6">Kubernetes</a> <a href="#automation" class="is-highlighted bg-accent-3">Automation</a> <a href="#monitoring" class="is-highlighted bg-accent-4">Monitoring</a></p>
       </hgroup>
   </header>
 
