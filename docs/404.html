@@ -107,13 +107,14 @@ main {
 
 a,
 a:visited {
-    color: var(--color-accent-2-contrast);
-    text-decoration: dashed;
+    color: var(--color-accent-6-contrast);
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
 }
 
 a:hover,
 a:focus {
-    color: var(--color-accent-2);
+    color: var(--color-accent-6);
     text-decoration: underline;
 }
 
@@ -296,7 +297,7 @@ a[class*="bg-accent"]:hover {
 
 /* Avatar on front page */
 .avatar {
-    clip-path: circle();
+    border-radius: 6px;
     width: 100%;
     max-width: 400px;
 }
@@ -357,10 +358,6 @@ a[class*="bg-accent"]:hover {
 }
 
 @media all and (max-width: 70rem) {
-    .is-intro {
-        flex-direction: column-reverse;
-    }
-
     .intro-left {
         text-align: center;
         max-width: 100%;
@@ -381,6 +378,13 @@ a[class*="bg-accent"]:hover {
 
     box-shadow: -16px 16px 0 #ccc;
     border-radius: 18px 36px;
+}
+
+@media all and (max-width: 70rem) {
+    .skill-section {
+        margin: 2rem;
+        font-size: var(--font-size-1);
+    }
 }
 
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++

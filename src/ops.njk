@@ -2,24 +2,22 @@
 
 {% block content %}
 
-<header class="[ hero is-intro ] [ u-grid ]">
-  <aside class="intro-left">
-    <h1>Hi, I'm Kevin {% include "verified.njk" %}</h1>
-    <h2 class="font-size-3">a Platform & DevOps Engineer working at <a href="https://aoe.com" title="Visit aoe.com">AOE GmbH</a>.</h2>
-  </aside>
-  <aside class="intro-right">
-    <img src="/assets/img/avatar-aoe.jpg" class="avatar" alt="A photograph of me, Kevin Gimbel, in front of a grey background" />
-  </aside>
-<div class="intro-cta">
-  <p class="font-size-2">I've spent the last <span class="is-highlighted bg-accent-3">15 years learning to build websites & run servers</span>; worked in e-Commerce from 2013 to 2023, and started focusing on <span class="is-highlighted bg-accent-3">Platform Engineering</span> in early 2023. Right now I'm part of a DevOps/Platform Team running and building a Kubernetes based Platform for multiple developer teams.</p>
 
-  <p class="font-size--1 buzzes">🐝 Buzzwords: <a href="#cloud-computing" class="is-highlighted bg-accent-5">Cloud Computing</a> <a href="#kubernetes" class="is-highlighted bg-accent-6">Kubernetes</a> <a href="#automation" class="is-highlighted bg-accent-3">Automation</a> <a href="#monitoring" class="is-highlighted bg-accent-4">Monitoring</a></p>
-</div>
+<header class="[ hero is-intro ] [ u-grid ] [ h-card ]">
+
+  <img src="/assets/img/avatar-aoe.jpg" class="avatar [ u-photo ]" alt="A photograph of me, Kevin Gimbel, in front of a grey background" />
+  
+  <h1>Hiya! I'm <span class="p-name">Kevin Gimbel</span>{% include "verified.njk" %}</h1>
+
+  <p class="font-size-2">I'm a <span class="p-job-title is-highlighted bg-accent-3">Senior DevOps Engineer</span> working at <a href="https://aoe.com/" class="p-org">AOE GmbH</a> in <span class="p-locality">Wiesbaden</span>, <span class="p-country-name">Germany</span>.</p>
+  <p class="font-size-1 u-note">I've spent the last <span class="is-highlighted bg-accent-3">15 years learning to build websites & run servers</span>; worked in e-Commerce from 2013 to 2023, and started focusing on <span class="is-highlighted bg-accent-3">Platform Engineering</span> in early 2023. Right now I'm part of a DevOps/Platform Team running and building a Kubernetes based Platform for multiple developer teams.</p>
+  <p class="font-size-0">My main website is <a class="u-url" href="https://kevingimbel.de">kevingimbel.de</a>, and you can contact me via e-Mail at <a class="u-email" href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
 </header>
 
   <header class="[ u-grid ]">
       <hgroup class="[ skill-section gc-full ]">
-        <h3 class="font-size-5">Skills, tools, and other work stuff</h3>
+        <h3 class="font-size-5">Skills, tools, and work stuff</h3>
+        <p class="font-size-2 buzzes">🐝 Buzzwords: <a href="#cloud-computing" class="is-highlighted bg-accent-5">Cloud Computing</a> <a href="#kubernetes" class="is-highlighted bg-accent-6">Kubernetes</a> <a href="#automation" class="is-highlighted bg-accent-3">Automation</a> <a href="#monitoring" class="is-highlighted bg-accent-4">Monitoring</a></p>
       </hgroup>
   </header>
 
