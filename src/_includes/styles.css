@@ -288,9 +288,10 @@ a[class*="bg-accent"]:hover {
 
 /* Avatar on front page */
 .avatar {
-    border-radius: 6px;
+    border-radius: 16px;
     width: 100%;
     max-width: 400px;
+    box-shadow: -8px 8px 0 var(--color-accent-2);
 }
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -341,7 +342,9 @@ a[class*="bg-accent"]:hover {
     margin: var(--space-xl-2xl) auto;
     background: #fefefe;
     color: #333;
-    border: .125em solid var(--color-accent-1);
+    border: .125em solid var(--color-accent-2);
+    box-shadow: -16px 16px 0 #ccc;
+    border-radius: 16px;
 }
 
 .intro-left {
