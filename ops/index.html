@@ -297,10 +297,10 @@ a[class*="bg-accent"]:hover {
 
 /* Avatar on front page */
 .avatar {
-    border-radius: 16px;
+    border-radius: 64px;
     width: 100%;
     max-width: 400px;
-    box-shadow: -8px 8px 0 var(--color-accent-2);
+    border: 8px solid var(--color-accent-2);
 }
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -353,7 +353,7 @@ a[class*="bg-accent"]:hover {
     color: #333;
     border: .125em solid var(--color-accent-2);
     box-shadow: -16px 16px 0 #ccc;
-    border-radius: 16px;
+    border-radius: 64px;
 }
 
 .intro-left {
@@ -380,7 +380,7 @@ a[class*="bg-accent"]:hover {
     border: 0.25rem solid;
 
     box-shadow: -16px 16px 0 #ccc;
-    border-radius: 18px 36px;
+    border-radius: 32px 64px;
 }
 
 @media all and (max-width: 70rem) {
@@ -510,7 +510,7 @@ pre > code {
 <svg class="verified" role="img" aria-label="A blue verified badge as seen around the internetz" viewBox="0 0 22 22"><path d="M20.396 11a3.487 3.487 0 0 0-2.008-3.062 3.474 3.474 0 0 0-.742-3.584 3.474 3.474 0 0 0-3.584-.742A3.468 3.468 0 0 0 11 1.604a3.463 3.463 0 0 0-3.053 2.008 3.472 3.472 0 0 0-1.902-.14c-.635.13-1.22.436-1.69.882a3.461 3.461 0 0 0-.734 3.584A3.49 3.49 0 0 0 1.604 11a3.496 3.496 0 0 0 2.017 3.062 3.471 3.471 0 0 0 .733 3.584 3.49 3.49 0 0 0 3.584.742A3.487 3.487 0 0 0 11 20.396a3.476 3.476 0 0 0 3.062-2.007 3.335 3.335 0 0 0 4.326-4.327A3.487 3.487 0 0 0 20.396 11zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"/></svg></h1>
 
   <h2 class="font-size-2">I'm a <span class="p-job-title is-highlighted bg-accent-3">Senior Platform Engineer</span> working at <a href="https://aoe.com/" class="p-org">AOE GmbH</a> in <span class="p-locality">Wiesbaden</span>, <span class="p-country-name">Germany</span>.</h2>
-  <p class="font-size-1 u-note">I've spent the last <span class="is-highlighted bg-accent-3">15 years learning to build websites & run servers</span>; worked in e-Commerce from 2013 to 2023, and started focusing on <span class="is-highlighted bg-accent-3">Platform Engineering</span> in early 2023. Right now I'm part of a DevOps/Platform Team running and building a Kubernetes based Platform for multiple developer teams.</p>
+  <p class="font-size-1 u-note">I've spent the last <span class="is-highlighted bg-accent-3">15 years learning to build websites & run servers</span>; worked in e-Commerce from 2013 to 2023, and started focusing on <span class="is-highlighted bg-accent-3">Platform Engineering</span> in early 2023. Right now I'm building <a href="https://aoe.com/devx">AOE DevX</a>, a sovereign, cloud-agnostic, Kubernetes-native managed platform for developers.</p>
   <p class="font-size-0">My main website is <a class="u-url" href="https://kevingimbel.de">kevingimbel.de</a>, and you can contact me via e-Mail at <a class="u-email" href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
 </header>
 
@@ -526,6 +526,7 @@ pre > code {
 </h4></hgroup><div class="content">
         <p>I've worked with <em>Amazon Web Services</em> since 2018.</p>
 <p>Between <strong>2018 and 2021</strong> I was involved in planning and provisioning infrastructure for a microservice-based product called Konekti while working for Synoa GmbH.</p>
+<p>From 2023 to 2025 I was working with multiple AWS accounts as part of my job at AOE GmbH.</p>
 <p>Some areas I've experience with:</p>
 <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
           
@@ -543,9 +544,9 @@ pre > code {
           
         </ul></div>
     </section>
-    <section id="Linux" data-icon="🐧" class="[ bg-accent-1 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Linux 🐧</h3><h4 class="font-size-3"><code>$ cowsay "moo I'm a cow"</code>
-</h4></hgroup><div class="content">
-        <p>I've worked with <em>Linux</em> since roughly 2012, both as Desktop OS and as server OS. I'm comfortable running Linux servers in production both in Cloud environments (AWS, Hetzner, etc.) as well as on-site using a Raspberry Pi (my home setup 😃).</p>
+    <section id="Linux" data-icon="🐧" class="[ bg-accent-1 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Linux 🐧</h3></hgroup><div class="content">
+        <p>I've worked with <em>Linux</em> since roughly 2012, both as Desktop OS and as server OS. I'm comfortable running Linux servers in production both in Cloud environments (AWS, STACKIT, Hetzner, etc.) as well as on-site like using a Raspberry Pi (my home setup 😃).</p>
+<p>I'd like to switch back to Linux on the Desktop, but MacOS is just too comfortable right now. 😅</p>
 <p>I've used the following Linux distributions in production environments:</p>
 <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
           
@@ -555,6 +556,8 @@ pre > code {
           
           <li class="[ c-skill-list__item ]">Amazon Linux 1 and 2</li>
           
+          <li class="[ c-skill-list__item ]">Flatcar</li>
+          
           <li class="[ c-skill-list__item ]">Raspberry Pi</li>
           
         </ul></div>
@@ -562,7 +565,7 @@ pre > code {
     <section id="containers" data-icon="🐳" class="[ bg-accent-6 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Containers 🐳</h3><h4 class="font-size-3">"It's no use Mr., it's virtualization all the way down" <a href="https://en.wikipedia.org/wiki/Turtles_all_the_way_down">🐢</a>
 </h4></hgroup><div class="content">
         <p>In 2017 I drove the initial adoption of Docker for local development at Synoa GmbH.</p>
-<p>In the years following until I departet in 2023 we used Docker locally, in ECS, in TeamCity CI/CD pipelines, and as runtime on simple Ubuntu servers.</p>
+<p>In the years following until I departet in 2023 we used Docker locally, in ECS, in TeamCity CI/CD pipelines, and as runtime on simple Linux servers.</p>
 <p>Some areas I've gained knowledge in over the years include:</p>
 <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
           
@@ -582,6 +585,7 @@ pre > code {
     </section>
     <section id="kubernetes" data-icon="⛵️" class="[ bg-accent-6 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Kubernetes ⛵️</h3></hgroup><div class="content">
         <p>Since starting at AOE I deepend my knowledge of Kubernetes, working with multiple clusters, developing tools, and working with Developer Teams everyday. I've also started co-teaching the <a href="https://www.aoe.com/en/academy/cloud-devops/kubernetes-101.html">&quot;Kubernetes 101&quot;</a> Workshop where a co-host and me give a introduction to Kubernetes concepts.</p>
+<p>In 2025, I started getting into developing Operators for Kubernetes with the kubebuilder framework. I generally enjoy working with Kubernetes, and like to get my hands dirty with it! 👏</p>
 <ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
           
           <li class="[ c-skill-list__item ]">Elastic Kubernetes Services (EKS)</li>
@@ -719,9 +723,10 @@ pre > code {
 
     <footer id="footer" class="[ footer ]">
       <div class="content">
-        <p class="font-size-2">Made with <a href="https://www.11ty.dev/">11ty</a> 4.0.0-alpha.3, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
+        <p class="font-size-2">Hand-made with <a href="https://www.11ty.dev/">11ty</a> 4.0.0-alpha.4, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
         <a href="/imprint" title="Imprint">Imprint</a>
-        <p class="font-size--2">Views and opinions expressed on this websites do not represents views and opinions of my employer</p>
+        <p class="font-size--2">No AI was used in the creation of this 🔥 fire 🔥 website.<br>
+        Views and opinions expressed on this websites do not represents views and opinions of my employer!</p>
       </div>
     </footer>
   </main>
