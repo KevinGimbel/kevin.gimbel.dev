@@ -10,6 +10,6 @@
   "author": "Kevin Gimbel",
   "license": "MIT",
   "dependencies": {
-    "@11ty/eleventy": "^4.0.0-alpha.3"
+    "@11ty/eleventy": "^4.0.0-alpha.4"
   }
 }

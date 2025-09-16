@@ -18,6 +18,6 @@ skills:
 
 In 2017 I drove the initial adoption of Docker for local development at Synoa GmbH.
 
-In the years following until I departet in 2023 we used Docker locally, in ECS, in TeamCity CI/CD pipelines, and as runtime on simple Ubuntu servers.
+In the years following until I departet in 2023 we used Docker locally, in ECS, in TeamCity CI/CD pipelines, and as runtime on simple Linux servers.
 
 Some areas I've gained knowledge in over the years include:

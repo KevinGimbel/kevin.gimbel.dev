@@ -17,3 +17,5 @@ skills:
 ---
 
 Since starting at AOE I deepend my knowledge of Kubernetes, working with multiple clusters, developing tools, and working with Developer Teams everyday. I've also started co-teaching the ["Kubernetes 101"](https://www.aoe.com/en/academy/cloud-devops/kubernetes-101.html) Workshop where a co-host and me give a introduction to Kubernetes concepts.
+
+In 2025, I started getting into developing Operators for Kubernetes with the kubebuilder framework. I generally enjoy working with Kubernetes, and like to get my hands dirty with it! 👏
