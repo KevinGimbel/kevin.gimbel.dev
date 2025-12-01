@@ -11,8 +11,7 @@ Well, well, well, ... you've reached the end of this very lovely and pretty ✨c
 
 If you want to connect with me, hit me up on:
 - 🧑‍💼 [LinkedIn](https://www.linkedin.com/in/kevingimbel/)
-- 🐘 <a rel="me" href="https://fosstodon.org/@KevinGimbel">Mastodon</a>
-- 🦋 [Bluesky @kevin.gimbel.dev](https://bsky.app/profile/kevin.gimbel.dev)
+- ✨ <a rel="me" href="https://gimbel.dev/@kevin">Fediverse</a> <small>(Mastodon, Pleroma, ActivityPub, etc.)</small>
 - 🤓 [GitHub @KevinGimbel](https://github.com/KevinGimbel)
 - 💖 [e-Mail kevin@gimbel.dev](mailto:kevin@gimbel.dev)
 
