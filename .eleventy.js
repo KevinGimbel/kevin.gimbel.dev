@@ -2,7 +2,7 @@ import { inspect } from "util";
 
 import { readFile } from "fs/promises";
 const eleventyPackage = JSON.parse(
-  await readFile("./node_modules/@11ty/eleventy/package.json", "utf8"),
+  await readFile("node_modules/@awesome.me/buildawesome/package.json", "utf8"),
 );
 
 export default async function (eleventyConfig) {
@@ -29,11 +29,11 @@ export default async function (eleventyConfig) {
     return posts;
   });
 
-  eleventyConfig.addShortcode("11ty_meta", function (field) {
+  eleventyConfig.addShortcode("builder_meta", function (field, fallback = "") {
     if (eleventyPackage[field]) {
       return eleventyPackage[field];
     }
-    return "";
+    return fallback;
   });
 
   eleventyConfig.addFilter(

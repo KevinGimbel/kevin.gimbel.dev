@@ -4,12 +4,12 @@
   "version": "3.0.0",
   "description": "A personal website ✨",
   "scripts": {
-    "build": "npx @11ty/eleventy",
-    "dev": "npx @11ty/eleventy --serve"
+    "build": "npx @awesome.me/buildawesome",
+    "dev": "npx @awesome.me/buildawesome --serve"
   },
   "author": "Kevin Gimbel",
   "license": "MIT",
   "dependencies": {
-    "@11ty/eleventy": "^4.0.0-alpha.4"
+    "@awesome.me/buildawesome": "4.0.0-alpha.8"
   }
 }

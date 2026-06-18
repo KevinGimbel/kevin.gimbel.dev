@@ -27,6 +27,6 @@ External links are checked but there cannot be any guarantee given for their acc
 
 ### Thanks
 
-- Big up to [11ty](https://11ty.dev/) and all its contributors
+- Big up to [Build Awesome](https://11ty.dev/) and all its contributors
 - [Andy Bell](https://andy-bell.co.uk/why-pay-8-for-a-check-mark-when-you-can-get-one-for-for-free/) for the Verified Badge code
 - [Denis Zastanceanu](https://www.linkedin.com/in/denis-zas/) for the amazing photos of me
