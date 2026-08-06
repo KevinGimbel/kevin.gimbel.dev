@@ -7,7 +7,6 @@ icon: "💌"
 Responsible for the content of this website:
 
 **Kevin Gimbel**<br>
-Wiesbaden, Germany<br>
 Contact via e-Mail [kevin@gimbel.dev](mailto:kevin@gimbel.dev)
 
 ### Privacy information

@@ -107,15 +107,15 @@ main {
 
 a,
 a:visited {
-    color: var(--color-accent-6-contrast);
+    color: var(--color-fg);
     text-decoration: underline;
     text-decoration-skip-ink: auto;
 }
 
 a:hover,
 a:focus {
-    color: var(--color-accent-6);
-    text-decoration: underline;
+    color: var(--color-fg);
+    text-decoration: none;
 }
 
 .u-container {
@@ -289,52 +289,19 @@ a[class*="bg-accent"]:hover {
 
 .is-highlighted {
     padding: var(--space-3xs);
-}
-
-.buzzes a {
-    border-radius: 6px;
+    background: var(--color-fg);
+    color: var(--color-bg);
+    filter: contrast(1.5);
 }
 
 /* Avatar on front page */
 .avatar {
-    border-radius: 64px;
+    border-radius: 32px;
     width: 100%;
     max-width: 400px;
-    border: 8px solid var(--color-accent-2);
+    border: .25em solid var(--color-fg);
 }
 
-/* ++++++++++++++++++++++++++++++++++++++++++++++++++
-                                            HEADER
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-*/
-
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing);
-    border-bottom: 1px dashed var(--color-black);
-}
-
-.site-nav {
-    display: flex;
-    gap: calc(var(--spacing) / 2);
-}
-
-.site-nav a {
-    background: #000;
-    color: var(--color-white);
-    text-decoration: none;
-    padding: 0.25rem var(--space-s);
-    box-shadow: -3px 3px 0 #ccc;
-    border-radius: 6px;
-}
-
-.site-nav a:hover,
-.site-nav a:focus {
-    background: #000;
-    color: var(--color-accent-2);
-}
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++
                                                 HERO
@@ -347,13 +314,11 @@ a[class*="bg-accent"]:hover {
     justify-content: space-between;
     align-items: center;
     padding: var(--space-xl-2xl, 2rem);
-    max-width: 80rem;
+    max-width: 60rem;
     margin: var(--space-xl-2xl) auto;
-    background: #fefefe;
-    color: #333;
-    border: .125em solid var(--color-accent-2);
-    box-shadow: -16px 16px 0 #ccc;
-    border-radius: 64px;
+    border: .125em solid var(--color-fg);
+    box-shadow: -16px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 32px;
 }
 
 .intro-left {
@@ -366,122 +331,6 @@ a[class*="bg-accent"]:hover {
         max-width: 100%;
     }
 }
-
-/* ++++++++++++++++++++++++++++++++++++++++++++++++++
-                                        SKILL SECTION
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-*/
-
-.skill-section {
-    padding: var(--space-l-xl);
-    margin: var(--space-2xl-3xl) auto;
-    max-width: 75rem;
-    font-size: var(--font-size-2);
-    border: 0.25rem solid;
-
-    box-shadow: -16px 16px 0 #ccc;
-    border-radius: 32px 64px;
-}
-
-@media all and (max-width: 70rem) {
-    .skill-section {
-        margin: 2rem;
-        font-size: var(--font-size-1);
-    }
-}
-
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++
-                                                    QUOTE
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-*/
-
-blockquote {
-    border-left: 0.25rem solid var(--color-accent-3-contrast);
-    margin-left: -1.5rem;
-    padding: var(--space-s-m);
-    font-family: var(--font-serif);
-    font-size: var(--font-size-2);
-}
-
-blockquote cite {
-    font-size: var(--font-size-0);
-}
-
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++
-                                                    CODE
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-*/
-
-pre {
-    background: #f1f1f1;
-    color: var(--color-black);
-    padding: var(--space-s);
-    overflow: auto;
-    border: 2px inset var(--color-accent-2);
-}
-
-pre > code {
-    display: block;
-}
-
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++
-                                                ARTICLE
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-*/
-
-.article-page {
-    background: #fafafa;
-}
-
-.article-list__item {
-    padding: var(--space-m-l);
-    border-bottom: 1px dashed #ccc;
-    padding-bottom: var(--space-xl);
-}
-
-.article-list__more-link {
-    background: var(--color-accent-2);
-    color: var(--color-accent-2-contrast);
-    padding: var(--space-2xs-xs);
-    border-radius: 6px;
-}
-
-.article-list__more-link:hover {
-    background: var(--color-accent-2-contrast);
-    color: var(--color-accent-2);
-    text-decoration: none;
-}
-
-.wp-block-footnotes li:before {
-    content: none;
-}
-
-@media all and (min-width: 75rem) {
-    .article-page .content {
-        max-width: 60vw;
-    }
-}
-
-[class~="has-background"] {
-    background: var(--color-accent-2);
-    color: var(--color-black);
-    padding: var(--space-s-m);
-}
-
-.article-page h1,
-.article-page h2,
-.article-page h3,
-.single-page h1,
-.single-page h2,
-.single-page h3 {
-    text-shadow: -3px 3px 0 #ccc;
-}
-
-.article__footer {
-    border: 1px solid var(--color-black);
-    padding: var(--space-s-m);
-    box-shadow: -3px 3px 0 #ccc;
-}
 </style>
   
   
@@ -492,10 +341,10 @@ pre > code {
     
 
 
-<header class="[ hero is-intro ] [ u-grid ] [ h-card ]">
+<header class="[ hero is-intro ] [ u-grid ] [ h-card ] [ js-hero ]">
 
   <img src="/assets/img/avatar-aoe.jpg" class="avatar [ u-photo ]" alt="A photograph of me, Kevin Gimbel, in front of a grey background" />
-  
+
   <h1>Hiya! I'm <span class="p-name">Kevin&nbsp;Gimbel</span>
 <style>
   .verified {
@@ -509,220 +358,16 @@ pre > code {
 
 <svg class="verified" role="img" aria-label="A blue verified badge as seen around the internetz" viewBox="0 0 22 22"><path d="M20.396 11a3.487 3.487 0 0 0-2.008-3.062 3.474 3.474 0 0 0-.742-3.584 3.474 3.474 0 0 0-3.584-.742A3.468 3.468 0 0 0 11 1.604a3.463 3.463 0 0 0-3.053 2.008 3.472 3.472 0 0 0-1.902-.14c-.635.13-1.22.436-1.69.882a3.461 3.461 0 0 0-.734 3.584A3.49 3.49 0 0 0 1.604 11a3.496 3.496 0 0 0 2.017 3.062 3.471 3.471 0 0 0 .733 3.584 3.49 3.49 0 0 0 3.584.742A3.487 3.487 0 0 0 11 20.396a3.476 3.476 0 0 0 3.062-2.007 3.335 3.335 0 0 0 4.326-4.327A3.487 3.487 0 0 0 20.396 11zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"/></svg></h1>
 
-  <h2 class="font-size-2">I'm a <span class="p-job-title is-highlighted bg-accent-3">Senior Platform Engineer</span> working at <a href="https://aoe.com/" class="p-org">AOE GmbH</a> in <span class="p-locality">Wiesbaden</span>, <span class="p-country-name">Germany</span>.</h2>
-  <p class="font-size-1 u-note">I've spent the last <span class="is-highlighted bg-accent-3">15 years learning to build websites & run servers</span>; worked in e-Commerce from 2013 to 2023, and started focusing on <span class="is-highlighted bg-accent-3">Platform Engineering</span> in early 2023. Right now I'm building <a href="https://aoe.com/devx">AOE DevX</a>, a sovereign, cloud-agnostic, Kubernetes-native managed platform for developers.</p>
+  <h2 class="font-size-2">I'm a <span class="p-job-title is-highlighted">Senior Platform Engineer</span> working at <a href="https://aoe.com/" class="p-org">AOE GmbH</a>.</h2>
+  <p class="font-size-1 u-note">I've spent the last <span class="is-highlighted"><span class="js-time-since" data-year="2009">17</span> years learning to build websites & run applications</span>; worked in e-Commerce from 2013 to 2023, and started focusing on Platform Engineering in 2023.<br>
+  Right now I'm the <span class="is-highlighted">Support & Operations Team Lead</span> in the <a href="https://kloudease.com/">AOE kloudease</a> product.</p>
   <p class="font-size-0">My main website is <a class="u-url" href="https://kevingimbel.de">kevingimbel.de</a>, and you can contact me via e-Mail at <a class="u-email" href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
 </header>
-
-  <header class="[ u-grid ]">
-      <hgroup class="[ skill-section gc-full ]">
-        <h3 class="font-size-5">Skills, tools, and work stuff</h3>
-        <p class="font-size-2 buzzes">🐝 Buzzwords: <a href="#cloud-computing" class="is-highlighted bg-accent-5">Cloud&nbsp;Computing</a> <a href="#kubernetes" class="is-highlighted bg-accent-6">Kubernetes</a> <a href="#automation" class="is-highlighted bg-accent-3">Automation</a> <a href="#monitoring" class="is-highlighted bg-accent-4">Monitoring</a></p>
-      </hgroup>
-  </header>
-
-  
-    <section id="cloud-computing" data-icon="🌩" class="[ bg-accent-5 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Cloud Computing 🌩</h3><h4 class="font-size-3">Computers! Computers! Computers! <a href="https://www.youtube.com/watch?v=Vhh_GeBPOhs">👏</a>
-</h4></hgroup><div class="content">
-        <p>I've worked with <em>Amazon Web Services</em> since 2018.</p>
-<p>Between <strong>2018 and 2021</strong> I was involved in planning and provisioning infrastructure for a microservice-based product called Konekti while working for Synoa GmbH.</p>
-<p>From 2023 to 2025 I was working with multiple AWS accounts as part of my job at AOE GmbH.</p>
-<p>Some areas I've experience with:</p>
-<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
-          
-          <li class="[ c-skill-list__item ]">Elastic Kubernetes Services (EKS)</li>
-          
-          <li class="[ c-skill-list__item ]">Elastic Compute Cloud (EC2)</li>
-          
-          <li class="[ c-skill-list__item ]">Automatic resource tagging to monitor budgets</li>
-          
-          <li class="[ c-skill-list__item ]">Security Groups and Ingress Control</li>
-          
-          <li class="[ c-skill-list__item ]">AWS Load Balancers</li>
-          
-          <li class="[ c-skill-list__item ]">VPC and subnet management</li>
-          
-        </ul></div>
-    </section>
-    <section id="Linux" data-icon="🐧" class="[ bg-accent-1 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Linux 🐧</h3></hgroup><div class="content">
-        <p>I've worked with <em>Linux</em> since roughly 2012, both as Desktop OS and as server OS. I'm comfortable running Linux servers in production both in Cloud environments (AWS, STACKIT, Hetzner, etc.) as well as on-site like using a Raspberry Pi (my home setup 😃).</p>
-<p>I'd like to switch back to Linux on the Desktop, but MacOS is just too comfortable right now. 😅</p>
-<p>I've used the following Linux distributions in production environments:</p>
-<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
-          
-          <li class="[ c-skill-list__item ]">Debian and Ubuntu</li>
-          
-          <li class="[ c-skill-list__item ]">CentOS</li>
-          
-          <li class="[ c-skill-list__item ]">Amazon Linux 1 and 2</li>
-          
-          <li class="[ c-skill-list__item ]">Flatcar</li>
-          
-          <li class="[ c-skill-list__item ]">Raspberry Pi</li>
-          
-        </ul></div>
-    </section>
-    <section id="containers" data-icon="🐳" class="[ bg-accent-6 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Containers 🐳</h3><h4 class="font-size-3">"It's no use Mr., it's virtualization all the way down" <a href="https://en.wikipedia.org/wiki/Turtles_all_the_way_down">🐢</a>
-</h4></hgroup><div class="content">
-        <p>In 2017 I drove the initial adoption of Docker for local development at Synoa GmbH.</p>
-<p>In the years following until I departet in 2023 we used Docker locally, in ECS, in TeamCity CI/CD pipelines, and as runtime on simple Linux servers.</p>
-<p>Some areas I've gained knowledge in over the years include:</p>
-<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
-          
-          <li class="[ c-skill-list__item ]">Running CI/CD pipelines in containers</li>
-          
-          <li class="[ c-skill-list__item ]">Multi-stage docker builds</li>
-          
-          <li class="[ c-skill-list__item ]">Running Traefik in Production from 2018 to 2023</li>
-          
-          <li class="[ c-skill-list__item ]">Distributing CLI tools as Docker containers</li>
-          
-          <li class="[ c-skill-list__item ]">Deploying docker with Docker Remote API</li>
-          
-          <li class="[ c-skill-list__item ]">Running production workloads with docker-compose</li>
-          
-        </ul></div>
-    </section>
-    <section id="kubernetes" data-icon="⛵️" class="[ bg-accent-6 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Kubernetes ⛵️</h3></hgroup><div class="content">
-        <p>Since starting at AOE I deepend my knowledge of Kubernetes, working with multiple clusters, developing tools, and working with Developer Teams everyday. I've also started co-teaching the <a href="https://www.aoe.com/en/academy/cloud-devops/kubernetes-101.html">&quot;Kubernetes 101&quot;</a> Workshop where a co-host and me give a introduction to Kubernetes concepts.</p>
-<p>In 2025, I started getting into developing Operators for Kubernetes with the kubebuilder framework. I generally enjoy working with Kubernetes, and like to get my hands dirty with it! 👏</p>
-<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
-          
-          <li class="[ c-skill-list__item ]">Elastic Kubernetes Services (EKS)</li>
-          
-          <li class="[ c-skill-list__item ]">Helm Chart maintenance</li>
-          
-          <li class="[ c-skill-list__item ]">Debugging with teams</li>
-          
-          <li class="[ c-skill-list__item ]">Tools like k9s and stern</li>
-          
-          <li class="[ c-skill-list__item ]">Kyverno</li>
-          
-          <li class="[ c-skill-list__item ]">connaisseur</li>
-          
-          <li class="[ c-skill-list__item ]">Istio</li>
-          
-        </ul></div>
-    </section>
-    <section id="monitoring" data-icon="👀" class="[ bg-accent-4 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Monitoring 👀</h3><h4 class="font-size-3">Keeping tabs on everything
-</h4></hgroup><div class="content">
-        <p>Proper monitoring is incredibly helpful in debugging, and should be implemented from the start.</p>
-<p>Some monitoring tools I've maintained and used in production:</p>
-<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
-          
-          <li class="[ c-skill-list__item ]">Prometheus</li>
-          
-          <li class="[ c-skill-list__item ]">Thanos</li>
-          
-          <li class="[ c-skill-list__item ]">Alertmanager</li>
-          
-          <li class="[ c-skill-list__item ]">Grafana</li>
-          
-          <li class="[ c-skill-list__item ]">Loki</li>
-          
-          <li class="[ c-skill-list__item ]">node_exporter</li>
-          
-          <li class="[ c-skill-list__item ]">blackbox_exporter</li>
-          
-          <li class="[ c-skill-list__item ]">cadvisor</li>
-          
-          <li class="[ c-skill-list__item ]">AWS Incident Manager</li>
-          
-          <li class="[ c-skill-list__item ]">AWS CloudWatch metrics</li>
-          
-          <li class="[ c-skill-list__item ]">AWS CloudWatch alarms</li>
-          
-        </ul></div>
-    </section>
-    <section id="automation" data-icon="🦾" class="[ bg-accent-3 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Automation 🦾</h3><h4 class="font-size-3">Predictability and reliability through automation and scripting
-</h4></hgroup><div class="content">
-        <p>Setting up infrastructure in the cloud is lot of work and the more manual steps are involved, the more likely errors will be introduced.</p>
-<p>Over the past years I've gained a lot of experience building, managing, and upgrading infrastructure with terraform and Ansible.</p>
-<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
-          
-          <li class="[ c-skill-list__item ]">Terraform module creation and maintenance</li>
-          
-          <li class="[ c-skill-list__item ]">Ansible role creation and maintenance</li>
-          
-          <li class="[ c-skill-list__item ]">Terraform integration with CI/CD pipelines</li>
-          
-          <li class="[ c-skill-list__item ]">Handling of breaking infrastructure changes</li>
-          
-          <li class="[ c-skill-list__item ]">Maintenance of Helm Charts</li>
-          
-          <li class="[ c-skill-list__item ]">Custom tooling in Python, Go, and Rust</li>
-          
-        </ul></div>
-    </section>
-    <section id="terraform" data-icon="🤖" class="[ bg-accent-5 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Terraform 🤖</h3></hgroup><div class="content">
-        <p>I 🧡 Terraform (... and OpenTofu!)! I've experience with the creation and maintenance of complex modules that integrate various different services, including the following technologies</p>
-<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
-          
-          <li class="[ c-skill-list__item ]">AWS VPC and subnets</li>
-          
-          <li class="[ c-skill-list__item ]">AWS VPC networking & routing</li>
-          
-          <li class="[ c-skill-list__item ]">AWS EC2 servers</li>
-          
-          <li class="[ c-skill-list__item ]">AWS EC2 Auto-scaling groups</li>
-          
-          <li class="[ c-skill-list__item ]">AWS Security Groups and ingress rules between servers, including ingress across AWS accounts</li>
-          
-          <li class="[ c-skill-list__item ]">AWS Route 53 domains and sub-domains</li>
-          
-          <li class="[ c-skill-list__item ]">AWS ECS clusters and services</li>
-          
-          <li class="[ c-skill-list__item ]">AWS S3 buckets and access policies</li>
-          
-          <li class="[ c-skill-list__item ]">AWS IAM users for S3 access</li>
-          
-          <li class="[ c-skill-list__item ]">MongoDB Atlas Cloud</li>
-          
-          <li class="[ c-skill-list__item ]">MongoDB Atlas Cloud and AWS VPC peering connections</li>
-          
-          <li class="[ c-skill-list__item ]">Hetzner Cloud</li>
-          
-        </ul></div>
-    </section>
-    <section id="security" data-icon="🔐" class="[ bg-accent-4 ] [ skill-section ]"><hgroup><h3 class="font-size-5">Security 🔐</h3><h4 class="font-size-3"><h4 aria-label="Don't be cheap with security. Ever." onmouseover="this.textContent='Don\'t be cheap with security. Ever.';" onmouseout="this.textContent='◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎';" style="font-family:monospace; min-height:4rem;">◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎◼︎ ◼︎◼︎◼︎◼︎◼︎</h4>
-</h4></hgroup><div class="content">
-        <p>Security must be considered from the start. <strong>Period</strong>.</p>
-<p>Don't give all-access to a entity because it's easy. Don't open all ports because it's easy. Don't run your code as root because it's easy.</p>
-<p>Some rules I follow:</p>
-<ul class="[ d-grid ] [ c-skill-list ] list-accent" style="--grid-columns: 3;">
-          
-          <li class="[ c-skill-list__item ]">Zero Trust principal</li>
-          
-          <li class="[ c-skill-list__item ]">Encrypt data at rest and in-transit</li>
-          
-          <li class="[ c-skill-list__item ]">Use password managers</li>
-          
-          <li class="[ c-skill-list__item ]">Always use random, auto-generated passwords</li>
-          
-          <li class="[ c-skill-list__item ]">Integration with Single-Sign On wherever possible</li>
-          
-          <li class="[ c-skill-list__item ]">Never share passwords in plain-text</li>
-          
-        </ul></div>
-    </section>
-    <section id="" data-icon="💌" class="[ bg-accent- ] [ skill-section ]"><hgroup><h3 class="font-size-5">Contact 💌</h3></hgroup><div class="content">
-        <p>Well, well, well, ... you've reached the end of this very lovely and pretty ✨cool✨ website.</p>
-<p>If you want to connect with me, hit me up on:</p>
-<ul>
-<li>🧑‍💼 <a href="https://www.linkedin.com/in/kevingimbel/">LinkedIn</a></li>
-<li>✨ <a rel="me" href="https://gimbel.dev/@kevin">Fediverse</a> <small>(Mastodon, Pleroma, ActivityPub, etc.)</small></li>
-<li>🤓 <a href="https://github.com/KevinGimbel">GitHub @KevinGimbel</a></li>
-<li>💖 <a href="mailto:kevin@gimbel.dev">e-Mail kevin@gimbel.dev</a></li>
-</ul>
-<p>If you write me on <strong>LinkedIn</strong> or request to connect please be patient: I get a lot of messages and catch up only once a week!</p>
-<p>While this page is more like a fancy <a href="https://en.wikipedia.org/wiki/VCard">vCard</a>, I do publish lots of things on my main website at <a href="https://kevingimbel.de">kevingimbel.de</a>. Check it out!</p>
-</div>
-    </section></section>
 
 
     <footer id="footer" class="[ footer ]">
       <div class="content">
-        <p class="font-size-2">Hand-made with <a href="https://build.awesome.me/">@awesome.me/buildawesome</a>@4.0.0-alpha.8, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
+        <p class="font-size-0">Hand-made with <a href="https://build.awesome.me/">@awesome.me/buildawesome</a>@4.0.0-alpha.8, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
         <a href="/imprint" title="Imprint">Imprint</a>
         <p class="font-size--2">No AI was used in the creation of this 🔥 fire 🔥 website.</p>
       </div>
@@ -737,6 +382,12 @@ pre > code {
   let YEAR_NOW = new Date().getFullYear().toFixed(0);
   let years_working = document.querySelector(".js-years-working");
   let all_time_since = document.querySelectorAll(".js-time-since");
+  let hero = document.querySelector(".js-hero");
+
+  window.addEventListener("DOMContentLoaded", function () {
+    newClass = `bg-accent-${Math.floor(Math.random() * 6) + 1}`;
+    hero.classList.add(newClass);
+  });
 
   const set_favicon = (emoji) => {
     let txt = favicon_txt.replace('%EMOJI%', emoji);
@@ -768,5 +419,6 @@ pre > code {
   if (years_working) {
     years_working.textContent = YEAR_NOW - 2009;
   }
-});</script>
+});
+</script>
 </html>

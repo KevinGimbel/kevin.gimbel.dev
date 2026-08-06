@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
   let YEAR_NOW = new Date().getFullYear().toFixed(0);
   let years_working = document.querySelector(".js-years-working");
   let all_time_since = document.querySelectorAll(".js-time-since");
+  let hero = document.querySelector(".js-hero");
+
+  window.addEventListener("DOMContentLoaded", function () {
+    newClass = `bg-accent-${Math.floor(Math.random() * 6) + 1}`;
+    hero.classList.add(newClass);
+  });
 
   const set_favicon = (emoji) => {
     let txt = favicon_txt.replace('%EMOJI%', emoji);
