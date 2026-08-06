@@ -107,15 +107,15 @@ main {
 
 a,
 a:visited {
-    color: var(--color-accent-6-contrast);
+    color: var(--color-fg);
     text-decoration: underline;
     text-decoration-skip-ink: auto;
 }
 
 a:hover,
 a:focus {
-    color: var(--color-accent-6);
-    text-decoration: underline;
+    color: var(--color-fg);
+    text-decoration: none;
 }
 
 .u-container {
@@ -289,52 +289,19 @@ a[class*="bg-accent"]:hover {
 
 .is-highlighted {
     padding: var(--space-3xs);
-}
-
-.buzzes a {
-    border-radius: 6px;
+    background: var(--color-fg);
+    color: var(--color-bg);
+    filter: contrast(1.5);
 }
 
 /* Avatar on front page */
 .avatar {
-    border-radius: 64px;
+    border-radius: 32px;
     width: 100%;
     max-width: 400px;
-    border: 8px solid var(--color-accent-2);
+    border: .25em solid var(--color-fg);
 }
 
-/* ++++++++++++++++++++++++++++++++++++++++++++++++++
-                                            HEADER
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-*/
-
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing);
-    border-bottom: 1px dashed var(--color-black);
-}
-
-.site-nav {
-    display: flex;
-    gap: calc(var(--spacing) / 2);
-}
-
-.site-nav a {
-    background: #000;
-    color: var(--color-white);
-    text-decoration: none;
-    padding: 0.25rem var(--space-s);
-    box-shadow: -3px 3px 0 #ccc;
-    border-radius: 6px;
-}
-
-.site-nav a:hover,
-.site-nav a:focus {
-    background: #000;
-    color: var(--color-accent-2);
-}
 
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++
                                                 HERO
@@ -347,13 +314,11 @@ a[class*="bg-accent"]:hover {
     justify-content: space-between;
     align-items: center;
     padding: var(--space-xl-2xl, 2rem);
-    max-width: 80rem;
+    max-width: 60rem;
     margin: var(--space-xl-2xl) auto;
-    background: #fefefe;
-    color: #333;
-    border: .125em solid var(--color-accent-2);
-    box-shadow: -16px 16px 0 #ccc;
-    border-radius: 64px;
+    border: .125em solid var(--color-fg);
+    box-shadow: -16px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 32px;
 }
 
 .intro-left {
@@ -365,122 +330,6 @@ a[class*="bg-accent"]:hover {
         text-align: center;
         max-width: 100%;
     }
-}
-
-/* ++++++++++++++++++++++++++++++++++++++++++++++++++
-                                        SKILL SECTION
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-*/
-
-.skill-section {
-    padding: var(--space-l-xl);
-    margin: var(--space-2xl-3xl) auto;
-    max-width: 75rem;
-    font-size: var(--font-size-2);
-    border: 0.25rem solid;
-
-    box-shadow: -16px 16px 0 #ccc;
-    border-radius: 32px 64px;
-}
-
-@media all and (max-width: 70rem) {
-    .skill-section {
-        margin: 2rem;
-        font-size: var(--font-size-1);
-    }
-}
-
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++
-                                                    QUOTE
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-*/
-
-blockquote {
-    border-left: 0.25rem solid var(--color-accent-3-contrast);
-    margin-left: -1.5rem;
-    padding: var(--space-s-m);
-    font-family: var(--font-serif);
-    font-size: var(--font-size-2);
-}
-
-blockquote cite {
-    font-size: var(--font-size-0);
-}
-
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++
-                                                    CODE
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-*/
-
-pre {
-    background: #f1f1f1;
-    color: var(--color-black);
-    padding: var(--space-s);
-    overflow: auto;
-    border: 2px inset var(--color-accent-2);
-}
-
-pre > code {
-    display: block;
-}
-
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++
-                                                ARTICLE
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-*/
-
-.article-page {
-    background: #fafafa;
-}
-
-.article-list__item {
-    padding: var(--space-m-l);
-    border-bottom: 1px dashed #ccc;
-    padding-bottom: var(--space-xl);
-}
-
-.article-list__more-link {
-    background: var(--color-accent-2);
-    color: var(--color-accent-2-contrast);
-    padding: var(--space-2xs-xs);
-    border-radius: 6px;
-}
-
-.article-list__more-link:hover {
-    background: var(--color-accent-2-contrast);
-    color: var(--color-accent-2);
-    text-decoration: none;
-}
-
-.wp-block-footnotes li:before {
-    content: none;
-}
-
-@media all and (min-width: 75rem) {
-    .article-page .content {
-        max-width: 60vw;
-    }
-}
-
-[class~="has-background"] {
-    background: var(--color-accent-2);
-    color: var(--color-black);
-    padding: var(--space-s-m);
-}
-
-.article-page h1,
-.article-page h2,
-.article-page h3,
-.single-page h1,
-.single-page h2,
-.single-page h3 {
-    text-shadow: -3px 3px 0 #ccc;
-}
-
-.article__footer {
-    border: 1px solid var(--color-black);
-    padding: var(--space-s-m);
-    box-shadow: -3px 3px 0 #ccc;
 }
 </style>
   
@@ -503,7 +352,6 @@ pre > code {
         </header>
         <p>Responsible for the content of this website:</p>
 <p><strong>Kevin Gimbel</strong><br>
-Wiesbaden, Germany<br>
 Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
 <h3>Privacy information</h3>
 <p>This website does not use tracking or analytic tools. It is hosted on GitHub Pages.</p>
@@ -526,7 +374,7 @@ Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
 
     <footer id="footer" class="[ footer ]">
       <div class="content">
-        <p class="font-size-2">Hand-made with <a href="https://build.awesome.me/">@awesome.me/buildawesome</a>@4.0.0-alpha.8, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
+        <p class="font-size-0">Hand-made with <a href="https://build.awesome.me/">@awesome.me/buildawesome</a>@4.0.0-alpha.8, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
         <a href="/imprint" title="Imprint">Imprint</a>
         <p class="font-size--2">No AI was used in the creation of this 🔥 fire 🔥 website.</p>
       </div>
@@ -541,6 +389,12 @@ Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
   let YEAR_NOW = new Date().getFullYear().toFixed(0);
   let years_working = document.querySelector(".js-years-working");
   let all_time_since = document.querySelectorAll(".js-time-since");
+  let hero = document.querySelector(".js-hero");
+
+  window.addEventListener("DOMContentLoaded", function () {
+    newClass = `bg-accent-${Math.floor(Math.random() * 6) + 1}`;
+    hero.classList.add(newClass);
+  });
 
   const set_favicon = (emoji) => {
     let txt = favicon_txt.replace('%EMOJI%', emoji);
@@ -572,5 +426,6 @@ Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
   if (years_working) {
     years_working.textContent = YEAR_NOW - 2009;
   }
-});</script>
+});
+</script>
 </html>
