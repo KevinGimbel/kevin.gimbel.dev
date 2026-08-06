@@ -107,15 +107,15 @@ main {
 
 a,
 a:visited {
-    color: var(--color-accent-6-contrast);
+    color: var(--color-fg);
     text-decoration: underline;
     text-decoration-skip-ink: auto;
 }
 
 a:hover,
 a:focus {
-    color: var(--color-accent-6);
-    text-decoration: underline;
+    color: var(--color-fg);
+    text-decoration: none;
 }
 
 .u-container {
@@ -289,27 +289,17 @@ a[class*="bg-accent"]:hover {
 
 .is-highlighted {
     padding: var(--space-3xs);
+    background: var(--color-fg);
+    color: var(--color-bg);
+    filter: contrast(1.5);
 }
 
 /* Avatar on front page */
 .avatar {
-    border-radius: 64px;
+    border-radius: 32px;
     width: 100%;
     max-width: 400px;
-    border: 8px solid var(--color-accent-2);
-}
-
-/* ++++++++++++++++++++++++++++++++++++++++++++++++++
-                                            HEADER
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-*/
-
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing);
-    border-bottom: 1px dashed var(--color-black);
+    border: .25em solid var(--color-fg);
 }
 
 
@@ -326,11 +316,9 @@ a[class*="bg-accent"]:hover {
     padding: var(--space-xl-2xl, 2rem);
     max-width: 60rem;
     margin: var(--space-xl-2xl) auto;
-    background: var(--color-accent-3);
-    color: var(--color-accent-3-contrast)
-    border: .125em solid var(--color-accent-2);
-    box-shadow: -16px 16px 0 #ccc;
-    border-radius: 64px;
+    border: .125em solid var(--color-fg);
+    box-shadow: -16px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 32px;
 }
 
 .intro-left {
@@ -386,7 +374,7 @@ Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
 
     <footer id="footer" class="[ footer ]">
       <div class="content">
-        <p class="font-size-2">Hand-made with <a href="https://build.awesome.me/">@awesome.me/buildawesome</a>@4.0.0-alpha.8, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
+        <p class="font-size-0">Hand-made with <a href="https://build.awesome.me/">@awesome.me/buildawesome</a>@4.0.0-alpha.8, <span onmouseover="this.textContent='💜';" onmouseout="this.textContent='🫀';" title="Love">🫀</span>, and lots of <span class="animation-spin">fun</span>.</p>
         <a href="/imprint" title="Imprint">Imprint</a>
         <p class="font-size--2">No AI was used in the creation of this 🔥 fire 🔥 website.</p>
       </div>
@@ -401,6 +389,12 @@ Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
   let YEAR_NOW = new Date().getFullYear().toFixed(0);
   let years_working = document.querySelector(".js-years-working");
   let all_time_since = document.querySelectorAll(".js-time-since");
+  let hero = document.querySelector(".js-hero");
+
+  window.addEventListener("DOMContentLoaded", function () {
+    newClass = `bg-accent-${Math.floor(Math.random() * 6) + 1}`;
+    hero.classList.add(newClass);
+  });
 
   const set_favicon = (emoji) => {
     let txt = favicon_txt.replace('%EMOJI%', emoji);
@@ -432,5 +426,6 @@ Contact via e-Mail <a href="mailto:kevin@gimbel.dev">kevin@gimbel.dev</a></p>
   if (years_working) {
     years_working.textContent = YEAR_NOW - 2009;
   }
-});</script>
+});
+</script>
 </html>
